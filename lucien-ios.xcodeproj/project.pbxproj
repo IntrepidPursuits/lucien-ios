@@ -14,6 +14,9 @@
 		1CAFFC711F797FA200B79F11 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CAFFC6F1F797FA200B79F11 /* LaunchScreen.storyboard */; };
 		1CAFFC7C1F797FA200B79F11 /* lucien_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAFFC7B1F797FA200B79F11 /* lucien_iosTests.swift */; };
 		1CAFFC871F797FA200B79F11 /* lucien_iosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAFFC861F797FA200B79F11 /* lucien_iosUITests.swift */; };
+		991B58C032595B40ADDCFCC7 /* Pods_lucien_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 964D4E26A56CF8BC634B2BBD /* Pods_lucien_ios.framework */; };
+		A59B2FE58EB5BC7B617AB83F /* Pods_lucien_iosUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D057BF04BE0EAF45ED19F37 /* Pods_lucien_iosUITests.framework */; };
+		EC0F6CA4839D3BF363E4EE9E /* Pods_lucien_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 074BF9F99258AD884EC6794A /* Pods_lucien_iosTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		074BF9F99258AD884EC6794A /* Pods_lucien_iosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_lucien_iosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0D057BF04BE0EAF45ED19F37 /* Pods_lucien_iosUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_lucien_iosUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CAFFC631F797FA200B79F11 /* lucien-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "lucien-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CAFFC661F797FA200B79F11 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1CAFFC681F797FA200B79F11 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +52,13 @@
 		1CAFFC821F797FA200B79F11 /* lucien-iosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "lucien-iosUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CAFFC861F797FA200B79F11 /* lucien_iosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lucien_iosUITests.swift; sourceTree = "<group>"; };
 		1CAFFC881F797FA200B79F11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2083B8809618B8D581195F54 /* Pods-lucien-iosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lucien-iosTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-lucien-iosTests/Pods-lucien-iosTests.debug.xcconfig"; sourceTree = "<group>"; };
+		20D48F3384B15989F6E46E08 /* Pods-lucien-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lucien-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-lucien-ios/Pods-lucien-ios.debug.xcconfig"; sourceTree = "<group>"; };
+		24966642CEA9E5D05286C959 /* Pods-lucien-iosUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lucien-iosUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-lucien-iosUITests/Pods-lucien-iosUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		92F8CFA7BEAAC5917239D13C /* Pods-lucien-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lucien-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-lucien-ios/Pods-lucien-ios.release.xcconfig"; sourceTree = "<group>"; };
+		964D4E26A56CF8BC634B2BBD /* Pods_lucien_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_lucien_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0155DB8A114746D5EAA07B7 /* Pods-lucien-iosUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lucien-iosUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-lucien-iosUITests/Pods-lucien-iosUITests.release.xcconfig"; sourceTree = "<group>"; };
+		E8801CCEE845676EFB1D691F /* Pods-lucien-iosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lucien-iosTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-lucien-iosTests/Pods-lucien-iosTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				991B58C032595B40ADDCFCC7 /* Pods_lucien_ios.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC0F6CA4839D3BF363E4EE9E /* Pods_lucien_iosTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A59B2FE58EB5BC7B617AB83F /* Pods_lucien_iosUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +96,8 @@
 				1CAFFC7A1F797FA200B79F11 /* lucien-iosTests */,
 				1CAFFC851F797FA200B79F11 /* lucien-iosUITests */,
 				1CAFFC641F797FA200B79F11 /* Products */,
+				E4B55E31005133758D7C61EE /* Pods */,
+				7FC9B6FD7C10765DEEAB2ACE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -125,6 +142,29 @@
 			path = "lucien-iosUITests";
 			sourceTree = "<group>";
 		};
+		7FC9B6FD7C10765DEEAB2ACE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				964D4E26A56CF8BC634B2BBD /* Pods_lucien_ios.framework */,
+				074BF9F99258AD884EC6794A /* Pods_lucien_iosTests.framework */,
+				0D057BF04BE0EAF45ED19F37 /* Pods_lucien_iosUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E4B55E31005133758D7C61EE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				20D48F3384B15989F6E46E08 /* Pods-lucien-ios.debug.xcconfig */,
+				92F8CFA7BEAAC5917239D13C /* Pods-lucien-ios.release.xcconfig */,
+				2083B8809618B8D581195F54 /* Pods-lucien-iosTests.debug.xcconfig */,
+				E8801CCEE845676EFB1D691F /* Pods-lucien-iosTests.release.xcconfig */,
+				24966642CEA9E5D05286C959 /* Pods-lucien-iosUITests.debug.xcconfig */,
+				D0155DB8A114746D5EAA07B7 /* Pods-lucien-iosUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +172,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1CAFFC8B1F797FA200B79F11 /* Build configuration list for PBXNativeTarget "lucien-ios" */;
 			buildPhases = (
+				6012E2E7F822EDA32DC2390C /* [CP] Check Pods Manifest.lock */,
 				1CAFFC5F1F797FA200B79F11 /* Sources */,
 				1CAFFC601F797FA200B79F11 /* Frameworks */,
 				1CAFFC611F797FA200B79F11 /* Resources */,
+				04A7A7065278DFB1C5275839 /* [CP] Embed Pods Frameworks */,
+				A5308BB8A1AC9CB36C8B023A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -149,9 +192,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1CAFFC8E1F797FA200B79F11 /* Build configuration list for PBXNativeTarget "lucien-iosTests" */;
 			buildPhases = (
+				55034B285AA4D85E2900E824 /* [CP] Check Pods Manifest.lock */,
 				1CAFFC731F797FA200B79F11 /* Sources */,
 				1CAFFC741F797FA200B79F11 /* Frameworks */,
 				1CAFFC751F797FA200B79F11 /* Resources */,
+				CF8ED31475D611AA1D8C86BB /* [CP] Embed Pods Frameworks */,
+				3260A74BEFF47C54F092439D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -167,9 +213,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1CAFFC911F797FA200B79F11 /* Build configuration list for PBXNativeTarget "lucien-iosUITests" */;
 			buildPhases = (
+				092DFBFF7FB4586C3ECE8E49 /* [CP] Check Pods Manifest.lock */,
 				1CAFFC7E1F797FA200B79F11 /* Sources */,
 				1CAFFC7F1F797FA200B79F11 /* Frameworks */,
 				1CAFFC801F797FA200B79F11 /* Resources */,
+				BEE3B140F79D9E54F4F06A25 /* [CP] Embed Pods Frameworks */,
+				40D2208AB522F74E020F434E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -253,6 +302,153 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		04A7A7065278DFB1C5275839 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-lucien-ios/Pods-lucien-ios-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		092DFBFF7FB4586C3ECE8E49 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-lucien-iosUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3260A74BEFF47C54F092439D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-lucien-iosTests/Pods-lucien-iosTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		40D2208AB522F74E020F434E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-lucien-iosUITests/Pods-lucien-iosUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		55034B285AA4D85E2900E824 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-lucien-iosTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6012E2E7F822EDA32DC2390C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-lucien-ios-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A5308BB8A1AC9CB36C8B023A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-lucien-ios/Pods-lucien-ios-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BEE3B140F79D9E54F4F06A25 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-lucien-iosUITests/Pods-lucien-iosUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CF8ED31475D611AA1D8C86BB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-lucien-iosTests/Pods-lucien-iosTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1CAFFC5F1F797FA200B79F11 /* Sources */ = {
@@ -424,6 +620,7 @@
 		};
 		1CAFFC8C1F797FA200B79F11 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 20D48F3384B15989F6E46E08 /* Pods-lucien-ios.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -439,6 +636,7 @@
 		};
 		1CAFFC8D1F797FA200B79F11 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 92F8CFA7BEAAC5917239D13C /* Pods-lucien-ios.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -454,6 +652,7 @@
 		};
 		1CAFFC8F1F797FA200B79F11 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2083B8809618B8D581195F54 /* Pods-lucien-iosTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -471,6 +670,7 @@
 		};
 		1CAFFC901F797FA200B79F11 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E8801CCEE845676EFB1D691F /* Pods-lucien-iosTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -488,6 +688,7 @@
 		};
 		1CAFFC921F797FA200B79F11 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24966642CEA9E5D05286C959 /* Pods-lucien-iosUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -504,6 +705,7 @@
 		};
 		1CAFFC931F797FA200B79F11 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D0155DB8A114746D5EAA07B7 /* Pods-lucien-iosUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
