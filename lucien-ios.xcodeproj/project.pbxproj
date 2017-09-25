@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		1CAFFC671F797FA200B79F11 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAFFC661F797FA200B79F11 /* AppDelegate.swift */; };
-		1CAFFC691F797FA200B79F11 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAFFC681F797FA200B79F11 /* ViewController.swift */; };
-		1CAFFC6C1F797FA200B79F11 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CAFFC6A1F797FA200B79F11 /* Main.storyboard */; };
 		1CAFFC6E1F797FA200B79F11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CAFFC6D1F797FA200B79F11 /* Assets.xcassets */; };
 		1CAFFC711F797FA200B79F11 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CAFFC6F1F797FA200B79F11 /* LaunchScreen.storyboard */; };
 		1CAFFC7C1F797FA200B79F11 /* lucien_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAFFC7B1F797FA200B79F11 /* lucien_iosTests.swift */; };
@@ -17,6 +15,8 @@
 		991B58C032595B40ADDCFCC7 /* Pods_lucien_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 964D4E26A56CF8BC634B2BBD /* Pods_lucien_ios.framework */; };
 		A59B2FE58EB5BC7B617AB83F /* Pods_lucien_iosUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D057BF04BE0EAF45ED19F37 /* Pods_lucien_iosUITests.framework */; };
 		EC0F6CA4839D3BF363E4EE9E /* Pods_lucien_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 074BF9F99258AD884EC6794A /* Pods_lucien_iosTests.framework */; };
+		FBD844431F798B1D00A8E352 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD844411F798B1D00A8E352 /* RootViewController.swift */; };
+		FBD844441F798B1D00A8E352 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBD844421F798B1D00A8E352 /* RootViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,8 +41,6 @@
 		0D057BF04BE0EAF45ED19F37 /* Pods_lucien_iosUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_lucien_iosUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CAFFC631F797FA200B79F11 /* lucien-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "lucien-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CAFFC661F797FA200B79F11 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1CAFFC681F797FA200B79F11 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		1CAFFC6B1F797FA200B79F11 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1CAFFC6D1F797FA200B79F11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1CAFFC701F797FA200B79F11 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1CAFFC721F797FA200B79F11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -59,6 +57,8 @@
 		964D4E26A56CF8BC634B2BBD /* Pods_lucien_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_lucien_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0155DB8A114746D5EAA07B7 /* Pods-lucien-iosUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lucien-iosUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-lucien-iosUITests/Pods-lucien-iosUITests.release.xcconfig"; sourceTree = "<group>"; };
 		E8801CCEE845676EFB1D691F /* Pods-lucien-iosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lucien-iosTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-lucien-iosTests/Pods-lucien-iosTests.release.xcconfig"; sourceTree = "<group>"; };
+		FBD844411F798B1D00A8E352 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		FBD844421F798B1D00A8E352 /* RootViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,11 +115,11 @@
 			isa = PBXGroup;
 			children = (
 				1CAFFC661F797FA200B79F11 /* AppDelegate.swift */,
-				1CAFFC681F797FA200B79F11 /* ViewController.swift */,
-				1CAFFC6A1F797FA200B79F11 /* Main.storyboard */,
 				1CAFFC6D1F797FA200B79F11 /* Assets.xcassets */,
 				1CAFFC6F1F797FA200B79F11 /* LaunchScreen.storyboard */,
 				1CAFFC721F797FA200B79F11 /* Info.plist */,
+				FBD844411F798B1D00A8E352 /* RootViewController.swift */,
+				FBD844421F798B1D00A8E352 /* RootViewController.xib */,
 			);
 			path = "lucien-ios";
 			sourceTree = "<group>";
@@ -284,7 +284,7 @@
 			files = (
 				1CAFFC711F797FA200B79F11 /* LaunchScreen.storyboard in Resources */,
 				1CAFFC6E1F797FA200B79F11 /* Assets.xcassets in Resources */,
-				1CAFFC6C1F797FA200B79F11 /* Main.storyboard in Resources */,
+				FBD844441F798B1D00A8E352 /* RootViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -469,7 +469,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1CAFFC691F797FA200B79F11 /* ViewController.swift in Sources */,
+				FBD844431F798B1D00A8E352 /* RootViewController.swift in Sources */,
 				1CAFFC671F797FA200B79F11 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -506,14 +506,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		1CAFFC6A1F797FA200B79F11 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1CAFFC6B1F797FA200B79F11 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		1CAFFC6F1F797FA200B79F11 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
