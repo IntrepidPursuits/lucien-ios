@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="StartMyCollectionViewController" customModule="lucien_ios" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have no comics to lend!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nRS-z9-8WY">
+                    <rect key="frame" x="67" y="99" width="237" height="26"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="26" id="2f5-RH-7B9"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="StartMyCollectionBox" translatesAutoresizingMaskIntoConstraints="NO" id="0wK-Ud-89N">
+                    <rect key="frame" x="67" y="159" width="237" height="245"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="get started by adding books to your collection" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tPf-pZ-vpQ">
+                    <rect key="frame" x="60" y="447" width="255" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="PN5-Ni-EF7"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="11"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V2y-M2-J5l">
+                    <rect key="frame" x="76" y="502" width="219" height="42"/>
+                    <color key="backgroundColor" red="0.23846340673575128" green="0.23846340673575128" blue="0.23846340673575128" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="42" id="beo-zJ-9uE"/>
+                    </constraints>
+                    <state key="normal" title="Start My Collection">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="startCollectionButtonPressed:" destination="-1" eventType="touchUpInside" id="HW8-l9-LBu"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="nRS-z9-8WY" firstAttribute="trailing" secondItem="0wK-Ud-89N" secondAttribute="trailing" id="2GM-v2-LPr"/>
+                <constraint firstItem="0wK-Ud-89N" firstAttribute="top" secondItem="nRS-z9-8WY" secondAttribute="bottom" constant="34" id="2YO-Gw-a7f"/>
+                <constraint firstItem="tPf-pZ-vpQ" firstAttribute="top" secondItem="0wK-Ud-89N" secondAttribute="bottom" constant="43" id="30K-KK-XSa"/>
+                <constraint firstItem="V2y-M2-J5l" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="76" id="6Za-pH-PPJ"/>
+                <constraint firstItem="tPf-pZ-vpQ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="E9l-FX-y91"/>
+                <constraint firstItem="nRS-z9-8WY" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="67" id="FrJ-PN-d9e"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="nRS-z9-8WY" secondAttribute="trailing" constant="71" id="HMI-Y9-yL4"/>
+                <constraint firstItem="nRS-z9-8WY" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="79" id="Tmw-sm-HVA"/>
+                <constraint firstItem="0wK-Ud-89N" firstAttribute="centerX" secondItem="V2y-M2-J5l" secondAttribute="centerX" id="ZWW-yX-Sjy"/>
+                <constraint firstItem="nRS-z9-8WY" firstAttribute="leading" secondItem="0wK-Ud-89N" secondAttribute="leading" id="grx-G9-uVo"/>
+                <constraint firstItem="tPf-pZ-vpQ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="60" id="r38-pI-hx7"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="V2y-M2-J5l" secondAttribute="bottom" constant="123" id="vrH-Sy-DQD"/>
+                <constraint firstItem="V2y-M2-J5l" firstAttribute="top" secondItem="tPf-pZ-vpQ" secondAttribute="bottom" constant="34" id="yUh-xg-uwZ"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="35.5" y="54.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="StartMyCollectionBox" width="200" height="242"/>
+    </resources>
+</document>

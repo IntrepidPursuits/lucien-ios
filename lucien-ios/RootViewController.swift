@@ -8,13 +8,14 @@
 
 import UIKit
 
-class RootViewController: UIViewController {
+final class RootViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 
     @IBAction func signInButtonPressed(_ sender: UIButton) {
-        view.backgroundColor = UIColor.black
+        let startMyCollectionViewController = UIViewController(nibName: "StartMyCollectionViewController", bundle: nil)
+        present(startMyCollectionViewController, animated: true, completion: nil)
     }
 }
