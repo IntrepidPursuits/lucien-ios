@@ -36,24 +36,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                                                  annotation: options[UIApplicationOpenURLOptionsKey.annotation])
     }
 
-    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!,
-              withError error: Error!) {
-        if (error == nil) {
-            print("signed in!")
-            // Perform any operations on signed in user here.
-            let userId = user.userID
-            let idToken = user.authentication.idToken
-            let fullName = user.profile.name
-            let givenName = user.profile.givenName
-            let familyName = user.profile.familyName
-            let email = user.profile.email
-            print(userId!, idToken!, fullName!, givenName!, familyName!, email!)
-        } else {
-            print("\(error.localizedDescription)")
-        }
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        guard error == nil else { print("\(error.localizedDescription)"); return }
+        let userId = user.userID
+        let idToken = user.authentication.idToken
+        let fullName = user.profile.name
+        let givenName = user.profile.givenName
+        let familyName = user.profile.familyName
+        let email = user.profile.email
+        print(userId!, idToken!, fullName!, givenName!, familyName!, email!)
     }
 
-    func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!,
-              withError error: Error!) {
+    func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
     }
 }

@@ -15,6 +15,7 @@ final class RootViewController: UIViewController, GIDSignInUIDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named:"homeScreenImage")!)
         GIDSignIn.sharedInstance().uiDelegate = self
         signInButton.style = GIDSignInButtonStyle.wide
     }
@@ -25,6 +26,5 @@ final class RootViewController: UIViewController, GIDSignInUIDelegate {
 
     @IBAction func signOutButton(_ sender: Any) {
         GIDSignIn.sharedInstance().signOut()
-        print("signed out!")
     }
 }
