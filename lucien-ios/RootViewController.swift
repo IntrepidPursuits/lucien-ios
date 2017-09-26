@@ -8,10 +8,14 @@
 
 import UIKit
 
-final class RootViewController: UIViewController {
+
+final class RootViewController: UIViewController, GIDSignInUIDelegate {
+
+    @IBOutlet private weak var signInButton: GIDSignInButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        GIDSignIn.sharedInstance().uiDelegate = self
     }
 
     @IBAction func signInButtonPressed(_ sender: UIButton) {

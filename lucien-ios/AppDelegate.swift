@@ -9,7 +9,6 @@
 import UIKit
 import GoogleSignIn
 
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 
@@ -20,17 +19,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         self.window = window
         window.rootViewController = RootViewController()
         window.makeKeyAndVisible()
-        return true
-    }
 
-    private func application(application: UIApplication,
-                             didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Initialize sign-in
         var configureError: NSError?
         GGLContext.sharedInstance().configureWithError(&configureError)
-        assert(configureError == nil, "Error configuring Google services: \(String(describing: configureError))")
+        GIDSignIn.sharedInstance().clientID = "1072472744835-miivpr72vpanvmpm2f3tbb7msae67tii.apps.googleusercontent.com"
         GIDSignIn.sharedInstance().delegate = self
+
         return true
+
     }
 
     private func application(application: UIApplication,
@@ -56,7 +53,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         }
     }
 
-    func sign(_ signIn: GIDSignIn!, didDisconnectWith user:GIDGoogleUser!,
+    func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!,
               withError error: Error!) {
         // Perform any operations when the user disconnects from app here.
         // ...
