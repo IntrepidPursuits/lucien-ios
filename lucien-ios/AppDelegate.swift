@@ -27,7 +27,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         GIDSignIn.sharedInstance().delegate = self
 
         return true
-
     }
 
     private func application(application: UIApplication,
@@ -42,13 +41,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         if (error == nil) {
             print("signed in!")
             // Perform any operations on signed in user here.
-            let userId = user.userID                  // For client-side use only!
-            let idToken = user.authentication.idToken // Safe to send to the server
+            let userId = user.userID
+            let idToken = user.authentication.idToken
             let fullName = user.profile.name
             let givenName = user.profile.givenName
             let familyName = user.profile.familyName
             let email = user.profile.email
-            // ...
+            print(userId!, idToken!, fullName!, givenName!, familyName!, email!)
         } else {
             print("\(error.localizedDescription)")
         }
@@ -56,7 +55,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 
     func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!,
               withError error: Error!) {
-        // Perform any operations when the user disconnects from app here.
-        // ...
     }
 }
