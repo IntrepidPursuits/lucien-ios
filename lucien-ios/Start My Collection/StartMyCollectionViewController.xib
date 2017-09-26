@@ -50,7 +50,7 @@
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="startCollectionButtonPressed:" destination="-1" eventType="touchUpInside" id="HW8-l9-LBu"/>
+                        <action selector="startCollectionButtonPressed:" destination="-1" eventType="touchUpInside" id="hZX-2V-8Sc"/>
                     </connections>
                 </button>
             </subviews>
