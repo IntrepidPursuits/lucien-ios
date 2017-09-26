@@ -16,6 +16,7 @@ final class RootViewController: UIViewController, GIDSignInUIDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         GIDSignIn.sharedInstance().uiDelegate = self
+        signInButton.style = GIDSignInButtonStyle.wide
     }
 
 //    @IBAction func signInButtonPressed(_ sender: UIButton) {
