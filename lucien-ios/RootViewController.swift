@@ -18,8 +18,12 @@ final class RootViewController: UIViewController, GIDSignInUIDelegate {
         GIDSignIn.sharedInstance().uiDelegate = self
     }
 
-    @IBAction func signInButtonPressed(_ sender: UIButton) {
-        let startMyCollectionViewController = StartMyCollectionViewController()
-        present(startMyCollectionViewController, animated: true, completion: nil)
+//    @IBAction func signInButtonPressed(_ sender: UIButton) {
+//        let startMyCollectionViewController = StartMyCollectionViewController()
+//        present(startMyCollectionViewController, animated: true, completion: nil)
+
+    @IBAction func signOutButton(_ sender: Any) {
+        GIDSignIn.sharedInstance().signOut()
+        print("signed out!")
     }
 }

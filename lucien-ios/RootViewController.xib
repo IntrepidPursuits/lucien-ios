@@ -24,19 +24,14 @@
                     <rect key="frame" x="116" y="593" width="143" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" title="Sign out with Google"/>
+                    <connections>
+                        <action selector="signOutButton:" destination="-1" eventType="touchUpInside" id="s2X-ZY-6iC"/>
+                    </connections>
                 </button>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XbY-RA-90Y" customClass="GIDSignInButton">
                     <rect key="frame" x="84" y="547" width="207" height="38"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                </view>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VZp-KC-2ZD" customClass="GIDSignInButton">
-                    <rect key="frame" x="67" y="369" width="240" height="128"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <connections>
-                        <action selector="didTapSignOut:" destination="-1" eventType="valueChanged" id="7C2-Zy-90f"/>
-                    </connections>
                 </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
