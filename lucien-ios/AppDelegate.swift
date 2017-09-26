@@ -27,13 +27,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         return true
     }
 
-    private func application(application: UIApplication,
-                             openURL url: URL, options: [UIApplicationOpenURLOptionsKey: AnyObject]) -> Bool {
+    private func application(application: UIApplication, openURL url: URL, options: [UIApplicationOpenURLOptionsKey: AnyObject]) -> Bool {
         return GIDSignIn.sharedInstance().handle(url as URL!,
                                                  sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
                                                  annotation: options[UIApplicationOpenURLOptionsKey.annotation])
     }
-
+    // MARK: - GIDSignInDelegate
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         guard error == nil else { print("\(error.localizedDescription)"); return }
         let userId = user.userID
@@ -43,8 +42,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         let familyName = user.profile.familyName
         let email = user.profile.email
         print(userId!, idToken!, fullName!, givenName!, familyName!, email!)
-    }
-
-    func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
     }
 }
