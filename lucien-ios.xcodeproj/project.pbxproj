@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C7013A11F7A9A8600D88980 /* AddComicTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C70139F1F7A9A8600D88980 /* AddComicTableViewController.swift */; };
+		1C7013A21F7A9A8600D88980 /* AddComicTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C7013A01F7A9A8600D88980 /* AddComicTableViewController.xib */; };
+		1C7013A51F7A9AE600D88980 /* AddCoverTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7013A31F7A9AE600D88980 /* AddCoverTableViewCell.swift */; };
+		1C7013A61F7A9AE600D88980 /* AddCoverTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C7013A41F7A9AE600D88980 /* AddCoverTableViewCell.xib */; };
 		1CAFFC671F797FA200B79F11 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAFFC661F797FA200B79F11 /* AppDelegate.swift */; };
 		1CAFFC6E1F797FA200B79F11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CAFFC6D1F797FA200B79F11 /* Assets.xcassets */; };
 		1CAFFC711F797FA200B79F11 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CAFFC6F1F797FA200B79F11 /* LaunchScreen.storyboard */; };
@@ -42,6 +46,10 @@
 /* Begin PBXFileReference section */
 		074BF9F99258AD884EC6794A /* Pods_lucien_iosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_lucien_iosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D057BF04BE0EAF45ED19F37 /* Pods_lucien_iosUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_lucien_iosUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1C70139F1F7A9A8600D88980 /* AddComicTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddComicTableViewController.swift; sourceTree = "<group>"; };
+		1C7013A01F7A9A8600D88980 /* AddComicTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddComicTableViewController.xib; sourceTree = "<group>"; };
+		1C7013A31F7A9AE600D88980 /* AddCoverTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCoverTableViewCell.swift; sourceTree = "<group>"; };
+		1C7013A41F7A9AE600D88980 /* AddCoverTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddCoverTableViewCell.xib; sourceTree = "<group>"; };
 		1CAFFC631F797FA200B79F11 /* lucien-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "lucien-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CAFFC661F797FA200B79F11 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1CAFFC6D1F797FA200B79F11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -137,6 +145,7 @@
 				FB6B91191F7BEE9900910B49 /* LoginScreen */,
 				1C7E9F911F7994050061EFF6 /* StartMyCollection */,
 				FBD844451F799A6F00A8E352 /* lucien-ios-Bridging-Header.h */,
+				1CDB6A251F79A52D003A2BB1 /* Add New Comic Book */,
 			);
 			path = "lucien-ios";
 			sourceTree = "<group>";
@@ -157,6 +166,17 @@
 				1CAFFC881F797FA200B79F11 /* Info.plist */,
 			);
 			path = "lucien-iosUITests";
+			sourceTree = "<group>";
+		};
+		1CDB6A251F79A52D003A2BB1 /* Add New Comic Book */ = {
+			isa = PBXGroup;
+			children = (
+				1C70139F1F7A9A8600D88980 /* AddComicTableViewController.swift */,
+				1C7013A01F7A9A8600D88980 /* AddComicTableViewController.xib */,
+				1C7013A31F7A9AE600D88980 /* AddCoverTableViewCell.swift */,
+				1C7013A41F7A9AE600D88980 /* AddCoverTableViewCell.xib */,
+			);
+			path = "Add New Comic Book";
 			sourceTree = "<group>";
 		};
 		7FC9B6FD7C10765DEEAB2ACE /* Frameworks */ = {
@@ -310,10 +330,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C7013A21F7A9A8600D88980 /* AddComicTableViewController.xib in Resources */,
 				1CAFFC711F797FA200B79F11 /* LaunchScreen.storyboard in Resources */,
 				1CAFFC6E1F797FA200B79F11 /* Assets.xcassets in Resources */,
 				FBD844441F798B1D00A8E352 /* RootViewController.xib in Resources */,
 				1CDB6A231F7995EC003A2BB1 /* StartMyCollectionViewController.xib in Resources */,
+				1C7013A61F7A9AE600D88980 /* AddCoverTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -510,6 +532,8 @@
 			files = (
 				1CDB6A221F7995EC003A2BB1 /* StartMyCollectionViewController.swift in Sources */,
 				FB6B911B1F7C195000910B49 /* AnimatedTransition.swift in Sources */,
+				1C7013A51F7A9AE600D88980 /* AddCoverTableViewCell.swift in Sources */,
+				1C7013A11F7A9A8600D88980 /* AddComicTableViewController.swift in Sources */,
 				FBD844431F798B1D00A8E352 /* RootViewController.swift in Sources */,
 				1CAFFC671F797FA200B79F11 /* AppDelegate.swift in Sources */,
 			);
