@@ -8,8 +8,8 @@
 
 import UIKit
 
-class AddCoverTableViewCell: UITableViewCell {
-    
+final class AddCoverTableViewCell: UITableViewCell {
+    static let identifier = "comicCoverCell"
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var addCoverButton: UIButton!
 }
