@@ -15,7 +15,7 @@ final class RootViewController: UIViewController {
     }
 
     @IBAction func signInButtonPressed(_ sender: UIButton) {
-        let startMyCollectionViewController = StartMyCollectionViewController(nibName: "StartMyCollectionViewController", bundle: Bundle.main)
+        let startMyCollectionViewController = StartMyCollectionViewController()
         present(startMyCollectionViewController, animated: true, completion: nil)
     }
 }
