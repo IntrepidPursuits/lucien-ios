@@ -6,6 +6,8 @@ target 'lucien-ios' do
   use_frameworks!
 
   # Pods for lucien-ios
+  pod 'GoogleSignIn'
+  pod 'Google/SignIn'
 
   target 'lucien-iosTests' do
     inherit! :search_paths
