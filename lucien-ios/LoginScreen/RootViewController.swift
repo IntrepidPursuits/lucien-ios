@@ -18,7 +18,6 @@ final class RootViewController: UIViewController, GIDSignInUIDelegate, GIDSignIn
         GIDSignIn.sharedInstance().delegate = self
         signInButton.style = GIDSignInButtonStyle.wide
         GIDSignIn.sharedInstance().clientID = "1072472744835-miivpr72vpanvmpm2f3tbb7msae67tii.apps.googleusercontent.com"
-
     }
 
     @IBAction func signOutButton(_ sender: Any) {
@@ -30,5 +29,17 @@ final class RootViewController: UIViewController, GIDSignInUIDelegate, GIDSignIn
         guard (user.authentication.idToken) != nil else { return }
         let startMyCollectionViewController = StartMyCollectionViewController()
         present(startMyCollectionViewController, animated: true, completion: nil)
+    }
+
+    func addBackground() {
+        let width = UIScreen.main.bounds.size.width
+        let height = UIScreen.main.bounds.size.height
+
+        let homeScreenBackground = UIImageView(frame: CGRect(x: 0, y: 0, width: width, height: height))
+        homeScreenBackground.image = UIImage(named: "homeScreenImage")
+        homeScreenBackground.contentMode = UIViewContentMode.scaleAspectFill
+
+        self.addSubview(homeScreenBackground)
+        self.sendSubview(toBack: homeScreenBackground)
     }
 }
