@@ -34,7 +34,6 @@ final class RootViewController: UIViewController, GIDSignInUIDelegate, GIDSignIn
     func addBackground() {
         let width = UIScreen.main.bounds.size.width
         let height = UIScreen.main.bounds.size.height
-
         let homeScreenBackground = UIImageView(frame: CGRect(x: 0, y: 0, width: width, height: height))
         homeScreenBackground.image = UIImage(named: "homeScreenImage")
         homeScreenBackground.contentMode = UIViewContentMode.scaleAspectFill
