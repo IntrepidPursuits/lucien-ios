@@ -19,7 +19,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = window
         window.rootViewController = RootViewController()
         window.makeKeyAndVisible()
+
+//        let navController = UINavigationController()
+//        let rootController = RootViewController()
+//        navController.viewControllers = [rootController]
+//        self.window?.rootViewController = navController
+//        self.window?.makeKeyAndVisible()
+
         return true
+
     }
 
     private func application(application: UIApplication, openURL url: URL, options: [UIApplicationOpenURLOptionsKey: AnyObject]) -> Bool {
