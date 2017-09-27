@@ -31,5 +31,4 @@ final class RootViewController: UIViewController, GIDSignInUIDelegate, GIDSignIn
         let startMyCollectionViewController = StartMyCollectionViewController()
         present(startMyCollectionViewController, animated: true, completion: nil)
     }
-
 }
