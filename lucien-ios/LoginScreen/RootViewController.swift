@@ -29,6 +29,8 @@ final class RootViewController: UIViewController, GIDSignInUIDelegate, GIDSignIn
         guard (user.authentication.idToken) != nil else { return }
         let startMyCollectionViewController = StartMyCollectionViewController()
         present(startMyCollectionViewController, animated: true, completion: nil)
+        startMyCollectionViewController.transitioningDelegate = self
+
     }
 
     func addBackground() {
@@ -40,5 +42,16 @@ final class RootViewController: UIViewController, GIDSignInUIDelegate, GIDSignIn
 
         view.addSubview(homeScreenBackground)
         view.sendSubview(toBack: homeScreenBackground)
+    }
+}
+
+extension RootViewController: UIViewControllerTransitioningDelegate {
+
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return AnimatedTransition()
+    }
+
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return nil
     }
 }
