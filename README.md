@@ -1,5 +1,4 @@
 # lucien-ios
-# Project Name
 
 <!-- Replace the instances of "ios-template" in each of the links below with the name of your project in Jenkins.
 
