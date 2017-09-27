@@ -96,13 +96,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1C7E9F911F7994050061EFF6 /* Start My Collection */ = {
+		1C7E9F911F7994050061EFF6 /* StartMyCollection */ = {
 			isa = PBXGroup;
 			children = (
 				1CDB6A201F7995EC003A2BB1 /* StartMyCollectionViewController.swift */,
 				1CDB6A211F7995EC003A2BB1 /* StartMyCollectionViewController.xib */,
 			);
-			path = "Start My Collection";
+			path = StartMyCollection;
 			sourceTree = "<group>";
 		};
 		1CAFFC5A1F797FA200B79F11 = {
@@ -134,10 +134,8 @@
 				1CAFFC6D1F797FA200B79F11 /* Assets.xcassets */,
 				1CAFFC6F1F797FA200B79F11 /* LaunchScreen.storyboard */,
 				1CAFFC721F797FA200B79F11 /* Info.plist */,
-				FBD844411F798B1D00A8E352 /* RootViewController.swift */,
-				FB6B91171F7BEA1000910B49 /* backgroundExtension.swift */,
-				FBD844421F798B1D00A8E352 /* RootViewController.xib */,
-				1C7E9F911F7994050061EFF6 /* Start My Collection */,
+				FB6B91191F7BEE9900910B49 /* LoginScreen */,
+				1C7E9F911F7994050061EFF6 /* StartMyCollection */,
 				FBD844451F799A6F00A8E352 /* lucien-ios-Bridging-Header.h */,
 			);
 			path = "lucien-ios";
@@ -182,6 +180,16 @@
 				D0155DB8A114746D5EAA07B7 /* Pods-lucien-iosUITests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		FB6B91191F7BEE9900910B49 /* LoginScreen */ = {
+			isa = PBXGroup;
+			children = (
+				FB6B91171F7BEA1000910B49 /* backgroundExtension.swift */,
+				FBD844421F798B1D00A8E352 /* RootViewController.xib */,
+				FBD844411F798B1D00A8E352 /* RootViewController.swift */,
+			);
+			path = LoginScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
