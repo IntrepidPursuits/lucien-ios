@@ -13,7 +13,7 @@ final class RootViewController: UIViewController, GIDSignInUIDelegate, GIDSignIn
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.addBackground()
+        self.addBackground()
         GIDSignIn.sharedInstance().uiDelegate = self
         GIDSignIn.sharedInstance().delegate = self
         signInButton.style = GIDSignInButtonStyle.wide
@@ -39,7 +39,7 @@ final class RootViewController: UIViewController, GIDSignInUIDelegate, GIDSignIn
         homeScreenBackground.image = UIImage(named: "homeScreenImage")
         homeScreenBackground.contentMode = UIViewContentMode.scaleAspectFill
 
-        self.addSubview(homeScreenBackground)
-        self.sendSubview(toBack: homeScreenBackground)
+        view.addSubview(homeScreenBackground)
+        view.sendSubview(toBack: homeScreenBackground)
     }
 }
