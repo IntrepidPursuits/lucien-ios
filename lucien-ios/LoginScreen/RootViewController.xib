@@ -33,14 +33,6 @@
                         <action selector="signOutButton:" destination="-1" eventType="touchUpInside" id="s2X-ZY-6iC"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I80-f7-kSj">
-                    <rect key="frame" x="130" y="439" width="114" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="To My Collection"/>
-                    <connections>
-                        <action selector="toMyCollection:" destination="-1" eventType="touchUpInside" id="jtR-dN-gsa"/>
-                    </connections>
-                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
