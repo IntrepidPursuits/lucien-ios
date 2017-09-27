@@ -8,32 +8,34 @@
 
 import UIKit
 
-final class RootViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
+final class RootViewController: UIViewController, GIDSignInDelegate {
     @IBOutlet private weak var signInButton: GIDSignInButton!
+    @IBOutlet weak var appName: UILabel!
+    @IBOutlet weak var appDescription: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.addBackground()
-        GIDSignIn.sharedInstance().uiDelegate = self
+        addBackground()
         GIDSignIn.sharedInstance().delegate = self
         signInButton.style = GIDSignInButtonStyle.wide
+        appName.textColor = UIColor.white
+        appDescription.textColor = UIColor.white
         GIDSignIn.sharedInstance().clientID = "1072472744835-miivpr72vpanvmpm2f3tbb7msae67tii.apps.googleusercontent.com"
     }
 
-    @IBAction func signOutButton(_ sender: Any) {
+    @IBAction func signOutButtonPressed(_ sender: Any) {
         GIDSignIn.sharedInstance().signOut()
     }
 
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         guard error == nil else { print("\(error.localizedDescription)"); return }
-        guard (user.authentication.idToken) != nil else { return }
+        guard user.authentication.idToken != nil else { return }
         let startMyCollectionViewController = StartMyCollectionViewController()
         present(startMyCollectionViewController, animated: true, completion: nil)
         startMyCollectionViewController.transitioningDelegate = self
-
     }
 
-    func addBackground() {
+    private func addBackground() {
         let width = UIScreen.main.bounds.size.width
         let height = UIScreen.main.bounds.size.height
         let homeScreenBackground = UIImageView(frame: CGRect(x: 0, y: 0, width: width, height: height))

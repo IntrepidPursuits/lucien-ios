@@ -23,8 +23,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     private func application(application: UIApplication, openURL url: URL, options: [UIApplicationOpenURLOptionsKey: AnyObject]) -> Bool {
-        return GIDSignIn.sharedInstance().handle(url as URL!,
-                                                 sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
-                                                 annotation: options[UIApplicationOpenURLOptionsKey.annotation])
+        return GIDSignIn.sharedInstance().handle(
+            url,
+            sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
+            annotation: options[UIApplicationOpenURLOptionsKey.annotation]
+        )
     }
 }
