@@ -31,7 +31,6 @@ final class RootViewController: UIViewController, GIDSignInDelegate, GIDSignInUI
     @IBAction func viewProfileButtonPressed(_ sender: UIButton) {
         let viewProfileController = ProfileViewController()
         present(viewProfileController, animated: true, completion: nil)
-        
     }
 
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {

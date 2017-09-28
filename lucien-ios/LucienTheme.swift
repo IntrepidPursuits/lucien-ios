@@ -50,4 +50,3 @@ extension UIColor {
         self.init(red: CGFloat(redVal)/255, green: CGFloat(greenVal)/255, blue: CGFloat(blueVal)/255, alpha: alphaVal)
     }
 }
-
