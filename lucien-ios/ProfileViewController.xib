@@ -11,8 +11,13 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileViewController" customModule="lucien_ios" customModuleProvider="target">
             <connections>
+                <outlet property="email" destination="bGl-6p-prs" id="8MN-sX-3ny"/>
+                <outlet property="emailTitle" destination="BGx-HN-KSa" id="hkc-ql-Oer"/>
                 <outlet property="emptyProfilePicture" destination="cgp-7R-KNN" id="gnD-VA-3YB"/>
                 <outlet property="logoutButton" destination="ER8-Nm-F7L" id="NQ3-OB-QLH"/>
+                <outlet property="name" destination="fT5-w8-CbN" id="0Hk-xL-YEb"/>
+                <outlet property="nameTitle" destination="bVf-Kn-Uxj" id="9qN-2g-uG7"/>
+                <outlet property="profileTitle" destination="UO6-f1-jwn" id="4xk-Hf-FrM"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
