@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class RootViewController: UIViewController, GIDSignInDelegate {
+final class RootViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate {
     @IBOutlet private weak var signInButton: GIDSignInButton!
     @IBOutlet weak var appName: UILabel!
     @IBOutlet weak var appDescription: UILabel!
@@ -17,6 +17,7 @@ final class RootViewController: UIViewController, GIDSignInDelegate {
         super.viewDidLoad()
         addBackground()
         GIDSignIn.sharedInstance().delegate = self
+        GIDSignIn.sharedInstance().uiDelegate = self
         signInButton.style = GIDSignInButtonStyle.wide
         appName.textColor = UIColor.white
         appDescription.textColor = UIColor.white
