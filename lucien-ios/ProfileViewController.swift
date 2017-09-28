@@ -21,8 +21,8 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         emptyProfilePicture.contentMode = .scaleAspectFit
-        let dark = UIColor.black
-        let coolGrey = UIColor.gray
+        let dark = UIColor(redVal: 43, greenVal: 45, blueVal: 66, alphaVal: 1.0)
+        let coolGrey = UIColor(redVal: 143, greenVal: 144, blueVal: 154, alphaVal: 1.0)
         logoutButton.backgroundColor = dark
         logoutButton.setTitleColor(UIColor.white, for: .normal)
         logoutButton.layer.cornerRadius = 3.0
