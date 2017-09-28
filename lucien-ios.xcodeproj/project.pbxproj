@@ -40,10 +40,10 @@
 		991B58C032595B40ADDCFCC7 /* Pods_lucien_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 964D4E26A56CF8BC634B2BBD /* Pods_lucien_ios.framework */; };
 		A59B2FE58EB5BC7B617AB83F /* Pods_lucien_iosUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D057BF04BE0EAF45ED19F37 /* Pods_lucien_iosUITests.framework */; };
 		EC0F6CA4839D3BF363E4EE9E /* Pods_lucien_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 074BF9F99258AD884EC6794A /* Pods_lucien_iosTests.framework */; };
-		FB3238541F86705700FE81E2 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDDE2CC1F7E7C6F00A4EA34 /* APIClient.swift */; };
 		FB6B911B1F7C195000910B49 /* AnimatedTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6B911A1F7C195000910B49 /* AnimatedTransition.swift */; };
+		FBAB046F1F8D42010099F197 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAB046E1F8D42010099F197 /* APIClient.swift */; };
+		FBAB04711F8D42080099F197 /* LucienAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAB04701F8D42070099F197 /* LucienAPIClient.swift */; };
 		FBAEE5781F7EE75C00A44F50 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAEE5771F7EE75C00A44F50 /* LoginViewModel.swift */; };
-		FBAEE57B1F7EEA5B00A44F50 /* LucienAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAEE57A1F7EEA5B00A44F50 /* LucienAPIClient.swift */; };
 		FBB975691F7EBB31007951C4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB975681F7EBB31007951C4 /* User.swift */; };
 		FBB9756B1F7ED8A9007951C4 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB9756A1F7ED8A9007951C4 /* Result.swift */; };
 		FBB9756D1F7ED8E6007951C4 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB9756C1F7ED8E6007951C4 /* Request.swift */; };
@@ -118,8 +118,9 @@
 		D0155DB8A114746D5EAA07B7 /* Pods-lucien-iosUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lucien-iosUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-lucien-iosUITests/Pods-lucien-iosUITests.release.xcconfig"; sourceTree = "<group>"; };
 		E8801CCEE845676EFB1D691F /* Pods-lucien-iosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lucien-iosTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-lucien-iosTests/Pods-lucien-iosTests.release.xcconfig"; sourceTree = "<group>"; };
 		FB6B911A1F7C195000910B49 /* AnimatedTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AnimatedTransition.swift; path = "lucien-ios/AnimatedTransition.swift"; sourceTree = SOURCE_ROOT; };
+		FBAB046E1F8D42010099F197 /* APIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		FBAB04701F8D42070099F197 /* LucienAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LucienAPIClient.swift; sourceTree = "<group>"; };
 		FBAEE5771F7EE75C00A44F50 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
-		FBAEE57A1F7EEA5B00A44F50 /* LucienAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LucienAPIClient.swift; sourceTree = "<group>"; };
 		FBB975681F7EBB31007951C4 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		FBB9756A1F7ED8A9007951C4 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		FBB9756C1F7ED8E6007951C4 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
@@ -127,7 +128,6 @@
 		FBD844421F798B1D00A8E352 /* RootViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
 		FBD844451F799A6F00A8E352 /* lucien-ios-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "lucien-ios-Bridging-Header.h"; sourceTree = "<group>"; };
 		FBDDE2CA1F7E7C4F00A4EA34 /* LucienRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LucienRequest.swift; sourceTree = "<group>"; };
-		FBDDE2CC1F7E7C6F00A4EA34 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		FBE07CC71F7C2A4500CF1A3F /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = "lucien-ios/ProfileViewController.swift"; sourceTree = "<group>"; };
 		FBE07CC81F7C2A4500CF1A3F /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ProfileViewController.xib; path = "lucien-ios/ProfileViewController.xib"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -195,6 +195,7 @@
 				1CAFFC641F797FA200B79F11 /* Products */,
 				E4B55E31005133758D7C61EE /* Pods */,
 				7FC9B6FD7C10765DEEAB2ACE /* Frameworks */,
+				FBAB045D1F8D39E30099F197 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -334,13 +335,20 @@
 		FB9D84831F7D97CD00EC1B5E /* APIClient */ = {
 			isa = PBXGroup;
 			children = (
+				FBAB04701F8D42070099F197 /* LucienAPIClient.swift */,
+				FBAB046E1F8D42010099F197 /* APIClient.swift */,
 				FBDDE2CA1F7E7C4F00A4EA34 /* LucienRequest.swift */,
-				FBDDE2CC1F7E7C6F00A4EA34 /* APIClient.swift */,
-				FBAEE57A1F7EEA5B00A44F50 /* LucienAPIClient.swift */,
 				FBB9756A1F7ED8A9007951C4 /* Result.swift */,
 				FBB9756C1F7ED8E6007951C4 /* Request.swift */,
 			);
 			path = APIClient;
+			sourceTree = "<group>";
+		};
+		FBAB045D1F8D39E30099F197 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 		FBAEE5791F7EE78100A44F50 /* ViewModels */ = {
@@ -704,11 +712,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C45D0EB1F85611A00E651A5 /* CameraViewController.swift in Sources */,
+				FBAB046F1F8D42010099F197 /* APIClient.swift in Sources */,
 				FBB9756B1F7ED8A9007951C4 /* Result.swift in Sources */,
-				FB3238541F86705700FE81E2 /* APIClient.swift in Sources */,
 				1CDB6A221F7995EC003A2BB1 /* StartMyCollectionViewController.swift in Sources */,
 				FBDDE2CB1F7E7C4F00A4EA34 /* LucienRequest.swift in Sources */,
-				FBAEE57B1F7EEA5B00A44F50 /* LucienAPIClient.swift in Sources */,
+				FBAB04711F8D42080099F197 /* LucienAPIClient.swift in Sources */,
 				FBAEE5781F7EE75C00A44F50 /* LoginViewModel.swift in Sources */,
 				FBB975691F7EBB31007951C4 /* User.swift in Sources */,
 				FB6B911B1F7C195000910B49 /* AnimatedTransition.swift in Sources */,

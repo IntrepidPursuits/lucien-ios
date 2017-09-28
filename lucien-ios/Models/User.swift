@@ -5,6 +5,7 @@
 //  Created by Fang, Gracie on 9/29/17.
 //  Copyright © 2017 Intrepid Pursuits. All rights reserved.
 //
+
 import UIKit
 
 struct User: Decodable {
