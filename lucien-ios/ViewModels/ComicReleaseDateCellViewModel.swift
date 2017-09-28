@@ -18,6 +18,7 @@ struct ComicReleaseDateCellViewModel {
 
         // UIButton Configuration
         cell.selectDateButton.setImage(UIImage(named: "dropDownArrow"), for: .normal)
+        cell.selectDateButton.semanticContentAttribute = .forceRightToLeft
         cell.selectDateButton.imageEdgeInsets.left = cell.selectDateButton.frame.width - 24
         cell.selectDateButton.tintColor = LucienTheme.dark
     }

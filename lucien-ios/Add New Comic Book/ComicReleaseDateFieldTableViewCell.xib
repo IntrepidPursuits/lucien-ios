@@ -18,21 +18,21 @@
                 <rect key="frame" x="0.0" y="0.0" width="369" height="283.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="vN0-8Q-rnU">
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="vN0-8Q-rnU">
                         <rect key="frame" x="24" y="5" width="345" height="273.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RELEASE DATE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ezb-fy-vjK">
-                                <rect key="frame" x="0.0" y="0.0" width="345" height="21"/>
+                                <rect key="frame" x="0.0" y="0.0" width="345" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qWe-6J-KwB">
-                                <rect key="frame" x="0.0" y="21" width="345" height="31"/>
+                                <rect key="frame" x="0.0" y="25.5" width="345" height="29.5"/>
                                 <state key="normal" title="Select a Date"/>
                             </button>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="B49-bF-XOX">
-                                <rect key="frame" x="0.0" y="52" width="345" height="221.5"/>
+                                <rect key="frame" x="0.0" y="60" width="345" height="213.5"/>
                                 <date key="date" timeIntervalSinceReferenceDate="528214077.96728802">
                                     <!--2017-09-27 14:07:57 +0000-->
                                 </date>
