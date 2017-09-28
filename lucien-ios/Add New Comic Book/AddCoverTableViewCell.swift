@@ -8,19 +8,8 @@
 
 import UIKit
 
-class AddCoverTableViewCell: UITableViewCell {
-
-    static let identifier = "addCoverCell"
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
+final class AddCoverTableViewCell: UITableViewCell {
+    static let identifier = "comicCoverCell"
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var addCoverButton: UIButton!
 }
