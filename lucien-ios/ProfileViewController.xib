@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileViewController" customModule="lucien_ios" customModuleProvider="target">
             <connections>
                 <outlet property="emptyProfilePicture" destination="cgp-7R-KNN" id="gnD-VA-3YB"/>
+                <outlet property="logoutButton" destination="ER8-Nm-F7L" id="NQ3-OB-QLH"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -47,16 +48,27 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ER8-Nm-F7L">
+                    <rect key="frame" x="16" y="587" width="343" height="40"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="NBO-q0-H3O"/>
+                    </constraints>
+                    <state key="normal" title="LOG OUT"/>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="bGl-6p-prs" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="24" id="3Cg-vZ-rlR"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ER8-Nm-F7L" secondAttribute="trailing" constant="16" id="5nl-Db-SCZ"/>
                 <constraint firstItem="fT5-w8-CbN" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="238" id="GJ9-Nq-7cQ"/>
                 <constraint firstItem="bGl-6p-prs" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="290" id="Jbk-zt-0LI"/>
                 <constraint firstItem="BGx-HN-KSa" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="272" id="JrW-9A-405"/>
+                <constraint firstItem="ER8-Nm-F7L" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="Oy5-ww-jQt"/>
                 <constraint firstItem="cgp-7R-KNN" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="87" id="UBz-v7-XvY"/>
                 <constraint firstItem="fT5-w8-CbN" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="24" id="Ud9-HU-rBX"/>
                 <constraint firstItem="cgp-7R-KNN" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ZGE-jQ-j1e"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="ER8-Nm-F7L" secondAttribute="bottom" constant="40" id="cw6-gB-4wc"/>
                 <constraint firstItem="bVf-Kn-Uxj" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="220" id="dF5-qa-FFi"/>
                 <constraint firstItem="bVf-Kn-Uxj" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="24" id="u7a-sU-kaS"/>
                 <constraint firstItem="BGx-HN-KSa" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="24" id="vBM-Zo-hPm"/>
