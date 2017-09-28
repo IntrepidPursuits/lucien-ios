@@ -13,7 +13,9 @@ final class RootViewController: UIViewController, GIDSignInDelegate, GIDSignInUI
     @IBOutlet private weak var appName: UILabel!
     @IBOutlet private weak var appDescription: UILabel!
 
-    let loginViewModel = LoginViewModel(apiClient: LucienAPIClient())
+    let loginViewModel = LoginViewModel()
+
+    let lucienAPIClient = LucienAPIClient()
 
     override func viewDidLoad() {
         super.viewDidLoad()
