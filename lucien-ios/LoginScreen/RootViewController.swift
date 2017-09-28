@@ -35,10 +35,13 @@ final class RootViewController: UIViewController, GIDSignInDelegate, GIDSignInUI
 
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         guard error == nil else { print("\(error.localizedDescription)"); return }
-        guard user.authentication.idToken != nil else { return }
+        guard let authentication = user.authentication else { return }
         let startMyCollectionViewController = StartMyCollectionViewController()
         present(startMyCollectionViewController, animated: true, completion: nil)
-        startMyCollectionViewController.transitioningDelegate = self
+        //startMyCollectionViewController.transitioningDelegate = self // this is currently preventing full screen transition from login to collection screen
+        let googleAuth = GoogleAuthentication()
+        googleAuth.makeRequest(token: authentication.idToken)
+
     }
 
     private func addBackground() {
@@ -51,6 +54,7 @@ final class RootViewController: UIViewController, GIDSignInDelegate, GIDSignInUI
         view.addSubview(homeScreenBackground)
         view.sendSubview(toBack: homeScreenBackground)
     }
+
 }
 
 extension RootViewController: UIViewControllerTransitioningDelegate {
