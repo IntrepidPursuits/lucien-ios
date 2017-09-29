@@ -47,12 +47,12 @@
 		FBE07CC91F7C2A4500CF1A3F /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE07CC71F7C2A4500CF1A3F /* ProfileViewController.swift */; };
 		FBE07CCA1F7C2A4500CF1A3F /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBE07CC81F7C2A4500CF1A3F /* ProfileViewController.xib */; };
 		FBAEE5781F7EE75C00A44F50 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAEE5771F7EE75C00A44F50 /* LoginViewModel.swift */; };
+		FBAEE57B1F7EEA5B00A44F50 /* LucienAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAEE57A1F7EEA5B00A44F50 /* LucienAPIClient.swift */; };
 		FBB975691F7EBB31007951C4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB975681F7EBB31007951C4 /* User.swift */; };
 		FBB9756B1F7ED8A9007951C4 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB9756A1F7ED8A9007951C4 /* Result.swift */; };
 		FBB9756D1F7ED8E6007951C4 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB9756C1F7ED8E6007951C4 /* Request.swift */; };
 		FBD844431F798B1D00A8E352 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD844411F798B1D00A8E352 /* RootViewController.swift */; };
 		FBD844441F798B1D00A8E352 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBD844421F798B1D00A8E352 /* RootViewController.xib */; };
-		FBDDE2C91F7DA24F00A4EA34 /* GoogleAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDDE2C81F7DA24F00A4EA34 /* GoogleAuthentication.swift */; };
 		FBDDE2CB1F7E7C4F00A4EA34 /* LucienRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDDE2CA1F7E7C4F00A4EA34 /* LucienRequest.swift */; };
 		FBDDE2CD1F7E7C6F00A4EA34 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDDE2CC1F7E7C6F00A4EA34 /* APIClient.swift */; };
 /* End PBXBuildFile section */
@@ -125,13 +125,13 @@
 		FBE07CC71F7C2A4500CF1A3F /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = "lucien-ios/ProfileViewController.swift"; sourceTree = "<group>"; };
 		FBE07CC81F7C2A4500CF1A3F /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ProfileViewController.xib; path = "lucien-ios/ProfileViewController.xib"; sourceTree = "<group>"; };
 		FBAEE5771F7EE75C00A44F50 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		FBAEE57A1F7EEA5B00A44F50 /* LucienAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LucienAPIClient.swift; sourceTree = "<group>"; };
 		FBB975681F7EBB31007951C4 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		FBB9756A1F7ED8A9007951C4 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		FBB9756C1F7ED8E6007951C4 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		FBD844411F798B1D00A8E352 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		FBD844421F798B1D00A8E352 /* RootViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
 		FBD844451F799A6F00A8E352 /* lucien-ios-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "lucien-ios-Bridging-Header.h"; sourceTree = "<group>"; };
-		FBDDE2C81F7DA24F00A4EA34 /* GoogleAuthentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleAuthentication.swift; sourceTree = "<group>"; };
 		FBDDE2CA1F7E7C4F00A4EA34 /* LucienRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LucienRequest.swift; sourceTree = "<group>"; };
 		FBDDE2CC1F7E7C6F00A4EA34 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -348,9 +348,9 @@
 		FB9D84831F7D97CD00EC1B5E /* APIClient */ = {
 			isa = PBXGroup;
 			children = (
-				FBDDE2C81F7DA24F00A4EA34 /* GoogleAuthentication.swift */,
 				FBDDE2CA1F7E7C4F00A4EA34 /* LucienRequest.swift */,
 				FBDDE2CC1F7E7C6F00A4EA34 /* APIClient.swift */,
+				FBAEE57A1F7EEA5B00A44F50 /* LucienAPIClient.swift */,
 				FBB9756A1F7ED8A9007951C4 /* Result.swift */,
 				FBB9756C1F7ED8E6007951C4 /* Request.swift */,
 			);
@@ -711,7 +711,7 @@
 				FBB9756B1F7ED8A9007951C4 /* Result.swift in Sources */,
 				1CDB6A221F7995EC003A2BB1 /* StartMyCollectionViewController.swift in Sources */,
 				FBDDE2CB1F7E7C4F00A4EA34 /* LucienRequest.swift in Sources */,
-				FBDDE2C91F7DA24F00A4EA34 /* GoogleAuthentication.swift in Sources */,
+				FBAEE57B1F7EEA5B00A44F50 /* LucienAPIClient.swift in Sources */,
 				FBAEE5781F7EE75C00A44F50 /* LoginViewModel.swift in Sources */,
 				FBB975691F7EBB31007951C4 /* User.swift in Sources */,
 				FB6B911B1F7C195000910B49 /* AnimatedTransition.swift in Sources */,

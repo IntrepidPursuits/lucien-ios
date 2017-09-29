@@ -9,21 +9,27 @@ import Foundation
 
 enum LucienRequest: Request {
 
-    static let baseURL = "https://lucien-server-staging.herokuapp.com/api/v1"
-    static var acceptHeader: String? = ""
+    static let baseURL = "https://lucien-server-staging.herokuapp.com"
+    static let acceptHeader: String? = "application/vnd.lucien-app.com; version=1"
+    static let authorizationHeader: String? = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyNDU1NTZlMi0zODEwLTRmNmYtYjhiZi1lZTQ2YWQ5YTg2ODIiLCJleHAiOjE1MDkzMDI2MzB9.0WYbXPTsbNYrwAWTOqQC921w-w1sxJBCvJu94-lFVN8"
 
     case authenticate(code: String)
+    case getCurrentUser()
 
     var method: HTTPMethod {
         switch self {
         case .authenticate:
             return .POST
+        case .getCurrentUser:
+            return .GET
         }
     }
     var path: String {
         switch self {
         case .authenticate:
-            return "authentications"
+            return "/api/V1/authentications"
+        case .getCurrentUser:
+            return "/current_user"
         }
     }
 
@@ -31,27 +37,35 @@ enum LucienRequest: Request {
         switch self {
         case .authenticate:
             return false
+        case .getCurrentUser:
+            return true
         }
     }
 
     var queryParameters: [String : Any]? {
         switch self {
-        case .authenticate:
-            return [:]
+        case .authenticate(let code):
+            return ["code" : code]
+        case .getCurrentUser:
+            return nil
         }
     }
 
     var bodyParameters: [String : Any]? {
         switch self {
         case .authenticate:
-            return [:]
+            return nil
+        case .getCurrentUser:
+            return nil
         }
     }
 
     var contentType: String {
         switch self {
         case .authenticate:
-            return "authentications"
+            return "Application/JSON"
+        case .getCurrentUser:
+            return "Application/JSON"
         }
     }
 }

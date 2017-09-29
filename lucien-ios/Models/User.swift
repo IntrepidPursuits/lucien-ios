@@ -15,4 +15,16 @@ private struct User: Decodable {
     let googleUserID: Int
     let createdAt: Date
     let updatedAt: Date
+
+//    enum CodingKeys: String, CodingKey {
+//        case firstName: '
+//        case lastName: String
+//        case email: String
+//        case googlePictureURL: String
+//        case userID: Int
+//        case googleUserID: Int
+//        case createdAt: Date
+//        case updatedAt: Date
+//
+//    }
 }

@@ -13,6 +13,8 @@ final class RootViewController: UIViewController, GIDSignInDelegate, GIDSignInUI
     @IBOutlet weak var appName: UILabel!
     @IBOutlet weak var appDescription: UILabel!
 
+    let lucienAPIClient = LucienAPIClient()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         addBackground()
@@ -22,6 +24,8 @@ final class RootViewController: UIViewController, GIDSignInDelegate, GIDSignInUI
         appName.textColor = UIColor.white
         appDescription.textColor = UIColor.white
         GIDSignIn.sharedInstance().clientID = "1072472744835-miivpr72vpanvmpm2f3tbb7msae67tii.apps.googleusercontent.com"
+        print(GIDSignIn.sharedInstance().scopes)
+        GIDSignIn.sharedInstance().scopes.append("profile")
     }
 
     @IBAction func signOutButtonPressed(_ sender: Any) {
@@ -35,13 +39,20 @@ final class RootViewController: UIViewController, GIDSignInDelegate, GIDSignInUI
 
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         guard error == nil else { print("\(error.localizedDescription)"); return }
-        guard let authentication = user.authentication else { return }
+//        guard let idToken = user.authentication.idToken else { return }
         let startMyCollectionViewController = StartMyCollectionViewController()
         present(startMyCollectionViewController, animated: true, completion: nil)
         //startMyCollectionViewController.transitioningDelegate = self // this is currently preventing full screen transition from login to collection screen
-        let googleAuth = GoogleAuthentication()
-        googleAuth.makeRequest(token: authentication.idToken)
 
+        lucienAPIClient.getCurrentUser { response in
+            switch response {
+            case .success(let json):
+                print(json)
+            case .failure(let error):
+                print(error)
+            }
+
+        }
     }
 
     private func addBackground() {
