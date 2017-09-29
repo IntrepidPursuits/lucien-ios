@@ -39,6 +39,8 @@ final class LucienTheme {
     static let coolGrey = UIColor(redVal: 143, greenVal: 144, blueVal: 154, alphaVal: 1)
     static let dark = UIColor(redVal: 43, greenVal: 45, blueVal: 66, alphaVal: 1)
     static let silver = UIColor(redVal: 213, greenVal: 213, blueVal: 217, alphaVal: 1)
+    static let white = UIColor(redVal: 255, greenVal: 255, blueVal: 255, alphaVal: 0.85)
+    static let finishButtonBlack = UIColor(redVal: 55, greenVal: 58, blueVal: 78, alphaVal: 0.2)
 }
 
 extension UIColor {
@@ -51,4 +53,3 @@ extension UIColor {
         self.init(red: CGFloat(redVal) / 255, green: CGFloat(greenVal) / 255, blue: CGFloat(blueVal) / 255, alpha: alphaVal)
     }
 }
-

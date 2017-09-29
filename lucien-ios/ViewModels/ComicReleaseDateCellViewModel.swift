@@ -11,15 +11,15 @@ import UIKit
 
 struct ComicReleaseDateCellViewModel {
     /// Configures fonts, colors and border for a ComicReleaseDateCell
-    func configure(cell: ComicReleaseDateFieldTableViewCell) {
-        // Title Label Configuration
-        cell.titleLabel.font = UIFont(name: LucienTheme.Fonts.Muli.light.rawValue, size: 12)
-        cell.titleLabel.textColor = LucienTheme.coolGrey
-
-        // UIButton Configuration
-        cell.selectDateButton.setImage(UIImage(named: "dropDownArrow"), for: .normal)
-        cell.selectDateButton.semanticContentAttribute = .forceRightToLeft
-        cell.selectDateButton.imageEdgeInsets.left = cell.selectDateButton.frame.width - 24
-        cell.selectDateButton.tintColor = LucienTheme.dark
-    }
+//    func configure(cell: ComicReleaseDateFieldTableViewCell) {
+//        // Title Label Configuration
+//        cell.titleLabel.font = UIFont(name: LucienTheme.Fonts.Muli.light.rawValue, size: 12)
+//        cell.titleLabel.textColor = LucienTheme.coolGrey
+//
+//        // UIButton Configuration
+//        cell.selectDateButton.setImage(UIImage(named: "dropDownArrow"), for: .normal)
+//        cell.selectDateButton.semanticContentAttribute = .forceRightToLeft
+//        cell.selectDateButton.imageEdgeInsets.left = cell.selectDateButton.frame.width - 24
+//        cell.selectDateButton.tintColor = LucienTheme.dark
+//    }
 }
