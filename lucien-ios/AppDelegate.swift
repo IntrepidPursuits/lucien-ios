@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = window
         window.rootViewController = StartMyCollectionViewController()
         window.makeKeyAndVisible()
+
         return true
     }
 
