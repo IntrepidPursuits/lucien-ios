@@ -28,9 +28,49 @@ final class LucienTheme {
             case regular = "Muli-Regular"
             case semiBold = "Muli-SemiBold"
             case semiBoldItalic = "Muli-SemiBoldItalic"
+
+            func getFont(size: CGFloat) -> UIFont? {
+                switch self {
+                case .black :
+                    return UIFont(name: rawValue, size: size)
+                case .blackItalic:
+                    return UIFont(name: rawValue, size: size)
+                case .bold :
+                    return UIFont(name: rawValue, size: size)
+                case .boldItalic:
+                    return UIFont(name: rawValue, size: size)
+                case .extraBold:
+                    return UIFont(name: rawValue, size: size)
+                case .extraBoldItalic:
+                    return UIFont(name: rawValue, size: size)
+                case .extraLight:
+                    return UIFont(name: rawValue, size: size)
+                case .extraLightItalic:
+                    return UIFont(name: rawValue, size: size)
+                case .italic:
+                    return UIFont(name: rawValue, size: size)
+                case .light:
+                    return UIFont(name: rawValue, size: size)
+                case .lightItalic:
+                    return UIFont(name: rawValue, size: size)
+                case .regular:
+                    return UIFont(name: rawValue, size: size)
+                case .semiBold:
+                    return UIFont(name: rawValue, size: size)
+                case .semiBoldItalic:
+                    return UIFont(name: rawValue, size: size)
+                }
+            }
         }
         enum PermanentMarker: String {
             case regular = "PermanentMarker-Regular"
+
+            func getFont(size: CGFloat) -> UIFont? {
+                switch self {
+                case .regular:
+                    return UIFont(name: rawValue, size: size)
+                }
+            }
         }
     }
 
@@ -40,7 +80,8 @@ final class LucienTheme {
     static let dark = UIColor(redVal: 43, greenVal: 45, blueVal: 66, alphaVal: 1)
     static let silver = UIColor(redVal: 213, greenVal: 213, blueVal: 217, alphaVal: 1)
     static let white = UIColor(redVal: 255, greenVal: 255, blueVal: 255, alphaVal: 0.85)
-    static let finishButtonBlack = UIColor(redVal: 55, greenVal: 58, blueVal: 78, alphaVal: 0.2)
+    static let finishButtonGrey = UIColor(redVal: 55, greenVal: 58, blueVal: 78, alphaVal: 0.2)
+    static let textFieldBottomBorderWarning = UIColor(redVal: 255, greenVal: 59, blueVal: 83, alphaVal: 1)
 }
 
 extension UIColor {

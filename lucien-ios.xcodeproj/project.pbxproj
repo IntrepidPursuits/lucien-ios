@@ -9,15 +9,13 @@
 /* Begin PBXBuildFile section */
 		1C07CBF41F7AE1FD007C66D0 /* AddComicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C07CBF21F7AE1FD007C66D0 /* AddComicViewController.swift */; };
 		1C07CBF51F7AE1FD007C66D0 /* AddComicViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C07CBF31F7AE1FD007C66D0 /* AddComicViewController.xib */; };
-		1C07CC001F7BECAB007C66D0 /* AddCoverCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C07CBFF1F7BECAB007C66D0 /* AddCoverCellViewModel.swift */; };
-		1C07CC021F7BF29A007C66D0 /* ComicTextFieldCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C07CC011F7BF29A007C66D0 /* ComicTextFieldCellViewModel.swift */; };
+		1C182A2F1F82CA70001566E1 /* Comic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C182A2E1F82CA70001566E1 /* Comic.swift */; };
+		1C182A321F82D1C1001566E1 /* RawRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C182A311F82D1C1001566E1 /* RawRepresentable.swift */; };
 		1CAFFC671F797FA200B79F11 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAFFC661F797FA200B79F11 /* AppDelegate.swift */; };
 		1CAFFC6E1F797FA200B79F11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CAFFC6D1F797FA200B79F11 /* Assets.xcassets */; };
 		1CAFFC711F797FA200B79F11 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CAFFC6F1F797FA200B79F11 /* LaunchScreen.storyboard */; };
 		1CAFFC7C1F797FA200B79F11 /* lucien_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAFFC7B1F797FA200B79F11 /* lucien_iosTests.swift */; };
 		1CAFFC871F797FA200B79F11 /* lucien_iosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAFFC861F797FA200B79F11 /* lucien_iosUITests.swift */; };
-		1CD97F851F7E834400B35A1C /* ComicPickerViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD97F841F7E834400B35A1C /* ComicPickerViewCellViewModel.swift */; };
-		1CD97F881F7EA74500B35A1C /* Expandable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD97F871F7EA74500B35A1C /* Expandable.swift */; };
 		1CDB6A221F7995EC003A2BB1 /* StartMyCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDB6A201F7995EC003A2BB1 /* StartMyCollectionViewController.swift */; };
 		1CDB6A231F7995EC003A2BB1 /* StartMyCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CDB6A211F7995EC003A2BB1 /* StartMyCollectionViewController.xib */; };
 		1CDBD85B1F7C209800408826 /* Muli-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1CDBD8541F7C209400408826 /* Muli-Black.ttf */; };
@@ -36,12 +34,10 @@
 		1CDBD8681F7C209800408826 /* Muli-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1CDBD84D1F7C209300408826 /* Muli-SemiBoldItalic.ttf */; };
 		1CDBD86B1F7C20B500408826 /* PermanentMarker-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1CDBD86A1F7C20B200408826 /* PermanentMarker-Regular.ttf */; };
 		1CDBD86F1F7C26B800408826 /* LucienTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDBD86E1F7C26B800408826 /* LucienTheme.swift */; };
-		1CDBD8721F7D2D0800408826 /* ComicReleaseDateCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDBD8711F7D2D0800408826 /* ComicReleaseDateCellViewModel.swift */; };
 		991B58C032595B40ADDCFCC7 /* Pods_lucien_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 964D4E26A56CF8BC634B2BBD /* Pods_lucien_ios.framework */; };
 		A59B2FE58EB5BC7B617AB83F /* Pods_lucien_iosUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D057BF04BE0EAF45ED19F37 /* Pods_lucien_iosUITests.framework */; };
 		EC0F6CA4839D3BF363E4EE9E /* Pods_lucien_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 074BF9F99258AD884EC6794A /* Pods_lucien_iosTests.framework */; };
 		FB6B911B1F7C195000910B49 /* AnimatedTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6B911A1F7C195000910B49 /* AnimatedTransition.swift */; };
-		FB9D84801F7D948800EC1B5E /* LucienTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9D847F1F7D948800EC1B5E /* LucienTheme.swift */; };
 		FBD844431F798B1D00A8E352 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD844411F798B1D00A8E352 /* RootViewController.swift */; };
 		FBD844441F798B1D00A8E352 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBD844421F798B1D00A8E352 /* RootViewController.xib */; };
 		FBE07CC91F7C2A4500CF1A3F /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE07CC71F7C2A4500CF1A3F /* ProfileViewController.swift */; };
@@ -70,8 +66,8 @@
 		0D057BF04BE0EAF45ED19F37 /* Pods_lucien_iosUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_lucien_iosUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C07CBF21F7AE1FD007C66D0 /* AddComicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddComicViewController.swift; sourceTree = "<group>"; };
 		1C07CBF31F7AE1FD007C66D0 /* AddComicViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddComicViewController.xib; sourceTree = "<group>"; };
-		1C07CBFF1F7BECAB007C66D0 /* AddCoverCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCoverCellViewModel.swift; sourceTree = "<group>"; };
-		1C07CC011F7BF29A007C66D0 /* ComicTextFieldCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicTextFieldCellViewModel.swift; sourceTree = "<group>"; };
+		1C182A2E1F82CA70001566E1 /* Comic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comic.swift; sourceTree = "<group>"; };
+		1C182A311F82D1C1001566E1 /* RawRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawRepresentable.swift; sourceTree = "<group>"; };
 		1CAFFC631F797FA200B79F11 /* lucien-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "lucien-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CAFFC661F797FA200B79F11 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1CAFFC6D1F797FA200B79F11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -83,8 +79,6 @@
 		1CAFFC821F797FA200B79F11 /* lucien-iosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "lucien-iosUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CAFFC861F797FA200B79F11 /* lucien_iosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lucien_iosUITests.swift; sourceTree = "<group>"; };
 		1CAFFC881F797FA200B79F11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1CD97F841F7E834400B35A1C /* ComicPickerViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicPickerViewCellViewModel.swift; sourceTree = "<group>"; };
-		1CD97F871F7EA74500B35A1C /* Expandable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expandable.swift; sourceTree = "<group>"; };
 		1CDB6A201F7995EC003A2BB1 /* StartMyCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartMyCollectionViewController.swift; sourceTree = "<group>"; };
 		1CDB6A211F7995EC003A2BB1 /* StartMyCollectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StartMyCollectionViewController.xib; sourceTree = "<group>"; };
 		1CDBD84D1F7C209300408826 /* Muli-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
@@ -103,7 +97,6 @@
 		1CDBD85A1F7C209400408826 /* Muli-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
 		1CDBD86A1F7C20B200408826 /* PermanentMarker-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PermanentMarker-Regular.ttf"; sourceTree = "<group>"; };
 		1CDBD86E1F7C26B800408826 /* LucienTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LucienTheme.swift; sourceTree = "<group>"; };
-		1CDBD8711F7D2D0800408826 /* ComicReleaseDateCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicReleaseDateCellViewModel.swift; sourceTree = "<group>"; };
 		2083B8809618B8D581195F54 /* Pods-lucien-iosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lucien-iosTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-lucien-iosTests/Pods-lucien-iosTests.debug.xcconfig"; sourceTree = "<group>"; };
 		20D48F3384B15989F6E46E08 /* Pods-lucien-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lucien-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-lucien-ios/Pods-lucien-ios.debug.xcconfig"; sourceTree = "<group>"; };
 		24966642CEA9E5D05286C959 /* Pods-lucien-iosUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lucien-iosUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-lucien-iosUITests/Pods-lucien-iosUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -112,7 +105,6 @@
 		D0155DB8A114746D5EAA07B7 /* Pods-lucien-iosUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lucien-iosUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-lucien-iosUITests/Pods-lucien-iosUITests.release.xcconfig"; sourceTree = "<group>"; };
 		E8801CCEE845676EFB1D691F /* Pods-lucien-iosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lucien-iosTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-lucien-iosTests/Pods-lucien-iosTests.release.xcconfig"; sourceTree = "<group>"; };
 		FB6B911A1F7C195000910B49 /* AnimatedTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AnimatedTransition.swift; path = "lucien-ios/AnimatedTransition.swift"; sourceTree = SOURCE_ROOT; };
-		FB9D847F1F7D948800EC1B5E /* LucienTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LucienTheme.swift; sourceTree = "<group>"; };
 		FBD844411F798B1D00A8E352 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		FBD844421F798B1D00A8E352 /* RootViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
 		FBD844451F799A6F00A8E352 /* lucien-ios-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "lucien-ios-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -148,15 +140,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1C07CBFE1F7BEC8D007C66D0 /* ViewModels */ = {
+		1C182A301F82D1B2001566E1 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				1C07CBFF1F7BECAB007C66D0 /* AddCoverCellViewModel.swift */,
-				1C07CC011F7BF29A007C66D0 /* ComicTextFieldCellViewModel.swift */,
-				1CDBD8711F7D2D0800408826 /* ComicReleaseDateCellViewModel.swift */,
-				1CD97F841F7E834400B35A1C /* ComicPickerViewCellViewModel.swift */,
+				1C182A311F82D1C1001566E1 /* RawRepresentable.swift */,
 			);
-			path = ViewModels;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		1C7E9F911F7994050061EFF6 /* StartMyCollection */ = {
@@ -193,9 +182,8 @@
 		1CAFFC651F797FA200B79F11 /* lucien-ios */ = {
 			isa = PBXGroup;
 			children = (
-				1CD97F861F7EA6AC00B35A1C /* Protocols */,
+				1C182A301F82D1B2001566E1 /* Extensions */,
 				1CDBD8481F7C200A00408826 /* fonts */,
-				1C07CBFE1F7BEC8D007C66D0 /* ViewModels */,
 				1CAFFC661F797FA200B79F11 /* AppDelegate.swift */,
 				1CAFFC6D1F797FA200B79F11 /* Assets.xcassets */,
 				1CAFFC721F797FA200B79F11 /* Info.plist */,
@@ -204,7 +192,7 @@
 				FBD844451F799A6F00A8E352 /* lucien-ios-Bridging-Header.h */,
 				FBE07CC61F7C2A1900CF1A3F /* ViewProfile */,
 				1CAFFC6F1F797FA200B79F11 /* LaunchScreen.storyboard */,
-				1CDB6A251F79A52D003A2BB1 /* Add New Comic Book */,
+				1CDB6A251F79A52D003A2BB1 /* AddNewComicBook */,
 				1CDBD86E1F7C26B800408826 /* LucienTheme.swift */,
 			);
 			path = "lucien-ios";
@@ -228,21 +216,14 @@
 			path = "lucien-iosUITests";
 			sourceTree = "<group>";
 		};
-		1CD97F861F7EA6AC00B35A1C /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				1CD97F871F7EA74500B35A1C /* Expandable.swift */,
-			);
-			path = Protocols;
-			sourceTree = "<group>";
-		};
-		1CDB6A251F79A52D003A2BB1 /* Add New Comic Book */ = {
+		1CDB6A251F79A52D003A2BB1 /* AddNewComicBook */ = {
 			isa = PBXGroup;
 			children = (
 				1C07CBF21F7AE1FD007C66D0 /* AddComicViewController.swift */,
 				1C07CBF31F7AE1FD007C66D0 /* AddComicViewController.xib */,
+				1C182A2E1F82CA70001566E1 /* Comic.swift */,
 			);
-			path = "Add New Comic Book";
+			path = AddNewComicBook;
 			sourceTree = "<group>";
 		};
 		1CDBD8481F7C200A00408826 /* fonts */ = {
@@ -661,17 +642,13 @@
 			files = (
 				1CDB6A221F7995EC003A2BB1 /* StartMyCollectionViewController.swift in Sources */,
 				FB6B911B1F7C195000910B49 /* AnimatedTransition.swift in Sources */,
-				1C07CC001F7BECAB007C66D0 /* AddCoverCellViewModel.swift in Sources */,
-				1CD97F851F7E834400B35A1C /* ComicPickerViewCellViewModel.swift in Sources */,
 				1CDBD86F1F7C26B800408826 /* LucienTheme.swift in Sources */,
-				1CDBD8721F7D2D0800408826 /* ComicReleaseDateCellViewModel.swift in Sources */,
 				FBD844431F798B1D00A8E352 /* RootViewController.swift in Sources */,
 				FBE07CC91F7C2A4500CF1A3F /* ProfileViewController.swift in Sources */,
-				1C07CBED1F7AC0C1007C66D0 /* AddComicTableViewController.swift in Sources */,
 				1CAFFC671F797FA200B79F11 /* AppDelegate.swift in Sources */,
 				1C07CBF41F7AE1FD007C66D0 /* AddComicViewController.swift in Sources */,
-				1C07CC021F7BF29A007C66D0 /* ComicTextFieldCellViewModel.swift in Sources */,
-				1CD97F881F7EA74500B35A1C /* Expandable.swift in Sources */,
+				1C182A321F82D1C1001566E1 /* RawRepresentable.swift in Sources */,
+				1C182A2F1F82CA70001566E1 /* Comic.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
