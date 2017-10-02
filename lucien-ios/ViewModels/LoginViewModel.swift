@@ -13,8 +13,8 @@ final class LoginViewModel {
     func getCurrentUser() {
         lucienAPIClient.getCurrentUser { response in
             switch response {
-            case .success(let json):
-                print(json)
+            case .success(let user):
+                print(user)
             case .failure(let error):
                 print(error)
             }

@@ -16,18 +16,21 @@ class LucienAPIClient: APIClient {
         }
     }
 
-    func getCurrentUser(completion: @escaping (Result<Any>) -> Void) {
+    func getCurrentUser(completion: @escaping (Result<User>) -> Void) {
         let lucienRequest = LucienRequest.getCurrentUser()
         let urlRequest = lucienRequest.urlRequest
         self.sendRequest(urlRequest) { response in
             switch response {
             case .success(let result):
-                guard let json = try? JSONSerialization.jsonObject(with: result!, options: []) else { return }
-                completion(.success(json))
+                guard let result = result else { return }
+                let decoder = JSONDecoder()
+                decoder.dateDecodingStrategy = .iso8601
+                guard let user = try? decoder.decode(User.self, from: result) else { return }
+                completion(.success(user))
+
             case .failure(let error):
                 completion(.failure(error))
             }
         }
     }
-
 }
