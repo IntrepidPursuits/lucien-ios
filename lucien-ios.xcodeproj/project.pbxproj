@@ -18,8 +18,11 @@
 		A59B2FE58EB5BC7B617AB83F /* Pods_lucien_iosUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D057BF04BE0EAF45ED19F37 /* Pods_lucien_iosUITests.framework */; };
 		EC0F6CA4839D3BF363E4EE9E /* Pods_lucien_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 074BF9F99258AD884EC6794A /* Pods_lucien_iosTests.framework */; };
 		FB6B911B1F7C195000910B49 /* AnimatedTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6B911A1F7C195000910B49 /* AnimatedTransition.swift */; };
+		FB9D84801F7D948800EC1B5E /* LucienTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9D847F1F7D948800EC1B5E /* LucienTheme.swift */; };
 		FBD844431F798B1D00A8E352 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD844411F798B1D00A8E352 /* RootViewController.swift */; };
 		FBD844441F798B1D00A8E352 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBD844421F798B1D00A8E352 /* RootViewController.xib */; };
+		FBE07CC91F7C2A4500CF1A3F /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE07CC71F7C2A4500CF1A3F /* ProfileViewController.swift */; };
+		FBE07CCA1F7C2A4500CF1A3F /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBE07CC81F7C2A4500CF1A3F /* ProfileViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,9 +66,12 @@
 		D0155DB8A114746D5EAA07B7 /* Pods-lucien-iosUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lucien-iosUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-lucien-iosUITests/Pods-lucien-iosUITests.release.xcconfig"; sourceTree = "<group>"; };
 		E8801CCEE845676EFB1D691F /* Pods-lucien-iosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lucien-iosTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-lucien-iosTests/Pods-lucien-iosTests.release.xcconfig"; sourceTree = "<group>"; };
 		FB6B911A1F7C195000910B49 /* AnimatedTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AnimatedTransition.swift; path = "lucien-ios/AnimatedTransition.swift"; sourceTree = SOURCE_ROOT; };
+		FB9D847F1F7D948800EC1B5E /* LucienTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LucienTheme.swift; sourceTree = "<group>"; };
 		FBD844411F798B1D00A8E352 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		FBD844421F798B1D00A8E352 /* RootViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
 		FBD844451F799A6F00A8E352 /* lucien-ios-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "lucien-ios-Bridging-Header.h"; sourceTree = "<group>"; };
+		FBE07CC71F7C2A4500CF1A3F /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = "lucien-ios/ProfileViewController.swift"; sourceTree = "<group>"; };
+		FBE07CC81F7C2A4500CF1A3F /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ProfileViewController.xib; path = "lucien-ios/ProfileViewController.xib"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,12 +137,14 @@
 			isa = PBXGroup;
 			children = (
 				1CAFFC661F797FA200B79F11 /* AppDelegate.swift */,
+				FB9D847F1F7D948800EC1B5E /* LucienTheme.swift */,
 				1CAFFC6D1F797FA200B79F11 /* Assets.xcassets */,
 				1CAFFC6F1F797FA200B79F11 /* LaunchScreen.storyboard */,
 				1CAFFC721F797FA200B79F11 /* Info.plist */,
 				FB6B91191F7BEE9900910B49 /* LoginScreen */,
 				1C7E9F911F7994050061EFF6 /* StartMyCollection */,
 				FBD844451F799A6F00A8E352 /* lucien-ios-Bridging-Header.h */,
+				FBE07CC61F7C2A1900CF1A3F /* ViewProfile */,
 			);
 			path = "lucien-ios";
 			sourceTree = "<group>";
@@ -190,6 +198,16 @@
 				FB6B911A1F7C195000910B49 /* AnimatedTransition.swift */,
 			);
 			path = LoginScreen;
+			sourceTree = "<group>";
+		};
+		FBE07CC61F7C2A1900CF1A3F /* ViewProfile */ = {
+			isa = PBXGroup;
+			children = (
+				FBE07CC71F7C2A4500CF1A3F /* ProfileViewController.swift */,
+				FBE07CC81F7C2A4500CF1A3F /* ProfileViewController.xib */,
+			);
+			name = ViewProfile;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -313,6 +331,7 @@
 				1CAFFC711F797FA200B79F11 /* LaunchScreen.storyboard in Resources */,
 				1CAFFC6E1F797FA200B79F11 /* Assets.xcassets in Resources */,
 				FBD844441F798B1D00A8E352 /* RootViewController.xib in Resources */,
+				FBE07CCA1F7C2A4500CF1A3F /* ProfileViewController.xib in Resources */,
 				1CDB6A231F7995EC003A2BB1 /* StartMyCollectionViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -511,7 +530,9 @@
 				1CDB6A221F7995EC003A2BB1 /* StartMyCollectionViewController.swift in Sources */,
 				FB6B911B1F7C195000910B49 /* AnimatedTransition.swift in Sources */,
 				FBD844431F798B1D00A8E352 /* RootViewController.swift in Sources */,
+				FBE07CC91F7C2A4500CF1A3F /* ProfileViewController.swift in Sources */,
 				1CAFFC671F797FA200B79F11 /* AppDelegate.swift in Sources */,
+				FB9D84801F7D948800EC1B5E /* LucienTheme.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

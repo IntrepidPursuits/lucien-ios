@@ -28,6 +28,11 @@ final class RootViewController: UIViewController, GIDSignInDelegate, GIDSignInUI
         GIDSignIn.sharedInstance().signOut()
     }
 
+    @IBAction func viewProfileButtonPressed(_ sender: UIButton) {
+        let viewProfileController = ProfileViewController()
+        present(viewProfileController, animated: true, completion: nil)
+    }
+
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         guard error == nil else { print("\(error.localizedDescription)"); return }
         guard user.authentication.idToken != nil else { return }
