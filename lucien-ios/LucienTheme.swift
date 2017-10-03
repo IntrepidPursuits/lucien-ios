@@ -10,68 +10,29 @@ import Foundation
 import UIKit
 
 final class LucienTheme {
+
     // MARK: - Fonts
 
     enum Fonts {
-        enum Muli: String {
-            case black = "Muli-Black"
-            case blackItalic = "Muli-BlackItalic"
-            case bold = "Muli-Bold"
-            case boldItalic = "Muli-BoldItalic"
-            case extraBold = "Muli-ExtraBold"
-            case extraBoldItalic = "Muli-ExtraBoldItalic"
-            case extraLight = "Muli-ExtraLightItalic"
-            case extraLightItalic = "Muli-ExtraLight"
-            case italic = "Muli-Italic"
-            case light = "Muli-Light"
-            case lightItalic = "Muli-LightItalic"
-            case regular = "Muli-Regular"
-            case semiBold = "Muli-SemiBold"
-            case semiBoldItalic = "Muli-SemiBoldItalic"
 
-            func getFont(size: CGFloat) -> UIFont? {
-                switch self {
-                case .black :
-                    return UIFont(name: rawValue, size: size)
-                case .blackItalic:
-                    return UIFont(name: rawValue, size: size)
-                case .bold :
-                    return UIFont(name: rawValue, size: size)
-                case .boldItalic:
-                    return UIFont(name: rawValue, size: size)
-                case .extraBold:
-                    return UIFont(name: rawValue, size: size)
-                case .extraBoldItalic:
-                    return UIFont(name: rawValue, size: size)
-                case .extraLight:
-                    return UIFont(name: rawValue, size: size)
-                case .extraLightItalic:
-                    return UIFont(name: rawValue, size: size)
-                case .italic:
-                    return UIFont(name: rawValue, size: size)
-                case .light:
-                    return UIFont(name: rawValue, size: size)
-                case .lightItalic:
-                    return UIFont(name: rawValue, size: size)
-                case .regular:
-                    return UIFont(name: rawValue, size: size)
-                case .semiBold:
-                    return UIFont(name: rawValue, size: size)
-                case .semiBoldItalic:
-                    return UIFont(name: rawValue, size: size)
-                }
-            }
-        }
-        enum PermanentMarker: String {
-            case regular = "PermanentMarker-Regular"
+        // Muli
+        static func muliBlack(size: CGFloat) -> UIFont? { return UIFont(name: "Muli-Black", size: size) }
+        static func muliBlackItalic(size: CGFloat) -> UIFont? { return UIFont(name: "Muli-BlackItalic", size: size) }
+        static func muliBold(size: CGFloat) -> UIFont? { return UIFont(name: "Muli-Bold", size: size) }
+        static func muliBoldItalic(size: CGFloat) -> UIFont? { return UIFont(name: "Muli-BoldItalic", size: size) }
+        static func muliExtraBold(size: CGFloat) -> UIFont? { return UIFont(name: "Muli-ExtraBold", size: size) }
+        static func muliExtraBoldItalic(size: CGFloat) -> UIFont? { return UIFont(name: "Muli-ExtraBoldItalic", size: size) }
+        static func muliExtraLight(size: CGFloat) -> UIFont? { return UIFont(name: "Muli-ExtraLightItalic", size: size) }
+        static func muliExtraLightItalic(size: CGFloat) -> UIFont? { return UIFont(name: "Muli-ExtraLight", size: size) }
+        static func muliItalic(size: CGFloat) -> UIFont? { return UIFont(name: "Muli-Italic", size: size) }
+        static func muliLight(size: CGFloat) -> UIFont? { return UIFont(name: "Muli-Light", size: size) }
+        static func muliLightItalic(size: CGFloat) -> UIFont? { return UIFont(name: "Muli-LightItalic", size: size) }
+        static func muliRegular(size: CGFloat) -> UIFont? { return UIFont(name: "Muli-Regular", size: size) }
+        static func muliSemiBold(size: CGFloat) -> UIFont? { return UIFont(name: "Muli-SemiBold", size: size) }
+        static func muliSemiBoldItalic(size: CGFloat) -> UIFont? { return UIFont(name:  "Muli-SemiBoldItalic", size: size) }
 
-            func getFont(size: CGFloat) -> UIFont? {
-                switch self {
-                case .regular:
-                    return UIFont(name: rawValue, size: size)
-                }
-            }
-        }
+        // PermanentMarker
+        static func permanentMarkerRegular(size: CGFloat) -> UIFont? { return UIFont(name:  "PermanentMarker-Regular", size: size) }
     }
 
     // MARK: - Colors
