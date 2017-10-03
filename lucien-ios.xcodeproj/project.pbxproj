@@ -11,6 +11,7 @@
 		1C07CBF51F7AE1FD007C66D0 /* AddComicViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C07CBF31F7AE1FD007C66D0 /* AddComicViewController.xib */; };
 		1C182A2F1F82CA70001566E1 /* Comic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C182A2E1F82CA70001566E1 /* Comic.swift */; };
 		1C182A321F82D1C1001566E1 /* RawRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C182A311F82D1C1001566E1 /* RawRepresentable.swift */; };
+		1CAE48D81F8412960087E96E /* LucienConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAE48D71F8412960087E96E /* LucienConstants.swift */; };
 		1CAFFC671F797FA200B79F11 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAFFC661F797FA200B79F11 /* AppDelegate.swift */; };
 		1CAFFC6E1F797FA200B79F11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CAFFC6D1F797FA200B79F11 /* Assets.xcassets */; };
 		1CAFFC711F797FA200B79F11 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CAFFC6F1F797FA200B79F11 /* LaunchScreen.storyboard */; };
@@ -68,6 +69,7 @@
 		1C07CBF31F7AE1FD007C66D0 /* AddComicViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddComicViewController.xib; sourceTree = "<group>"; };
 		1C182A2E1F82CA70001566E1 /* Comic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comic.swift; sourceTree = "<group>"; };
 		1C182A311F82D1C1001566E1 /* RawRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawRepresentable.swift; sourceTree = "<group>"; };
+		1CAE48D71F8412960087E96E /* LucienConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LucienConstants.swift; sourceTree = "<group>"; };
 		1CAFFC631F797FA200B79F11 /* lucien-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "lucien-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CAFFC661F797FA200B79F11 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1CAFFC6D1F797FA200B79F11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 				1CAFFC6F1F797FA200B79F11 /* LaunchScreen.storyboard */,
 				1CDB6A251F79A52D003A2BB1 /* AddNewComicBook */,
 				1CDBD86E1F7C26B800408826 /* LucienTheme.swift */,
+				1CAE48D71F8412960087E96E /* LucienConstants.swift */,
 			);
 			path = "lucien-ios";
 			sourceTree = "<group>";
@@ -645,6 +648,7 @@
 				1CDBD86F1F7C26B800408826 /* LucienTheme.swift in Sources */,
 				FBD844431F798B1D00A8E352 /* RootViewController.swift in Sources */,
 				FBE07CC91F7C2A4500CF1A3F /* ProfileViewController.swift in Sources */,
+				1CAE48D81F8412960087E96E /* LucienConstants.swift in Sources */,
 				1CAFFC671F797FA200B79F11 /* AppDelegate.swift in Sources */,
 				1C07CBF41F7AE1FD007C66D0 /* AddComicViewController.swift in Sources */,
 				1C182A321F82D1C1001566E1 /* RawRepresentable.swift in Sources */,

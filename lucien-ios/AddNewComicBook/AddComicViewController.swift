@@ -55,6 +55,7 @@ final class AddComicViewController: UIViewController, UIPickerViewDelegate, UIPi
 
     @objc private func backButtonTapped() {
         dismiss(animated: true, completion: nil)
+        deregisterFromKeyboardNotifications()
     }
 
     private func configureNavigationController() {
@@ -114,7 +115,7 @@ final class AddComicViewController: UIViewController, UIPickerViewDelegate, UIPi
 
         // Release Date
         configureTextFieldBorder(textField: releaseDateTextField)
-        releaseDateTextField.attributedPlaceholder = createPlaceHolderAttributedString(placeholder: "1943")
+        releaseDateTextField.attributedPlaceholder = createPlaceHolderAttributedString(placeholder: "Year of Release")
 
         // Genre
         configurePickerUIButton(button: selectAGenreButton)
@@ -231,7 +232,17 @@ final class AddComicViewController: UIViewController, UIPickerViewDelegate, UIPi
         bottomBorder.backgroundColor = LucienTheme.silver.cgColor
     }
 
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if let nextTextField = textField.superview?.superview?.viewWithTag(textField.tag + 1) as? UITextField {
+            nextTextField.becomeFirstResponder()
+        } else {
+            textField.resignFirstResponder()
+        }
+        return false
+    }
+
     // MARK: - Keyboard Methods
+
     func registerForKeyboardNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(AddComicViewController.keyboardWasShown), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(AddComicViewController.keyboardWillBeHidden), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
@@ -248,7 +259,7 @@ final class AddComicViewController: UIViewController, UIPickerViewDelegate, UIPi
                 return
         }
         scrollView.isScrollEnabled = true
-        let contentInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: keyboardSize.height, right: 0.0)
+        let contentInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: keyboardSize.height + LucienConstants.keyBoardHieghtPadding, right: 0.0)
         scrollView.contentInset = contentInsets
         scrollView.scrollIndicatorInsets = contentInsets
         var aRect = view.frame
