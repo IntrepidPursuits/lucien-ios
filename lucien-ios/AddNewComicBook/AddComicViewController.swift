@@ -31,7 +31,6 @@ final class AddComicViewController: UIViewController, UIPickerViewDelegate, UIPi
     @IBOutlet private weak var selectADateButton: UIButton!
     @IBOutlet private weak var selectAGenreButton: UIButton!
     @IBOutlet private weak var selectAConditionButton: UIButton!
-    @IBOutlet private weak var datePicker: UIDatePicker!
     @IBOutlet private weak var conditionPicker: UIPickerView!
     @IBOutlet private weak var genrePicker: UIPickerView!
     @IBOutlet private weak var scrollView: UIScrollView!

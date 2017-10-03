@@ -28,7 +28,6 @@
                 <outlet property="conditionPicker" destination="1zr-ip-Ltu" id="wNw-n3-tiT"/>
                 <outlet property="coverPhotoButton" destination="IDD-iP-gW7" id="mbO-dc-cWI"/>
                 <outlet property="coverPhotoLabel" destination="ZeW-7M-5vu" id="Fqp-sQ-Q6j"/>
-                <outlet property="datePicker" destination="Ayn-n0-Cph" id="z4L-pM-ub9"/>
                 <outlet property="genreBottomLine" destination="UCL-mM-64f" id="xbj-mc-XlW"/>
                 <outlet property="genreLabel" destination="uFa-hA-XU1" id="rjc-Tc-A75"/>
                 <outlet property="genrePicker" destination="fCM-4s-5OC" id="EEm-pY-bqH"/>
@@ -293,12 +292,6 @@ Photo</string>
                                                 <action selector="selectADateButtonTapped:" destination="-1" eventType="touchUpInside" id="4r4-bM-0jR"/>
                                             </connections>
                                         </button>
-                                        <datePicker hidden="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Ayn-n0-Cph">
-                                            <rect key="frame" x="0.0" y="72" width="320" height="0.0"/>
-                                            <date key="date" timeIntervalSinceReferenceDate="528401103.45546001">
-                                                <!--2017-09-29 18:05:03 +0000-->
-                                            </date>
-                                        </datePicker>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5JR-bX-0to">
                                             <rect key="frame" x="0.0" y="78" width="320" height="1"/>
                                             <color key="backgroundColor" red="0.83529411764705885" green="0.83529411764705885" blue="0.85098039215686272" alpha="1" colorSpace="calibratedRGB"/>
