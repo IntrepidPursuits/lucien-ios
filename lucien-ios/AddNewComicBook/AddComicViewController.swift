@@ -241,6 +241,20 @@ final class AddComicViewController: UIViewController, UIPickerViewDelegate, UIPi
         return false
     }
 
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if textField == releaseDateTextField {
+            let maxLength = 3
+            let currentString = textField.text
+            if let updatedString = currentString as NSString? {
+                return updatedString.length <= maxLength
+            } else {
+                return false
+            }
+        } else {
+            return false
+        }
+    }
+
     // MARK: - Keyboard Methods
 
     func registerForKeyboardNotifications() {
