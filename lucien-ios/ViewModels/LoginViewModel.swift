@@ -20,4 +20,15 @@ final class LoginViewModel {
             }
         }
     }
+
+    func authenticateUser(code: String) {
+        lucienAPIClient.authenticateUser(code: code) { response in
+            switch response {
+            case .success(let user):
+                print(user)
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
 }

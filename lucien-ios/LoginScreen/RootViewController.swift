@@ -50,11 +50,11 @@ final class RootViewController: UIViewController, GIDSignInDelegate, GIDSignInUI
 
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         guard error == nil else { print("\(error.localizedDescription)"); return }
-        loginViewModel.getCurrentUser()
+        guard let idToken = user.authentication.idToken else { return }
+        loginViewModel.authenticateUser(code: idToken)
         let startMyCollectionViewController = StartMyCollectionViewController()
         present(startMyCollectionViewController, animated: true, completion: nil)
     }
-
 }
 
 extension RootViewController: UIViewControllerTransitioningDelegate {

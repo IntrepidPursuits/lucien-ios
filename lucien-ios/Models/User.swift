@@ -7,8 +7,6 @@
 //
 import UIKit
 
-
-
 struct User: Decodable {
     var firstName: String
     var lastName: String
@@ -21,6 +19,7 @@ struct User: Decodable {
 
     enum CodingKeys: String, CodingKey {
         case user
+        case token
     }
     enum UserKeys: String, CodingKey {
         case firstName = "first_name"
@@ -34,6 +33,8 @@ struct User: Decodable {
     }
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
+        let token = try values.decode(String.self, forKey: .token)
+        LucienRequest.authorizationHeader = token
         let userContainer = try values.nestedContainer(keyedBy: UserKeys.self, forKey: .user)
         firstName = try userContainer.decode(String.self, forKey: .firstName)
         lastName = try userContainer.decode(String.self, forKey: .lastName)
@@ -44,9 +45,4 @@ struct User: Decodable {
         createdAt = try userContainer.decode(Date.self, forKey: .createdAt)
         updatedAt = try userContainer.decode(Date.self, forKey: .updatedAt)
     }
-
 }
-
-
-
-

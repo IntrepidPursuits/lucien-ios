@@ -11,7 +11,7 @@ enum LucienRequest: Request {
 
     static let baseURL = "https://lucien-server-staging.herokuapp.com"
     static let acceptHeader: String? = "application/vnd.lucien-app.com; version=1"
-    static let authorizationHeader: String? = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyNDU1NTZlMi0zODEwLTRmNmYtYjhiZi1lZTQ2YWQ5YTg2ODIiLCJleHAiOjE1MDkzMDI2MzB9.0WYbXPTsbNYrwAWTOqQC921w-w1sxJBCvJu94-lFVN8"
+    static var authorizationHeader: String?
 
     case authenticate(code: String)
     case getCurrentUser()
@@ -27,7 +27,7 @@ enum LucienRequest: Request {
     var path: String {
         switch self {
         case .authenticate:
-            return "/api/V1/authentications"
+            return "/authentications"
         case .getCurrentUser:
             return "/current_user"
         }
@@ -44,8 +44,8 @@ enum LucienRequest: Request {
 
     var queryParameters: [String : Any]? {
         switch self {
-        case .authenticate(let code):
-            return ["code" : code]
+        case .authenticate:
+            return nil
         case .getCurrentUser:
             return nil
         }
@@ -53,8 +53,8 @@ enum LucienRequest: Request {
 
     var bodyParameters: [String : Any]? {
         switch self {
-        case .authenticate:
-            return nil
+        case .authenticate(let code):
+            return ["auth": ["token": code]]
         case .getCurrentUser:
             return nil
         }

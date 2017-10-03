@@ -6,13 +6,22 @@
 //  Copyright © 2017 Intrepid Pursuits. All rights reserved.
 //
 
-class LucienAPIClient: APIClient {
+final class LucienAPIClient: APIClient {
 
-    func authenticateUser(code: String) {
+    func authenticateUser(code: String, completion: @escaping (Result<User>) -> Void) {
         let lucienRequest = LucienRequest.authenticate(code: code)
         let urlRequest = lucienRequest.urlRequest
         self.sendRequest(urlRequest) { response in
-            print(response)
+            switch response {
+            case .success(let result):
+                guard let result = result else { return }
+                let decoder = JSONDecoder()
+                decoder.dateDecodingStrategy = .iso8601
+                guard let user = try? decoder.decode(User.self, from: result) else { return }
+                completion(.success(user))
+            case .failure(let error):
+                completion(.failure(error))
+            }
         }
     }
 
@@ -27,7 +36,6 @@ class LucienAPIClient: APIClient {
                 decoder.dateDecodingStrategy = .iso8601
                 guard let user = try? decoder.decode(User.self, from: result) else { return }
                 completion(.success(user))
-
             case .failure(let error):
                 completion(.failure(error))
             }
