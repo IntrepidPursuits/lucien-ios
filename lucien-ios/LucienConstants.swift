@@ -9,6 +9,5 @@
 import Foundation
 
 final class LucienConstants {
-    static let keyBoardHieghtPadding = CGFloat(40)
+    static let keyBoardHieghtPadding = CGFloat(50)
 }
-
