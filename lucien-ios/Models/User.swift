@@ -39,7 +39,12 @@ struct User: Decodable {
         firstName = try userContainer.decode(String.self, forKey: .firstName)
         lastName = try userContainer.decode(String.self, forKey: .lastName)
         email = try userContainer.decode(String.self, forKey: .email)
-        googlePictureURL = try userContainer.decode(String.self, forKey: .googlePictureURL)
+//        googlePictureURL = userContainer.decode(String.self, forKey: .googlePictureURL)
+        do {
+            googlePictureURL = try userContainer.decode(String.self, forKey: .googlePictureURL)
+        } catch _ {
+            googlePictureURL = "eeerrs"
+        }
         userID = try userContainer.decode(String.self, forKey: .userID)
         googleUserID = try userContainer.decode(String.self, forKey: .googleUserID)
         createdAt = try userContainer.decode(Date.self, forKey: .createdAt)

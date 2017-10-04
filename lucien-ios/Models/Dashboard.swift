@@ -9,6 +9,7 @@
 import Foundation
 
 struct Dashboard: Decodable {
+
     var myCollectionCount: Int
 
     enum CodingKeys: String, CodingKey {

@@ -75,22 +75,11 @@ final class AddComicViewController: UIViewController, AlertDisplaying {
     }
 
     private func configureNavigationController() {
-        setNavBarBackground()
-        setNavBarTitle()
+        navigationItem.title = "Add Comic"
+        navigationController?.navigationBar.setNavBarTitle()
+        navigationController?.navigationBar.setNavBarBackground()
         setNavBarBackButton()
         setNavBarFinishButton()
-    }
-
-    private func setNavBarBackground() {
-        navigationController?.navigationBar.isTranslucent = true
-        navigationController?.navigationBar.barStyle = .default
-        navigationController?.navigationBar.barTintColor = LucienTheme.white
-        navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
-    }
-
-    private func setNavBarTitle() {
-        navigationController?.viewControllers[0].title = "Add Book"
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: LucienTheme.Fonts.permanentMarkerRegular(size: 30) ?? UIFont()]
     }
 
     private func setNavBarBackButton() {
