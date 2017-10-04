@@ -10,5 +10,8 @@ import UIKit
 
 final class StartMyCollectionViewController: UIViewController {
     @IBAction func startCollectionButtonPressed(_ sender: UIButton) {
+        let addComicViewController = AddComicViewController()
+        let addComicNavigationController = UINavigationController(rootViewController: addComicViewController)
+        present(addComicNavigationController, animated: true, completion: nil)
     }
 }

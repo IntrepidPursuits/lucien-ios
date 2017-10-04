@@ -10,36 +10,39 @@ import Foundation
 import UIKit
 
 final class LucienTheme {
+
     // MARK: - Fonts
 
     enum Fonts {
-        enum Muli: String {
-            case black = "Muli-Black"
-            case blackItalic = "Muli-BlackItalic"
-            case bold = "Muli-Bold"
-            case boldItalic = "Muli-BoldItalic"
-            case extraBold = "Muli-ExtraBold"
-            case extraBoldItalic = "Muli-ExtraBoldItalic"
-            case extraLight = "Muli-ExtraLightItalic"
-            case extraLightItalic = "Muli-ExtraLight"
-            case italic = "Muli-Italic"
-            case light = "Muli-Light"
-            case lightItalic = "Muli-LightItalic"
-            case regular = "Muli-Regular"
-            case semiBold = "Muli-SemiBold"
-            case semiBoldItalic = "Muli-SemiBoldItalic"
-        }
-        enum PermanentMarker: String {
-            case regular = "PermanentMarker-Regular"
-        }
+
+        // Muli
+        static func muliBlack(size: CGFloat) -> UIFont? { return UIFont(name: "Muli-Black", size: size) }
+        static func muliBlackItalic(size: CGFloat) -> UIFont? { return UIFont(name: "Muli-BlackItalic", size: size) }
+        static func muliBold(size: CGFloat) -> UIFont? { return UIFont(name: "Muli-Bold", size: size) }
+        static func muliBoldItalic(size: CGFloat) -> UIFont? { return UIFont(name: "Muli-BoldItalic", size: size) }
+        static func muliExtraBold(size: CGFloat) -> UIFont? { return UIFont(name: "Muli-ExtraBold", size: size) }
+        static func muliExtraBoldItalic(size: CGFloat) -> UIFont? { return UIFont(name: "Muli-ExtraBoldItalic", size: size) }
+        static func muliExtraLight(size: CGFloat) -> UIFont? { return UIFont(name: "Muli-ExtraLightItalic", size: size) }
+        static func muliExtraLightItalic(size: CGFloat) -> UIFont? { return UIFont(name: "Muli-ExtraLight", size: size) }
+        static func muliItalic(size: CGFloat) -> UIFont? { return UIFont(name: "Muli-Italic", size: size) }
+        static func muliLight(size: CGFloat) -> UIFont? { return UIFont(name: "Muli-Light", size: size) }
+        static func muliLightItalic(size: CGFloat) -> UIFont? { return UIFont(name: "Muli-LightItalic", size: size) }
+        static func muliRegular(size: CGFloat) -> UIFont? { return UIFont(name: "Muli-Regular", size: size) }
+        static func muliSemiBold(size: CGFloat) -> UIFont? { return UIFont(name: "Muli-SemiBold", size: size) }
+        static func muliSemiBoldItalic(size: CGFloat) -> UIFont? { return UIFont(name:  "Muli-SemiBoldItalic", size: size) }
+
+        // PermanentMarker
+        static func permanentMarkerRegular(size: CGFloat) -> UIFont? { return UIFont(name:  "PermanentMarker-Regular", size: size) }
     }
 
     // MARK: - Colors
 
     static let coolGrey = UIColor(redVal: 143, greenVal: 144, blueVal: 154, alphaVal: 1)
+    static let dark = UIColor(redVal: 43, greenVal: 45, blueVal: 66, alphaVal: 1)
     static let silver = UIColor(redVal: 213, greenVal: 213, blueVal: 217, alphaVal: 1)
-    static let dark = UIColor(redVal: 43, greenVal: 45, blueVal: 66, alphaVal: 1.0)
-
+    static let white = UIColor(redVal: 255, greenVal: 255, blueVal: 255, alphaVal: 0.85)
+    static let finishButtonGrey = UIColor(redVal: 55, greenVal: 58, blueVal: 78, alphaVal: 0.2)
+    static let textFieldBottomBorderWarning = UIColor(redVal: 255, greenVal: 59, blueVal: 83, alphaVal: 1)
 }
 
 extension UIColor {
