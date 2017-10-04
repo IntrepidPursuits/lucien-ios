@@ -20,8 +20,8 @@ struct User: Decodable {
 
     enum CodingKeys: String, CodingKey {
         case user
-        case token
     }
+
     enum UserKeys: String, CodingKey {
         case firstName = "first_name"
         case lastName = "last_name"
@@ -32,15 +32,19 @@ struct User: Decodable {
         case createdAt = "created_at"
         case updatedAt = "updated_at"
     }
+
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        let token = try values.decode(String.self, forKey: .token)
-        LucienRequest.authorizationHeader = token
         let userContainer = try values.nestedContainer(keyedBy: UserKeys.self, forKey: .user)
         firstName = try userContainer.decode(String.self, forKey: .firstName)
         lastName = try userContainer.decode(String.self, forKey: .lastName)
         email = try userContainer.decode(String.self, forKey: .email)
-        googlePictureURL = try userContainer.decode(String.self, forKey: .googlePictureURL)
+//        googlePictureURL = userContainer.decode(String.self, forKey: .googlePictureURL)
+        do {
+            googlePictureURL = try userContainer.decode(String.self, forKey: .googlePictureURL)
+        } catch _ {
+            googlePictureURL = "eeerrs"
+        }
         userID = try userContainer.decode(String.self, forKey: .userID)
         googleUserID = try userContainer.decode(String.self, forKey: .googleUserID)
         createdAt = try userContainer.decode(Date.self, forKey: .createdAt)

@@ -13,7 +13,7 @@ enum LucienAPIError: Error {
 
 final class LucienAPIClient: APIClient {
 
-    func authenticateUser(code: String, completion: @escaping (Result<User>) -> Void) {
+    func authenticateUser(code: String, completion: @escaping (Result<AuthenticationResponse>) -> Void) {
         let lucienRequest = LucienRequest.authenticate(code: code)
         let urlRequest = lucienRequest.urlRequest
         self.sendRequest(urlRequest) { response in
@@ -23,11 +23,8 @@ final class LucienAPIClient: APIClient {
                     return completion(.failure(LucienAPIError.noResult))
                 }
                 let decoder = JSONDecoder()
-                decoder.dateDecodingStrategy = .iso8601
-                guard let user = try? decoder.decode(User.self, from: result) else {
-                    return completion(.failure(LucienAPIError.cannotDecode))
-                }
-                completion(.success(user))
+                guard let authenticationResponse = try? decoder.decode(AuthenticationResponse.self, from: result) else { return }
+                completion(.success(authenticationResponse))
             case .failure(let error):
                 completion(.failure(error))
             }
@@ -35,7 +32,7 @@ final class LucienAPIClient: APIClient {
     }
 
     func getCurrentUser(completion: @escaping (Result<User>) -> Void) {
-        let lucienRequest = LucienRequest.getCurrentUser
+        let lucienRequest = LucienRequest.getCurrentUser()
         let urlRequest = lucienRequest.urlRequest
         self.sendRequest(urlRequest) { response in
             switch response {
@@ -45,10 +42,36 @@ final class LucienAPIClient: APIClient {
                 }
                 let decoder = JSONDecoder()
                 decoder.dateDecodingStrategy = .iso8601
-                guard let user = try? decoder.decode(User.self, from: result) else {
-                    return completion(.failure(LucienAPIError.cannotDecode))
+                do {
+                    let user = try decoder.decode(User.self, from: result)
+                    completion(.success(user))
+
+                } catch(let error) {
+                    print(error)
+                    completion(.failure(error))
                 }
-                completion(.success(user))
+//                guard let user = try? decoder.decode(User.self, from: result) else {
+//                    return
+//                }
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+
+    func getDashboard(completion: @escaping (Result<Dashboard>) -> Void) {
+        let lucienRequest = LucienRequest.getDashboard()
+        let urlRequest = lucienRequest.urlRequest
+        self.sendRequest(urlRequest) { response in
+            print("in LucienAPIClient getDashboard")
+            print(response)
+            switch response {
+            case .success(let result):
+                guard let result = result else { return }
+                let decoder = JSONDecoder()
+                decoder.dateDecodingStrategy = .iso8601
+                guard let myCollection = try? decoder.decode(Dashboard.self, from: result) else { return }
+                completion(.success(myCollection))
             case .failure(let error):
                 completion(.failure(error))
             }

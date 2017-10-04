@@ -58,28 +58,15 @@ final class AddComicViewController: UIViewController, UIPickerViewDelegate, UIPi
 
     // MARK: - Private Instance Methods
 
-    @objc private func backButtonTapped() {
-        dismiss(animated: true, completion: nil)
-        deregisterFromKeyboardNotifications()
-    }
+//    @objc func backButtonTapped() {
+//        dismiss(animated: true, completion: nil)
+//    }
 
     private func configureNavigationController() {
-        setNavBarBackground()
-        setNavBarTitle()
+        UINavigationBar.setNavBarTitle(navigationController: navigationController!, title: "Add Book")
+        UINavigationBar.setNavBarBackground(navigationController: navigationController!)
         setNavBarBackButton()
         setNavBarFinishButton()
-    }
-
-    private func setNavBarBackground() {
-        navigationController?.navigationBar.isTranslucent = true
-        navigationController?.navigationBar.barStyle = .default
-        navigationController?.navigationBar.barTintColor = LucienTheme.white
-        navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
-    }
-
-    private func setNavBarTitle() {
-        navigationController?.viewControllers[0].title = "Add Book"
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: LucienTheme.Fonts.permanentMarkerRegular(size: 30) ?? UIFont()]
     }
 
     private func setNavBarBackButton() {

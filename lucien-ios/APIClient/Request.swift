@@ -16,9 +16,10 @@ public enum HTTPMethod: String {
 }
 
 public protocol Request {
+
     static var baseURL: String { get }
-    static var acceptHeader: String { get }
-    static var authorizationHeader: String? { get }
+    static var acceptHeader: String? { get }
+    static var authorizationHeader: String { get set }
 
     var method: HTTPMethod { get }
     var path: String { get }
