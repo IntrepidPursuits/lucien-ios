@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class DashboardViewController: UIViewController {
+final class DashboardViewController: UIViewController, UIScrollViewDelegate {
 
     @IBOutlet private weak var dashboardScrollView: UIScrollView!
 

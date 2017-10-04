@@ -6,14 +6,12 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DashboardViewController" customModule="lucien_ios" customModuleProvider="target">
             <connections>
-                <outlet property="dashboardScrollView" destination="5Bd-Ir-PZh" id="H4N-6n-8y6"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -172,13 +170,6 @@
                 </scrollView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-            <constraints>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="5Bd-Ir-PZh" secondAttribute="bottom" id="YiJ-cc-oie"/>
-                <constraint firstItem="5Bd-Ir-PZh" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="ZBw-KF-zH7"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="5Bd-Ir-PZh" secondAttribute="trailing" id="cm6-Bq-xio"/>
-                <constraint firstItem="5Bd-Ir-PZh" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="zJ9-KQ-ILg"/>
-            </constraints>
-            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="-64.5" y="348"/>
         </view>

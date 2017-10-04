@@ -49,7 +49,7 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-            </subviews>
+              </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="U31-Nv-4XI" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="0j5-0p-Vk8"/>

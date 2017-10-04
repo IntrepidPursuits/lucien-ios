@@ -109,6 +109,7 @@ enum LucienRequest: Request {
         switch self {
         case .authenticate, .getCurrentUser, .getDashboard, .hasCollection, .createPhotoURL, .addComicBook, .editComicBook:
             return "Application/JSON"
+
         }
     }
 }

@@ -78,8 +78,8 @@
                                 <attributedString key="attributedTitle">
                                     <fragment>
                                         <string key="content">Take
-Cover
-Photo</string>
+                                            Cover
+                                            Photo</string>
                                         <attributes>
                                             <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <font key="NSFont" size="16" name="Muli-Bold"/>
