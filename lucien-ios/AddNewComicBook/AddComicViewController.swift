@@ -170,9 +170,7 @@ final class AddComicViewController: UIViewController, UIPickerViewDelegate, UIPi
     }
 
     @objc private func releaseDateEditingChanged(_ textField: UITextField) {
-        guard let text = textField.text else {
-            return
-        }
+        guard let text = textField.text else { return }
         if text.characters.count > 4 {
             textField.deleteBackward()
         }
@@ -184,6 +182,7 @@ final class AddComicViewController: UIViewController, UIPickerViewDelegate, UIPi
     }
 
     // MARK: - IBOutlet Methods
+
     @IBAction func selectGenreButtonTapped(_ sender: UIButton) {
         UIView.animate(
             withDuration: 0.3,
@@ -277,18 +276,18 @@ final class AddComicViewController: UIViewController, UIPickerViewDelegate, UIPi
     }
 
     @objc func keyboardWasShown(notification: NSNotification) {
-        guard let info = notification.userInfo,
-              let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue.size else {
-                return
-        }
+        guard
+            let info = notification.userInfo,
+            let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue.size
+            else { return }
         scrollView.isScrollEnabled = true
-        let contentInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: keyboardSize.height + LucienConstants.keyBoardHieghtPadding, right: 0.0)
+        let contentInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: keyboardSize.height + LucienConstants.keyboardHeightPadding, right: 0.0)
         scrollView.contentInset = contentInsets
         scrollView.scrollIndicatorInsets = contentInsets
-        var aRect = view.frame
-        aRect.size.height -= keyboardSize.height
+        var viewFrame = view.frame
+        viewFrame.size.height -= keyboardSize.height
         if let activeField = activeField {
-            if  !aRect.contains(activeField.frame.origin) {
+            if  !viewFrame.contains(activeField.frame.origin) {
                 scrollView.scrollRectToVisible(activeField.frame, animated: true)
             }
         }
