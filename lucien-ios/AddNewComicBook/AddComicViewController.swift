@@ -28,33 +28,34 @@ final class AddComicViewController: UIViewController, UIPickerViewDelegate, UIPi
     @IBOutlet private weak var releaseDateLabel: UILabel!
     @IBOutlet private weak var genreLabel: UILabel!
     @IBOutlet private weak var conditionLabel: UILabel!
-    @IBOutlet private weak var selectADateButton: UIButton!
     @IBOutlet private weak var selectAGenreButton: UIButton!
     @IBOutlet private weak var selectAConditionButton: UIButton!
-    @IBOutlet private weak var datePicker: UIDatePicker!
     @IBOutlet private weak var conditionPicker: UIPickerView!
     @IBOutlet private weak var genrePicker: UIPickerView!
     @IBOutlet private weak var scrollView: UIScrollView!
-    @IBOutlet private weak var releaseDateBottomLine: UIView!
     @IBOutlet private weak var genreBottomLine: UIView!
     @IBOutlet private weak var conditionBottomLine: UIView!
     @IBOutlet private weak var comicTitleWarningLabel: UILabel!
+    @IBOutlet private weak var releaseDateTextField: UITextField!
 
     // MARK: - Private Variables
 
     private var didCompleteForm = false
     private var finishButton = UIBarButtonItem()
+    private var activeField: UITextField?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         configureNavigationController()
         configureViewController()
+        registerForKeyboardNotifications()
     }
 
     // MARK: - Private Instance Methods
 
     @objc private func backButtonTapped() {
         dismiss(animated: true, completion: nil)
+        deregisterFromKeyboardNotifications()
     }
 
     private func configureNavigationController() {
@@ -113,7 +114,20 @@ final class AddComicViewController: UIViewController, UIPickerViewDelegate, UIPi
         publisherTextField.attributedPlaceholder = createPlaceHolderAttributedString(placeholder: "Marvel, DC Comics, Image, Dark Horse…")
 
         // Release Date
-        configurePickerUIButton(button: selectADateButton)
+        configureTextFieldBorder(textField: releaseDateTextField)
+        releaseDateTextField.attributedPlaceholder = createPlaceHolderAttributedString(placeholder: "Year of Release")
+        releaseDateTextField.addTarget(self, action: #selector(AddComicViewController.releaseDateEditingChanged), for: .editingChanged)
+
+        let releaseDateToolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 50))
+        releaseDateToolBar.barStyle = UIBarStyle.default
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
+        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.done, target: self, action: #selector(AddComicViewController.doneButtonTapped))
+        var barButtonItems = [UIBarButtonItem]()
+        barButtonItems.append(flexSpace)
+        barButtonItems.append(doneButton)
+        releaseDateToolBar.items = barButtonItems
+        releaseDateToolBar.sizeToFit()
+        releaseDateTextField.inputAccessoryView = releaseDateToolBar
 
         // Genre
         configurePickerUIButton(button: selectAGenreButton)
@@ -155,20 +169,19 @@ final class AddComicViewController: UIViewController, UIPickerViewDelegate, UIPi
         finishButton.tintColor = LucienTheme.dark
     }
 
-    // MARK: - IBOutlet Methods
-
-    @IBAction func selectADateButtonTapped(_ sender: UIButton) {
-        UIView.animate(
-            withDuration: 0.3,
-            animations: {
-                self.datePicker.isHidden = false
-            },
-            completion: { _ in
-                let offset = CGPoint(x: 0, y: self.scrollView.contentSize.height - self.scrollView.bounds.size.height)
-                self.scrollView.setContentOffset(offset, animated: true)
-            }
-        )
+    @objc private func releaseDateEditingChanged(_ textField: UITextField) {
+        guard let text = textField.text else { return }
+        if text.characters.count > 4 {
+            textField.deleteBackward()
+        }
     }
+
+    @objc func doneButtonTapped() {
+        view.endEditing(true)
+        deregisterFromKeyboardNotifications()
+    }
+
+    // MARK: - IBOutlet Methods
 
     @IBAction func selectGenreButtonTapped(_ sender: UIButton) {
         UIView.animate(
@@ -215,11 +228,11 @@ final class AddComicViewController: UIViewController, UIPickerViewDelegate, UIPi
     // MARK: - UITextFieldDelegate
 
     func textFieldDidBeginEditing(_ textField: UITextField) {
+        activeField = textField
          guard let comicTitleText = comicTitleTextField.text,
                let bottomBorderSubLayer = textField.layer.sublayers,
                let comicTitleTextFieldSubLayers = comicTitleTextField.layer.sublayers else {
             return
-
         }
 
         let bottomBorder = bottomBorderSubLayer[0] as CALayer
@@ -237,8 +250,46 @@ final class AddComicViewController: UIViewController, UIPickerViewDelegate, UIPi
     }
 
     func textFieldDidEndEditing(_ textField: UITextField) {
+        activeField = nil
         guard let textFieldSubLayers = textField.layer.sublayers else { return }
         let bottomBorder = textFieldSubLayers[0] as CALayer
         bottomBorder.backgroundColor = LucienTheme.silver.cgColor
+    }
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if let nextTextField = textField.superview?.superview?.viewWithTag(textField.tag + 1) as? UITextField {
+            nextTextField.becomeFirstResponder()
+        } else {
+            textField.resignFirstResponder()
+        }
+        return false
+    }
+
+    // MARK: - Keyboard Methods
+
+    func registerForKeyboardNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(AddComicViewController.keyboardWasShown), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+    }
+
+    func deregisterFromKeyboardNotifications() {
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+    }
+
+    @objc func keyboardWasShown(notification: NSNotification) {
+        guard
+            let info = notification.userInfo,
+            let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue.size
+            else { return }
+        scrollView.isScrollEnabled = true
+        let contentInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: keyboardSize.height + LucienConstants.keyboardHeightPadding, right: 0.0)
+        scrollView.contentInset = contentInsets
+        scrollView.scrollIndicatorInsets = contentInsets
+        var viewFrame = view.frame
+        viewFrame.size.height -= keyboardSize.height
+        if let activeField = activeField {
+            if  !viewFrame.contains(activeField.frame.origin) {
+                scrollView.scrollRectToVisible(activeField.frame, animated: true)
+            }
+        }
     }
 }
