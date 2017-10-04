@@ -51,14 +51,6 @@
                         <action selector="signOutButtonPressed:" destination="-1" eventType="touchUpInside" id="s2X-ZY-6iC"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Ku-Q1-b0I">
-                    <rect key="frame" x="20" y="31" width="86" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Go to Profile"/>
-                    <connections>
-                        <action selector="viewProfileButtonPressed:" destination="-1" eventType="touchUpInside" id="3ZB-gU-utm"/>
-                    </connections>
-                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>

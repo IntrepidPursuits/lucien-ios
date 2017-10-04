@@ -16,10 +16,42 @@ final class ProfileViewController: UIViewController {
     @IBOutlet private weak var name: UILabel!
     @IBOutlet private weak var emailTitle: UILabel!
     @IBOutlet private weak var email: UILabel!
-    @IBOutlet private weak var profileTitle: UILabel!
+
+    let loginViewModel = LoginViewModel()
 
     override func viewDidLoad() {
+        configureNavigationController()
+        loginViewModel.getCurrentUser {
+            guard let currentUser = self.loginViewModel.currentUser else { return }
+            debugPrint("in debug print \(currentUser)")
+            self.name.text = currentUser.firstName + " " + currentUser.lastName
+            self.email.text = currentUser.email
+        }
+        setUpStyling()
+
         super.viewDidLoad()
+    }
+
+    @objc func back(sender: UIBarButtonItem) {
+        self.navigationController?.popViewController(animated: true)
+        // TO DO: right now there is a bug where when I press back, the Profile title remains when back to dashboard and when prompted back to Profile there is no title.
+        UINavigationBar.setNavBarTitle(navigationController: self.navigationController!, title: "Lucien")
+    }
+
+    private func configureNavigationController() {
+        guard self.navigationController != nil else { return }
+        UINavigationBar.setNavBarBackground(navigationController: self.navigationController!)
+        UINavigationBar.setNavBarTitle(navigationController: self.navigationController!, title: "Profile")
+        setNavBarBackButton()
+    }
+
+    private func setNavBarBackButton() {
+        let backButton = UIBarButtonItem(image: UIImage(named: "navBackButton"), style: .plain, target: self, action: #selector(back(sender:)))
+        backButton.tintColor = LucienTheme.dark
+        self.navigationItem.leftBarButtonItem = backButton
+    }
+
+    private func setUpStyling() {
         emptyProfilePicture.contentMode = .scaleAspectFit
         logoutButton.backgroundColor = LucienTheme.dark
         logoutButton.setTitleColor(UIColor.white, for: .normal)
@@ -28,6 +60,10 @@ final class ProfileViewController: UIViewController {
         emailTitle.textColor = LucienTheme.coolGrey
         name.textColor = LucienTheme.dark
         email.textColor = LucienTheme.dark
-        profileTitle.textColor = LucienTheme.dark
+    }
+    @IBAction func logoutButtonPressed(_ sender: UIButton) {
+        GIDSignIn.sharedInstance().signOut()
+        let rootViewController = RootViewController()
+        self.navigationController?.present(rootViewController, animated: true, completion: nil)
     }
 }

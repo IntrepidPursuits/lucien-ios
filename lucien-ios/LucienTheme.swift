@@ -34,7 +34,6 @@ final class LucienTheme {
         // PermanentMarker
         static func permanentMarkerRegular(size: CGFloat) -> UIFont? { return UIFont(name:  "PermanentMarker-Regular", size: size) }
     }
-
     // MARK: - Colors
 
     static let coolGrey = UIColor(redVal: 143, greenVal: 144, blueVal: 154, alphaVal: 1)

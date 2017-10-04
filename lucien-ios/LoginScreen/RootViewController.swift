@@ -14,7 +14,6 @@ final class RootViewController: UIViewController, GIDSignInDelegate, GIDSignInUI
     @IBOutlet private weak var appDescription: UILabel!
 
     let loginViewModel = LoginViewModel()
-
     let lucienAPIClient = LucienAPIClient()
 
     override func viewDidLoad() {
@@ -33,11 +32,6 @@ final class RootViewController: UIViewController, GIDSignInDelegate, GIDSignInUI
         GIDSignIn.sharedInstance().signOut()
     }
 
-    @IBAction func viewProfileButtonPressed(_ sender: UIButton) {
-        let viewProfileController = ProfileViewController()
-        present(viewProfileController, animated: true, completion: nil)
-    }
-
     private func addBackground() {
         let width = UIScreen.main.bounds.size.width
         let height = UIScreen.main.bounds.size.height
@@ -52,7 +46,20 @@ final class RootViewController: UIViewController, GIDSignInDelegate, GIDSignInUI
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         guard error == nil else { print("\(error.localizedDescription)"); return }
         guard let idToken = user.authentication.idToken else { return }
-        loginViewModel.authenticateUser(code: idToken)
+        loginViewModel.authenticateUser(code: idToken) {
+//            guard let currentUser = self.loginViewModel.currentUser else { return }
+//            print(currentUser)
+            self.showDashboard()
+        }
+    }
+
+    func showDashboard() {
+        let dashboardViewController = DashboardViewController()
+        let dashboardNavigationController = UINavigationController(rootViewController: dashboardViewController)
+        present(dashboardNavigationController, animated: true, completion: nil)
+    }
+
+    func showStartMyCollection() {
         let startMyCollectionViewController = StartMyCollectionViewController()
         present(startMyCollectionViewController, animated: true, completion: nil)
     }

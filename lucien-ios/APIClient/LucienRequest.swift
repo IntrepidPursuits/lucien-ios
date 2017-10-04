@@ -10,17 +10,20 @@ import Foundation
 enum LucienRequest: Request {
 
     static let baseURL = "https://lucien-server-staging.herokuapp.com"
-    static let acceptHeader = "application/vnd.lucien-app.com; version=1"
-    static var authorizationHeader: String?
+    static let acceptHeader: String? = "application/vnd.lucien-app.com; version=1"
+    static var authorizationHeader: String = ""
 
     case authenticate(code: String)
-    case getCurrentUser
+    case getCurrentUser()
+    case getDashboard()
 
     var method: HTTPMethod {
         switch self {
         case .authenticate:
             return .POST
         case .getCurrentUser:
+            return .GET
+        case .getDashboard:
             return .GET
         }
     }
@@ -31,6 +34,8 @@ enum LucienRequest: Request {
             return "/authentications"
         case .getCurrentUser:
             return "/current_user"
+        case .getDashboard:
+            return "/dashboard"
         }
     }
 
@@ -40,12 +45,16 @@ enum LucienRequest: Request {
             return false
         case .getCurrentUser:
             return true
+        case .getDashboard:
+            return true
         }
     }
 
     var queryParameters: [String : Any]? {
         switch self {
         case .authenticate, .getCurrentUser:
+            return nil
+        case .getDashboard:
             return nil
         }
     }
@@ -56,12 +65,16 @@ enum LucienRequest: Request {
             return ["auth": ["token": code]]
         case .getCurrentUser:
             return nil
+        case .getDashboard:
+            return nil
         }
     }
 
     var contentType: String {
         switch self {
         case .authenticate, .getCurrentUser:
+            return "Application/JSON"
+        case .getDashboard:
             return "Application/JSON"
         }
     }
