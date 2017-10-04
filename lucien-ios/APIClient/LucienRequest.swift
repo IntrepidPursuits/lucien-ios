@@ -79,8 +79,9 @@ enum LucienRequest: Request {
 
     var contentType: String {
         switch self {
-    case .authenticate, .getCurrentUser, .getDashboard, .hasCollection:
+        case .authenticate, .getCurrentUser, .getDashboard, .hasCollection:
             return "Application/JSON"
+
         }
     }
 }

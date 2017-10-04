@@ -792,6 +792,7 @@
 				1C21642E1F8FCAA900938D59 /* BottomBorderTextField.swift in Sources */,
 				FBE07CC91F7C2A4500CF1A3F /* ProfileViewController.swift in Sources */,
 				1CAE48D81F8412960087E96E /* LucienConstants.swift in Sources */,
+				FB778BB71F8FE25200068A44 /* APIClient.swift in Sources */,
 				1CAFFC671F797FA200B79F11 /* AppDelegate.swift in Sources */,
 				1C7EE0891F8BEE43003F2A81 /* AlertDisplaying.swift in Sources */,
 				1C07CBF41F7AE1FD007C66D0 /* AddComicViewController.swift in Sources */,
