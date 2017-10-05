@@ -40,12 +40,8 @@
 		991B58C032595B40ADDCFCC7 /* Pods_lucien_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 964D4E26A56CF8BC634B2BBD /* Pods_lucien_ios.framework */; };
 		A59B2FE58EB5BC7B617AB83F /* Pods_lucien_iosUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D057BF04BE0EAF45ED19F37 /* Pods_lucien_iosUITests.framework */; };
 		EC0F6CA4839D3BF363E4EE9E /* Pods_lucien_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 074BF9F99258AD884EC6794A /* Pods_lucien_iosTests.framework */; };
+		FB3238541F86705700FE81E2 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDDE2CC1F7E7C6F00A4EA34 /* APIClient.swift */; };
 		FB6B911B1F7C195000910B49 /* AnimatedTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6B911A1F7C195000910B49 /* AnimatedTransition.swift */; };
-		FBD844431F798B1D00A8E352 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD844411F798B1D00A8E352 /* RootViewController.swift */; };
-		FBD844441F798B1D00A8E352 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBD844421F798B1D00A8E352 /* RootViewController.xib */; };
-		FB9D84871F7D981E00EC1B5E /* MockAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9D84861F7D981E00EC1B5E /* MockAPIClient.swift */; };
-		FBE07CC91F7C2A4500CF1A3F /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE07CC71F7C2A4500CF1A3F /* ProfileViewController.swift */; };
-		FBE07CCA1F7C2A4500CF1A3F /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBE07CC81F7C2A4500CF1A3F /* ProfileViewController.xib */; };
 		FBAEE5781F7EE75C00A44F50 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAEE5771F7EE75C00A44F50 /* LoginViewModel.swift */; };
 		FBAEE57B1F7EEA5B00A44F50 /* LucienAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAEE57A1F7EEA5B00A44F50 /* LucienAPIClient.swift */; };
 		FBB975691F7EBB31007951C4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB975681F7EBB31007951C4 /* User.swift */; };
@@ -54,7 +50,8 @@
 		FBD844431F798B1D00A8E352 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD844411F798B1D00A8E352 /* RootViewController.swift */; };
 		FBD844441F798B1D00A8E352 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBD844421F798B1D00A8E352 /* RootViewController.xib */; };
 		FBDDE2CB1F7E7C4F00A4EA34 /* LucienRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDDE2CA1F7E7C4F00A4EA34 /* LucienRequest.swift */; };
-		FBDDE2CD1F7E7C6F00A4EA34 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDDE2CC1F7E7C6F00A4EA34 /* APIClient.swift */; };
+		FBE07CC91F7C2A4500CF1A3F /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE07CC71F7C2A4500CF1A3F /* ProfileViewController.swift */; };
+		FBE07CCA1F7C2A4500CF1A3F /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBE07CC81F7C2A4500CF1A3F /* ProfileViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,9 +118,6 @@
 		D0155DB8A114746D5EAA07B7 /* Pods-lucien-iosUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lucien-iosUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-lucien-iosUITests/Pods-lucien-iosUITests.release.xcconfig"; sourceTree = "<group>"; };
 		E8801CCEE845676EFB1D691F /* Pods-lucien-iosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lucien-iosTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-lucien-iosTests/Pods-lucien-iosTests.release.xcconfig"; sourceTree = "<group>"; };
 		FB6B911A1F7C195000910B49 /* AnimatedTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AnimatedTransition.swift; path = "lucien-ios/AnimatedTransition.swift"; sourceTree = SOURCE_ROOT; };
-		FB9D84861F7D981E00EC1B5E /* MockAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAPIClient.swift; sourceTree = "<group>"; };
-		FBE07CC71F7C2A4500CF1A3F /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = "lucien-ios/ProfileViewController.swift"; sourceTree = "<group>"; };
-		FBE07CC81F7C2A4500CF1A3F /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ProfileViewController.xib; path = "lucien-ios/ProfileViewController.xib"; sourceTree = "<group>"; };
 		FBAEE5771F7EE75C00A44F50 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		FBAEE57A1F7EEA5B00A44F50 /* LucienAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LucienAPIClient.swift; sourceTree = "<group>"; };
 		FBB975681F7EBB31007951C4 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -134,6 +128,8 @@
 		FBD844451F799A6F00A8E352 /* lucien-ios-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "lucien-ios-Bridging-Header.h"; sourceTree = "<group>"; };
 		FBDDE2CA1F7E7C4F00A4EA34 /* LucienRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LucienRequest.swift; sourceTree = "<group>"; };
 		FBDDE2CC1F7E7C6F00A4EA34 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		FBE07CC71F7C2A4500CF1A3F /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = "lucien-ios/ProfileViewController.swift"; sourceTree = "<group>"; };
+		FBE07CC81F7C2A4500CF1A3F /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ProfileViewController.xib; path = "lucien-ios/ProfileViewController.xib"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -335,16 +331,6 @@
 			path = LoginScreen;
 			sourceTree = "<group>";
 		};
-		FBE07CC61F7C2A1900CF1A3F /* ViewProfile */ = {
-			isa = PBXGroup;
-			children = (
-				FBE07CC71F7C2A4500CF1A3F /* ProfileViewController.swift */,
-				FBE07CC81F7C2A4500CF1A3F /* ProfileViewController.xib */,
-			);
-			name = ViewProfile;
-			path = ..;
-            sourceTree = "<group>";
-        };
 		FB9D84831F7D97CD00EC1B5E /* APIClient */ = {
 			isa = PBXGroup;
 			children = (
@@ -371,6 +357,16 @@
 				FBB975681F7EBB31007951C4 /* User.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		FBE07CC61F7C2A1900CF1A3F /* ViewProfile */ = {
+			isa = PBXGroup;
+			children = (
+				FBE07CC71F7C2A4500CF1A3F /* ProfileViewController.swift */,
+				FBE07CC81F7C2A4500CF1A3F /* ProfileViewController.xib */,
+			);
+			name = ViewProfile;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -709,6 +705,7 @@
 			files = (
 				1C45D0EB1F85611A00E651A5 /* CameraViewController.swift in Sources */,
 				FBB9756B1F7ED8A9007951C4 /* Result.swift in Sources */,
+				FB3238541F86705700FE81E2 /* APIClient.swift in Sources */,
 				1CDB6A221F7995EC003A2BB1 /* StartMyCollectionViewController.swift in Sources */,
 				FBDDE2CB1F7E7C4F00A4EA34 /* LucienRequest.swift in Sources */,
 				FBAEE57B1F7EEA5B00A44F50 /* LucienAPIClient.swift in Sources */,
@@ -720,12 +717,10 @@
 				FBD844431F798B1D00A8E352 /* RootViewController.swift in Sources */,
 				FBE07CC91F7C2A4500CF1A3F /* ProfileViewController.swift in Sources */,
 				1CAE48D81F8412960087E96E /* LucienConstants.swift in Sources */,
-				FB9D84821F7D97BD00EC1B5E /* APIClient.swift in Sources */,
 				1CAFFC671F797FA200B79F11 /* AppDelegate.swift in Sources */,
 				1C07CBF41F7AE1FD007C66D0 /* AddComicViewController.swift in Sources */,
 				1C182A321F82D1C1001566E1 /* RawRepresentable.swift in Sources */,
 				1C182A2F1F82CA70001566E1 /* Comic.swift in Sources */,
-				FBB9756F1F7EDAD5007951C4 /* Authentication.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
