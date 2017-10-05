@@ -8,6 +8,7 @@ target 'lucien-ios' do
   # Pods for lucien-ios
   pod 'GoogleSignIn'
   pod 'Google/SignIn'
+  pod 'NextLevel', '~> 0.8.2'
 
   target 'lucien-iosTests' do
     inherit! :search_paths

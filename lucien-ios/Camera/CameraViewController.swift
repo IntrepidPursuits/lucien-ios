@@ -13,24 +13,24 @@ class CameraViewController: UIViewController, AVCaptureVideoDataOutputSampleBuff
 
     @IBOutlet weak var cameraView: UIView!
 
-    var captureSession = AVCaptureSession()
-    var captureDevice: AVCaptureDevice?
-    var videoPreviewLayer: AVCaptureVideoPreviewLayer?
-    var captureSessionOutput = AVCapturePhotoOutput()
-    var didTakePhoto = false
+    private var captureSession = AVCaptureSession()
+    private var captureDevice: AVCaptureDevice?
+    private var videoPreviewLayer: AVCaptureVideoPreviewLayer?
+    private var captureSessionOutput = AVCapturePhotoOutput()
+    private var didTakePhoto = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCamera()
     }
 
-    func setupCamera() {
+    private func setupCamera() {
         guard let device = AVCaptureDevice.default(for: .video) else { return }
         captureDevice = device
         startCaptureSession()
     }
 
-    func startCaptureSession() {
+    private func startCaptureSession() {
         guard let captureDevice = captureDevice else { return }
         do {
             let captureDeviceInput = try AVCaptureDeviceInput(device: captureDevice)
@@ -72,9 +72,7 @@ class CameraViewController: UIViewController, AVCaptureVideoDataOutputSampleBuff
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         if didTakePhoto {
             didTakePhoto = false
-            if let image = getImageFromSampleBuffer(buffer: sampleBuffer) {
-                print(image)
-            }
+            if let image = getImageFromSampleBuffer(buffer: sampleBuffer) {}
         }
     }
 
