@@ -8,6 +8,7 @@
 
 import UIKit
 import QuartzCore
+import AVFoundation
 
 final class AddComicViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
 
@@ -43,6 +44,9 @@ final class AddComicViewController: UIViewController, UIPickerViewDelegate, UIPi
     private var didCompleteForm = false
     private var finishButton = UIBarButtonItem()
     private var activeField: UITextField?
+
+    // MARK: - Constants
+    private let cameraViewController = CameraViewController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -179,6 +183,18 @@ final class AddComicViewController: UIViewController, UIPickerViewDelegate, UIPi
     @objc func doneButtonTapped() {
         view.endEditing(true)
         deregisterFromKeyboardNotifications()
+    }
+
+    @IBAction func addCoverButtonTapped(_ sender: UIButton) {
+        if AVCaptureDevice.authorizationStatus(for: AVMediaType.video) ==  AVAuthorizationStatus.authorized {
+            present(cameraViewController, animated: true, completion: nil)
+        } else {
+            AVCaptureDevice.requestAccess(for: AVMediaType.video, completionHandler: { (granted: Bool) -> Void in
+                if granted == true {
+                    self.present(self.cameraViewController, animated: true, completion: nil)
+                }
+            })
+        }
     }
 
     // MARK: - IBOutlet Methods

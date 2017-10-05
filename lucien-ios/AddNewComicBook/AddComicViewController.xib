@@ -78,6 +78,9 @@ Photo</string>
                                     </fragment>
                                 </attributedString>
                             </state>
+                            <connections>
+                                <action selector="addCoverButtonTapped:" destination="-1" eventType="touchUpInside" id="cxc-v6-WKW"/>
+                            </connections>
                         </button>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="Pct-Cd-9cv">
                             <rect key="frame" x="24" y="259" width="320" height="741"/>
