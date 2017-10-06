@@ -7,10 +7,8 @@
 //
 
 enum LucienAPIError: Error {
-    case requestError(request: URLRequest, message: String)
-    case responseError(response: Result<Data>, message: String)
-    case decodeError(from: Data, to: Decodable, message: String)
-    case convertToDataType(data: Result<Data?>, message: String)
+    case noResult
+    case cannotDecode
 }
 
 final class LucienAPIClient: APIClient {
@@ -21,10 +19,14 @@ final class LucienAPIClient: APIClient {
         self.sendRequest(urlRequest) { response in
             switch response {
             case .success(let result):
-                guard let result = result else { return }
+                guard let result = result else {
+                    return completion(.failure(LucienAPIError.noResult))
+                }
                 let decoder = JSONDecoder()
                 decoder.dateDecodingStrategy = .iso8601
-                guard let user = try? decoder.decode(User.self, from: result) else { return }
+                guard let user = try? decoder.decode(User.self, from: result) else {
+                    return completion(.failure(LucienAPIError.cannotDecode))
+                }
                 completion(.success(user))
             case .failure(let error):
                 completion(.failure(error))
@@ -38,10 +40,14 @@ final class LucienAPIClient: APIClient {
         self.sendRequest(urlRequest) { response in
             switch response {
             case .success(let result):
-                guard let result = result else { return }
+                guard let result = result else {
+                    return completion(.failure(LucienAPIError.noResult))
+                }
                 let decoder = JSONDecoder()
                 decoder.dateDecodingStrategy = .iso8601
-                guard let user = try? decoder.decode(User.self, from: result) else { return }
+                guard let user = try? decoder.decode(User.self, from: result) else {
+                    return completion(.failure(LucienAPIError.cannotDecode))
+                }
                 completion(.success(user))
             case .failure(let error):
                 completion(.failure(error))
