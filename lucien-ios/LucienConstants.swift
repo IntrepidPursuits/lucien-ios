@@ -10,4 +10,5 @@ import Foundation
 
 final class LucienConstants {
     static let keyboardHeightPadding = CGFloat(50)
+    static let captureQueueName = "com.lucien-ios.captureQueue"
 }

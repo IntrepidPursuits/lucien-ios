@@ -46,6 +46,7 @@ final class AddComicViewController: UIViewController, UIPickerViewDelegate, UIPi
     private var activeField: UITextField?
 
     // MARK: - Constants
+
     private let cameraViewController = CameraViewController()
 
     override func viewDidLoad() {
@@ -186,14 +187,14 @@ final class AddComicViewController: UIViewController, UIPickerViewDelegate, UIPi
     }
 
     @IBAction func addCoverButtonTapped(_ sender: UIButton) {
-        if AVCaptureDevice.authorizationStatus(for: AVMediaType.video) ==  AVAuthorizationStatus.authorized {
+        if AVCaptureDevice.authorizationStatus(for: .video) ==  .authorized {
             present(cameraViewController, animated: true, completion: nil)
         } else {
-            AVCaptureDevice.requestAccess(for: AVMediaType.video, completionHandler: { (granted: Bool) -> Void in
-                if granted == true {
+            AVCaptureDevice.requestAccess(for: .video) { granted in
+                if granted {
                     self.present(self.cameraViewController, animated: true, completion: nil)
                 }
-            })
+            }
         }
     }
 

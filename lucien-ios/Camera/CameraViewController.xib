@@ -53,9 +53,6 @@
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PKA-v6-5dZ">
                             <rect key="frame" x="250" y="17" width="125" height="32"/>
                             <state key="normal" image="flashButton"/>
-                            <connections>
-                                <action selector="flashButtonTapped:" destination="-1" eventType="touchUpInside" id="77U-uZ-thb"/>
-                            </connections>
                         </button>
                     </subviews>
                 </stackView>

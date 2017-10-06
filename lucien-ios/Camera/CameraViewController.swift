@@ -11,17 +11,20 @@ import AVFoundation
 
 class CameraViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate {
 
-    @IBOutlet weak var cameraView: UIView!
+    @IBOutlet private weak var cameraView: UIView!
 
-    private var captureSession = AVCaptureSession()
+    private let captureSession = AVCaptureSession()
     private var captureDevice: AVCaptureDevice?
-    private var videoPreviewLayer: AVCaptureVideoPreviewLayer?
-    private var captureSessionOutput = AVCapturePhotoOutput()
+    private let captureSessionOutput = AVCapturePhotoOutput()
     private var didTakePhoto = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCamera()
+    }
+
+    override var prefersStatusBarHidden: Bool {
+        return true
     }
 
     private func setupCamera() {
@@ -35,11 +38,18 @@ class CameraViewController: UIViewController, AVCaptureVideoDataOutputSampleBuff
         do {
             let captureDeviceInput = try AVCaptureDeviceInput(device: captureDevice)
             captureSession.addInput(captureDeviceInput)
-        } catch _ {}
+        } catch let error as NSError {
+            let alert = UIAlertController(title: "Error", message: error.description, preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "Ok", style: .cancel, handler: { [weak self] _ in
+                self?.dismiss(animated: true, completion: nil)
+            })
+            alert.addAction(okAction)
+            present(alert, animated: true, completion: nil)
+        }
 
-        videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-        videoPreviewLayer?.frame = cameraView.layer.bounds
-        cameraView.layer.addSublayer(videoPreviewLayer!)
+        let videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+        videoPreviewLayer.frame = cameraView.layer.bounds
+        cameraView.layer.addSublayer(videoPreviewLayer )
         captureSession.startRunning()
 
         let captureOutput = AVCaptureVideoDataOutput()
@@ -51,12 +61,8 @@ class CameraViewController: UIViewController, AVCaptureVideoDataOutputSampleBuff
         }
         captureSession.commitConfiguration()
 
-        let queue = DispatchQueue(label: "com.lucien-ios.captureQueue")
+        let queue = DispatchQueue(label: LucienConstants.captureQueueName)
         captureOutput.setSampleBufferDelegate(self, queue: queue)
-    }
-
-    @IBAction func flashButtonTapped(_ sender: UIButton) {
-
     }
 
     @IBAction func cameraButtonTapped(_ sender: UIButton) {
@@ -72,7 +78,9 @@ class CameraViewController: UIViewController, AVCaptureVideoDataOutputSampleBuff
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         if didTakePhoto {
             didTakePhoto = false
-            if let image = getImageFromSampleBuffer(buffer: sampleBuffer) {}
+            if let image = getImageFromSampleBuffer(buffer: sampleBuffer) {
+                // TODO: Send image back to AddComicViewController.
+            }
         }
     }
 
