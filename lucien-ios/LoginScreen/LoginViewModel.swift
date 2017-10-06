@@ -10,6 +10,7 @@ final class LoginViewModel {
 
     let lucienAPIClient = LucienAPIClient()
     var currentUser: User?
+    var dashboardData: Dashboard?
 
 
     func getCurrentUser(completion: @escaping () -> Void) {
@@ -38,15 +39,15 @@ final class LoginViewModel {
         }
     }
 
-    func getDashboard() {
+    func getDashboard(completion: @escaping () -> Void) {
         print(LucienRequest.authorizationHeader)
         print("just entered viewmodel getDashboard")
         lucienAPIClient.getDashboard { response in
             print("In viewmodel dashboard")
             switch response {
             case .success(let result):
-                print("getDashboard")
-                print(result)
+                self.dashboardData = result
+                completion()
             case .failure(let error):
                 print(error)
             }
