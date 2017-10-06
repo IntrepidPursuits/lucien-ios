@@ -8,35 +8,16 @@
 
 import UIKit
 
-class DashboardViewController: UIViewController, UIScrollViewDelegate {
+class DashboardViewController: UIViewController {
 
     @IBOutlet weak var dashboardScrollView: UIScrollView!
 
     let loginViewModel = LoginViewModel()
-    var scrollView: UIScrollView!
-    var imageView: UIImageView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         print("In Dashboard VC")
         configureNavigationController()
-
-        imageView = UIImageView(image: UIImage(named: "image.png"))
-
-        scrollView = UIScrollView(frame: view.bounds)
-        scrollView.backgroundColor = UIColor.black
-        scrollView.contentSize = imageView.bounds.size
-//        scrollView.autoresizingMask = UInt8(UIViewImage) UInt8(UIViewAutoresizing.FlexibleWidth.rawValue) | UInt8(UIViewAutoresizing.FlexibleHeight.rawValue)
-
-        scrollView.addSubview(imageView)
-        view.addSubview(scrollView)
-
-//        lendingScrollView = UIScrollView(frame: view.bounds)
-//        lendingScrollView.backgroundColor = UIColor.black
-//        lendingScrollView.autoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight
-//
-//        lendingScrollView.addSubview(imageView)
-//        view.addSubview(scrollView)
     }
 
     private func configureNavigationController() {
@@ -55,5 +36,4 @@ class DashboardViewController: UIViewController, UIScrollViewDelegate {
         self.navigationController?.pushViewController(viewProfileController, animated: true)
 
     }
-
 }

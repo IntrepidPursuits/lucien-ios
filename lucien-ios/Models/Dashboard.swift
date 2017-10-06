@@ -9,7 +9,7 @@
 import Foundation
 
 struct Dashboard: Decodable {
-    var myCollectionCount: String
+    var myCollectionCount: Int
 
     enum CodingKeys: String, CodingKey {
         case dashboard
@@ -22,6 +22,6 @@ struct Dashboard: Decodable {
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         let dashboardContainer = try values.nestedContainer(keyedBy: DashboardKeys.self, forKey: .dashboard)
-        myCollectionCount = try dashboardContainer.decode(String.self, forKey: .myCollectionCount)
+        myCollectionCount = try dashboardContainer.decode(Int.self, forKey: .myCollectionCount)
     }
 }
