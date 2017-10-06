@@ -10,11 +10,11 @@ import Foundation
 enum LucienRequest: Request {
 
     static let baseURL = "https://lucien-server-staging.herokuapp.com"
-    static let acceptHeader: String? = "application/vnd.lucien-app.com; version=1"
+    static let acceptHeader = "application/vnd.lucien-app.com; version=1"
     static var authorizationHeader: String?
 
     case authenticate(code: String)
-    case getCurrentUser()
+    case getCurrentUser
 
     var method: HTTPMethod {
         switch self {
@@ -44,9 +44,7 @@ enum LucienRequest: Request {
 
     var queryParameters: [String : Any]? {
         switch self {
-        case .authenticate:
-            return nil
-        case .getCurrentUser:
+        case .authenticate, .getCurrentUser:
             return nil
         }
     }
@@ -62,9 +60,7 @@ enum LucienRequest: Request {
 
     var contentType: String {
         switch self {
-        case .authenticate:
-            return "Application/JSON"
-        case .getCurrentUser:
+        case .authenticate, .getCurrentUser:
             return "Application/JSON"
         }
     }

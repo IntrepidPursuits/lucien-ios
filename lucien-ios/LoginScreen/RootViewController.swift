@@ -13,7 +13,7 @@ final class RootViewController: UIViewController, GIDSignInDelegate, GIDSignInUI
     @IBOutlet private weak var appName: UILabel!
     @IBOutlet private weak var appDescription: UILabel!
 
-    let loginViewModel = LoginViewModel()
+    let loginViewModel = LoginViewModel(apiClient: LucienAPIClient())
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +24,6 @@ final class RootViewController: UIViewController, GIDSignInDelegate, GIDSignInUI
         GIDSignIn.sharedInstance().uiDelegate = self
         GIDSignIn.sharedInstance().delegate = self
         GIDSignIn.sharedInstance().clientID = "1072472744835-miivpr72vpanvmpm2f3tbb7msae67tii.apps.googleusercontent.com"
-        print(GIDSignIn.sharedInstance().scopes)
         GIDSignIn.sharedInstance().scopes.append("profile")
     }
 

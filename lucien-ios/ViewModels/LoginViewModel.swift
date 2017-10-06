@@ -8,7 +8,11 @@
 
 final class LoginViewModel {
 
-    let lucienAPIClient = LucienAPIClient()
+    var lucienAPIClient: LucienAPIClient
+
+    init(apiClient: LucienAPIClient) {
+        lucienAPIClient = apiClient
+    }
 
     func getCurrentUser() {
         lucienAPIClient.getCurrentUser { response in

@@ -6,6 +6,13 @@
 //  Copyright © 2017 Intrepid Pursuits. All rights reserved.
 //
 
+enum LucienAPIError: Error {
+    case requestError(request: URLRequest, message: String)
+    case responseError(response: Result<Data>, message: String)
+    case decodeError(from: Data, to: Decodable, message: String)
+    case convertToDataType(data: Result<Data?>, message: String)
+}
+
 final class LucienAPIClient: APIClient {
 
     func authenticateUser(code: String, completion: @escaping (Result<User>) -> Void) {
@@ -26,7 +33,7 @@ final class LucienAPIClient: APIClient {
     }
 
     func getCurrentUser(completion: @escaping (Result<User>) -> Void) {
-        let lucienRequest = LucienRequest.getCurrentUser()
+        let lucienRequest = LucienRequest.getCurrentUser
         let urlRequest = lucienRequest.urlRequest
         self.sendRequest(urlRequest) { response in
             switch response {
