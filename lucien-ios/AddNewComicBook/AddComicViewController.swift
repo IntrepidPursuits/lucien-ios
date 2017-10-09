@@ -192,7 +192,9 @@ final class AddComicViewController: UIViewController, UIPickerViewDelegate, UIPi
         } else {
             AVCaptureDevice.requestAccess(for: .video) { granted in
                 if granted {
-                    self.present(self.cameraViewController, animated: true, completion: nil)
+                    DispatchQueue.main.async {
+                        self.present(self.cameraViewController, animated: true, completion: nil)
+                    }
                 }
             }
         }
@@ -284,15 +286,15 @@ final class AddComicViewController: UIViewController, UIPickerViewDelegate, UIPi
 
     // MARK: - Keyboard Methods
 
-    func registerForKeyboardNotifications() {
+    private func registerForKeyboardNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(AddComicViewController.keyboardWasShown), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
     }
 
-    func deregisterFromKeyboardNotifications() {
+    private func deregisterFromKeyboardNotifications() {
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
     }
 
-    @objc func keyboardWasShown(notification: NSNotification) {
+    @objc private func keyboardWasShown(notification: NSNotification) {
         guard
             let info = notification.userInfo,
             let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue.size
@@ -304,7 +306,7 @@ final class AddComicViewController: UIViewController, UIPickerViewDelegate, UIPi
         var viewFrame = view.frame
         viewFrame.size.height -= keyboardSize.height
         if let activeField = activeField {
-            if  !viewFrame.contains(activeField.frame.origin) {
+            if !viewFrame.contains(activeField.frame.origin) {
                 scrollView.scrollRectToVisible(activeField.frame, animated: true)
             }
         }
