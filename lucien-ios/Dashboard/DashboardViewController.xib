@@ -17,11 +17,100 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <rect key="frame" x="0.0" y="0.0" width="571" height="1254"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="5Bd-Ir-PZh">
+                    <rect key="frame" x="0.0" y="20" width="571" height="1234"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lcY-Ok-qvG">
+                            <rect key="frame" x="0.0" y="0.0" width="570" height="358"/>
+                            <subviews>
+                                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1EK-hA-cf6">
+                                    <rect key="frame" x="8" y="50" width="562" height="308"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r5o-9e-2vv">
+                                            <rect key="frame" x="24" y="0.0" width="130" height="308"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="130" id="meQ-iV-IVo"/>
+                                            </constraints>
+                                        </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l8B-A8-mDo">
+                                            <rect key="frame" x="190" y="0.0" width="130" height="308"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="130" id="6wt-Cd-o9k"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="l8B-A8-mDo" firstAttribute="bottom" secondItem="r5o-9e-2vv" secondAttribute="bottom" id="7fL-Lj-nIl"/>
+                                        <constraint firstAttribute="bottom" secondItem="r5o-9e-2vv" secondAttribute="bottom" id="8GB-9C-8EA"/>
+                                        <constraint firstItem="l8B-A8-mDo" firstAttribute="leading" secondItem="r5o-9e-2vv" secondAttribute="trailing" constant="36" id="Ac5-zW-JFJ"/>
+                                        <constraint firstItem="r5o-9e-2vv" firstAttribute="top" secondItem="1EK-hA-cf6" secondAttribute="top" id="DCL-1C-2nC"/>
+                                        <constraint firstItem="l8B-A8-mDo" firstAttribute="top" secondItem="r5o-9e-2vv" secondAttribute="top" id="Scv-6m-BR5"/>
+                                        <constraint firstAttribute="trailing" secondItem="r5o-9e-2vv" secondAttribute="trailing" constant="246" id="UOM-Bg-LTb"/>
+                                        <constraint firstItem="r5o-9e-2vv" firstAttribute="centerY" secondItem="1EK-hA-cf6" secondAttribute="centerY" id="jjQ-2h-OOw"/>
+                                        <constraint firstItem="r5o-9e-2vv" firstAttribute="leading" secondItem="1EK-hA-cf6" secondAttribute="leading" constant="24" id="wx0-ii-PQX"/>
+                                    </constraints>
+                                </scrollView>
+                            </subviews>
+                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="1EK-hA-cf6" secondAttribute="bottom" id="1m1-I7-cPG"/>
+                                <constraint firstAttribute="height" constant="358" id="3kb-87-G3c"/>
+                                <constraint firstItem="1EK-hA-cf6" firstAttribute="leading" secondItem="lcY-Ok-qvG" secondAttribute="leadingMargin" id="6ml-9D-GoA"/>
+                                <constraint firstItem="1EK-hA-cf6" firstAttribute="top" secondItem="lcY-Ok-qvG" secondAttribute="top" constant="50" id="bYu-rc-NZz"/>
+                                <constraint firstAttribute="trailing" secondItem="1EK-hA-cf6" secondAttribute="trailing" id="q0X-uw-IyV"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AdI-jk-AXd">
+                            <rect key="frame" x="0.0" y="943" width="570" height="400"/>
+                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="400" id="8ct-13-MJH"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cEP-kL-Dwy">
+                            <rect key="frame" x="0.0" y="368" width="570" height="350"/>
+                            <subviews>
+                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="q1P-fS-Nu4">
+                                    <rect key="frame" x="0.0" y="36" width="374" height="356"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="k5m-zk-B5b">
+                                        <size key="itemSize" width="50" height="50"/>
+                                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    </collectionViewFlowLayout>
+                                </collectionView>
+                            </subviews>
+                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="350" id="nct-YD-lUH"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="cEP-kL-Dwy" firstAttribute="top" secondItem="lcY-Ok-qvG" secondAttribute="bottom" constant="10" id="0aX-IT-UF0"/>
+                        <constraint firstAttribute="trailing" secondItem="cEP-kL-Dwy" secondAttribute="trailing" id="1VX-0p-iS3"/>
+                        <constraint firstAttribute="bottom" secondItem="AdI-jk-AXd" secondAttribute="bottom" id="LE9-h6-BNV"/>
+                        <constraint firstItem="AdI-jk-AXd" firstAttribute="top" secondItem="5Bd-Ir-PZh" secondAttribute="top" constant="943" id="SEi-cL-cgM"/>
+                        <constraint firstItem="cEP-kL-Dwy" firstAttribute="leading" secondItem="5Bd-Ir-PZh" secondAttribute="leading" id="b5f-Rt-RAS"/>
+                        <constraint firstItem="lcY-Ok-qvG" firstAttribute="leading" secondItem="5Bd-Ir-PZh" secondAttribute="leading" id="jvO-yY-Zog"/>
+                        <constraint firstAttribute="trailing" secondItem="lcY-Ok-qvG" secondAttribute="trailing" id="mDZ-U7-KhM"/>
+                        <constraint firstAttribute="trailing" secondItem="AdI-jk-AXd" secondAttribute="trailing" id="oSY-Z6-4Mo"/>
+                        <constraint firstItem="lcY-Ok-qvG" firstAttribute="top" secondItem="5Bd-Ir-PZh" secondAttribute="top" id="qgU-M3-1jo"/>
+                        <constraint firstItem="lcY-Ok-qvG" firstAttribute="centerX" secondItem="5Bd-Ir-PZh" secondAttribute="centerX" id="tPq-Vu-O4T"/>
+                        <constraint firstItem="AdI-jk-AXd" firstAttribute="leading" secondItem="5Bd-Ir-PZh" secondAttribute="leading" id="vsT-Qg-uyn"/>
+                    </constraints>
+                </scrollView>
+            </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <point key="canvasLocation" x="33.5" y="54.5"/>
+            <point key="canvasLocation" x="-64.5" y="348"/>
         </view>
     </objects>
 </document>
