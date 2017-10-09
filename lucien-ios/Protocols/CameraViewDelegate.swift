@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol CameraViewDelegate {
+protocol CameraViewDelegate: class {
     func getImage(image: UIImage)
 }

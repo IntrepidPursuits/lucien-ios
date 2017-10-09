@@ -327,23 +327,31 @@ final class AddComicViewController: UIViewController, UIPickerViewDelegate, UIPi
     // MARK: - CameraViewDelegate
 
     func getImage(image: UIImage) {
-        let resizedImage = image.resize(with: CGSize(width: coverPhotoButton.frame.width, height: coverPhotoButton.frame.height))
-        let blurredImage = image.blurAndExpose()?.resize(with: CGSize(width: coverPhotoButton.frame.width, height: coverPhotoButton.frame.height))
+        let resizedImage = image.resize(size: CGSize(width: coverPhotoButton.frame.width, height: coverPhotoButton.frame.height))
+        let blurredImage = image.blur(radius: LucienConstants.coverButtonBlurRadius)?.resize(size: CGSize(width: coverPhotoButton.frame.width, height: coverPhotoButton.frame.height))
+
         coverPhotoButton.setBackgroundImage(blurredImage, for: .normal)
         coverPhotoButton.isUserInteractionEnabled = false
-        coverPhotoButton.alpha = 0.7
+        coverPhotoButton.transform = CGAffineTransform(scaleX: LucienConstants.coverButtonScaleX, y: LucienConstants.coverButtonScaleY)
+        coverPhotoButton.alpha = LucienConstants.coverButtonOpacity
         coverPhotoButton.setAttributedTitle(NSAttributedString(string: ""), for: .normal)
+        coverPhotoButton.layer.shadowColor = UIColor.black.cgColor
+        coverPhotoButton.layer.shadowRadius = LucienConstants.coverButtonShadowRadius
+        coverPhotoButton.layer.shadowOpacity = LucienConstants.coverButtonShadowOpacity
 
-        let newbutton = UIButton(frame: coverPhotoButton.frame)
-        newbutton.setBackgroundImage(resizedImage, for: .normal)
-        newbutton.isUserInteractionEnabled = false
-        newbutton.layer.masksToBounds = true
-        newbutton.layer.cornerRadius = 10
-        newbutton.translatesAutoresizingMaskIntoConstraints = false
-        
+        let overlayButton = UIButton(frame: coverPhotoButton.frame)
+        overlayButton.transform = CGAffineTransform(scaleX: LucienConstants.overlayButtonScaleX, y: LucienConstants.overlayButtonScaleY)
+        overlayButton.setBackgroundImage(resizedImage, for: .normal)
+        overlayButton.isUserInteractionEnabled = false
+        overlayButton.layer.masksToBounds = true
+        overlayButton.layer.cornerRadius = LucienConstants.buttonBorderRadius
+        overlayButton.translatesAutoresizingMaskIntoConstraints = false
 
-        scrollView.addSubview(newbutton)
+        scrollView.addSubview(overlayButton)
 
-
+        view.addConstraints([
+            NSLayoutConstraint(item: overlayButton, attribute: .leading, relatedBy: .equal, toItem: scrollView, attribute: .leading, multiplier: 1, constant: LucienConstants.overlayButtonLeadingConstraint),
+            NSLayoutConstraint(item: overlayButton, attribute: .top, relatedBy: .equal, toItem: coverPhotoLabel, attribute: .top, multiplier: 1, constant: LucienConstants.overlayButtonTopConstraint)
+        ])
     }
 }

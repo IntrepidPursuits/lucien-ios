@@ -9,16 +9,22 @@
 import UIKit
 import AVFoundation
 
-class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate {
+class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate, Alertable {
+
+    // MARK: - Private IBOutlets
 
     @IBOutlet private weak var cameraView: UIView!
+
+    // MARK: - Variables
+
+    weak var cameraViewDelegate: CameraViewDelegate?
+
+    // MARK: - Private Constants
 
     private let captureSession = AVCaptureSession()
     private var captureDevice: AVCaptureDevice?
     private let captureSessionOutput = AVCapturePhotoOutput()
-    let captureOutput = AVCapturePhotoOutput()
-    private var didTakePhoto = false
-    var cameraViewDelegate: CameraViewDelegate?
+    private let captureOutput = AVCapturePhotoOutput()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +35,8 @@ class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate {
         return true
     }
 
+     // MARK: - Private Instance Methods
+
     private func setupCamera() {
         guard let device = AVCaptureDevice.default(for: .video) else { return }
         captureDevice = device
@@ -37,21 +45,17 @@ class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate {
 
     private func startCaptureSession() {
         guard let captureDevice = captureDevice else { return }
+
         do {
             let captureDeviceInput = try AVCaptureDeviceInput(device: captureDevice)
             captureSession.addInput(captureDeviceInput)
         } catch let error as NSError {
-            let alert = UIAlertController(title: "Error", message: error.description, preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "Ok", style: .cancel, handler: { [weak self] _ in
-                self?.dismiss(animated: true, completion: nil)
-            })
-            alert.addAction(okAction)
-            present(alert, animated: true, completion: nil)
+            showAlert(title: "Error", message: error.description)
         }
 
         let videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
         videoPreviewLayer.frame = cameraView.layer.bounds
-        cameraView.layer.addSublayer(videoPreviewLayer )
+        cameraView.layer.addSublayer(videoPreviewLayer)
         captureSession.startRunning()
 
         if captureSession.canAddOutput(captureOutput) {
@@ -61,10 +65,11 @@ class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate {
         captureSession.commitConfiguration()
     }
 
+    // MARK: - IBOutlet Methods
+
     @IBAction func cameraButtonTapped(_ sender: UIButton) {
         let settings = AVCapturePhotoSettings()
         captureOutput.capturePhoto(with: settings, delegate: self)
-
     }
 
     @IBAction func cancelButtonTapped(_ sender: UIButton) {
@@ -80,15 +85,9 @@ class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate {
                        bracketSettings: AVCaptureBracketedStillImageSettings?,
                        error: Error?) {
 
-        guard error == nil,
-              let photoSampleBuffer = photoSampleBuffer else {
-                let alert = UIAlertController(title: "Error", message: String(describing: error), preferredStyle: .alert)
-                let okAction = UIAlertAction(title: "Ok", style: .cancel, handler: { [weak self] _ in
-                    self?.dismiss(animated: true, completion: nil)
-                })
-                alert.addAction(okAction)
-                present(alert, animated: true, completion: nil)
-                return
+        guard error == nil, let photoSampleBuffer = photoSampleBuffer else {
+            showAlert(title: "Error", message: String(describing: error))
+            return
         }
 
         guard let data = AVCapturePhotoOutput.jpegPhotoDataRepresentation(forJPEGSampleBuffer: photoSampleBuffer, previewPhotoSampleBuffer: previewPhotoSampleBuffer) else {

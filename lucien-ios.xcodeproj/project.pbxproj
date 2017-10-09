@@ -15,6 +15,7 @@
 		1C45D0EC1F85611A00E651A5 /* CameraViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C45D0EA1F85611A00E651A5 /* CameraViewController.xib */; };
 		1C7EE0811F87FB21003F2A81 /* CameraViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7EE0801F87FB21003F2A81 /* CameraViewDelegate.swift */; };
 		1C7EE0851F880DF6003F2A81 /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7EE0841F880DF6003F2A81 /* UIImageExtensions.swift */; };
+		1C7EE0891F8BEE43003F2A81 /* Alertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7EE0881F8BEE43003F2A81 /* Alertable.swift */; };
 		1CAE48D81F8412960087E96E /* LucienConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAE48D71F8412960087E96E /* LucienConstants.swift */; };
 		1CAFFC671F797FA200B79F11 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAFFC661F797FA200B79F11 /* AppDelegate.swift */; };
 		1CAFFC6E1F797FA200B79F11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CAFFC6D1F797FA200B79F11 /* Assets.xcassets */; };
@@ -84,6 +85,7 @@
 		1C45D0EA1F85611A00E651A5 /* CameraViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CameraViewController.xib; sourceTree = "<group>"; };
 		1C7EE0801F87FB21003F2A81 /* CameraViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewDelegate.swift; sourceTree = "<group>"; };
 		1C7EE0841F880DF6003F2A81 /* UIImageExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
+		1C7EE0881F8BEE43003F2A81 /* Alertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alertable.swift; sourceTree = "<group>"; };
 		1CAE48D71F8412960087E96E /* LucienConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LucienConstants.swift; sourceTree = "<group>"; };
 		1CAFFC631F797FA200B79F11 /* lucien-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "lucien-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CAFFC661F797FA200B79F11 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				1C7EE0801F87FB21003F2A81 /* CameraViewDelegate.swift */,
+				1C7EE0881F8BEE43003F2A81 /* Alertable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -732,6 +735,7 @@
 				FBE07CC91F7C2A4500CF1A3F /* ProfileViewController.swift in Sources */,
 				1CAE48D81F8412960087E96E /* LucienConstants.swift in Sources */,
 				1CAFFC671F797FA200B79F11 /* AppDelegate.swift in Sources */,
+				1C7EE0891F8BEE43003F2A81 /* Alertable.swift in Sources */,
 				1C07CBF41F7AE1FD007C66D0 /* AddComicViewController.swift in Sources */,
 				1C182A321F82D1C1001566E1 /* RawRepresentable.swift in Sources */,
 				1C7EE0811F87FB21003F2A81 /* CameraViewDelegate.swift in Sources */,
