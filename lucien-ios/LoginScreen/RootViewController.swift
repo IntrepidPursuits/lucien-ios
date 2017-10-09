@@ -57,10 +57,14 @@ final class RootViewController: UIViewController, GIDSignInDelegate, GIDSignInUI
         guard error == nil else { print("\(error.localizedDescription)"); return }
         guard let idToken = user.authentication.idToken else { return }
         loginViewModel.authenticateUser(code: idToken) {
-            self.loginViewModel.getDashboard {
-                guard let myDashboard = self.loginViewModel.dashboardData else { return }
-                let myCollectionCount = myDashboard.myCollectionCount
-                myCollectionCount == 0 ? self.showStartMyCollection() : self.showDashboard()
+            //            self.loginViewModel.getDashboard {
+            //                guard let myDashboard = self.loginViewModel.dashboardData else { return }
+            //                let myCollectionCount = myDashboard.myCollectionCount
+            //                myCollectionCount == 0 ? self.showStartMyCollection() : self.showDashboard()
+            //
+            self.loginViewModel.hasCollection {
+                guard let hasCollection = self.loginViewModel.hasCollection else { return }
+                hasCollection == "true" ? self.showDashboard() : self.showStartMyCollection()
             }
         }
     }
@@ -80,7 +84,6 @@ final class RootViewController: UIViewController, GIDSignInDelegate, GIDSignInUI
         let lendingCollectionController = LendingViewController()
         present(lendingCollectionController, animated: true, completion: nil)
     }
-
 }
 
 extension RootViewController: UIViewControllerTransitioningDelegate {

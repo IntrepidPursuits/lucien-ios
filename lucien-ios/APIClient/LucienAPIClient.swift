@@ -45,7 +45,6 @@ final class LucienAPIClient: APIClient {
                 do {
                     let user = try decoder.decode(User.self, from: result)
                     completion(.success(user))
-
                 } catch(let error) {
                     print(error)
                     completion(.failure(error))
@@ -69,6 +68,21 @@ final class LucienAPIClient: APIClient {
                 completion(.success(myCollection))
             case .failure(let error):
                 completion(.failure(error))
+            }
+        }
+    }
+
+    func hasCollection(completion: @escaping (String) -> Void) {
+        let lucienRequest = LucienRequest.hasCollection()
+        let urlRequest = lucienRequest.urlRequest
+        self.sendRequest(urlRequest) { response in
+            print(response)
+            switch response {
+            case .success(let result):
+                guard let hasCollection = String(data: result!, encoding: String.Encoding.utf8) as String! else { return }
+                completion(hasCollection)
+            case .failure(let error):
+                print(error)
             }
         }
     }

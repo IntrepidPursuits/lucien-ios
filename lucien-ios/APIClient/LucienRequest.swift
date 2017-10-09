@@ -16,6 +16,7 @@ enum LucienRequest: Request {
     case authenticate(code: String)
     case getCurrentUser()
     case getDashboard()
+    case hasCollection()
 
     var method: HTTPMethod {
         switch self {
@@ -24,6 +25,8 @@ enum LucienRequest: Request {
         case .getCurrentUser:
             return .GET
         case .getDashboard:
+            return .GET
+        case .hasCollection:
             return .GET
         }
     }
@@ -36,6 +39,8 @@ enum LucienRequest: Request {
             return "/current_user"
         case .getDashboard:
             return "/dashboard"
+        case .hasCollection:
+            return "/has_collection"
         }
     }
 
@@ -47,6 +52,8 @@ enum LucienRequest: Request {
             return true
         case .getDashboard:
             return true
+        case .hasCollection:
+            return true
         }
     }
 
@@ -55,6 +62,8 @@ enum LucienRequest: Request {
         case .authenticate, .getCurrentUser:
             return nil
         case .getDashboard:
+            return nil
+        case .hasCollection:
             return nil
         }
     }
@@ -67,14 +76,14 @@ enum LucienRequest: Request {
             return nil
         case .getDashboard:
             return nil
+        case .hasCollection:
+            return nil
         }
     }
 
     var contentType: String {
         switch self {
-        case .authenticate, .getCurrentUser:
-            return "Application/JSON"
-        case .getDashboard:
+    case .authenticate, .getCurrentUser, .getDashboard, .hasCollection:
             return "Application/JSON"
         }
     }
