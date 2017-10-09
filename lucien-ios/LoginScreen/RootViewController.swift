@@ -19,19 +19,29 @@ final class RootViewController: UIViewController, GIDSignInDelegate, GIDSignInUI
     override func viewDidLoad() {
         super.viewDidLoad()
         addBackground()
-        signInButton.style = GIDSignInButtonStyle.wide
-        appName.textColor = UIColor.white
-        appDescription.textColor = UIColor.white
-        GIDSignIn.sharedInstance().uiDelegate = self
-        GIDSignIn.sharedInstance().delegate = self
-        GIDSignIn.sharedInstance().clientID = "1072472744835-miivpr72vpanvmpm2f3tbb7msae67tii.apps.googleusercontent.com"
-        GIDSignIn.sharedInstance().scopes.append("profile")
+        setUpSignIn()
+        setUpStyling()
     }
 
     @IBAction func signOutButtonPressed(_ sender: Any) {
         GIDSignIn.sharedInstance().signOut()
     }
 
+    func setUpSignIn() {
+        GIDSignIn.sharedInstance().uiDelegate = self
+        GIDSignIn.sharedInstance().delegate = self
+        GIDSignIn.sharedInstance().clientID = "1072472744835-miivpr72vpanvmpm2f3tbb7msae67tii.apps.googleusercontent.com"
+        GIDSignIn.sharedInstance().scopes.append("profile")
+    }
+
+    private func setUpStyling() {
+        signInButton.style = GIDSignInButtonStyle.wide
+        appName.textColor = UIColor.white
+        appDescription.textColor = UIColor.white
+        appName.font = LucienTheme.Fonts.permanentMarkerRegular(size: 72)
+        appDescription.font = LucienTheme.Fonts.muliBold(size: 18)
+
+    }
     private func addBackground() {
         let width = UIScreen.main.bounds.size.width
         let height = UIScreen.main.bounds.size.height
@@ -65,6 +75,12 @@ final class RootViewController: UIViewController, GIDSignInDelegate, GIDSignInUI
         let startMyCollectionViewController = StartMyCollectionViewController()
         present(startMyCollectionViewController, animated: true, completion: nil)
     }
+
+    func showLendingCollection() {
+        let lendingCollectionController = LendingViewController()
+        present(lendingCollectionController, animated: true, completion: nil)
+    }
+
 }
 
 extension RootViewController: UIViewControllerTransitioningDelegate {

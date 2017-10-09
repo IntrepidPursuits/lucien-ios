@@ -37,7 +37,7 @@ final class AddComicViewController: UIViewController, UIPickerViewDelegate, UIPi
     @IBOutlet private weak var genreBottomLine: UIView!
     @IBOutlet private weak var conditionBottomLine: UIView!
     @IBOutlet private weak var comicTitleWarningLabel: UILabel!
-    @IBOutlet private weak var releaseDateTextField: UITextField!
+//    @IBOutlet private weak var releaseDateTextField: UITextField!
 
     // MARK: - Private Variables
 
@@ -58,9 +58,9 @@ final class AddComicViewController: UIViewController, UIPickerViewDelegate, UIPi
 
     // MARK: - Private Instance Methods
 
-//    @objc func backButtonTapped() {
-//        dismiss(animated: true, completion: nil)
-//    }
+    @objc func backButtonTapped() {
+        dismiss(animated: true, completion: nil)
+    }
 
     private func configureNavigationController() {
         UINavigationBar.setNavBarTitle(navigationController: navigationController!, title: "Add Book")
@@ -70,7 +70,7 @@ final class AddComicViewController: UIViewController, UIPickerViewDelegate, UIPi
     }
 
     private func setNavBarBackButton() {
-        let backButton = UIBarButtonItem(image: UIImage(named: "navBackButton"), style: .plain, target: self, action: #selector(AddComicViewController.backButtonTapped))
+        let backButton = UIBarButtonItem(image: UIImage(named: "navBackButton"), style: .plain, target: self, action: #selector(backButtonTapped))
         backButton.tintColor = UIColor.black
         navigationItem.leftBarButtonItem = backButton
     }
@@ -106,9 +106,9 @@ final class AddComicViewController: UIViewController, UIPickerViewDelegate, UIPi
         publisherTextField.attributedPlaceholder = createPlaceHolderAttributedString(placeholder: "Marvel, DC Comics, Image, Dark Horse…")
 
         // Release Date
-        configureTextFieldBorder(textField: releaseDateTextField)
-        releaseDateTextField.attributedPlaceholder = createPlaceHolderAttributedString(placeholder: "Year of Release")
-        releaseDateTextField.addTarget(self, action: #selector(AddComicViewController.releaseDateEditingChanged), for: .editingChanged)
+//        configureTextFieldBorder(textField: releaseDateTextField)
+//        releaseDateTextField.attributedPlaceholder = createPlaceHolderAttributedString(placeholder: "Year of Release")
+//        releaseDateTextField.addTarget(self, action: #selector(AddComicViewController.releaseDateEditingChanged), for: .editingChanged)
 
         let releaseDateToolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 50))
         releaseDateToolBar.barStyle = UIBarStyle.default
@@ -119,7 +119,7 @@ final class AddComicViewController: UIViewController, UIPickerViewDelegate, UIPi
         barButtonItems.append(doneButton)
         releaseDateToolBar.items = barButtonItems
         releaseDateToolBar.sizeToFit()
-        releaseDateTextField.inputAccessoryView = releaseDateToolBar
+//        releaseDateTextField.inputAccessoryView = releaseDateToolBar
 
         // Genre
         configurePickerUIButton(button: selectAGenreButton)

@@ -17,7 +17,6 @@ final class LoginViewModel {
         lucienAPIClient.getCurrentUser { response in
             switch response {
             case .success(let user):
-                print("getCurrentUser")
                 self.currentUser = user
                 completion()
             case .failure(let error):
@@ -30,7 +29,6 @@ final class LoginViewModel {
         lucienAPIClient.authenticateUser(code: code) { response in
             switch response {
             case .success(let authenticationResponse):
-                print("authenticateUser")
                 LucienRequest.authorizationHeader = "Bearer " + authenticationResponse.token
                 completion()
             case .failure(let error):
@@ -41,9 +39,7 @@ final class LoginViewModel {
 
     func getDashboard(completion: @escaping () -> Void) {
         print(LucienRequest.authorizationHeader)
-        print("just entered viewmodel getDashboard")
         lucienAPIClient.getDashboard { response in
-            print("In viewmodel dashboard")
             switch response {
             case .success(let result):
                 self.dashboardData = result
