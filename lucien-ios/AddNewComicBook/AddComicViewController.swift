@@ -83,7 +83,7 @@ final class AddComicViewController: UIViewController, AlertDisplaying {
     }
 
     private func setNavBarBackButton() {
-        let backButton = UIBarButtonItem(image: UIImage(named: "navBackButton"), style: .plain, target: self, action: #selector(AddComicViewController.backButtonTapped))
+        let backButton = UIBarButtonItem(image: UIImage(named: "navBackButton"), style: .plain, target: self, action: #selector(backButtonTapped))
         backButton.tintColor = UIColor.black
         navigationItem.leftBarButtonItem = backButton
     }
