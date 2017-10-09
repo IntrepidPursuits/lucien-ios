@@ -8,6 +8,7 @@
 
 import UIKit
 import QuartzCore
+import AVFoundation
 
 final class AddComicViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
 
@@ -43,6 +44,10 @@ final class AddComicViewController: UIViewController, UIPickerViewDelegate, UIPi
     private var didCompleteForm = false
     private var finishButton = UIBarButtonItem()
     private var activeField: UITextField?
+
+    // MARK: - Constants
+
+    private let cameraViewController = CameraViewController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -181,6 +186,20 @@ final class AddComicViewController: UIViewController, UIPickerViewDelegate, UIPi
         deregisterFromKeyboardNotifications()
     }
 
+    @IBAction func addCoverButtonTapped(_ sender: UIButton) {
+        if AVCaptureDevice.authorizationStatus(for: .video) ==  .authorized {
+            present(cameraViewController, animated: true, completion: nil)
+        } else {
+            AVCaptureDevice.requestAccess(for: .video) { granted in
+                if granted {
+                    DispatchQueue.main.async {
+                        self.present(self.cameraViewController, animated: true, completion: nil)
+                    }
+                }
+            }
+        }
+    }
+
     // MARK: - IBOutlet Methods
 
     @IBAction func selectGenreButtonTapped(_ sender: UIButton) {
@@ -267,15 +286,15 @@ final class AddComicViewController: UIViewController, UIPickerViewDelegate, UIPi
 
     // MARK: - Keyboard Methods
 
-    func registerForKeyboardNotifications() {
+    private func registerForKeyboardNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(AddComicViewController.keyboardWasShown), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
     }
 
-    func deregisterFromKeyboardNotifications() {
+    private func deregisterFromKeyboardNotifications() {
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
     }
 
-    @objc func keyboardWasShown(notification: NSNotification) {
+    @objc private func keyboardWasShown(notification: NSNotification) {
         guard
             let info = notification.userInfo,
             let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue.size
@@ -287,7 +306,7 @@ final class AddComicViewController: UIViewController, UIPickerViewDelegate, UIPi
         var viewFrame = view.frame
         viewFrame.size.height -= keyboardSize.height
         if let activeField = activeField {
-            if  !viewFrame.contains(activeField.frame.origin) {
+            if !viewFrame.contains(activeField.frame.origin) {
                 scrollView.scrollRectToVisible(activeField.frame, animated: true)
             }
         }

@@ -11,6 +11,8 @@
 		1C07CBF51F7AE1FD007C66D0 /* AddComicViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C07CBF31F7AE1FD007C66D0 /* AddComicViewController.xib */; };
 		1C182A2F1F82CA70001566E1 /* Comic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C182A2E1F82CA70001566E1 /* Comic.swift */; };
 		1C182A321F82D1C1001566E1 /* RawRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C182A311F82D1C1001566E1 /* RawRepresentable.swift */; };
+		1C45D0EB1F85611A00E651A5 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C45D0E91F85611A00E651A5 /* CameraViewController.swift */; };
+		1C45D0EC1F85611A00E651A5 /* CameraViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C45D0EA1F85611A00E651A5 /* CameraViewController.xib */; };
 		1CAE48D81F8412960087E96E /* LucienConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAE48D71F8412960087E96E /* LucienConstants.swift */; };
 		1CAFFC671F797FA200B79F11 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAFFC661F797FA200B79F11 /* AppDelegate.swift */; };
 		1CAFFC6E1F797FA200B79F11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CAFFC6D1F797FA200B79F11 /* Assets.xcassets */; };
@@ -69,6 +71,8 @@
 		1C07CBF31F7AE1FD007C66D0 /* AddComicViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddComicViewController.xib; sourceTree = "<group>"; };
 		1C182A2E1F82CA70001566E1 /* Comic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comic.swift; sourceTree = "<group>"; };
 		1C182A311F82D1C1001566E1 /* RawRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawRepresentable.swift; sourceTree = "<group>"; };
+		1C45D0E91F85611A00E651A5 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		1C45D0EA1F85611A00E651A5 /* CameraViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CameraViewController.xib; sourceTree = "<group>"; };
 		1CAE48D71F8412960087E96E /* LucienConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LucienConstants.swift; sourceTree = "<group>"; };
 		1CAFFC631F797FA200B79F11 /* lucien-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "lucien-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CAFFC661F797FA200B79F11 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -150,6 +154,15 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		1C45D0E81F85608500E651A5 /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				1C45D0E91F85611A00E651A5 /* CameraViewController.swift */,
+				1C45D0EA1F85611A00E651A5 /* CameraViewController.xib */,
+			);
+			path = Camera;
+			sourceTree = "<group>";
+		};
 		1C7E9F911F7994050061EFF6 /* StartMyCollection */ = {
 			isa = PBXGroup;
 			children = (
@@ -184,6 +197,7 @@
 		1CAFFC651F797FA200B79F11 /* lucien-ios */ = {
 			isa = PBXGroup;
 			children = (
+				1C45D0E81F85608500E651A5 /* Camera */,
 				1C182A301F82D1B2001566E1 /* Extensions */,
 				1CDBD8481F7C200A00408826 /* fonts */,
 				1CAFFC661F797FA200B79F11 /* AppDelegate.swift */,
@@ -433,6 +447,7 @@
 				1CDBD85B1F7C209800408826 /* Muli-Black.ttf in Resources */,
 				1CDBD8641F7C209800408826 /* Muli-Light.ttf in Resources */,
 				1CAFFC711F797FA200B79F11 /* LaunchScreen.storyboard in Resources */,
+				1C45D0EC1F85611A00E651A5 /* CameraViewController.xib in Resources */,
 				1CAFFC6E1F797FA200B79F11 /* Assets.xcassets in Resources */,
 				1CDBD8631F7C209800408826 /* Muli-Italic.ttf in Resources */,
 				FBD844441F798B1D00A8E352 /* RootViewController.xib in Resources */,
@@ -643,6 +658,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C45D0EB1F85611A00E651A5 /* CameraViewController.swift in Sources */,
 				1CDB6A221F7995EC003A2BB1 /* StartMyCollectionViewController.swift in Sources */,
 				FB6B911B1F7C195000910B49 /* AnimatedTransition.swift in Sources */,
 				1CDBD86F1F7C26B800408826 /* LucienTheme.swift in Sources */,
