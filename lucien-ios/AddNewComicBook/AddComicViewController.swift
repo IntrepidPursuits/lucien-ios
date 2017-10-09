@@ -145,7 +145,7 @@ final class AddComicViewController: UIViewController, UIPickerViewDelegate, UIPi
 
     private func configureTextFieldBorder(textField: UITextField) {
         let bottomBorder = CALayer()
-        bottomBorder.frame = CGRect(x: 0.0, y: textField.frame.height - 3.0, width: textField.frame.width, height: 1.0)
+        bottomBorder.frame = CGRect(x: 0.0, y: textField.frame.height - 3.0, width: textField.frame.width - LucienConstants.textFieldBorderOffset, height: 1.0)
         bottomBorder.backgroundColor = LucienTheme.silver.cgColor
         textField.borderStyle = UITextBorderStyle.none
         textField.layer.addSublayer(bottomBorder)
@@ -154,7 +154,7 @@ final class AddComicViewController: UIViewController, UIPickerViewDelegate, UIPi
     private func configurePickerUIButton(button: UIButton) {
         button.setImage(UIImage(named: "dropDownArrow"), for: .normal)
         button.semanticContentAttribute = .forceRightToLeft
-        button.imageEdgeInsets.left = button.frame.width - 24
+        button.imageEdgeInsets.left = comicTitleTextField.frame.width - LucienConstants.pickerViewLeftimageEdgeInsetOffset
         button.tintColor = LucienTheme.dark
     }
 
@@ -280,7 +280,7 @@ final class AddComicViewController: UIViewController, UIPickerViewDelegate, UIPi
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if let nextTextField = textField.superview?.superview?.viewWithTag(textField.tag + 1) as? UITextField {
+        if let nextTextField = textField.superview?.superview?.superview?.viewWithTag(textField.tag + 1) as? UITextField {
             nextTextField.becomeFirstResponder()
         } else {
             textField.resignFirstResponder()
@@ -313,14 +313,6 @@ final class AddComicViewController: UIViewController, UIPickerViewDelegate, UIPi
             if !viewFrame.contains(activeField.frame.origin) {
                 scrollView.scrollRectToVisible(activeField.frame, animated: true)
             }
-        }
-    }
-
-    // MARK: - ScrollView Delegate
-
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if scrollView.contentOffset.x != 0 {
-            scrollView.contentOffset.x = 0
         }
     }
 
