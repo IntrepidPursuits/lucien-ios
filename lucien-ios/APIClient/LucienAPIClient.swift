@@ -23,7 +23,6 @@ final class LucienAPIClient: APIClient {
                     return completion(.failure(LucienAPIError.noResult))
                 }
                 let decoder = JSONDecoder()
-                let json = try? JSONSerialization.jsonObject(with: result, options: [])
                 guard let authenticationResponse = try? decoder.decode(AuthenticationResponse.self, from: result) else { return }
                 completion(.success(authenticationResponse))
             case .failure(let error):
@@ -51,9 +50,6 @@ final class LucienAPIClient: APIClient {
                     print(error)
                     completion(.failure(error))
                 }
-//                guard let user = try? decoder.decode(User.self, from: result) else {
-//                    return
-//                }
             case .failure(let error):
                 completion(.failure(error))
             }
@@ -64,7 +60,6 @@ final class LucienAPIClient: APIClient {
         let lucienRequest = LucienRequest.getDashboard()
         let urlRequest = lucienRequest.urlRequest
         self.sendRequest(urlRequest) { response in
-            print("in LucienAPIClient getDashboard")
             print(response)
             switch response {
             case .success(let result):

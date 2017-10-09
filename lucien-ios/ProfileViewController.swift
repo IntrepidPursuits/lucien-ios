@@ -20,6 +20,7 @@ final class ProfileViewController: UIViewController {
     let loginViewModel = LoginViewModel()
 
     override func viewDidLoad() {
+        super.viewDidLoad()
         configureNavigationController()
         loginViewModel.getCurrentUser {
             guard let currentUser = self.loginViewModel.currentUser else { return }
@@ -28,13 +29,10 @@ final class ProfileViewController: UIViewController {
             self.email.text = currentUser.email
         }
         setUpStyling()
-
-        super.viewDidLoad()
     }
 
     @objc func back(sender: UIBarButtonItem) {
         self.navigationController?.popViewController(animated: true)
-        // TO DO: right now there is a bug where when I press back, the Profile title remains when back to dashboard and when prompted back to Profile there is no title.
         UINavigationBar.setNavBarTitle(navigationController: self.navigationController!, title: "Lucien")
     }
 

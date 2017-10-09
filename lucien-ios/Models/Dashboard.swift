@@ -16,7 +16,7 @@ struct Dashboard: Decodable {
     }
 
     enum DashboardKeys: String, CodingKey {
-        case myCollectionCount = "my_collection_count"
+        case myCollectionCount = "my_collection_count_by_issue"
     }
 
     init(from decoder: Decoder) throws {

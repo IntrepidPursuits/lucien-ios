@@ -65,7 +65,7 @@ final class AddComicViewController: UIViewController, AlertDisplaying {
 
     // MARK: - Private Instance Methods
 
-    @objc internal override func backButtonTapped() {
+    @objc internal func backButtonTapped() {
         let goBackAction = UIAlertAction(title: "Go Back to Previous Page", style: .destructive) { [weak self] _ in
             self?.dismiss(animated: true, completion: nil)
             self?.deregisterFromKeyboardNotifications()
@@ -82,7 +82,7 @@ final class AddComicViewController: UIViewController, AlertDisplaying {
     }
 
     private func setNavBarBackButton() {
-        let backButton = UIBarButtonItem(image: UIImage(named: "navBackButton"), style: .plain, target: self, action: #selector(AddComicViewController.backButtonTapped))
+        let backButton = UIBarButtonItem(image: UIImage(named: "navBackButton"), style: .plain, target: self, action: #selector(backButtonTapped))
         backButton.tintColor = UIColor.black
         navigationItem.leftBarButtonItem = backButton
     }

@@ -34,6 +34,5 @@ class DashboardViewController: UIViewController {
     @objc private func viewProfileButtonPressed() {
         let viewProfileController = ProfileViewController()
         self.navigationController?.pushViewController(viewProfileController, animated: true)
-
     }
 }
