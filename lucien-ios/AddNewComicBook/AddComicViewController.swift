@@ -10,10 +10,11 @@ import UIKit
 import QuartzCore
 import AVFoundation
 
-final class AddComicViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
+final class AddComicViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate, CameraViewDelegate, UIScrollViewDelegate {
 
     // MARK: - Private IBOutlets
 
+    @IBOutlet private weak var formStackView: UIStackView!
     @IBOutlet private weak var coverPhotoLabel: UILabel!
     @IBOutlet private weak var coverPhotoButton: UIButton!
     @IBOutlet private weak var comicTitleLabel: UILabel!
@@ -51,6 +52,7 @@ final class AddComicViewController: UIViewController, UIPickerViewDelegate, UIPi
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        scrollView.delegate = self
         configureNavigationController()
         configureViewController()
         registerForKeyboardNotifications()
@@ -188,11 +190,13 @@ final class AddComicViewController: UIViewController, UIPickerViewDelegate, UIPi
 
     @IBAction func addCoverButtonTapped(_ sender: UIButton) {
         if AVCaptureDevice.authorizationStatus(for: .video) ==  .authorized {
+            cameraViewController.cameraViewDelegate = self
             present(cameraViewController, animated: true, completion: nil)
         } else {
             AVCaptureDevice.requestAccess(for: .video) { granted in
                 if granted {
                     DispatchQueue.main.async {
+                        self.cameraViewController.cameraViewDelegate = self
                         self.present(self.cameraViewController, animated: true, completion: nil)
                     }
                 }
@@ -310,5 +314,36 @@ final class AddComicViewController: UIViewController, UIPickerViewDelegate, UIPi
                 scrollView.scrollRectToVisible(activeField.frame, animated: true)
             }
         }
+    }
+
+    // MARK: - ScrollView Delegate
+
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView.contentOffset.x != 0 {
+            scrollView.contentOffset.x = 0
+        }
+    }
+
+    // MARK: - CameraViewDelegate
+
+    func getImage(image: UIImage) {
+        let resizedImage = image.resize(with: CGSize(width: coverPhotoButton.frame.width, height: coverPhotoButton.frame.height))
+        let blurredImage = image.blurAndExpose()?.resize(with: CGSize(width: coverPhotoButton.frame.width, height: coverPhotoButton.frame.height))
+        coverPhotoButton.setBackgroundImage(blurredImage, for: .normal)
+        coverPhotoButton.isUserInteractionEnabled = false
+        coverPhotoButton.alpha = 0.7
+        coverPhotoButton.setAttributedTitle(NSAttributedString(string: ""), for: .normal)
+
+        let newbutton = UIButton(frame: coverPhotoButton.frame)
+        newbutton.setBackgroundImage(resizedImage, for: .normal)
+        newbutton.isUserInteractionEnabled = false
+        newbutton.layer.masksToBounds = true
+        newbutton.layer.cornerRadius = 10
+        newbutton.translatesAutoresizingMaskIntoConstraints = false
+        
+
+        scrollView.addSubview(newbutton)
+
+
     }
 }

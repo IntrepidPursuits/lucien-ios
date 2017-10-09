@@ -13,6 +13,8 @@
 		1C182A321F82D1C1001566E1 /* RawRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C182A311F82D1C1001566E1 /* RawRepresentable.swift */; };
 		1C45D0EB1F85611A00E651A5 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C45D0E91F85611A00E651A5 /* CameraViewController.swift */; };
 		1C45D0EC1F85611A00E651A5 /* CameraViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C45D0EA1F85611A00E651A5 /* CameraViewController.xib */; };
+		1C7EE0811F87FB21003F2A81 /* CameraViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7EE0801F87FB21003F2A81 /* CameraViewDelegate.swift */; };
+		1C7EE0851F880DF6003F2A81 /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7EE0841F880DF6003F2A81 /* UIImageExtensions.swift */; };
 		1CAE48D81F8412960087E96E /* LucienConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAE48D71F8412960087E96E /* LucienConstants.swift */; };
 		1CAFFC671F797FA200B79F11 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAFFC661F797FA200B79F11 /* AppDelegate.swift */; };
 		1CAFFC6E1F797FA200B79F11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CAFFC6D1F797FA200B79F11 /* Assets.xcassets */; };
@@ -80,6 +82,8 @@
 		1C182A311F82D1C1001566E1 /* RawRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawRepresentable.swift; sourceTree = "<group>"; };
 		1C45D0E91F85611A00E651A5 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		1C45D0EA1F85611A00E651A5 /* CameraViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CameraViewController.xib; sourceTree = "<group>"; };
+		1C7EE0801F87FB21003F2A81 /* CameraViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewDelegate.swift; sourceTree = "<group>"; };
+		1C7EE0841F880DF6003F2A81 /* UIImageExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
 		1CAE48D71F8412960087E96E /* LucienConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LucienConstants.swift; sourceTree = "<group>"; };
 		1CAFFC631F797FA200B79F11 /* lucien-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "lucien-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CAFFC661F797FA200B79F11 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -164,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				1C182A311F82D1C1001566E1 /* RawRepresentable.swift */,
+				1C7EE0841F880DF6003F2A81 /* UIImageExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -184,6 +189,14 @@
 				1CDB6A211F7995EC003A2BB1 /* StartMyCollectionViewController.xib */,
 			);
 			path = StartMyCollection;
+			sourceTree = "<group>";
+		};
+		1C7EE07F1F87F8CF003F2A81 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				1C7EE0801F87FB21003F2A81 /* CameraViewDelegate.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		1CAFFC5A1F797FA200B79F11 = {
@@ -211,6 +224,7 @@
 		1CAFFC651F797FA200B79F11 /* lucien-ios */ = {
 			isa = PBXGroup;
 			children = (
+				1C7EE07F1F87F8CF003F2A81 /* Protocols */,
 				1C45D0E81F85608500E651A5 /* Camera */,
 				1C182A301F82D1B2001566E1 /* Extensions */,
 				1CDBD8481F7C200A00408826 /* fonts */,
@@ -720,6 +734,8 @@
 				1CAFFC671F797FA200B79F11 /* AppDelegate.swift in Sources */,
 				1C07CBF41F7AE1FD007C66D0 /* AddComicViewController.swift in Sources */,
 				1C182A321F82D1C1001566E1 /* RawRepresentable.swift in Sources */,
+				1C7EE0811F87FB21003F2A81 /* CameraViewDelegate.swift in Sources */,
+				1C7EE0851F880DF6003F2A81 /* UIImageExtensions.swift in Sources */,
 				1C182A2F1F82CA70001566E1 /* Comic.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
