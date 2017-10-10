@@ -9,7 +9,12 @@
 import UIKit
 import AVFoundation
 
-class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate, Alertable {
+protocol CameraViewControllerDelegate: class {
+    /// Transfers an image from CameraViewController to the delegate.
+    func cameraViewController(didCapture image: UIImage)
+}
+
+class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate, AlertDisplaying {
 
     // MARK: - Private IBOutlets
 
@@ -17,13 +22,12 @@ class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate, Ale
 
     // MARK: - Variables
 
-    weak var cameraViewDelegate: CameraViewDelegate?
+    weak var delegate: CameraViewControllerDelegate?
 
     // MARK: - Private Constants
 
     private let captureSession = AVCaptureSession()
     private var captureDevice: AVCaptureDevice?
-    private let captureSessionOutput = AVCapturePhotoOutput()
     private let captureOutput = AVCapturePhotoOutput()
 
     override func viewDidLoad() {
@@ -90,13 +94,11 @@ class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate, Ale
             return
         }
 
-        guard let data = AVCapturePhotoOutput.jpegPhotoDataRepresentation(forJPEGSampleBuffer: photoSampleBuffer, previewPhotoSampleBuffer: previewPhotoSampleBuffer) else {
-            return
-        }
+        guard let data = AVCapturePhotoOutput.jpegPhotoDataRepresentation(forJPEGSampleBuffer: photoSampleBuffer, previewPhotoSampleBuffer: previewPhotoSampleBuffer) else { return }
 
         let capturedImage = UIImage(data: data)
         if let image = capturedImage {
-            cameraViewDelegate?.getImage(image: image)
+            delegate?.cameraViewController(didCapture: image)
             dismiss(animated: true, completion: nil)
         }
     }
@@ -105,7 +107,7 @@ class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate, Ale
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
         if let imageData = photo.fileDataRepresentation() {
             guard let image = UIImage(data: imageData) else { return }
-            cameraViewDelegate?.getImage(image: image)
+            delegate?.cameraViewController(didCapture: image)
             dismiss(animated: true, completion: nil)
         }
     }

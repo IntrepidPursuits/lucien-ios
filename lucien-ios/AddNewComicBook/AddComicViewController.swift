@@ -10,7 +10,7 @@ import UIKit
 import QuartzCore
 import AVFoundation
 
-final class AddComicViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate, CameraViewDelegate, UIScrollViewDelegate {
+final class AddComicViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate, CameraViewControllerDelegate, UIScrollViewDelegate {
 
     // MARK: - Private IBOutlets
 
@@ -190,13 +190,13 @@ final class AddComicViewController: UIViewController, UIPickerViewDelegate, UIPi
 
     @IBAction func addCoverButtonTapped(_ sender: UIButton) {
         if AVCaptureDevice.authorizationStatus(for: .video) ==  .authorized {
-            cameraViewController.cameraViewDelegate = self
+            cameraViewController.delegate = self
             present(cameraViewController, animated: true, completion: nil)
         } else {
             AVCaptureDevice.requestAccess(for: .video) { granted in
                 if granted {
                     DispatchQueue.main.async {
-                        self.cameraViewController.cameraViewDelegate = self
+                        self.cameraViewController.delegate = self
                         self.present(self.cameraViewController, animated: true, completion: nil)
                     }
                 }
@@ -317,8 +317,8 @@ final class AddComicViewController: UIViewController, UIPickerViewDelegate, UIPi
     }
 
     // MARK: - CameraViewDelegate
-
-    func getImage(image: UIImage) {
+    
+    func cameraViewController(didCapture image: UIImage) {
         let resizedImage = image.resize(size: CGSize(width: coverPhotoButton.frame.width, height: coverPhotoButton.frame.height))
         let blurredImage = image.blur(radius: LucienConstants.coverButtonBlurRadius)?.resize(size: CGSize(width: coverPhotoButton.frame.width, height: coverPhotoButton.frame.height))
 

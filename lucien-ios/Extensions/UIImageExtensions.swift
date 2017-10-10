@@ -37,8 +37,8 @@ extension UIImage {
             currentFilter.setValue(radius, forKey: kCIInputRadiusKey)
 
             if let output = currentFilter.outputImage {
-                if let cgimg = context.createCGImage(output, from: output.extent) {
-                    let processedImage = UIImage(cgImage: cgimg, scale: 1.0, orientation: .right)
+                if let cgImage = context.createCGImage(output, from: output.extent) {
+                    let processedImage = UIImage(cgImage: cgImage, scale: 1.0, orientation: .right)
                     return processedImage
                 }
             }
