@@ -11,7 +11,7 @@ final class LoginViewModel {
     let lucienAPIClient = LucienAPIClient()
     var currentUser: User?
     var dashboardData: Dashboard?
-    var hasCollection: String?
+    var hasCollection: Bool = false
 
     func getCurrentUser(completion: @escaping () -> Void) {
         lucienAPIClient.getCurrentUser { response in
@@ -51,8 +51,13 @@ final class LoginViewModel {
 
     func hasCollection(completion: @escaping () -> Void) {
         lucienAPIClient.hasCollection { response in
-            self.hasCollection = response
-            completion()
+            switch response {
+            case .success(let result):
+                self.hasCollection = result
+                completion()
+            case .failure(let error):
+                print(error)
+            }
         }
     }
 }

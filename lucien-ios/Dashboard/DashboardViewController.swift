@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DashboardViewController: UIViewController {
+final class DashboardViewController: UIViewController {
 
     @IBOutlet weak var dashboardScrollView: UIScrollView!
 
@@ -21,9 +21,9 @@ class DashboardViewController: UIViewController {
     }
 
     private func configureNavigationController() {
-        UINavigationBar.setNavBarBackground(navigationController: navigationController!)
+        navigationController?.navigationBar.setNavBarBackground()
         self.navigationItem.title = "Lucien"
-        UINavigationBar.setNavBarTitle(navigationController: self.navigationController!, title: "Lucien")
+        navigationController?.navigationBar.setNavBarTitle()
         setViewProfileButton()
     }
 

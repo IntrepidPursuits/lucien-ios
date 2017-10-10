@@ -12,12 +12,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="StartMyCollectionViewController" customModule="lucien_ios" customModuleProvider="target">
             <connections>
-                <outlet property="addBook" destination="V2y-M2-J5l" id="oWo-Mk-7cA"/>
+                <outlet property="addBookButton" destination="V2y-M2-J5l" id="fop-5N-Csw"/>
                 <outlet property="getStartedDescription" destination="tPf-pZ-vpQ" id="hQm-19-cTd"/>
-                <outlet property="toDashboard" destination="6Be-ZJ-UBf" id="I17-4g-5Ft"/>
+                <outlet property="toDashboardButton" destination="6Be-ZJ-UBf" id="0Bw-7c-a3B"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
-                <outlet property="welcome" destination="Shz-ju-9Id" id="AWQ-BT-PmY"/>
-                <outlet property="welcomeImage" destination="TqY-jW-Fpj" id="Xwp-Hs-0Jn"/>
+                <outlet property="welcomeImageView" destination="TqY-jW-Fpj" id="LuC-9L-cFT"/>
+                <outlet property="welcomeLabel" destination="Shz-ju-9Id" id="IsG-wQ-qvd"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

@@ -32,33 +32,37 @@ final class ProfileViewController: UIViewController {
     }
 
     @objc func back(sender: UIBarButtonItem) {
-        self.navigationController?.popViewController(animated: true)
+        navigationController?.popViewController(animated: true)
     }
 
     private func configureNavigationController() {
-        guard self.navigationController != nil else { return }
-        UINavigationBar.setNavBarBackground(navigationController: self.navigationController!)
-        self.navigationItem.title = "Profile"
-        UINavigationBar.setNavBarTitle(navigationController: self.navigationController!, title: "Profile")
+        navigationController?.navigationBar.setNavBarTitle()
+        navigationController?.navigationBar.setNavBarBackground()
         setNavBarBackButton()
     }
 
     private func setNavBarBackButton() {
         let backButton = UIBarButtonItem(image: UIImage(named: "navBackButton"), style: .plain, target: self, action: #selector(back(sender:)))
         backButton.tintColor = LucienTheme.dark
-        self.navigationItem.leftBarButtonItem = backButton
+        navigationItem.leftBarButtonItem = backButton
     }
 
     private func setUpStyling() {
         emptyProfilePicture.contentMode = .scaleAspectFit
         logoutButton.backgroundColor = LucienTheme.dark
+        logoutButton.titleLabel?.font = LucienTheme.Fonts.muliBold(size: 13.0)
         logoutButton.setTitleColor(UIColor.white, for: .normal)
         logoutButton.layer.cornerRadius = 3.0
         nameTitle.textColor = LucienTheme.coolGrey
         emailTitle.textColor = LucienTheme.coolGrey
         name.textColor = LucienTheme.dark
         email.textColor = LucienTheme.dark
+        nameTitle.font = LucienTheme.Fonts.muliLight(size: 12.0)
+        emailTitle.font = LucienTheme.Fonts.muliLight(size: 12.0)
+        name.font = LucienTheme.Fonts.muliRegular(size: 18.0)
+        email.font = LucienTheme.Fonts.muliRegular(size: 18.0)
     }
+    
     @IBAction func logoutButtonPressed(_ sender: UIButton) {
         GIDSignIn.sharedInstance().signOut()
         let rootViewController = RootViewController()

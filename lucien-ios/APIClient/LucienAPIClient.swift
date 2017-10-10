@@ -14,17 +14,20 @@ enum LucienAPIError: Error {
 final class LucienAPIClient: APIClient {
 
     func authenticateUser(code: String, completion: @escaping (Result<AuthenticationResponse>) -> Void) {
-        let lucienRequest = LucienRequest.authenticate(code: code)
-        let urlRequest = lucienRequest.urlRequest
-        self.sendRequest(urlRequest) { response in
+        let urlRequest = LucienRequest.authenticate(code: code).urlRequest
+        sendRequest(urlRequest) { response in
             switch response {
             case .success(let result):
                 guard let result = result else {
                     return completion(.failure(LucienAPIError.noResult))
                 }
-                let decoder = JSONDecoder()
-                guard let authenticationResponse = try? decoder.decode(AuthenticationResponse.self, from: result) else { return }
-                completion(.success(authenticationResponse))
+                do {
+                    let decoder = JSONDecoder()
+                    let authenticationResponse = try decoder.decode(AuthenticationResponse.self, from: result)
+                    completion(.success(authenticationResponse))
+                } catch(let error) {
+                    completion(.failure(error))
+                }
             case .failure(let error):
                 completion(.failure(error))
             }
@@ -32,9 +35,8 @@ final class LucienAPIClient: APIClient {
     }
 
     func getCurrentUser(completion: @escaping (Result<User>) -> Void) {
-        let lucienRequest = LucienRequest.getCurrentUser()
-        let urlRequest = lucienRequest.urlRequest
-        self.sendRequest(urlRequest) { response in
+        let urlRequest = LucienRequest.getCurrentUser.urlRequest
+        sendRequest(urlRequest) { response in
             switch response {
             case .success(let result):
                 guard let result = result else {
@@ -46,7 +48,6 @@ final class LucienAPIClient: APIClient {
                     let user = try decoder.decode(User.self, from: result)
                     completion(.success(user))
                 } catch(let error) {
-                    print(error)
                     completion(.failure(error))
                 }
             case .failure(let error):
@@ -56,15 +57,17 @@ final class LucienAPIClient: APIClient {
     }
 
     func getDashboard(completion: @escaping (Result<Dashboard>) -> Void) {
-        let lucienRequest = LucienRequest.getDashboard()
-        let urlRequest = lucienRequest.urlRequest
-        self.sendRequest(urlRequest) { response in
-            print(response)
+        let urlRequest = LucienRequest.getDashboard.urlRequest
+        sendRequest(urlRequest) { response in
             switch response {
             case .success(let result):
-                guard let result = result else { return }
+                guard let result = result else {
+                    return completion(.failure(LucienAPIError.noResult))
+                }
                 let decoder = JSONDecoder()
-                guard let myCollection = try? decoder.decode(Dashboard.self, from: result) else { return }
+                guard let myCollection = try? decoder.decode(Dashboard.self, from: result) else {
+                    return completion(.failure(LucienAPIError.noResult))
+                }
                 completion(.success(myCollection))
             case .failure(let error):
                 completion(.failure(error))
@@ -72,17 +75,23 @@ final class LucienAPIClient: APIClient {
         }
     }
 
-    func hasCollection(completion: @escaping (String) -> Void) {
-        let lucienRequest = LucienRequest.hasCollection()
-        let urlRequest = lucienRequest.urlRequest
-        self.sendRequest(urlRequest) { response in
-            print(response)
+    func hasCollection(completion: @escaping (Result<Bool>) -> Void) {
+        let urlRequest = LucienRequest.hasCollection.urlRequest
+        sendRequest(urlRequest) { response in
             switch response {
             case .success(let result):
-                guard let hasCollection = String(data: result!, encoding: String.Encoding.utf8) as String! else { return }
-                completion(hasCollection)
+                guard let result = result else {
+                    return completion(.failure(LucienAPIError.noResult))
+                }
+                guard let resultString = String(data: result, encoding: String.Encoding.utf8) else {
+                    return completion(.failure(LucienAPIError.noResult))
+                }
+                 let resultBool = (resultString as NSString).boolValue
+                print("hasCollection result: \(resultBool)")
+
+                completion(.success(resultBool))
             case .failure(let error):
-                print(error)
+                completion(.failure(error))
             }
         }
     }
