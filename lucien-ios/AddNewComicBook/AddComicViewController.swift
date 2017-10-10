@@ -339,8 +339,6 @@ extension AddComicViewController: CameraViewControllerDelegate {
         showCoverPhotoMenu()
         resetCoverPhotoButton()
 
-        coverPhotoButton.transform = .identity
-
         let resizedImage = image.resize(size: CGSize(width: coverPhotoButton.frame.width, height: coverPhotoButton.frame.height))
         let blurredImage = image.blur(radius: LucienConstants.coverButtonBlurRadius)?.resize(size: CGSize(width: coverPhotoButton.frame.width, height: coverPhotoButton.frame.height))
 
