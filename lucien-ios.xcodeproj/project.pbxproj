@@ -50,6 +50,8 @@
 		FB6AA1A61F855E7100394500 /* UINavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6AA1A51F855E7100394500 /* UINavigationBar.swift */; };
 		FB6AA1A81F85665200394500 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6AA1A71F85665200394500 /* UIViewController.swift */; };
 		FB6B911B1F7C195000910B49 /* AnimatedTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6B911A1F7C195000910B49 /* AnimatedTransition.swift */; };
+		FB743DA61F8D61150066A43F /* LendingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB743DA41F8D61150066A43F /* LendingCollectionViewCell.swift */; };
+		FB743DA71F8D61150066A43F /* LendingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB743DA51F8D61150066A43F /* LendingCollectionViewCell.xib */; };
 		FBAB046F1F8D42010099F197 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAB046E1F8D42010099F197 /* APIClient.swift */; };
 		FBAB04711F8D42080099F197 /* LucienAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAB04701F8D42070099F197 /* LucienAPIClient.swift */; };
 		FBAEE5781F7EE75C00A44F50 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAEE5771F7EE75C00A44F50 /* LoginViewModel.swift */; };
@@ -136,6 +138,8 @@
 		FB6AA1A51F855E7100394500 /* UINavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationBar.swift; sourceTree = "<group>"; };
 		FB6AA1A71F85665200394500 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		FB6B911A1F7C195000910B49 /* AnimatedTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AnimatedTransition.swift; path = "lucien-ios/AnimatedTransition.swift"; sourceTree = SOURCE_ROOT; };
+		FB743DA41F8D61150066A43F /* LendingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LendingCollectionViewCell.swift; sourceTree = "<group>"; };
+		FB743DA51F8D61150066A43F /* LendingCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LendingCollectionViewCell.xib; sourceTree = "<group>"; };
 		FBAB046E1F8D42010099F197 /* APIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		FBAB04701F8D42070099F197 /* LucienAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LucienAPIClient.swift; sourceTree = "<group>"; };
 		FBAEE5771F7EE75C00A44F50 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -348,6 +352,8 @@
 				FB6AA19F1F85313500394500 /* DashboardViewController.xib */,
 				FB32385E1F8BCED700FE81E2 /* LendingViewController.swift */,
 				FB32385F1F8BCED700FE81E2 /* LendingViewController.xib */,
+				FB743DA41F8D61150066A43F /* LendingCollectionViewCell.swift */,
+				FB743DA51F8D61150066A43F /* LendingCollectionViewCell.xib */,
 			);
 			path = Dashboard;
 			sourceTree = "<group>";
@@ -528,6 +534,7 @@
 				1CDBD85E1F7C209800408826 /* Muli-BoldItalic.ttf in Resources */,
 				1CDBD86B1F7C20B500408826 /* PermanentMarker-Regular.ttf in Resources */,
 				1CDBD85C1F7C209800408826 /* Muli-BlackItalic.ttf in Resources */,
+				FB743DA71F8D61150066A43F /* LendingCollectionViewCell.xib in Resources */,
 				1CDBD85D1F7C209800408826 /* Muli-Bold.ttf in Resources */,
 				1CDBD8621F7C209800408826 /* Muli-ExtraLightItalic.ttf in Resources */,
 				1CDBD85F1F7C209800408826 /* Muli-ExtraBold.ttf in Resources */,
@@ -734,6 +741,7 @@
 			files = (
 				1C45D0EB1F85611A00E651A5 /* CameraViewController.swift in Sources */,
 				FBAB046F1F8D42010099F197 /* APIClient.swift in Sources */,
+				FB743DA61F8D61150066A43F /* LendingCollectionViewCell.swift in Sources */,
 				FBB9756B1F7ED8A9007951C4 /* Result.swift in Sources */,
 				1CDB6A221F7995EC003A2BB1 /* StartMyCollectionViewController.swift in Sources */,
 				FB6AA1A81F85665200394500 /* UIViewController.swift in Sources */,

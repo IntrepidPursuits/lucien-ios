@@ -12,7 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LendingViewController" customModule="lucien_ios" customModuleProvider="target">
             <connections>
-                <outlet property="collectionView" destination="xxQ-4c-Dt5" id="RUH-Pe-Rq6"/>
+                <outlet property="collectionView" destination="xxQ-4c-Dt5" id="ngA-DV-Sjy"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -22,17 +22,26 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="xxQ-4c-Dt5">
-                    <rect key="frame" x="0.0" y="220" width="375" height="86"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <collectionViewLayout key="collectionViewLayout" id="wSt-9P-bL8"/>
+                    <rect key="frame" x="0.0" y="220" width="375" height="358"/>
+                    <color key="backgroundColor" red="0.87483885449999998" green="1" blue="0.82942766089999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="358" id="M0L-un-pWF"/>
+                    </constraints>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="sRE-mV-pOp">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
                 </collectionView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="xxQ-4c-Dt5" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="1Ov-FE-Rvm"/>
+                <constraint firstItem="xxQ-4c-Dt5" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="200" id="20M-s0-Bo1"/>
+                <constraint firstItem="xxQ-4c-Dt5" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="IjT-6T-e3x"/>
                 <constraint firstItem="xxQ-4c-Dt5" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="bEe-IJ-Sx2"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="xxQ-4c-Dt5" secondAttribute="bottom" constant="361" id="jje-eJ-X3w"/>
-                <constraint firstItem="xxQ-4c-Dt5" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="200" id="xOW-4X-4Ll"/>
+                <constraint firstItem="xxQ-4c-Dt5" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="eCd-xw-4Lj"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="33.5" y="53.5"/>

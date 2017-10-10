@@ -52,13 +52,19 @@ final class ProfileViewController: UIViewController {
     private func setUpStyling() {
         emptyProfilePicture.contentMode = .scaleAspectFit
         logoutButton.backgroundColor = LucienTheme.dark
+        logoutButton.titleLabel?.font = LucienTheme.Fonts.muliBold(size: 13.0)
         logoutButton.setTitleColor(UIColor.white, for: .normal)
         logoutButton.layer.cornerRadius = 3.0
         nameTitle.textColor = LucienTheme.coolGrey
         emailTitle.textColor = LucienTheme.coolGrey
         name.textColor = LucienTheme.dark
         email.textColor = LucienTheme.dark
+        nameTitle.font = LucienTheme.Fonts.muliLight(size: 12.0)
+        emailTitle.font = LucienTheme.Fonts.muliLight(size: 12.0)
+        name.font = LucienTheme.Fonts.muliRegular(size: 18.0)
+        email.font = LucienTheme.Fonts.muliRegular(size: 18.0)
     }
+    
     @IBAction func logoutButtonPressed(_ sender: UIButton) {
         GIDSignIn.sharedInstance().signOut()
         let rootViewController = RootViewController()

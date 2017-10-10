@@ -30,7 +30,7 @@ enum LucienRequest: Request {
             return .GET
         }
     }
-    
+
     var path: String {
         switch self {
         case .authenticate:
