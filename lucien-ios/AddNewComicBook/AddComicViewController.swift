@@ -352,8 +352,12 @@ extension AddComicViewController: UITextFieldDelegate {
 extension AddComicViewController: CameraViewControllerDelegate {
 
     // MARK: - CameraViewControllerDelegate
-
+    
     func cameraViewController(didCapture image: UIImage) {
+        retakePhotoButton.isHidden = false
+        deletePhotoButton.isHidden = false
+        coverPhotoDividerView.isHidden = false
+
         let resizedImage = image.resize(size: CGSize(width: coverPhotoButton.frame.width, height: coverPhotoButton.frame.height))
         let blurredImage = image.blur(radius: LucienConstants.coverButtonBlurRadius)?.resize(size: CGSize(width: coverPhotoButton.frame.width, height: coverPhotoButton.frame.height))
 
