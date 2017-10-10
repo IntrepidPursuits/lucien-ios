@@ -17,8 +17,8 @@ final class AddComicViewController: UIViewController {
     @IBOutlet private weak var formStackView: UIStackView!
     @IBOutlet private weak var coverPhotoLabel: UILabel!
     @IBOutlet private weak var coverPhotoButton: UIButton!
-    @IBOutlet private weak var comicTitleLabel: UILabel!
-    @IBOutlet private weak var comicTitleTextField: UITextField!
+    @IBOutlet private weak var seriesTitleLabel: UILabel!
+    @IBOutlet private weak var seriesTitleTextField: UITextField!
     @IBOutlet private weak var storyTitleLabel: UILabel!
     @IBOutlet private weak var storyTitleTextField: UITextField!
     @IBOutlet private weak var volumeLabel: UILabel!
@@ -37,8 +37,12 @@ final class AddComicViewController: UIViewController {
     @IBOutlet private weak var scrollView: UIScrollView!
     @IBOutlet private weak var genreBottomLine: UIView!
     @IBOutlet private weak var conditionBottomLine: UIView!
-    @IBOutlet private weak var comicTitleWarningLabel: UILabel!
+    @IBOutlet private weak var seriesTitleWarningLabel: UILabel!
     @IBOutlet private weak var releaseDateTextField: UITextField!
+    @IBOutlet private weak var storyTitleWarningLabel: UILabel!
+    @IBOutlet weak var deletePhotoButton: UIButton!
+    @IBOutlet weak var retakePhotoButton: UIButton!
+    @IBOutlet weak var coverPhotoDividerView: UIView!
 
     // MARK: - Private Variables
 
@@ -100,9 +104,9 @@ final class AddComicViewController: UIViewController {
 
     private func configureViewController() {
         // Comic Title
-        configureTextFieldBorder(textField: comicTitleTextField)
-        comicTitleTextField.attributedPlaceholder = createPlaceHolderAttributedString(placeholder: "Comic Title")
-        comicTitleTextField.addTarget(self, action: #selector(AddComicViewController.comicTitleEditingChanged), for: .editingChanged)
+        configureTextFieldBorder(textField: seriesTitleTextField)
+        seriesTitleTextField.attributedPlaceholder = createPlaceHolderAttributedString(placeholder: "Series Title")
+        seriesTitleTextField.addTarget(self, action: #selector(AddComicViewController.comicTitleEditingChanged), for: .editingChanged)
 
         // Story Title
         configureTextFieldBorder(textField: storyTitleTextField)
@@ -154,7 +158,7 @@ final class AddComicViewController: UIViewController {
     private func configurePickerUIButton(button: UIButton) {
         button.setImage(UIImage(named: "dropDownArrow"), for: .normal)
         button.semanticContentAttribute = .forceRightToLeft
-        button.imageEdgeInsets.left = comicTitleTextField.frame.width - LucienConstants.pickerViewLeftimageEdgeInsetOffset
+        button.imageEdgeInsets.left = seriesTitleTextField.frame.width - LucienConstants.pickerViewLeftimageEdgeInsetOffset
         button.tintColor = LucienTheme.dark
     }
 
@@ -190,6 +194,20 @@ final class AddComicViewController: UIViewController {
         deregisterFromKeyboardNotifications()
     }
 
+    private func showWarningLabel(label: UILabel, textField: UITextField, sublayers: [CALayer]) {
+        label.isHidden = false
+        let textFieldBottomBorder = sublayers[0] as CALayer
+        textFieldBottomBorder.backgroundColor = LucienTheme.textFieldBottomBorderWarning.cgColor
+        finishButton.isEnabled = false
+        finishButton.tintColor = LucienTheme.finishButtonGrey
+    }
+
+    private func hideWarningLabel(label: UILabel) {
+        label.isHidden = true
+    }
+
+    // MARK: - IBOutlet Methods
+
     @IBAction func addCoverButtonTapped(_ sender: UIButton) {
         if AVCaptureDevice.authorizationStatus(for: .video) ==  .authorized {
             cameraViewController.delegate = self
@@ -205,8 +223,6 @@ final class AddComicViewController: UIViewController {
             }
         }
     }
-
-    // MARK: - IBOutlet Methods
 
     @IBAction func selectGenreButtonTapped(_ sender: UIButton) {
         UIView.animate(
@@ -260,6 +276,7 @@ final class AddComicViewController: UIViewController {
                 scrollView.scrollRectToVisible(activeField.frame, animated: true)
             }
         }
+        scrollView.contentInset.top = 40
     }
 }
 
@@ -289,22 +306,23 @@ extension AddComicViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         activeField = textField
         guard
-            let comicTitleText = comicTitleTextField.text,
+            let seriesTitleText = seriesTitleTextField.text,
             let bottomBorderSubLayer = textField.layer.sublayers,
-            let comicTitleTextFieldSubLayers = comicTitleTextField.layer.sublayers
+            let seriesTitleTextFieldSubLayers = seriesTitleTextField.layer.sublayers,
+            let storyTitleText = storyTitleTextField.text,
+            let storyTitleTextFieldSubLayers = storyTitleTextField.layer.sublayers
             else { return }
 
         let bottomBorder = bottomBorderSubLayer[0] as CALayer
         bottomBorder.backgroundColor = LucienTheme.dark.cgColor
 
-        if textField != comicTitleTextField && comicTitleText.isEmpty {
-            comicTitleWarningLabel.isHidden = false
-            let comicTitleTextFieldBottomBorder = comicTitleTextFieldSubLayers[0] as CALayer
-            comicTitleTextFieldBottomBorder.backgroundColor = LucienTheme.textFieldBottomBorderWarning.cgColor
-            finishButton.isEnabled = false
-            finishButton.tintColor = LucienTheme.finishButtonGrey
-        } else if textField == comicTitleTextField {
-            comicTitleWarningLabel.isHidden = true
+        if textField != seriesTitleTextField && (seriesTitleText.isEmpty || storyTitleText.isEmpty) {
+            showWarningLabel(label: seriesTitleWarningLabel, textField: seriesTitleTextField, sublayers: seriesTitleTextFieldSubLayers)
+            showWarningLabel(label: storyTitleWarningLabel, textField: storyTitleTextField, sublayers: storyTitleTextFieldSubLayers)
+        } else if textField == seriesTitleTextField {
+            hideWarningLabel(label: seriesTitleWarningLabel)
+        } else if textField == storyTitleTextField {
+            hideWarningLabel(label: storyTitleWarningLabel)
         }
     }
 
@@ -339,6 +357,8 @@ extension AddComicViewController: CameraViewControllerDelegate {
         let resizedImage = image.resize(size: CGSize(width: coverPhotoButton.frame.width, height: coverPhotoButton.frame.height))
         let blurredImage = image.blur(radius: LucienConstants.coverButtonBlurRadius)?.resize(size: CGSize(width: coverPhotoButton.frame.width, height: coverPhotoButton.frame.height))
 
+        coverPhotoButton.setImage(nil, for: .normal)
+        coverPhotoButton.backgroundColor = nil
         coverPhotoButton.setBackgroundImage(blurredImage, for: .normal)
         coverPhotoButton.isUserInteractionEnabled = false
         coverPhotoButton.transform = CGAffineTransform(scaleX: LucienConstants.coverButtonScaleX, y: LucienConstants.coverButtonScaleY)
