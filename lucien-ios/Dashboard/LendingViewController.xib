@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LendingViewController" customModule="lucien_ios" customModuleProvider="target">
             <connections>
+                <outlet property="collectionView" destination="xxQ-4c-Dt5" id="RUH-Pe-Rq6"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -20,14 +21,19 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="xxQ-4c-Dt5">
-                    <rect key="frame" x="0.0" y="178" width="375" height="128"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="xxQ-4c-Dt5">
+                    <rect key="frame" x="0.0" y="220" width="375" height="86"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <collectionViewLayout key="collectionViewLayout" id="cOP-3I-w1J"/>
+                    <collectionViewLayout key="collectionViewLayout" id="wSt-9P-bL8"/>
                 </collectionView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="xxQ-4c-Dt5" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="1Ov-FE-Rvm"/>
+                <constraint firstItem="xxQ-4c-Dt5" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="bEe-IJ-Sx2"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="xxQ-4c-Dt5" secondAttribute="bottom" constant="361" id="jje-eJ-X3w"/>
+                <constraint firstItem="xxQ-4c-Dt5" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="200" id="xOW-4X-4Ll"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="33.5" y="53.5"/>
         </view>

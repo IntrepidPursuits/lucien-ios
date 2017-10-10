@@ -19,7 +19,7 @@ extension UINavigationBar {
     }
 
     static func setNavBarTitle(navigationController: UINavigationController, title: String) {
-        navigationController.viewControllers[0].title = title
+        navigationController.navigationItem.title = title
         navigationController.navigationBar.tintColor = LucienTheme.dark
         navigationController.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: LucienTheme.Fonts.permanentMarkerRegular(size: 30) ?? UIFont()]
     }
