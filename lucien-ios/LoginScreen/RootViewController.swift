@@ -10,18 +10,21 @@ import UIKit
 
 final class RootViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate {
     @IBOutlet private weak var signInButton: GIDSignInButton!
-    @IBOutlet weak var appName: UILabel!
-    @IBOutlet weak var appDescription: UILabel!
+    @IBOutlet private weak var appName: UILabel!
+    @IBOutlet private weak var appDescription: UILabel!
+
+    let loginViewModel = LoginViewModel(apiClient: LucienAPIClient())
 
     override func viewDidLoad() {
         super.viewDidLoad()
         addBackground()
-        GIDSignIn.sharedInstance().delegate = self
-        GIDSignIn.sharedInstance().uiDelegate = self
         signInButton.style = GIDSignInButtonStyle.wide
         appName.textColor = UIColor.white
         appDescription.textColor = UIColor.white
+        GIDSignIn.sharedInstance().uiDelegate = self
+        GIDSignIn.sharedInstance().delegate = self
         GIDSignIn.sharedInstance().clientID = "1072472744835-miivpr72vpanvmpm2f3tbb7msae67tii.apps.googleusercontent.com"
+        GIDSignIn.sharedInstance().scopes.append("profile")
     }
 
     @IBAction func signOutButtonPressed(_ sender: Any) {
@@ -33,14 +36,6 @@ final class RootViewController: UIViewController, GIDSignInDelegate, GIDSignInUI
         present(viewProfileController, animated: true, completion: nil)
     }
 
-    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
-        guard error == nil else { print("\(error.localizedDescription)"); return }
-        guard user.authentication.idToken != nil else { return }
-        let startMyCollectionViewController = StartMyCollectionViewController()
-        present(startMyCollectionViewController, animated: true, completion: nil)
-        startMyCollectionViewController.transitioningDelegate = self
-    }
-
     private func addBackground() {
         let width = UIScreen.main.bounds.size.width
         let height = UIScreen.main.bounds.size.height
@@ -50,6 +45,14 @@ final class RootViewController: UIViewController, GIDSignInDelegate, GIDSignInUI
 
         view.addSubview(homeScreenBackground)
         view.sendSubview(toBack: homeScreenBackground)
+    }
+
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        guard error == nil else { print("\(error.localizedDescription)"); return }
+        guard let idToken = user.authentication.idToken else { return }
+        loginViewModel.authenticateUser(code: idToken)
+        let startMyCollectionViewController = StartMyCollectionViewController()
+        present(startMyCollectionViewController, animated: true, completion: nil)
     }
 }
 

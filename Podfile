@@ -6,6 +6,7 @@ target 'lucien-ios' do
   use_frameworks!
 
   # Pods for lucien-ios
+  pod 'SwiftLint'
   pod 'GoogleSignIn'
   pod 'Google/SignIn'
 
