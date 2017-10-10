@@ -10,7 +10,7 @@ import UIKit
 import QuartzCore
 import AVFoundation
 
-final class AddComicViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate, CameraViewControllerDelegate, UIScrollViewDelegate {
+final class AddComicViewController: UIViewController {
 
     // MARK: - Private IBOutlets
 
@@ -42,9 +42,9 @@ final class AddComicViewController: UIViewController, UIPickerViewDelegate, UIPi
 
     // MARK: - Private Variables
 
-    private var didCompleteForm = false
     private var finishButton = UIBarButtonItem()
     private var activeField: UITextField?
+    private var addComicViewControllerTextFields: [UITextField]?
 
     // MARK: - Constants
 
@@ -52,10 +52,10 @@ final class AddComicViewController: UIViewController, UIPickerViewDelegate, UIPi
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        scrollView.delegate = self
         configureNavigationController()
         configureViewController()
         registerForKeyboardNotifications()
+        addComicViewControllerTextFields = [comicTitleTextField, volumeTextField, storyTitleTextField, issueTextField, publisherTextField, releaseDateTextField]
     }
 
     // MARK: - Private Instance Methods
@@ -161,16 +161,18 @@ final class AddComicViewController: UIViewController, UIPickerViewDelegate, UIPi
     private func createPlaceHolderAttributedString(placeholder: String) -> NSAttributedString {
         let placeholderAttributes = [
         NSAttributedStringKey.foregroundColor: LucienTheme.silver,
-        NSAttributedStringKey.font : LucienTheme.Fonts.muliRegular(size: 16) ?? UIFont()
-        ] as [NSAttributedStringKey : Any]
-       return NSAttributedString(string: placeholder, attributes: placeholderAttributes)
+        NSAttributedStringKey.font : LucienTheme.Fonts.muliRegular(size: 16) ?? UIFont()] as [NSAttributedStringKey : Any]
+        return NSAttributedString(string: placeholder, attributes: placeholderAttributes)
     }
 
     @objc private func comicTitleEditingChanged(_ textField: UITextField) {
-        guard let comicTitle = textField.text, !comicTitle.isEmpty else {
-            finishButton.isEnabled = false
-            finishButton.tintColor = LucienTheme.finishButtonGrey
-            return
+        guard
+            let comicTitle = textField.text,
+            !comicTitle.isEmpty
+            else {
+                finishButton.isEnabled = false
+                finishButton.tintColor = LucienTheme.finishButtonGrey
+                return
         }
         finishButton.isEnabled = true
         finishButton.tintColor = LucienTheme.dark
@@ -232,62 +234,6 @@ final class AddComicViewController: UIViewController, UIPickerViewDelegate, UIPi
         )
     }
 
-    // MARK: - UIPickerViewDelegate
-
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return pickerView == genrePicker ? Comic.Genre.allCases.count : Comic.Condition.allCases.count
-    }
-
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return pickerView == genrePicker ? Comic.Genre(rawValue: row)?.title : Comic.Condition(rawValue: row)?.title
-    }
-
-    // MARK: - UIPickerViewDataSource
-
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-
-    // MARK: - UITextFieldDelegate
-
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        activeField = textField
-         guard let comicTitleText = comicTitleTextField.text,
-               let bottomBorderSubLayer = textField.layer.sublayers,
-               let comicTitleTextFieldSubLayers = comicTitleTextField.layer.sublayers else {
-            return
-        }
-
-        let bottomBorder = bottomBorderSubLayer[0] as CALayer
-        bottomBorder.backgroundColor = LucienTheme.dark.cgColor
-
-        if textField != comicTitleTextField && comicTitleText.isEmpty {
-            comicTitleWarningLabel.isHidden = false
-            let comicTitleTextFieldBottomBorder = comicTitleTextFieldSubLayers[0] as CALayer
-            comicTitleTextFieldBottomBorder.backgroundColor = LucienTheme.textFieldBottomBorderWarning.cgColor
-            finishButton.isEnabled = false
-            finishButton.tintColor = LucienTheme.finishButtonGrey
-        } else if textField == comicTitleTextField {
-            comicTitleWarningLabel.isHidden = true
-        }
-    }
-
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        activeField = nil
-        guard let textFieldSubLayers = textField.layer.sublayers else { return }
-        let bottomBorder = textFieldSubLayers[0] as CALayer
-        bottomBorder.backgroundColor = LucienTheme.silver.cgColor
-    }
-
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if let nextTextField = textField.superview?.superview?.superview?.viewWithTag(textField.tag + 1) as? UITextField {
-            nextTextField.becomeFirstResponder()
-        } else {
-            textField.resignFirstResponder()
-        }
-        return false
-    }
-
     // MARK: - Keyboard Methods
 
     private func registerForKeyboardNotifications() {
@@ -315,9 +261,80 @@ final class AddComicViewController: UIViewController, UIPickerViewDelegate, UIPi
             }
         }
     }
+}
 
-    // MARK: - CameraViewDelegate
-    
+extension AddComicViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+
+    // MARK: - UIPickerViewDelegate
+
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return pickerView == genrePicker ? Comic.Genre.allCases.count : Comic.Condition.allCases.count
+    }
+
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return pickerView == genrePicker ? Comic.Genre(rawValue: row)?.title : Comic.Condition(rawValue: row)?.title
+    }
+
+    // MARK: - UIPickerViewDataSource
+
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+}
+
+extension AddComicViewController: UITextFieldDelegate {
+
+    // MARK: - UITextFieldDelegate
+
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        activeField = textField
+        guard
+            let comicTitleText = comicTitleTextField.text,
+            let bottomBorderSubLayer = textField.layer.sublayers,
+            let comicTitleTextFieldSubLayers = comicTitleTextField.layer.sublayers
+            else { return }
+
+        let bottomBorder = bottomBorderSubLayer[0] as CALayer
+        bottomBorder.backgroundColor = LucienTheme.dark.cgColor
+
+        if textField != comicTitleTextField && comicTitleText.isEmpty {
+            comicTitleWarningLabel.isHidden = false
+            let comicTitleTextFieldBottomBorder = comicTitleTextFieldSubLayers[0] as CALayer
+            comicTitleTextFieldBottomBorder.backgroundColor = LucienTheme.textFieldBottomBorderWarning.cgColor
+            finishButton.isEnabled = false
+            finishButton.tintColor = LucienTheme.finishButtonGrey
+        } else if textField == comicTitleTextField {
+            comicTitleWarningLabel.isHidden = true
+        }
+    }
+
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        activeField = nil
+        guard let textFieldSubLayers = textField.layer.sublayers else { return }
+        let bottomBorder = textFieldSubLayers[0] as CALayer
+        bottomBorder.backgroundColor = LucienTheme.silver.cgColor
+    }
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        guard
+            let textFields = addComicViewControllerTextFields,
+            let currentTextFieldArrayIndex = textFields.index(of: textField)
+            else { return false }
+        let currentTextFieldIndex = textFields.startIndex.distance(to: currentTextFieldArrayIndex)
+        if currentTextFieldIndex < textFields.count - 1 {
+            let nextTextField = textFields[currentTextFieldIndex + 1]
+            nextTextField.becomeFirstResponder()
+        } else {
+            textField.resignFirstResponder()
+        }
+        return false
+    }
+}
+
+extension AddComicViewController: CameraViewControllerDelegate {
+
+    // MARK: - CameraViewControllerDelegate
+
     func cameraViewController(didCapture image: UIImage) {
         let resizedImage = image.resize(size: CGSize(width: coverPhotoButton.frame.width, height: coverPhotoButton.frame.height))
         let blurredImage = image.blur(radius: LucienConstants.coverButtonBlurRadius)?.resize(size: CGSize(width: coverPhotoButton.frame.width, height: coverPhotoButton.frame.height))
