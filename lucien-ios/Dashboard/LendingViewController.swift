@@ -8,42 +8,32 @@
 
 import UIKit
 
-class LendingViewController: UIViewController {
+class LendingViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
 
-    //    var collectionView: UICollectionView!
     @IBOutlet weak var collectionView: UICollectionView!
+
+    let reuseIdentifier = "cell"
+    let objects = ["Princess", "Gracie", "Kittens"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.collectionView.register(UINib(nibName:"LendingCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: reuseIdentifier)
+        self.collectionView.delegate = self
+        self.collectionView.dataSource = self
     }
 
-    var myArray = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18]
-    let rows = 3
-    let columnsInFirstPage = 5
-    // calculate number of columns needed to display all items
-    var columns: Int { return myArray.count<=columnsInFirstPage ? myArray.count : myArray.count > rows*columnsInFirstPage ? (myArray.count-1)/rows + 1 : columnsInFirstPage }
-
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return columns*rows
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
     }
 
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath as IndexPath)
-        //These three lines will convert the index to a new index that will simulate the collection view as if it was being filled horizontally
-        let i = indexPath.item / rows
-        let j = indexPath.item % rows
-        let item = j*columns+i
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.objects.count
+    }
 
-        guard item < myArray.count else {
-            //If item is not in myArray range then return an empty hidden cell in order to continue the layout
-            cell.isHidden = true
-            return cell
-        }
-        cell.isHidden = false
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? LendingCollectionViewCell
+        cell?.cellieLabel.text = self.objects[indexPath.item]
 
-        //Rest of your cell setup, Now to access your data You need to use the new "item" instead of "indexPath.item"
-        //like: cell.myLabel.text = "\(myArray[item])"
-
-        return cell
+        return cell!
     }
 }
