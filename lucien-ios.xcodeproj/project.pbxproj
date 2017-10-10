@@ -239,7 +239,6 @@
 				1CAFFC641F797FA200B79F11 /* Products */,
 				E4B55E31005133758D7C61EE /* Pods */,
 				7FC9B6FD7C10765DEEAB2ACE /* Frameworks */,
-				FBAB045D1F8D39E30099F197 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -786,7 +785,6 @@
 				FB6AA1A01F85313500394500 /* DashboardViewController.swift in Sources */,
 				FB32385B1F868B8100FE81E2 /* Dashboard.swift in Sources */,
 				FB32385D1F87CB3400FE81E2 /* AuthenticationResponse.swift in Sources */,
-				FB3238591F86789A00FE81E2 /* APIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

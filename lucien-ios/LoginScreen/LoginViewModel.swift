@@ -13,7 +13,6 @@ final class LoginViewModel {
     var dashboardData: Dashboard?
     var hasCollection: String?
 
-
     func getCurrentUser(completion: @escaping () -> Void) {
         lucienAPIClient.getCurrentUser { response in
             switch response {
