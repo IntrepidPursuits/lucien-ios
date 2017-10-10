@@ -37,7 +37,7 @@ final class AddComicViewController: UIViewController, UIPickerViewDelegate, UIPi
     @IBOutlet private weak var genreBottomLine: UIView!
     @IBOutlet private weak var conditionBottomLine: UIView!
     @IBOutlet private weak var comicTitleWarningLabel: UILabel!
-//    @IBOutlet private weak var releaseDateTextField: UITextField!
+    @IBOutlet private weak var releaseDateTextField: UITextField!
 
     // MARK: - Private Variables
 
@@ -58,19 +58,32 @@ final class AddComicViewController: UIViewController, UIPickerViewDelegate, UIPi
 
     // MARK: - Private Instance Methods
 
-    @objc func backButtonTapped() {
+    @objc private func backButtonTapped() {
         dismiss(animated: true, completion: nil)
+        deregisterFromKeyboardNotifications()
     }
 
     private func configureNavigationController() {
-        UINavigationBar.setNavBarTitle(navigationController: navigationController!, title: "Add Book")
-        UINavigationBar.setNavBarBackground(navigationController: navigationController!)
+        setNavBarBackground()
+        setNavBarTitle()
         setNavBarBackButton()
         setNavBarFinishButton()
     }
 
+    private func setNavBarBackground() {
+        navigationController?.navigationBar.isTranslucent = true
+        navigationController?.navigationBar.barStyle = .default
+        navigationController?.navigationBar.barTintColor = LucienTheme.white
+        navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
+    }
+
+    private func setNavBarTitle() {
+        navigationController?.viewControllers[0].title = "Add Book"
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: LucienTheme.Fonts.permanentMarkerRegular(size: 30) ?? UIFont()]
+    }
+
     private func setNavBarBackButton() {
-        let backButton = UIBarButtonItem(image: UIImage(named: "navBackButton"), style: .plain, target: self, action: #selector(backButtonTapped))
+        let backButton = UIBarButtonItem(image: UIImage(named: "navBackButton"), style: .plain, target: self, action: #selector(AddComicViewController.backButtonTapped))
         backButton.tintColor = UIColor.black
         navigationItem.leftBarButtonItem = backButton
     }
@@ -106,9 +119,9 @@ final class AddComicViewController: UIViewController, UIPickerViewDelegate, UIPi
         publisherTextField.attributedPlaceholder = createPlaceHolderAttributedString(placeholder: "Marvel, DC Comics, Image, Dark Horse…")
 
         // Release Date
-//        configureTextFieldBorder(textField: releaseDateTextField)
-//        releaseDateTextField.attributedPlaceholder = createPlaceHolderAttributedString(placeholder: "Year of Release")
-//        releaseDateTextField.addTarget(self, action: #selector(AddComicViewController.releaseDateEditingChanged), for: .editingChanged)
+        configureTextFieldBorder(textField: releaseDateTextField)
+        releaseDateTextField.attributedPlaceholder = createPlaceHolderAttributedString(placeholder: "Year of Release")
+        releaseDateTextField.addTarget(self, action: #selector(AddComicViewController.releaseDateEditingChanged), for: .editingChanged)
 
         let releaseDateToolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 50))
         releaseDateToolBar.barStyle = UIBarStyle.default
@@ -119,7 +132,7 @@ final class AddComicViewController: UIViewController, UIPickerViewDelegate, UIPi
         barButtonItems.append(doneButton)
         releaseDateToolBar.items = barButtonItems
         releaseDateToolBar.sizeToFit()
-//        releaseDateTextField.inputAccessoryView = releaseDateToolBar
+        releaseDateTextField.inputAccessoryView = releaseDateToolBar
 
         // Genre
         configurePickerUIButton(button: selectAGenreButton)

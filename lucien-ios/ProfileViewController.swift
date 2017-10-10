@@ -33,12 +33,12 @@ final class ProfileViewController: UIViewController {
 
     @objc func back(sender: UIBarButtonItem) {
         self.navigationController?.popViewController(animated: true)
-        UINavigationBar.setNavBarTitle(navigationController: self.navigationController!, title: "Lucien")
     }
 
     private func configureNavigationController() {
         guard self.navigationController != nil else { return }
         UINavigationBar.setNavBarBackground(navigationController: self.navigationController!)
+        self.navigationItem.title = "Profile"
         UINavigationBar.setNavBarTitle(navigationController: self.navigationController!, title: "Profile")
         setNavBarBackButton()
     }

@@ -22,7 +22,8 @@ class DashboardViewController: UIViewController {
 
     private func configureNavigationController() {
         UINavigationBar.setNavBarBackground(navigationController: navigationController!)
-        UINavigationBar.setNavBarTitle(navigationController: navigationController!, title: "Lucien")
+        self.navigationItem.title = "Lucien"
+        UINavigationBar.setNavBarTitle(navigationController: self.navigationController!, title: "Lucien")
         setViewProfileButton()
     }
 
