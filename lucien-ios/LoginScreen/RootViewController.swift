@@ -75,7 +75,7 @@ final class RootViewController: UIViewController, GIDSignInDelegate, GIDSignInUI
     }
 
     func showLendingCollection() {
-        let lendingCollectionController = LendingViewController()
+        let lendingCollectionController = LendingCollectionViewController()
         present(lendingCollectionController, animated: true, completion: nil)
     }
 }

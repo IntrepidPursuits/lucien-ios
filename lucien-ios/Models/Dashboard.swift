@@ -11,18 +11,10 @@ import Foundation
 struct Dashboard: Decodable {
 
     var myCollectionCount: Int
+    var lendingCount: Int
 
     enum CodingKeys: String, CodingKey {
-        case dashboard
-    }
-
-    enum DashboardKeys: String, CodingKey {
         case myCollectionCount = "my_collection_count_by_issue"
-    }
-
-    init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self)
-        let dashboardContainer = try values.nestedContainer(keyedBy: DashboardKeys.self, forKey: .dashboard)
-        myCollectionCount = try dashboardContainer.decode(Int.self, forKey: .myCollectionCount)
+        case lendingCount = "lending_count"
     }
 }

@@ -27,7 +27,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="358" id="M0L-un-pWF"/>
                     </constraints>
-                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="sRE-mV-pOp">
+                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="uH2-hS-DYB">
                         <size key="itemSize" width="50" height="50"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -40,8 +40,6 @@
                 <constraint firstItem="xxQ-4c-Dt5" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="1Ov-FE-Rvm"/>
                 <constraint firstItem="xxQ-4c-Dt5" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="200" id="20M-s0-Bo1"/>
                 <constraint firstItem="xxQ-4c-Dt5" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="IjT-6T-e3x"/>
-                <constraint firstItem="xxQ-4c-Dt5" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="bEe-IJ-Sx2"/>
-                <constraint firstItem="xxQ-4c-Dt5" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="eCd-xw-4Lj"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="33.5" y="53.5"/>
