@@ -9,10 +9,5 @@
 import UIKit
 
 class LendingCollectionViewCell: UICollectionViewCell {
-    @IBOutlet weak var cellieLabel: UILabel!
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-
+    @IBOutlet weak var lendedComicTitle: UILabel!
 }
