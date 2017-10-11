@@ -10,10 +10,11 @@ import UIKit
 import QuartzCore
 import AVFoundation
 
-final class AddComicViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
+final class AddComicViewController: UIViewController {
 
     // MARK: - Private IBOutlets
 
+    @IBOutlet private weak var formStackView: UIStackView!
     @IBOutlet private weak var coverPhotoLabel: UILabel!
     @IBOutlet private weak var coverPhotoButton: UIButton!
     @IBOutlet private weak var comicTitleLabel: UILabel!
@@ -41,9 +42,9 @@ final class AddComicViewController: UIViewController, UIPickerViewDelegate, UIPi
 
     // MARK: - Private Variables
 
-    private var didCompleteForm = false
     private var finishButton = UIBarButtonItem()
     private var activeField: UITextField?
+    private var addComicViewControllerTextFields: [UITextField]?
 
     // MARK: - Constants
 
@@ -54,6 +55,7 @@ final class AddComicViewController: UIViewController, UIPickerViewDelegate, UIPi
         configureNavigationController()
         configureViewController()
         registerForKeyboardNotifications()
+        addComicViewControllerTextFields = [comicTitleTextField, volumeTextField, storyTitleTextField, issueTextField, publisherTextField, releaseDateTextField]
     }
 
     // MARK: - Private Instance Methods
@@ -143,7 +145,7 @@ final class AddComicViewController: UIViewController, UIPickerViewDelegate, UIPi
 
     private func configureTextFieldBorder(textField: UITextField) {
         let bottomBorder = CALayer()
-        bottomBorder.frame = CGRect(x: 0.0, y: textField.frame.height - 3.0, width: textField.frame.width, height: 1.0)
+        bottomBorder.frame = CGRect(x: 0.0, y: textField.frame.height - 3.0, width: textField.frame.width - LucienConstants.textFieldBorderOffset, height: 1.0)
         bottomBorder.backgroundColor = LucienTheme.silver.cgColor
         textField.borderStyle = UITextBorderStyle.none
         textField.layer.addSublayer(bottomBorder)
@@ -152,23 +154,25 @@ final class AddComicViewController: UIViewController, UIPickerViewDelegate, UIPi
     private func configurePickerUIButton(button: UIButton) {
         button.setImage(UIImage(named: "dropDownArrow"), for: .normal)
         button.semanticContentAttribute = .forceRightToLeft
-        button.imageEdgeInsets.left = button.frame.width - 24
+        button.imageEdgeInsets.left = comicTitleTextField.frame.width - LucienConstants.pickerViewLeftimageEdgeInsetOffset
         button.tintColor = LucienTheme.dark
     }
 
     private func createPlaceHolderAttributedString(placeholder: String) -> NSAttributedString {
         let placeholderAttributes = [
         NSAttributedStringKey.foregroundColor: LucienTheme.silver,
-        NSAttributedStringKey.font : LucienTheme.Fonts.muliRegular(size: 16) ?? UIFont()
-        ] as [NSAttributedStringKey : Any]
-       return NSAttributedString(string: placeholder, attributes: placeholderAttributes)
+        NSAttributedStringKey.font : LucienTheme.Fonts.muliRegular(size: 16) ?? UIFont()] as [NSAttributedStringKey : Any]
+        return NSAttributedString(string: placeholder, attributes: placeholderAttributes)
     }
 
     @objc private func comicTitleEditingChanged(_ textField: UITextField) {
-        guard let comicTitle = textField.text, !comicTitle.isEmpty else {
-            finishButton.isEnabled = false
-            finishButton.tintColor = LucienTheme.finishButtonGrey
-            return
+        guard
+            let comicTitle = textField.text,
+            !comicTitle.isEmpty
+            else {
+                finishButton.isEnabled = false
+                finishButton.tintColor = LucienTheme.finishButtonGrey
+                return
         }
         finishButton.isEnabled = true
         finishButton.tintColor = LucienTheme.dark
@@ -188,11 +192,13 @@ final class AddComicViewController: UIViewController, UIPickerViewDelegate, UIPi
 
     @IBAction func addCoverButtonTapped(_ sender: UIButton) {
         if AVCaptureDevice.authorizationStatus(for: .video) ==  .authorized {
+            cameraViewController.delegate = self
             present(cameraViewController, animated: true, completion: nil)
         } else {
             AVCaptureDevice.requestAccess(for: .video) { granted in
                 if granted {
                     DispatchQueue.main.async {
+                        self.cameraViewController.delegate = self
                         self.present(self.cameraViewController, animated: true, completion: nil)
                     }
                 }
@@ -228,62 +234,6 @@ final class AddComicViewController: UIViewController, UIPickerViewDelegate, UIPi
         )
     }
 
-    // MARK: - UIPickerViewDelegate
-
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return pickerView == genrePicker ? Comic.Genre.allCases.count : Comic.Condition.allCases.count
-    }
-
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return pickerView == genrePicker ? Comic.Genre(rawValue: row)?.title : Comic.Condition(rawValue: row)?.title
-    }
-
-    // MARK: - UIPickerViewDataSource
-
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-
-    // MARK: - UITextFieldDelegate
-
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        activeField = textField
-         guard let comicTitleText = comicTitleTextField.text,
-               let bottomBorderSubLayer = textField.layer.sublayers,
-               let comicTitleTextFieldSubLayers = comicTitleTextField.layer.sublayers else {
-            return
-        }
-
-        let bottomBorder = bottomBorderSubLayer[0] as CALayer
-        bottomBorder.backgroundColor = LucienTheme.dark.cgColor
-
-        if textField != comicTitleTextField && comicTitleText.isEmpty {
-            comicTitleWarningLabel.isHidden = false
-            let comicTitleTextFieldBottomBorder = comicTitleTextFieldSubLayers[0] as CALayer
-            comicTitleTextFieldBottomBorder.backgroundColor = LucienTheme.textFieldBottomBorderWarning.cgColor
-            finishButton.isEnabled = false
-            finishButton.tintColor = LucienTheme.finishButtonGrey
-        } else if textField == comicTitleTextField {
-            comicTitleWarningLabel.isHidden = true
-        }
-    }
-
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        activeField = nil
-        guard let textFieldSubLayers = textField.layer.sublayers else { return }
-        let bottomBorder = textFieldSubLayers[0] as CALayer
-        bottomBorder.backgroundColor = LucienTheme.silver.cgColor
-    }
-
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if let nextTextField = textField.superview?.superview?.viewWithTag(textField.tag + 1) as? UITextField {
-            nextTextField.becomeFirstResponder()
-        } else {
-            textField.resignFirstResponder()
-        }
-        return false
-    }
-
     // MARK: - Keyboard Methods
 
     private func registerForKeyboardNotifications() {
@@ -310,5 +260,107 @@ final class AddComicViewController: UIViewController, UIPickerViewDelegate, UIPi
                 scrollView.scrollRectToVisible(activeField.frame, animated: true)
             }
         }
+    }
+}
+
+extension AddComicViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+
+    // MARK: - UIPickerViewDelegate
+
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return pickerView == genrePicker ? Comic.Genre.allCases.count : Comic.Condition.allCases.count
+    }
+
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return pickerView == genrePicker ? Comic.Genre(rawValue: row)?.title : Comic.Condition(rawValue: row)?.title
+    }
+
+    // MARK: - UIPickerViewDataSource
+
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+}
+
+extension AddComicViewController: UITextFieldDelegate {
+
+    // MARK: - UITextFieldDelegate
+
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        activeField = textField
+        guard
+            let comicTitleText = comicTitleTextField.text,
+            let bottomBorderSubLayer = textField.layer.sublayers,
+            let comicTitleTextFieldSubLayers = comicTitleTextField.layer.sublayers
+            else { return }
+
+        let bottomBorder = bottomBorderSubLayer[0] as CALayer
+        bottomBorder.backgroundColor = LucienTheme.dark.cgColor
+
+        if textField != comicTitleTextField && comicTitleText.isEmpty {
+            comicTitleWarningLabel.isHidden = false
+            let comicTitleTextFieldBottomBorder = comicTitleTextFieldSubLayers[0] as CALayer
+            comicTitleTextFieldBottomBorder.backgroundColor = LucienTheme.textFieldBottomBorderWarning.cgColor
+            finishButton.isEnabled = false
+            finishButton.tintColor = LucienTheme.finishButtonGrey
+        } else if textField == comicTitleTextField {
+            comicTitleWarningLabel.isHidden = true
+        }
+    }
+
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        activeField = nil
+        guard let textFieldSubLayers = textField.layer.sublayers else { return }
+        let bottomBorder = textFieldSubLayers[0] as CALayer
+        bottomBorder.backgroundColor = LucienTheme.silver.cgColor
+    }
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        guard
+            let textFields = addComicViewControllerTextFields,
+            let currentTextFieldArrayIndex = textFields.index(of: textField)
+            else { return false }
+        let currentTextFieldIndex = textFields.startIndex.distance(to: currentTextFieldArrayIndex)
+        if currentTextFieldIndex < textFields.count - 1 {
+            let nextTextField = textFields[currentTextFieldIndex + 1]
+            nextTextField.becomeFirstResponder()
+        } else {
+            textField.resignFirstResponder()
+        }
+        return false
+    }
+}
+
+extension AddComicViewController: CameraViewControllerDelegate {
+
+    // MARK: - CameraViewControllerDelegate
+
+    func cameraViewController(didCapture image: UIImage) {
+        let resizedImage = image.resize(size: CGSize(width: coverPhotoButton.frame.width, height: coverPhotoButton.frame.height))
+        let blurredImage = image.blur(radius: LucienConstants.coverButtonBlurRadius)?.resize(size: CGSize(width: coverPhotoButton.frame.width, height: coverPhotoButton.frame.height))
+
+        coverPhotoButton.setBackgroundImage(blurredImage, for: .normal)
+        coverPhotoButton.isUserInteractionEnabled = false
+        coverPhotoButton.transform = CGAffineTransform(scaleX: LucienConstants.coverButtonScaleX, y: LucienConstants.coverButtonScaleY)
+        coverPhotoButton.alpha = LucienConstants.coverButtonOpacity
+        coverPhotoButton.setAttributedTitle(NSAttributedString(string: ""), for: .normal)
+        coverPhotoButton.layer.shadowColor = UIColor.black.cgColor
+        coverPhotoButton.layer.shadowRadius = LucienConstants.coverButtonShadowRadius
+        coverPhotoButton.layer.shadowOpacity = LucienConstants.coverButtonShadowOpacity
+
+        let overlayButton = UIButton(frame: coverPhotoButton.frame)
+        overlayButton.transform = CGAffineTransform(scaleX: LucienConstants.overlayButtonScaleX, y: LucienConstants.overlayButtonScaleY)
+        overlayButton.setBackgroundImage(resizedImage, for: .normal)
+        overlayButton.isUserInteractionEnabled = false
+        overlayButton.layer.masksToBounds = true
+        overlayButton.layer.cornerRadius = LucienConstants.buttonBorderRadius
+        overlayButton.translatesAutoresizingMaskIntoConstraints = false
+
+        scrollView.addSubview(overlayButton)
+
+        view.addConstraints([
+            NSLayoutConstraint(item: overlayButton, attribute: .leading, relatedBy: .equal, toItem: scrollView, attribute: .leading, multiplier: 1, constant: LucienConstants.overlayButtonLeadingConstraint),
+            NSLayoutConstraint(item: overlayButton, attribute: .top, relatedBy: .equal, toItem: coverPhotoLabel, attribute: .top, multiplier: 1, constant: LucienConstants.overlayButtonTopConstraint)
+        ])
     }
 }
