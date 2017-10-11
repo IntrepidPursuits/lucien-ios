@@ -104,16 +104,7 @@ final class AddComicViewController: UIViewController, AlertDisplaying {
     }
 
     private func configureViewController() {
-        // Cover Photo Button
-        // The attributed title for the coverPhotoButton is set on the storyboard, but if an attributed title is created for the highlighted state
-        // the text in the highlighted state will shift some reason. In order to avoid this, an attributed title is created for both
-        // the highlighted and normal state. The textAlignment and lineBreakMode are also set.
-        let coverPhotoButtonTitleNormal = NSAttributedString(string: "Take Cover Photo", attributes: [NSAttributedStringKey.font: LucienTheme.Fonts.muliBold(size: 16.0) ?? UIFont(), NSAttributedStringKey.foregroundColor: UIColor.white])
-        let coverPhotoButtonTitleHighlighted = NSAttributedString(string: "Take Cover Photo", attributes: [NSAttributedStringKey.font: LucienTheme.Fonts.muliBold(size: 16.0) ?? UIFont(), NSAttributedStringKey.foregroundColor: UIColor.white.withAlphaComponent(0.5)])
-        coverPhotoButton.setAttributedTitle(coverPhotoButtonTitleNormal, for: .normal)
-        coverPhotoButton.setAttributedTitle(coverPhotoButtonTitleHighlighted, for: .highlighted)
-        coverPhotoButton.titleLabel?.textAlignment = .center
-        coverPhotoButton.titleLabel?.lineBreakMode = .byWordWrapping
+        setupCoverPhotoButton()
 
         configureTextFieldBorder(textField: seriesTitleTextField)
         configureTextFieldBorder(textField: storyTitleTextField)
@@ -139,6 +130,18 @@ final class AddComicViewController: UIViewController, AlertDisplaying {
 
         configurePickerUIButton(button: selectAGenreButton)
         configurePickerUIButton(button: selectAConditionButton)
+    }
+
+    private func setupCoverPhotoButton() {
+        // The attributed title for the coverPhotoButton is set on the storyboard, but if an attributed title is created for the highlighted state
+        // the text in the highlighted state will shift some reason. In order to avoid this, an attributed title is created for both
+        // the highlighted and normal state. The textAlignment and lineBreakMode are also set.
+        let coverPhotoButtonTitleNormal = NSAttributedString(string: "Take Cover Photo", attributes: [NSAttributedStringKey.font: LucienTheme.Fonts.muliBold(size: 16.0) ?? UIFont(), NSAttributedStringKey.foregroundColor: UIColor.white])
+        let coverPhotoButtonTitleHighlighted = NSAttributedString(string: "Take Cover Photo", attributes: [NSAttributedStringKey.font: LucienTheme.Fonts.muliBold(size: 16.0) ?? UIFont(), NSAttributedStringKey.foregroundColor: UIColor.white.withAlphaComponent(0.5)])
+        coverPhotoButton.setAttributedTitle(coverPhotoButtonTitleNormal, for: .normal)
+        coverPhotoButton.setAttributedTitle(coverPhotoButtonTitleHighlighted, for: .highlighted)
+        coverPhotoButton.titleLabel?.textAlignment = .center
+        coverPhotoButton.titleLabel?.lineBreakMode = .byWordWrapping
     }
 
     private func configureTextFieldBorder(textField: UITextField) {
@@ -196,7 +199,7 @@ final class AddComicViewController: UIViewController, AlertDisplaying {
         }
     }
 
-    @objc func doneButtonTapped() {
+    @objc private func doneButtonTapped() {
         view.endEditing(true)
         deregisterFromKeyboardNotifications()
     }
