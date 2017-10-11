@@ -66,8 +66,12 @@ final class AddComicViewController: UIViewController, AlertDisplaying {
     // MARK: - Private Instance Methods
 
     @objc private func backButtonTapped() {
-        dismiss(animated: true, completion: nil)
-        deregisterFromKeyboardNotifications()
+        let goBackAction = UIAlertAction(title: "Go Back to Previous Page", style: .destructive) { [weak self] _ in
+            self?.dismiss(animated: true, completion: nil)
+            self?.deregisterFromKeyboardNotifications()
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        showAlert(title: "", message: "This will delete your current comic information.", actions: [goBackAction, cancelAction], preferredStyle: .actionSheet)
     }
 
     private func configureNavigationController() {
@@ -197,11 +201,23 @@ final class AddComicViewController: UIViewController, AlertDisplaying {
         }
     }
 
+    private func getMirroredDropDownImage(button: UIButton, picker: UIPickerView) -> UIImage {
+        guard
+            let currentButtonImage = button.currentImage,
+            let currentButtonCGImage = button.currentImage?.cgImage
+            else { return UIImage() }
+        let imageOrientation: UIImageOrientation = picker.isHidden ? .upMirrored : .downMirrored
+        let mirroredArrowImage = UIImage(cgImage: currentButtonCGImage, scale: currentButtonImage.scale, orientation: imageOrientation)
+        return mirroredArrowImage
+    }
+
     @IBAction private func selectGenreButtonTapped(_ sender: UIButton) {
         UIView.animate(
             withDuration: 0.3,
             animations: {
-                self.genrePicker.isHidden = false
+                self.genrePicker.isHidden = self.genrePicker.isHidden ? false : true
+                let mirroredImage = self.getMirroredDropDownImage(button: self.selectAGenreButton, picker: self.genrePicker)
+                self.selectAGenreButton.setImage(mirroredImage, for: .normal)
             },
             completion: { _ in
                 let offset = CGPoint(x: 0, y: self.scrollView.contentSize.height - self.scrollView.bounds.size.height)
@@ -214,7 +230,9 @@ final class AddComicViewController: UIViewController, AlertDisplaying {
         UIView.animate(
             withDuration: 0.3,
             animations: {
-                self.conditionPicker.isHidden = false
+                self.conditionPicker.isHidden = self.conditionPicker.isHidden ? false : true
+                let mirroredImage = self.getMirroredDropDownImage(button: self.selectAConditionButton, picker: self.conditionPicker)
+                self.selectAConditionButton.setImage(mirroredImage, for: .normal)
             },
             completion: { _ in
                 let offset = CGPoint(x: 0, y: self.scrollView.contentSize.height - self.scrollView.bounds.size.height)
@@ -276,6 +294,19 @@ extension AddComicViewController: UIPickerViewDelegate, UIPickerViewDataSource {
 
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return pickerView == genrePicker ? Comic.Genre(rawValue: row)?.title : Comic.Condition(rawValue: row)?.title
+    }
+
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        switch pickerView {
+        case genrePicker:
+            let selectedGenre = Comic.Genre(rawValue: row)?.title
+            selectAGenreButton.setTitle(selectedGenre, for: .normal)
+        case conditionPicker:
+            let selectedCondition = Comic.Condition(rawValue: row)?.title
+            selectAConditionButton.setTitle(selectedCondition, for: .normal)
+        default:
+            return
+        }
     }
 
     // MARK: - UIPickerViewDataSource

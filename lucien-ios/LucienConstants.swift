@@ -16,7 +16,6 @@ final class LucienConstants {
 
     // MARK: - Form Constants
 
-    static let textFieldBorderOffset = CGFloat(48)
     static let pickerViewLeftimageEdgeInsetOffset = CGFloat(72)
 
     // MARK: - UIButton Glow Effect Constants
