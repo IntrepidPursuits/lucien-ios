@@ -15,6 +15,11 @@ final class DashboardViewController: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureNavigationController()
+        print("In Dashboard controller")
+        loginViewModel.getDashboard {
+            guard let dashboardData = self.loginViewModel.dashboardData else { return }
+            debugPrint("in debug print \(dashboardData)")
+        }
     }
 
     private func configureNavigationController() {

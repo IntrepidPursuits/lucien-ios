@@ -12,9 +12,15 @@ struct Dashboard: Decodable {
 
     var myCollectionCount: Int
     var lendingCount: Int
+    var borrowingCount: Int
+    var lending: [Comic]
+    var borrowing: [Comic]
 
     enum CodingKeys: String, CodingKey {
         case myCollectionCount = "my_collection_count_by_issue"
         case lendingCount = "lending_count"
+        case borrowingCount = "borrowing_count"
+        case lending
+        case borrowing
     }
 }

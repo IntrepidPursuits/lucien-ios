@@ -66,6 +66,7 @@ final class LucienAPIClient: APIClient {
                 }
                 let decoder = JSONDecoder()
                 guard let dashboardResponse = try? decoder.decode(DashboardResponse.self, from: result) else { return }
+                print(dashboardResponse.dashboard)
                 completion(.success(dashboardResponse.dashboard))
             case .failure(let error):
                 completion(.failure(error))

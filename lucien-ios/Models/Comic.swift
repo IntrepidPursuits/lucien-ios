@@ -25,6 +25,9 @@ struct Comic: Decodable {
     var returnDate: Date
     var condition: String
     var genre: String
+    var releaseYear: Int
+    var borrower: User
+    var owner: User
 
     enum CodingKeys: String, CodingKey {
         case comicID = "id"
@@ -42,8 +45,10 @@ struct Comic: Decodable {
         case returnDate = "return_date"
         case condition
         case genre
+        case releaseYear = "release_year"
+        case borrower
+        case owner
     }
-
 }
 
 extension Comic {
