@@ -9,11 +9,22 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Muli-Bold.ttf">
+            <string>Muli-Bold</string>
+        </array>
+        <array key="Muli-ExtraLight.ttf">
+            <string>Muli-ExtraLight</string>
+        </array>
+        <array key="Muli-SemiBold.ttf">
+            <string>Muli-SemiBold</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="StartMyCollectionViewController" customModule="lucien_ios" customModuleProvider="target">
             <connections>
                 <outlet property="addBookButton" destination="V2y-M2-J5l" id="fop-5N-Csw"/>
-                <outlet property="getStartedDescription" destination="tPf-pZ-vpQ" id="hQm-19-cTd"/>
+                <outlet property="getStartedDescriptionLabel" destination="tPf-pZ-vpQ" id="hQm-19-cTd"/>
                 <outlet property="toDashboardButton" destination="6Be-ZJ-UBf" id="0Bw-7c-a3B"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="welcomeImageView" destination="TqY-jW-Fpj" id="LuC-9L-cFT"/>
@@ -25,18 +36,19 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Get started by adding books to your collection." textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tPf-pZ-vpQ">
-                    <rect key="frame" x="40" y="357.5" width="295" height="21.5"/>
-                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
-                    <nil key="textColor"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Get started by adding books to your collection." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tPf-pZ-vpQ">
+                    <rect key="frame" x="40" y="357.5" width="295" height="42"/>
+                    <fontDescription key="fontDescription" name="Muli-SemiBold" family="Muli" pointSize="18"/>
+                    <color key="textColor" red="0.16862745100000001" green="0.1764705882" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V2y-M2-J5l">
                     <rect key="frame" x="16" y="539" width="343" height="48"/>
-                    <color key="backgroundColor" red="0.23846340673575128" green="0.23846340673575128" blue="0.23846340673575128" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" red="0.16862745100000001" green="0.1764705882" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="48" id="beo-zJ-9uE"/>
                     </constraints>
+                    <fontDescription key="fontDescription" name="Muli-Bold" family="Muli" pointSize="13"/>
                     <state key="normal" title="ADD A BOOK">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -49,7 +61,10 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="48" id="6BS-yC-gqL"/>
                     </constraints>
-                    <state key="normal" title="GO TO DASHBOARD"/>
+                    <fontDescription key="fontDescription" name="Muli-Bold" family="Muli" pointSize="13"/>
+                    <state key="normal" title="GO TO DASHBOARD">
+                        <color key="titleColor" red="0.16862745100000001" green="0.1764705882" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
                     <connections>
                         <action selector="dashboardButtonPressed:" destination="-1" eventType="touchUpInside" id="NqC-90-8eI"/>
                     </connections>
@@ -59,12 +74,13 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="60" id="Pr1-pX-990"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="48"/>
-                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" name="Muli-ExtraLight" family="Muli" pointSize="48"/>
+                    <color key="textColor" red="0.16862745100000001" green="0.1764705882" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="comicBoxIllustration" translatesAutoresizingMaskIntoConstraints="NO" id="TqY-jW-Fpj">
                     <rect key="frame" x="157.5" y="165" width="60" height="104"/>
+                    <color key="tintColor" red="0.16862745100000001" green="0.1764705882" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="60" id="6YS-nI-b6O"/>
                         <constraint firstAttribute="height" constant="104" id="pmP-m9-UBa"/>

@@ -86,10 +86,8 @@ final class LucienAPIClient: APIClient {
                 guard let resultString = String(data: result, encoding: String.Encoding.utf8) else {
                     return completion(.failure(LucienAPIError.noResult))
                 }
-                 let resultBool = (resultString as NSString).boolValue
-                print("hasCollection result: \(resultBool)")
-
-                completion(.success(resultBool))
+                 let hasCollection = (resultString as NSString).boolValue
+                completion(.success(hasCollection))
             case .failure(let error):
                 completion(.failure(error))
             }

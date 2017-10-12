@@ -54,12 +54,11 @@ final class RootViewController: UIViewController, GIDSignInDelegate, GIDSignInUI
     }
 
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
-        guard error == nil else { print("\(error.localizedDescription)"); return }
+        guard error == nil else { return }
         guard let idToken = user.authentication.idToken else { return }
         loginViewModel.authenticateUser(code: idToken) {
-            self.loginViewModel.hasCollection {
-                print(self.loginViewModel.hasCollection)
-                self.loginViewModel.hasCollection ? self.showDashboard() : self.showStartMyCollection()
+            self.loginViewModel.hasCollection { result in
+                result ? self.showDashboard() : self.showStartMyCollection()
             }
         }
     }

@@ -8,10 +8,6 @@
 
 import Foundation
 
-extension UIViewController {
-
-}
-
 extension UILabel {
     func addTextSpacing(spacing: Float) {
         if let labelText = text, labelText.characters.count > 0 {

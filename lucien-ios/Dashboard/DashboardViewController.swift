@@ -10,19 +10,16 @@ import UIKit
 
 final class DashboardViewController: UIViewController {
 
-    @IBOutlet weak var dashboardScrollView: UIScrollView!
-
-    let loginViewModel = LoginViewModel()
+    @IBOutlet private weak var dashboardScrollView: UIScrollView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("In Dashboard VC")
         configureNavigationController()
     }
 
     private func configureNavigationController() {
         navigationController?.navigationBar.setNavBarBackground()
-        self.navigationItem.title = "Lucien"
+        navigationItem.title = "Lucien"
         navigationController?.navigationBar.setNavBarTitle()
         setViewProfileButton()
     }
@@ -34,6 +31,6 @@ final class DashboardViewController: UIViewController {
 
     @objc private func viewProfileButtonPressed() {
         let viewProfileController = ProfileViewController()
-        self.navigationController?.pushViewController(viewProfileController, animated: true)
+        navigationController?.pushViewController(viewProfileController, animated: true)
     }
 }

@@ -9,15 +9,26 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Muli-Bold.ttf">
+            <string>Muli-Bold</string>
+        </array>
+        <array key="Muli-Light.ttf">
+            <string>Muli-Light</string>
+        </array>
+        <array key="Muli-Regular.ttf">
+            <string>Muli-Regular</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileViewController" customModule="lucien_ios" customModuleProvider="target">
             <connections>
-                <outlet property="email" destination="bGl-6p-prs" id="8MN-sX-3ny"/>
-                <outlet property="emailTitle" destination="BGx-HN-KSa" id="hkc-ql-Oer"/>
+                <outlet property="emailLabel" destination="bGl-6p-prs" id="8MN-sX-3ny"/>
+                <outlet property="emailTitleLabel" destination="BGx-HN-KSa" id="hkc-ql-Oer"/>
                 <outlet property="emptyProfilePicture" destination="cgp-7R-KNN" id="gnD-VA-3YB"/>
                 <outlet property="logoutButton" destination="ER8-Nm-F7L" id="NQ3-OB-QLH"/>
-                <outlet property="name" destination="fT5-w8-CbN" id="0Hk-xL-YEb"/>
-                <outlet property="nameTitle" destination="bVf-Kn-Uxj" id="9qN-2g-uG7"/>
+                <outlet property="nameLabel" destination="fT5-w8-CbN" id="0Hk-xL-YEb"/>
+                <outlet property="nameTitleLabel" destination="bVf-Kn-Uxj" id="9qN-2g-uG7"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -28,38 +39,42 @@
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="emptyProfile" translatesAutoresizingMaskIntoConstraints="NO" id="cgp-7R-KNN">
                     <rect key="frame" x="136.5" y="107" width="102" height="102"/>
+                    <color key="tintColor" red="0.16862745100000001" green="0.1764705882" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NAME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bVf-Kn-Uxj">
-                    <rect key="frame" x="24" y="240" width="35" height="15"/>
-                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
-                    <nil key="textColor"/>
+                    <rect key="frame" x="24" y="240" width="35" height="15.5"/>
+                    <fontDescription key="fontDescription" name="Muli-Light" family="Muli" pointSize="12"/>
+                    <color key="textColor" red="0.5607843137254902" green="0.56470588235294117" blue="0.60392156862745094" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gracie Liu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fT5-w8-CbN">
-                    <rect key="frame" x="24" y="258" width="81" height="21.5"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                    <nil key="textColor"/>
+                    <rect key="frame" x="24" y="258" width="78" height="21.5"/>
+                    <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="17"/>
+                    <color key="textColor" red="0.16862745100000001" green="0.1764705882" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EMAIL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BGx-HN-KSa">
-                    <rect key="frame" x="24" y="292" width="35" height="15"/>
-                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
-                    <nil key="textColor"/>
+                    <rect key="frame" x="24" y="292" width="35.5" height="15.5"/>
+                    <fontDescription key="fontDescription" name="Muli-Light" family="Muli" pointSize="12"/>
+                    <color key="textColor" red="0.56078431370000004" green="0.56470588239999997" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="gfang@intrepid.io" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bGl-6p-prs">
-                    <rect key="frame" x="24" y="310" width="144" height="22"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                    <nil key="textColor"/>
+                    <rect key="frame" x="24" y="310" width="140" height="21.5"/>
+                    <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="17"/>
+                    <color key="textColor" red="0.16862745100000001" green="0.1764705882" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ER8-Nm-F7L">
                     <rect key="frame" x="16" y="579" width="343" height="48"/>
-                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.16862745098039217" green="0.1764705882352941" blue="0.25882352941176467" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="48" id="NBO-q0-H3O"/>
                     </constraints>
-                    <state key="normal" title="LOG OUT"/>
+                    <fontDescription key="fontDescription" name="Muli-Bold" family="Muli" pointSize="13"/>
+                    <state key="normal" title="LOG OUT">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
                     <connections>
                         <action selector="logoutButtonPressed:" destination="-1" eventType="touchUpInside" id="g9e-w0-MGj"/>
                     </connections>
