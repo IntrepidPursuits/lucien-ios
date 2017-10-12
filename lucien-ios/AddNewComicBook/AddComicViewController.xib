@@ -32,24 +32,24 @@
                 <outlet property="genreLabel" destination="uFa-hA-XU1" id="rjc-Tc-A75"/>
                 <outlet property="genrePicker" destination="fCM-4s-5OC" id="EEm-pY-bqH"/>
                 <outlet property="issueLabel" destination="tQp-yn-pha" id="cng-hM-SJz"/>
-                <outlet property="issueTextField" destination="Kwp-Vh-ark" id="dON-bl-xbJ"/>
+                <outlet property="issueTextField" destination="Kwp-Vh-ark" id="o5p-2i-yep"/>
                 <outlet property="publisherLabel" destination="rah-tt-duF" id="btX-ov-Iov"/>
-                <outlet property="publisherTextField" destination="uhS-Ot-Cen" id="NDF-1P-p2k"/>
+                <outlet property="publisherTextField" destination="uhS-Ot-Cen" id="F2a-ly-zSP"/>
                 <outlet property="releaseDateLabel" destination="oyx-gl-cmU" id="1q8-pU-9Jc"/>
-                <outlet property="releaseDateTextField" destination="XFa-J4-Z4b" id="41f-Rj-0ya"/>
+                <outlet property="releaseDateTextField" destination="XFa-J4-Z4b" id="aEL-wc-sfy"/>
                 <outlet property="retakePhotoButton" destination="w1O-sR-U3a" id="3zy-bu-AAZ"/>
                 <outlet property="scrollView" destination="8pQ-9n-KZP" id="P3h-s3-pwy"/>
                 <outlet property="selectAConditionButton" destination="ZXp-2w-6eh" id="GBp-m0-CUU"/>
                 <outlet property="selectAGenreButton" destination="1aa-2q-qU9" id="7Jh-hk-Bo9"/>
                 <outlet property="seriesTitleLabel" destination="axH-lC-bPW" id="ex6-33-ahu"/>
-                <outlet property="seriesTitleTextField" destination="vd3-95-lmT" id="w4k-IQ-Hte"/>
+                <outlet property="seriesTitleTextField" destination="vd3-95-lmT" id="99v-xz-fqm"/>
                 <outlet property="seriesTitleWarningLabel" destination="6vw-lW-ZtI" id="6VB-QG-qEh"/>
                 <outlet property="storyTitleLabel" destination="9jV-Sr-z48" id="xJt-v8-aUR"/>
-                <outlet property="storyTitleTextField" destination="MqB-MZ-awC" id="m7w-F6-Q9E"/>
+                <outlet property="storyTitleTextField" destination="MqB-MZ-awC" id="SPr-JD-EwC"/>
                 <outlet property="storyTitleWarningLabel" destination="7WS-CL-QZe" id="icp-JL-p7c"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="volumeLabel" destination="xfL-O8-HUU" id="NXm-Hz-dtm"/>
-                <outlet property="volumeTextField" destination="0uv-dQ-6SL" id="yC0-hS-idC"/>
+                <outlet property="volumeTextField" destination="0uv-dQ-6SL" id="Ulb-yL-Ow5"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -74,7 +74,7 @@
                                 <constraint firstAttribute="height" constant="183" id="nru-Yh-tFg"/>
                             </constraints>
                             <inset key="titleEdgeInsets" minX="0.0" minY="25" maxX="40" maxY="0.0"/>
-                            <inset key="imageEdgeInsets" minX="40" minY="0.0" maxX="0.0" maxY="70"/>
+                            <inset key="imageEdgeInsets" minX="45" minY="0.0" maxX="0.0" maxY="70"/>
                             <state key="normal" image="cameraButtonIcon">
                                 <attributedString key="attributedTitle">
                                     <fragment>
@@ -83,6 +83,20 @@ Cover
 Photo</string>
                                         <attributes>
                                             <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="16" name="Muli-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                            </state>
+                            <state key="highlighted" image="cameraButtonIconHalfOpacity">
+                                <attributedString key="attributedTitle">
+                                    <fragment>
+                                        <string key="content">Take
+Cover
+Photo</string>
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
                                             <font key="NSFont" size="16" name="Muli-Bold"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
                                         </attributes>
@@ -123,7 +137,7 @@ Photo</string>
                                                     <color key="textColor" red="0.5607843137254902" green="0.56470588235294117" blue="0.60392156862745094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Series Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vd3-95-lmT">
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Series Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vd3-95-lmT" customClass="BottomBorderTextField" customModule="lucien_ios" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="33" width="327" height="30"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
@@ -181,7 +195,7 @@ Photo</string>
                                                     <color key="textColor" red="0.5607843137254902" green="0.56470588235294117" blue="0.60392156862745094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Story Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0uv-dQ-6SL">
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Story Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0uv-dQ-6SL" customClass="BottomBorderTextField" customModule="lucien_ios" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="33" width="327" height="30"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
@@ -230,7 +244,7 @@ Photo</string>
                                                     <color key="textColor" red="0.5607843137254902" green="0.56470588235294117" blue="0.60392156862745094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Story Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MqB-MZ-awC">
+                                                <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Story Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MqB-MZ-awC" customClass="BottomBorderTextField" customModule="lucien_ios" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="27.5" width="327" height="30.5"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
@@ -286,7 +300,7 @@ Photo</string>
                                                     <color key="textColor" red="0.5607843137254902" green="0.56470588235294117" blue="0.60392156862745094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Issue" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kwp-Vh-ark">
+                                                <textField opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Issue" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kwp-Vh-ark" customClass="BottomBorderTextField" customModule="lucien_ios" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="27.5" width="327" height="30.5"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
@@ -339,7 +353,7 @@ Photo</string>
                                                     <color key="textColor" red="0.5607843137254902" green="0.56470588235294117" blue="0.60392156862745094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Publisher" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uhS-Ot-Cen">
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Publisher" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uhS-Ot-Cen" customClass="BottomBorderTextField" customModule="lucien_ios" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="33" width="327" height="30"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
@@ -391,7 +405,7 @@ Photo</string>
                                                     <color key="textColor" red="0.5607843137254902" green="0.56470588235294117" blue="0.60392156862745094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Year of Release " textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XFa-J4-Z4b">
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Year of Release " textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XFa-J4-Z4b" customClass="BottomBorderTextField" customModule="lucien_ios" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="33" width="327" height="30"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
@@ -648,7 +662,8 @@ Photo</string>
         </view>
     </objects>
     <resources>
-        <image name="cameraButtonIcon" width="34" height="26"/>
+        <image name="cameraButtonIcon" width="40" height="40"/>
+        <image name="cameraButtonIconHalfOpacity" width="40" height="40"/>
         <image name="retakePhotoButton" width="30" height="30"/>
         <image name="trashButton" width="30" height="30"/>
     </resources>

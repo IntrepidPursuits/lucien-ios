@@ -11,6 +11,7 @@
 		1C07CBF51F7AE1FD007C66D0 /* AddComicViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C07CBF31F7AE1FD007C66D0 /* AddComicViewController.xib */; };
 		1C182A2F1F82CA70001566E1 /* Comic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C182A2E1F82CA70001566E1 /* Comic.swift */; };
 		1C182A321F82D1C1001566E1 /* RawRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C182A311F82D1C1001566E1 /* RawRepresentable.swift */; };
+		1C21642E1F8FCAA900938D59 /* BottomBorderTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C21642D1F8FCAA900938D59 /* BottomBorderTextField.swift */; };
 		1C45D0EB1F85611A00E651A5 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C45D0E91F85611A00E651A5 /* CameraViewController.swift */; };
 		1C45D0EC1F85611A00E651A5 /* CameraViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C45D0EA1F85611A00E651A5 /* CameraViewController.xib */; };
 		1C7EE0851F880DF6003F2A81 /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7EE0841F880DF6003F2A81 /* UIImageExtensions.swift */; };
@@ -80,6 +81,7 @@
 		1C07CBF31F7AE1FD007C66D0 /* AddComicViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddComicViewController.xib; sourceTree = "<group>"; };
 		1C182A2E1F82CA70001566E1 /* Comic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comic.swift; sourceTree = "<group>"; };
 		1C182A311F82D1C1001566E1 /* RawRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawRepresentable.swift; sourceTree = "<group>"; };
+		1C21642D1F8FCAA900938D59 /* BottomBorderTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBorderTextField.swift; sourceTree = "<group>"; };
 		1C45D0E91F85611A00E651A5 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		1C45D0EA1F85611A00E651A5 /* CameraViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CameraViewController.xib; sourceTree = "<group>"; };
 		1C7EE0841F880DF6003F2A81 /* UIImageExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
@@ -173,6 +175,14 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		1C21642C1F8FCA8C00938D59 /* Subclasses */ = {
+			isa = PBXGroup;
+			children = (
+				1C21642D1F8FCAA900938D59 /* BottomBorderTextField.swift */,
+			);
+			path = Subclasses;
+			sourceTree = "<group>";
+		};
 		1C45D0E81F85608500E651A5 /* Camera */ = {
 			isa = PBXGroup;
 			children = (
@@ -224,6 +234,7 @@
 		1CAFFC651F797FA200B79F11 /* lucien-ios */ = {
 			isa = PBXGroup;
 			children = (
+				1C21642C1F8FCA8C00938D59 /* Subclasses */,
 				1C7EE07F1F87F8CF003F2A81 /* Protocols */,
 				1C45D0E81F85608500E651A5 /* Camera */,
 				1C182A301F82D1B2001566E1 /* Extensions */,
@@ -729,6 +740,7 @@
 				1CDBD86F1F7C26B800408826 /* LucienTheme.swift in Sources */,
 				FBB9756D1F7ED8E6007951C4 /* Request.swift in Sources */,
 				FBD844431F798B1D00A8E352 /* RootViewController.swift in Sources */,
+				1C21642E1F8FCAA900938D59 /* BottomBorderTextField.swift in Sources */,
 				FBE07CC91F7C2A4500CF1A3F /* ProfileViewController.swift in Sources */,
 				1CAE48D81F8412960087E96E /* LucienConstants.swift in Sources */,
 				1CAFFC671F797FA200B79F11 /* AppDelegate.swift in Sources */,

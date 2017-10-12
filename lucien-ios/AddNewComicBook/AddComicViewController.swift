@@ -18,15 +18,16 @@ final class AddComicViewController: UIViewController, AlertDisplaying {
     @IBOutlet private weak var coverPhotoLabel: UILabel!
     @IBOutlet private weak var coverPhotoButton: UIButton!
     @IBOutlet private weak var seriesTitleLabel: UILabel!
-    @IBOutlet private weak var seriesTitleTextField: UITextField!
+    @IBOutlet private weak var seriesTitleTextField: BottomBorderTextField!
     @IBOutlet private weak var storyTitleLabel: UILabel!
-    @IBOutlet private weak var storyTitleTextField: UITextField!
+    @IBOutlet weak var storyTitleTextField: BottomBorderTextField!
+    @IBOutlet weak var volumeTextField: BottomBorderTextField!
     @IBOutlet private weak var volumeLabel: UILabel!
-    @IBOutlet private weak var volumeTextField: UITextField!
+    @IBOutlet weak var issueTextField: BottomBorderTextField!
     @IBOutlet private weak var issueLabel: UILabel!
-    @IBOutlet private weak var issueTextField: UITextField!
+    @IBOutlet weak var publisherTextField: BottomBorderTextField!
     @IBOutlet private weak var publisherLabel: UILabel!
-    @IBOutlet private weak var publisherTextField: UITextField!
+    @IBOutlet weak var releaseDateTextField: BottomBorderTextField!
     @IBOutlet private weak var releaseDateLabel: UILabel!
     @IBOutlet private weak var genreLabel: UILabel!
     @IBOutlet private weak var conditionLabel: UILabel!
@@ -38,7 +39,6 @@ final class AddComicViewController: UIViewController, AlertDisplaying {
     @IBOutlet private weak var genreBottomLine: UIView!
     @IBOutlet private weak var conditionBottomLine: UIView!
     @IBOutlet private weak var seriesTitleWarningLabel: UILabel!
-    @IBOutlet private weak var releaseDateTextField: UITextField!
     @IBOutlet private weak var storyTitleWarningLabel: UILabel!
     @IBOutlet private weak var deletePhotoButton: UIButton!
     @IBOutlet private weak var retakePhotoButton: UIButton!
@@ -104,14 +104,13 @@ final class AddComicViewController: UIViewController, AlertDisplaying {
     }
 
     private func configureViewController() {
-        setupCoverPhotoButton()
 
-        configureTextFieldBorder(textField: seriesTitleTextField)
-        configureTextFieldBorder(textField: storyTitleTextField)
-        configureTextFieldBorder(textField: volumeTextField)
-        configureTextFieldBorder(textField: issueTextField)
-        configureTextFieldBorder(textField: publisherTextField)
-        configureTextFieldBorder(textField: releaseDateTextField)
+        seriesTitleTextField.createBottomBorder()
+        storyTitleTextField.createBottomBorder()
+        volumeTextField.createBottomBorder()
+        issueTextField.createBottomBorder()
+        publisherTextField.createBottomBorder()
+        releaseDateTextField.createBottomBorder()
 
         storyTitleTextField.addTarget(self, action: #selector(AddComicViewController.storyTitleEditingChanged), for: .editingChanged)
         releaseDateTextField.addTarget(self, action: #selector(AddComicViewController.releaseDateEditingChanged), for: .editingChanged)
@@ -130,26 +129,6 @@ final class AddComicViewController: UIViewController, AlertDisplaying {
 
         configurePickerUIButton(button: selectAGenreButton)
         configurePickerUIButton(button: selectAConditionButton)
-    }
-
-    private func setupCoverPhotoButton() {
-        // The attributed title for the coverPhotoButton is set on the storyboard, but if an attributed title is created for the highlighted state
-        // the text in the highlighted state will shift some reason. In order to avoid this, an attributed title is created for both
-        // the highlighted and normal state. The textAlignment and lineBreakMode are also set.
-        let coverPhotoButtonTitleNormal = NSAttributedString(string: "Take Cover Photo", attributes: [NSAttributedStringKey.font: LucienTheme.Fonts.muliBold(size: 16.0) ?? UIFont(), NSAttributedStringKey.foregroundColor: UIColor.white])
-        let coverPhotoButtonTitleHighlighted = NSAttributedString(string: "Take Cover Photo", attributes: [NSAttributedStringKey.font: LucienTheme.Fonts.muliBold(size: 16.0) ?? UIFont(), NSAttributedStringKey.foregroundColor: UIColor.white.withAlphaComponent(0.5)])
-        coverPhotoButton.setAttributedTitle(coverPhotoButtonTitleNormal, for: .normal)
-        coverPhotoButton.setAttributedTitle(coverPhotoButtonTitleHighlighted, for: .highlighted)
-        coverPhotoButton.titleLabel?.textAlignment = .center
-        coverPhotoButton.titleLabel?.lineBreakMode = .byWordWrapping
-    }
-
-    private func configureTextFieldBorder(textField: UITextField) {
-        let bottomBorder = CALayer()
-        bottomBorder.frame = CGRect(x: 0.0, y: textField.frame.height - 3.0, width: textField.frame.width - LucienConstants.textFieldBorderOffset, height: 1.0)
-        bottomBorder.backgroundColor = LucienTheme.silver.cgColor
-        textField.borderStyle = UITextBorderStyle.none
-        textField.layer.addSublayer(bottomBorder)
     }
 
     private func configurePickerUIButton(button: UIButton) {
@@ -174,21 +153,15 @@ final class AddComicViewController: UIViewController, AlertDisplaying {
         finishButton.tintColor = LucienTheme.dark
     }
 
-    private func darkenTextFieldBottomBorder(textField: UITextField) {
-        guard let bottomBorderSubLayer = textField.layer.sublayers else { return }
-        let bottomBorder = bottomBorderSubLayer[0] as CALayer
-        bottomBorder.backgroundColor = LucienTheme.dark.cgColor
-    }
-
     @objc private func seriesTitleEditingChanged(_ textField: UITextField) {
         seriesTitleWarningLabel.isHidden = true
-        darkenTextFieldBottomBorder(textField: textField)
+        seriesTitleTextField.borderColor = LucienTheme.dark
         checkIfAllRequiredFieldsAreFilled()
     }
 
     @objc private func storyTitleEditingChanged(_ textField: UITextField) {
         storyTitleWarningLabel.isHidden = true
-        darkenTextFieldBottomBorder(textField: textField)
+        storyTitleTextField.borderColor = LucienTheme.dark
         checkIfAllRequiredFieldsAreFilled()
     }
 
@@ -204,10 +177,10 @@ final class AddComicViewController: UIViewController, AlertDisplaying {
         deregisterFromKeyboardNotifications()
     }
 
-    private func showWarningLabel(label: UILabel, textField: UITextField, sublayers: [CALayer]) {
+    private func showWarningLabel(label: UILabel, textField: UITextField) {
+        guard let bottomBorderTextField = textField as? BottomBorderTextField else { return }
         label.isHidden = false
-        let textFieldBottomBorder = sublayers[0] as CALayer
-        textFieldBottomBorder.backgroundColor = LucienTheme.textFieldBottomBorderWarning.cgColor
+        bottomBorderTextField.borderColor = LucienTheme.textFieldBottomBorderWarning
         finishButton.isEnabled = false
         finishButton.tintColor = LucienTheme.finishButtonGrey
     }
@@ -325,31 +298,27 @@ extension AddComicViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         activeField = textField
         guard
+            let bottomBorderTextField = textField as? BottomBorderTextField,
             let seriesTitleText = seriesTitleTextField.text,
-            let bottomBorderSubLayer = textField.layer.sublayers,
-            let seriesTitleTextFieldSubLayers = seriesTitleTextField.layer.sublayers,
-            let storyTitleText = storyTitleTextField.text,
-            let storyTitleTextFieldSubLayers = storyTitleTextField.layer.sublayers
+            let storyTitleText = storyTitleTextField.text
             else { return }
 
-        let bottomBorder = bottomBorderSubLayer[0] as CALayer
-        bottomBorder.backgroundColor = LucienTheme.dark.cgColor
+        bottomBorderTextField.borderColor = LucienTheme.dark
 
         if textField != seriesTitleTextField {
             if seriesTitleText.isEmpty {
-                showWarningLabel(label: seriesTitleWarningLabel, textField: seriesTitleTextField, sublayers: seriesTitleTextFieldSubLayers)
+                showWarningLabel(label: seriesTitleWarningLabel, textField: seriesTitleTextField)
             }
             if storyTitleText.isEmpty {
-                showWarningLabel(label: storyTitleWarningLabel, textField: storyTitleTextField, sublayers: storyTitleTextFieldSubLayers)
+                showWarningLabel(label: storyTitleWarningLabel, textField: storyTitleTextField)
             }
         }
     }
 
     func textFieldDidEndEditing(_ textField: UITextField) {
         activeField = nil
-        guard let textFieldSubLayers = textField.layer.sublayers else { return }
-        let bottomBorder = textFieldSubLayers[0] as CALayer
-        bottomBorder.backgroundColor = LucienTheme.silver.cgColor
+        guard let bottomBorderTextField = textField as? BottomBorderTextField else { return }
+        bottomBorderTextField.borderColor = LucienTheme.silver
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -433,7 +402,7 @@ extension AddComicViewController: CameraViewControllerDelegate {
         let coverPhotoButtonTitleHighlighted = NSAttributedString(string: "Take Cover Photo", attributes: [NSAttributedStringKey.font: LucienTheme.Fonts.muliBold(size: 16.0) ?? UIFont(), NSAttributedStringKey.foregroundColor: UIColor.white.withAlphaComponent(0.5)])
         coverPhotoButton.setAttributedTitle(coverPhotoButtonTitleNormal, for: .normal)
         coverPhotoButton.setAttributedTitle(coverPhotoButtonTitleHighlighted, for: .highlighted)
-        coverPhotoButton.setTitleColor(UIColor.red, for: .highlighted)
+        coverPhotoButton.titleEdgeInsets = UIEdgeInsets(top: 25, left: 0, bottom: 0, right: 40)
         coverPhotoButton.titleLabel?.textAlignment = .center
         coverPhotoButton.titleLabel?.lineBreakMode = .byWordWrapping
     }
