@@ -10,7 +10,11 @@ import UIKit
 
 final class DashboardViewController: UIViewController, UIScrollViewDelegate {
 
-    @IBOutlet private weak var dashboardScrollView: UIScrollView!
+
+    @IBOutlet weak var dashboardScrollView: UIScrollView!
+    @IBOutlet weak var lendingView: UIView!
+
+    let loginViewModel = LoginViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -57,6 +57,7 @@
 		FB778BB11F8EA81300068A44 /* DashboardResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB778BB01F8EA81300068A44 /* DashboardResponse.swift */; };
 		FB9C91C01F8FF4F200AEE21A /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9C91BF1F8FF4F200AEE21A /* DashboardViewModel.swift */; };
 		FB778BB51F8FAB9800068A44 /* MyCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB778BB41F8FAB9800068A44 /* MyCollection.swift */; };
+		FB9C91BE1F8FF10700AEE21A /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9C91BD1F8FF10700AEE21A /* UIView+Extensions.swift */; };
 		FBAB04711F8D42080099F197 /* LucienAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAB04701F8D42070099F197 /* LucienAPIClient.swift */; };
 		FBAEE5781F7EE75C00A44F50 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAEE5771F7EE75C00A44F50 /* LoginViewModel.swift */; };
 		FBB975691F7EBB31007951C4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB975681F7EBB31007951C4 /* User.swift */; };
@@ -152,6 +153,7 @@
 		FB778BB01F8EA81300068A44 /* DashboardResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardResponse.swift; sourceTree = "<group>"; };
 		FB9C91BF1F8FF4F200AEE21A /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
 		FB778BB41F8FAB9800068A44 /* MyCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCollection.swift; sourceTree = "<group>"; };
+		FB9C91BD1F8FF10700AEE21A /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		FBAB04701F8D42070099F197 /* LucienAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LucienAPIClient.swift; sourceTree = "<group>"; };
 		FBAEE5771F7EE75C00A44F50 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		FBB975681F7EBB31007951C4 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 				FB6AA1A51F855E7100394500 /* UINavigationBar+Extensions.swift */,
 				FB6AA1A71F85665200394500 /* UILabel+Extensions.swift */,
 				FB3238621F8BD37600FE81E2 /* UIViewToNib.swift */,
+				FB9C91BD1F8FF10700AEE21A /* UIView+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -791,6 +794,7 @@
 				FBB9756B1F7ED8A9007951C4 /* Result.swift in Sources */,
 				1CDB6A221F7995EC003A2BB1 /* StartMyCollectionViewController.swift in Sources */,
 				FB6AA1A81F85665200394500 /* UILabel+Extensions.swift in Sources */,
+				FB9C91BE1F8FF10700AEE21A /* UIView+Extensions.swift in Sources */,
 				FBDDE2CB1F7E7C4F00A4EA34 /* LucienRequest.swift in Sources */,
 				FBAB04711F8D42080099F197 /* LucienAPIClient.swift in Sources */,
 				FBAEE5781F7EE75C00A44F50 /* LoginViewModel.swift in Sources */,

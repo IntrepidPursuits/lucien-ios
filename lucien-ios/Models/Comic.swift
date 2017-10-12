@@ -11,23 +11,23 @@ import Foundation
 struct Comic: Decodable {
 
     var comicID: String
-    var createdAt: Date
-    var updatedAt: Date
+    var createdAt: Date?
+    var updatedAt: Date?
     var ownerID: String
-    var borrowerID: String
+    var borrowerID: String?
     var comicTitle: String
-    var storyTitle: String
-    var volume: String
-    var issueNumber: String
-    var publisher: String
-    var releaseDate: Date
-    var comicPhotoURL: String
-    var returnDate: Date
-    var condition: String
-    var genre: String
-    var releaseYear: Int
-    var borrower: User
-    var owner: User
+    var storyTitle: String?
+    var volume: String?
+    var issueNumber: String?
+    var publisher: String?
+    var releaseDate: Date?
+    var comicPhotoURL: String?
+    var returnDate: Date?
+    var condition: String?
+    var genre: String?
+    var releaseYear: Int?
+    var borrower: User?
+    var owner: User?
 
     enum CodingKeys: String, CodingKey {
         case comicID = "id"

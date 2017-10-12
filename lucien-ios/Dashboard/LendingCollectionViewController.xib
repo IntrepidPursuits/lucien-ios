@@ -12,7 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LendingViewController" customModule="lucien_ios" customModuleProvider="target">
             <connections>
-                <outlet property="collectionView" destination="xxQ-4c-Dt5" id="ngA-DV-Sjy"/>
+                <outlet property="collectionView" destination="xxQ-4c-Dt5" id="pus-7Q-Nte"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
