@@ -65,9 +65,13 @@ final class LucienAPIClient: APIClient {
                     return completion(.failure(LucienAPIError.noResult))
                 }
                 let decoder = JSONDecoder()
-                guard let dashboardResponse = try decoder.decode(DashboardResponse.self, from: result) else { return }
-                print(dashboardResponse.dashboard)
-                completion(.success(dashboardResponse.dashboard))
+                decoder.dateDecodingStrategy = .iso8601
+                do {
+                    let dashboardResponse = try decoder.decode(DashboardResponse.self, from: result)
+                    completion(.success(dashboardResponse.dashboard))
+                } catch (let error) {
+                    completion(.failure(error))
+                }
             case .failure(let error):
                 completion(.failure(error))
             }

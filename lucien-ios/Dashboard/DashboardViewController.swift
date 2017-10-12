@@ -10,14 +10,16 @@ import UIKit
 
 final class DashboardViewController: UIViewController, UIScrollViewDelegate {
 
-    @IBOutlet private weak var dashboardScrollView: UIScrollView!
+    @IBOutlet weak var dashboardScrollView: UIScrollView!
+    @IBOutlet weak var lendingView: UIView!
+
+    let viewModel = DashboardViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         configureNavigationController()
-        print("In Dashboard controller")
-        loginViewModel.getDashboard {
-            guard let dashboardData = self.loginViewModel.dashboardData else { return }
+        viewModel.getDashboard {
+            guard let dashboardData = self.viewModel.dashboardData else { return }
             debugPrint("in debug print \(dashboardData)")
         }
     }
