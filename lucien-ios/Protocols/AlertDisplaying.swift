@@ -17,6 +17,14 @@ extension AlertDisplaying where Self: UIViewController {
             self?.dismiss(animated: true, completion: nil)
         }
         alertController.addAction(okAction)
-        self.present(alertController, animated: true, completion: nil)
+        present(alertController, animated: true, completion: nil)
+    }
+    /// Displays an alert that includes actions that are provided via the actions array.
+    func showAlert(title: String, message: String, actions: [UIAlertAction], preferredStyle: UIAlertControllerStyle) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: preferredStyle)
+        for action in actions {
+            alertController.addAction(action)
+        }
+        present(alertController, animated: true, completion: nil)
     }
 }
