@@ -104,18 +104,15 @@ final class AddComicViewController: UIViewController, AlertDisplaying {
     }
 
     private func configureViewController() {
-
-        seriesTitleTextField.createBottomBorder()
-        storyTitleTextField.createBottomBorder()
-        volumeTextField.createBottomBorder()
-        issueTextField.createBottomBorder()
-        publisherTextField.createBottomBorder()
-        releaseDateTextField.createBottomBorder()
-
         storyTitleTextField.addTarget(self, action: #selector(AddComicViewController.storyTitleEditingChanged), for: .editingChanged)
         releaseDateTextField.addTarget(self, action: #selector(AddComicViewController.releaseDateEditingChanged), for: .editingChanged)
         seriesTitleTextField.addTarget(self, action: #selector(AddComicViewController.seriesTitleEditingChanged), for: .editingChanged)
+        configureReleaseDateTextFieldToolBar()
+        configurePickerUIButton(button: selectAGenreButton)
+        configurePickerUIButton(button: selectAConditionButton)
+    }
 
+    private func configureReleaseDateTextFieldToolBar() {
         let releaseDateToolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 50))
         releaseDateToolBar.barStyle = UIBarStyle.default
         let flexSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
@@ -126,9 +123,6 @@ final class AddComicViewController: UIViewController, AlertDisplaying {
         releaseDateToolBar.items = barButtonItems
         releaseDateToolBar.sizeToFit()
         releaseDateTextField.inputAccessoryView = releaseDateToolBar
-
-        configurePickerUIButton(button: selectAGenreButton)
-        configurePickerUIButton(button: selectAConditionButton)
     }
 
     private func configurePickerUIButton(button: UIButton) {
