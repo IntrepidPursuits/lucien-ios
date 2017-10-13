@@ -10,6 +10,10 @@ import Foundation
 
 final class LucienConstants {
 
+    // MARK: - BottomBorderTextField Constants
+
+    static let bottomBorderYOffset = CGFloat(3.0)
+
     // MARK: - Keyboard Constants
 
     static let keyboardHeightPadding = CGFloat(50)

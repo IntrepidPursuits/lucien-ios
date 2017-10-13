@@ -201,23 +201,11 @@ final class AddComicViewController: UIViewController, AlertDisplaying {
         }
     }
 
-    private func getMirroredDropDownImage(button: UIButton, picker: UIPickerView) -> UIImage {
-        guard
-            let currentButtonImage = button.currentImage,
-            let currentButtonCGImage = button.currentImage?.cgImage
-            else { return UIImage() }
-        let imageOrientation: UIImageOrientation = picker.isHidden ? .upMirrored : .downMirrored
-        let mirroredArrowImage = UIImage(cgImage: currentButtonCGImage, scale: currentButtonImage.scale, orientation: imageOrientation)
-        return mirroredArrowImage
-    }
-
     @IBAction private func selectGenreButtonTapped(_ sender: UIButton) {
         UIView.animate(
             withDuration: 0.3,
             animations: {
                 self.genrePicker.isHidden = self.genrePicker.isHidden ? false : true
-                let mirroredImage = self.getMirroredDropDownImage(button: self.selectAGenreButton, picker: self.genrePicker)
-                self.selectAGenreButton.setImage(mirroredImage, for: .normal)
             },
             completion: { _ in
                 let offset = CGPoint(x: 0, y: self.scrollView.contentSize.height - self.scrollView.bounds.size.height)
@@ -231,8 +219,6 @@ final class AddComicViewController: UIViewController, AlertDisplaying {
             withDuration: 0.3,
             animations: {
                 self.conditionPicker.isHidden = self.conditionPicker.isHidden ? false : true
-                let mirroredImage = self.getMirroredDropDownImage(button: self.selectAConditionButton, picker: self.conditionPicker)
-                self.selectAConditionButton.setImage(mirroredImage, for: .normal)
             },
             completion: { _ in
                 let offset = CGPoint(x: 0, y: self.scrollView.contentSize.height - self.scrollView.bounds.size.height)
