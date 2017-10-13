@@ -41,6 +41,7 @@
 		1CDBD86B1F7C20B500408826 /* PermanentMarker-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1CDBD86A1F7C20B200408826 /* PermanentMarker-Regular.ttf */; };
 		1CDBD86F1F7C26B800408826 /* LucienTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDBD86E1F7C26B800408826 /* LucienTheme.swift */; };
 		991B58C032595B40ADDCFCC7 /* Pods_lucien_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 964D4E26A56CF8BC634B2BBD /* Pods_lucien_ios.framework */; };
+		A401FDBD1F91025000C7376F /* AddComicViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A401FDBC1F91025000C7376F /* AddComicViewModel.swift */; };
 		A59B2FE58EB5BC7B617AB83F /* Pods_lucien_iosUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D057BF04BE0EAF45ED19F37 /* Pods_lucien_iosUITests.framework */; };
 		EC0F6CA4839D3BF363E4EE9E /* Pods_lucien_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 074BF9F99258AD884EC6794A /* Pods_lucien_iosTests.framework */; };
 		FB3238541F86705700FE81E2 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDDE2CC1F7E7C6F00A4EA34 /* APIClient.swift */; };
@@ -121,6 +122,7 @@
 		24966642CEA9E5D05286C959 /* Pods-lucien-iosUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lucien-iosUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-lucien-iosUITests/Pods-lucien-iosUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		92F8CFA7BEAAC5917239D13C /* Pods-lucien-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lucien-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-lucien-ios/Pods-lucien-ios.release.xcconfig"; sourceTree = "<group>"; };
 		964D4E26A56CF8BC634B2BBD /* Pods_lucien_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_lucien_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A401FDBC1F91025000C7376F /* AddComicViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddComicViewModel.swift; sourceTree = "<group>"; };
 		D0155DB8A114746D5EAA07B7 /* Pods-lucien-iosUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lucien-iosUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-lucien-iosUITests/Pods-lucien-iosUITests.release.xcconfig"; sourceTree = "<group>"; };
 		E8801CCEE845676EFB1D691F /* Pods-lucien-iosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lucien-iosTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-lucien-iosTests/Pods-lucien-iosTests.release.xcconfig"; sourceTree = "<group>"; };
 		FB6B911A1F7C195000910B49 /* AnimatedTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AnimatedTransition.swift; path = "lucien-ios/AnimatedTransition.swift"; sourceTree = SOURCE_ROOT; };
@@ -278,6 +280,7 @@
 		1CDB6A251F79A52D003A2BB1 /* AddNewComicBook */ = {
 			isa = PBXGroup;
 			children = (
+				A401FDBC1F91025000C7376F /* AddComicViewModel.swift */,
 				1C07CBF21F7AE1FD007C66D0 /* AddComicViewController.swift */,
 				1C07CBF31F7AE1FD007C66D0 /* AddComicViewController.xib */,
 				1C182A2E1F82CA70001566E1 /* Comic.swift */,
@@ -741,6 +744,7 @@
 				FBAEE5781F7EE75C00A44F50 /* LoginViewModel.swift in Sources */,
 				FBB975691F7EBB31007951C4 /* User.swift in Sources */,
 				FB6B911B1F7C195000910B49 /* AnimatedTransition.swift in Sources */,
+				A401FDBD1F91025000C7376F /* AddComicViewModel.swift in Sources */,
 				1CDBD86F1F7C26B800408826 /* LucienTheme.swift in Sources */,
 				FBB9756D1F7ED8E6007951C4 /* Request.swift in Sources */,
 				FBD844431F798B1D00A8E352 /* RootViewController.swift in Sources */,
