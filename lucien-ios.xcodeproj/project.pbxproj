@@ -58,9 +58,9 @@
 		FB743DA61F8D61150066A43F /* LendingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB743DA41F8D61150066A43F /* LendingCollectionViewCell.swift */; };
 		FB743DA71F8D61150066A43F /* LendingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB743DA51F8D61150066A43F /* LendingCollectionViewCell.xib */; };
 		FB778BB11F8EA81300068A44 /* DashboardResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB778BB01F8EA81300068A44 /* DashboardResponse.swift */; };
-		FB9C91C01F8FF4F200AEE21A /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9C91BF1F8FF4F200AEE21A /* DashboardViewModel.swift */; };
 		FB778BB51F8FAB9800068A44 /* MyCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB778BB41F8FAB9800068A44 /* MyCollection.swift */; };
 		FB9C91BE1F8FF10700AEE21A /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9C91BD1F8FF10700AEE21A /* UIView+Extensions.swift */; };
+		FB9C91C01F8FF4F200AEE21A /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9C91BF1F8FF4F200AEE21A /* DashboardViewModel.swift */; };
 		FBAB04711F8D42080099F197 /* LucienAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAB04701F8D42070099F197 /* LucienAPIClient.swift */; };
 		FBAEE5781F7EE75C00A44F50 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAEE5771F7EE75C00A44F50 /* LoginViewModel.swift */; };
 		FBB975691F7EBB31007951C4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB975681F7EBB31007951C4 /* User.swift */; };
@@ -157,9 +157,9 @@
 		FB743DA41F8D61150066A43F /* LendingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LendingCollectionViewCell.swift; sourceTree = "<group>"; };
 		FB743DA51F8D61150066A43F /* LendingCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LendingCollectionViewCell.xib; sourceTree = "<group>"; };
 		FB778BB01F8EA81300068A44 /* DashboardResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardResponse.swift; sourceTree = "<group>"; };
-		FB9C91BF1F8FF4F200AEE21A /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
 		FB778BB41F8FAB9800068A44 /* MyCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCollection.swift; sourceTree = "<group>"; };
 		FB9C91BD1F8FF10700AEE21A /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		FB9C91BF1F8FF4F200AEE21A /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
 		FBAB04701F8D42070099F197 /* LucienAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LucienAPIClient.swift; sourceTree = "<group>"; };
 		FBAEE5771F7EE75C00A44F50 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		FBB975681F7EBB31007951C4 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -837,7 +837,6 @@
 				FB6AA1A01F85313500394500 /* DashboardViewController.swift in Sources */,
 				FB32385B1F868B8100FE81E2 /* Dashboard.swift in Sources */,
 				FB32385D1F87CB3400FE81E2 /* AuthenticationResponse.swift in Sources */,
-				FB9C91BC1F8FE99B00AEE21A /* APIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -997,6 +996,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = THP5EV5EJ9;
 				INFOPLIST_FILE = "lucien-ios/Info.plist";
@@ -1004,7 +1004,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "lucien.lucien-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "87389d3b-35be-45fb-a2d7-28e9789b78d0";
+				PROVISIONING_PROFILE = "02ce98a4-a6e7-4cfe-90c2-310f473567f8";
 				PROVISIONING_PROFILE_SPECIFIER = "General iOS Development Provisioning Profile";
 				SWIFT_OBJC_BRIDGING_HEADER = "lucien-ios/lucien-ios-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1019,6 +1019,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = THP5EV5EJ9;
 				INFOPLIST_FILE = "lucien-ios/Info.plist";
@@ -1026,7 +1027,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "lucien.lucien-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "c35b8b66-bd4e-4d96-9cf3-ab4522fea9cc";
+				PROVISIONING_PROFILE = "02ce98a4-a6e7-4cfe-90c2-310f473567f8";
 				PROVISIONING_PROFILE_SPECIFIER = "General iOS Development Provisioning Profile";
 				SWIFT_OBJC_BRIDGING_HEADER = "lucien-ios/lucien-ios-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;

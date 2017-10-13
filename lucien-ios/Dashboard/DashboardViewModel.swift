@@ -10,7 +10,7 @@ import Foundation
 
 final class DashboardViewModel {
 
-    static let lendingCellTitles = ["Princess", "Gracie", "Kittens"]
+    static let lendingCellTitles = ["Princess", "Gracie", "Kittens", "Blair Waldorf", "Serena Van der Woodsen"]
     let lucienAPIClient = LucienAPIClient()
     var dashboardData: Dashboard?
 
