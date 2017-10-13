@@ -35,7 +35,7 @@ final class BottomBorderTextField: UITextField {
     }
 
     private func createBottomBorder() {
-        bottomBorder.frame = CGRect(x: 0.0, y: frame.height - 3.0, width: frame.width - LucienConstants.textFieldBorderOffset, height: 1.0)
+        bottomBorder.frame = CGRect(x: 0.0, y: frame.height - LucienConstants.bottomBorderYOffset, width: frame.width, height: 1.0)
         bottomBorder.backgroundColor = LucienTheme.silver.cgColor
         borderStyle = UITextBorderStyle.none
         layer.addSublayer(bottomBorder)

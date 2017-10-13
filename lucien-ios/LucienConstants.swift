@@ -10,13 +10,16 @@ import Foundation
 
 final class LucienConstants {
 
+    // MARK: - BottomBorderTextField Constants
+
+    static let bottomBorderYOffset = CGFloat(3.0)
+
     // MARK: - Keyboard Constants
 
     static let keyboardHeightPadding = CGFloat(50)
 
     // MARK: - Form Constants
 
-    static let textFieldBorderOffset = CGFloat(48)
     static let pickerViewLeftimageEdgeInsetOffset = CGFloat(72)
 
     // MARK: - UIButton Glow Effect Constants
