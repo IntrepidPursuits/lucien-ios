@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -24,23 +23,16 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" horizontalHuggingPriority="253" verticalHuggingPriority="253" translatesAutoresizingMaskIntoConstraints="NO" id="XbY-RA-90Y" customClass="GIDSignInButton">
+                <view contentMode="scaleToFill" horizontalHuggingPriority="253" verticalHuggingPriority="253" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XbY-RA-90Y" customClass="GIDSignInButton">
                     <rect key="frame" x="63" y="587" width="248" height="40"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="248" id="YLl-iy-ZzP"/>
-                        <constraint firstAttribute="width" secondItem="XbY-RA-90Y" secondAttribute="height" multiplier="31:5" id="fj1-AA-S1w"/>
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="253" verticalHuggingPriority="253" text="Lucien" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xBX-Is-tn2">
-                    <rect key="frame" x="86.5" y="140" width="202" height="83"/>
+                    <rect key="frame" x="86.5" y="140" width="202" height="86"/>
                     <fontDescription key="fontDescription" type="system" pointSize="72"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="253" verticalHuggingPriority="253" text="Share your love for comics." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U31-Nv-4XI">
-                    <rect key="frame" x="84" y="189.5" width="207.5" height="20.5"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -51,23 +43,20 @@
                         <action selector="signOutButtonPressed:" destination="-1" eventType="touchUpInside" id="s2X-ZY-6iC"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Ku-Q1-b0I">
-                    <rect key="frame" x="20" y="31" width="86" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Go to Profile"/>
-                    <connections>
-                        <action selector="viewProfileButtonPressed:" destination="-1" eventType="touchUpInside" id="3ZB-gU-utm"/>
-                    </connections>
-                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="253" verticalHuggingPriority="253" text="Share your love for comics." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U31-Nv-4XI">
+                    <rect key="frame" x="84" y="243" width="207.5" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="U31-Nv-4XI" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="0j5-0p-Vk8"/>
                 <constraint firstItem="xBX-Is-tn2" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="120" id="4PN-Hq-JNC"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="xBX-Is-tn2" secondAttribute="bottom" constant="444" id="6Fx-uj-9eK"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="vLa-sM-XWW" secondAttribute="bottom" constant="5" id="6Uf-fu-WW2"/>
                 <constraint firstItem="xBX-Is-tn2" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Fa1-xQ-8Fp"/>
-                <constraint firstItem="U31-Nv-4XI" firstAttribute="top" secondItem="xBX-Is-tn2" secondAttribute="bottom" constant="-33.5" id="Oxh-0H-Xi7"/>
+                <constraint firstItem="U31-Nv-4XI" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="223" id="b6u-xa-E5r"/>
                 <constraint firstItem="XbY-RA-90Y" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="mTI-Y2-bdG"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="XbY-RA-90Y" secondAttribute="bottom" constant="40" id="rec-k2-Y6l"/>
                 <constraint firstItem="vLa-sM-XWW" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="yuO-Hg-rs2"/>

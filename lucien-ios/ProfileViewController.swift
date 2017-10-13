@@ -12,22 +12,49 @@ final class ProfileViewController: UIViewController {
 
     @IBOutlet private weak var emptyProfilePicture: UIImageView!
     @IBOutlet private weak var logoutButton: UIButton!
-    @IBOutlet private weak var nameTitle: UILabel!
-    @IBOutlet private weak var name: UILabel!
-    @IBOutlet private weak var emailTitle: UILabel!
-    @IBOutlet private weak var email: UILabel!
-    @IBOutlet private weak var profileTitle: UILabel!
+    @IBOutlet private weak var nameTitleLabel: UILabel!
+    @IBOutlet private weak var nameLabel: UILabel!
+    @IBOutlet private weak var emailTitleLabel: UILabel!
+    @IBOutlet private weak var emailLabel: UILabel!
+
+    let loginViewModel = LoginViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureNavigationController()
+        loginViewModel.getCurrentUser {
+            guard let currentUser = self.loginViewModel.currentUser else { return }
+            self.nameLabel.text = currentUser.firstName + " " + currentUser.lastName
+            self.emailLabel.text = currentUser.email
+        }
+        setUpStyling()
+    }
+
+    @objc func back(sender: UIBarButtonItem) {
+        navigationController?.popViewController(animated: true)
+    }
+
+    private func configureNavigationController() {
+        navigationItem.title = "Profile"
+        navigationController?.navigationBar.setNavBarTitle()
+        navigationController?.navigationBar.setNavBarBackground()
+        setNavBarBackButton()
+    }
+
+    private func setNavBarBackButton() {
+        let backButton = UIBarButtonItem(image: UIImage(named: "navBackButton"), style: .plain, target: self, action: #selector(back(sender:)))
+        backButton.tintColor = LucienTheme.dark
+        navigationItem.leftBarButtonItem = backButton
+    }
+
+    private func setUpStyling() {
         emptyProfilePicture.contentMode = .scaleAspectFit
-        logoutButton.backgroundColor = LucienTheme.dark
-        logoutButton.setTitleColor(UIColor.white, for: .normal)
         logoutButton.layer.cornerRadius = 3.0
-        nameTitle.textColor = LucienTheme.coolGrey
-        emailTitle.textColor = LucienTheme.coolGrey
-        name.textColor = LucienTheme.dark
-        email.textColor = LucienTheme.dark
-        profileTitle.textColor = LucienTheme.dark
+    }
+
+    @IBAction func logoutButtonPressed(_ sender: UIButton) {
+        GIDSignIn.sharedInstance().signOut()
+        let rootViewController = RootViewController()
+        self.navigationController?.present(rootViewController, animated: true, completion: nil)
     }
 }

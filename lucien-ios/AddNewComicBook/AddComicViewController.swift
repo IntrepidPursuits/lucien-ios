@@ -65,7 +65,7 @@ final class AddComicViewController: UIViewController, AlertDisplaying {
 
     // MARK: - Private Instance Methods
 
-    @objc private func backButtonTapped() {
+    @objc internal func backButtonTapped() {
         let goBackAction = UIAlertAction(title: "Go Back to Previous Page", style: .destructive) { [weak self] _ in
             self?.dismiss(animated: true, completion: nil)
             self?.deregisterFromKeyboardNotifications()

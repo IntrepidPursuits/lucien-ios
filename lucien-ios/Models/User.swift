@@ -5,13 +5,14 @@
 //  Created by Fang, Gracie on 9/29/17.
 //  Copyright © 2017 Intrepid Pursuits. All rights reserved.
 //
+
 import UIKit
 
 struct User: Decodable {
     var firstName: String
     var lastName: String
     var email: String
-    var googlePictureURL: String
+    var googlePictureURL: String?
     var userID: String
     var googleUserID: String
     var createdAt: Date
@@ -19,8 +20,8 @@ struct User: Decodable {
 
     enum CodingKeys: String, CodingKey {
         case user
-        case token
     }
+
     enum UserKeys: String, CodingKey {
         case firstName = "first_name"
         case lastName = "last_name"
@@ -31,10 +32,9 @@ struct User: Decodable {
         case createdAt = "created_at"
         case updatedAt = "updated_at"
     }
+
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        let token = try values.decode(String.self, forKey: .token)
-        LucienRequest.authorizationHeader = token
         let userContainer = try values.nestedContainer(keyedBy: UserKeys.self, forKey: .user)
         firstName = try userContainer.decode(String.self, forKey: .firstName)
         lastName = try userContainer.decode(String.self, forKey: .lastName)
