@@ -75,8 +75,9 @@ final class AddComicViewController: UIViewController, AlertDisplaying {
     }
 
     private func configureNavigationController() {
-        setNavBarBackground()
-        setNavBarTitle()
+        navigationItem.title = "Add Comic"
+        navigationController?.navigationBar.setNavBarTitle()
+        navigationController?.navigationBar.setNavBarBackground()
         setNavBarBackButton()
         setNavBarFinishButton()
     }

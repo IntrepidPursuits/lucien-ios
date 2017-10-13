@@ -8,8 +8,47 @@
 
 import Foundation
 
-struct Comic {
+struct Comic: Decodable {
 
+    var comicID: String
+    var createdAt: Date?
+    var updatedAt: Date?
+    var ownerID: String
+    var borrowerID: String?
+    var comicTitle: String
+    var storyTitle: String?
+    var volume: String?
+    var issueNumber: String?
+    var publisher: String?
+    var releaseDate: Date?
+    var comicPhotoURL: String?
+    var returnDate: Date?
+    var condition: String?
+    var genre: String?
+    var releaseYear: Int?
+    var borrower: User?
+    var owner: User?
+
+    enum CodingKeys: String, CodingKey {
+        case comicID = "id"
+        case createdAt = "created_at"
+        case updatedAt = "updated_at"
+        case ownerID = "owner_id"
+        case borrowerID = "borrower_id"
+        case comicTitle = "comic_title"
+        case storyTitle = "story_title"
+        case volume
+        case issueNumber = "issue_number"
+        case publisher
+        case releaseDate = "release_date"
+        case comicPhotoURL = "comic_photo_url"
+        case returnDate = "return_date"
+        case condition
+        case genre
+        case releaseYear = "release_year"
+        case borrower
+        case owner
+    }
 }
 
 extension Comic {

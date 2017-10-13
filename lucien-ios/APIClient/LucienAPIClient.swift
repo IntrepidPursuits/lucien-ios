@@ -45,8 +45,8 @@ final class LucienAPIClient: APIClient {
                 let decoder = JSONDecoder()
                 decoder.dateDecodingStrategy = .iso8601
                 do {
-                    let user = try decoder.decode(User.self, from: result)
-                    completion(.success(user))
+                    let userResponse = try decoder.decode(UserResponse.self, from: result)
+                    completion(.success(userResponse.user))
                 } catch(let error) {
                     completion(.failure(error))
                 }
@@ -65,10 +65,13 @@ final class LucienAPIClient: APIClient {
                     return completion(.failure(LucienAPIError.noResult))
                 }
                 let decoder = JSONDecoder()
-                guard let myCollection = try? decoder.decode(Dashboard.self, from: result) else {
-                    return completion(.failure(LucienAPIError.noResult))
+                decoder.dateDecodingStrategy = .iso8601
+                do {
+                    let dashboardResponse = try decoder.decode(DashboardResponse.self, from: result)
+                    completion(.success(dashboardResponse.dashboard))
+                } catch (let error) {
+                    completion(.failure(error))
                 }
-                completion(.success(myCollection))
             case .failure(let error):
                 completion(.failure(error))
             }
