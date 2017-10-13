@@ -35,6 +35,7 @@ final class ProfileViewController: UIViewController {
     }
 
     private func configureNavigationController() {
+        navigationItem.title = "Profile"
         navigationController?.navigationBar.setNavBarTitle()
         navigationController?.navigationBar.setNavBarBackground()
         setNavBarBackButton()
