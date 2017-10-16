@@ -18,47 +18,46 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddComicViewController" customModule="lucien_ios" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ComicFormViewController" customModule="lucien_ios" customModuleProvider="target">
             <connections>
-                <outlet property="conditionBottomLine" destination="wKY-4h-eXB" id="KuZ-j1-j06"/>
-                <outlet property="conditionLabel" destination="KtO-eh-4L9" id="s3o-vx-KH4"/>
-                <outlet property="conditionPicker" destination="1zr-ip-Ltu" id="wNw-n3-tiT"/>
-                <outlet property="coverPhotoButton" destination="IDD-iP-gW7" id="mbO-dc-cWI"/>
-                <outlet property="coverPhotoDividerView" destination="KBE-dq-QxV" id="VB1-Au-5s1"/>
-                <outlet property="coverPhotoLabel" destination="ZeW-7M-5vu" id="Fqp-sQ-Q6j"/>
-                <outlet property="deletePhotoButton" destination="782-o4-ATO" id="Arg-Ww-uy5"/>
-                <outlet property="formStackView" destination="Pct-Cd-9cv" id="c3B-ne-LWv"/>
-                <outlet property="genreBottomLine" destination="UCL-mM-64f" id="xbj-mc-XlW"/>
-                <outlet property="genreLabel" destination="uFa-hA-XU1" id="rjc-Tc-A75"/>
-                <outlet property="genrePicker" destination="fCM-4s-5OC" id="EEm-pY-bqH"/>
-                <outlet property="issueLabel" destination="tQp-yn-pha" id="cng-hM-SJz"/>
-                <outlet property="issueTextField" destination="Kwp-Vh-ark" id="o5p-2i-yep"/>
-                <outlet property="publisherLabel" destination="rah-tt-duF" id="btX-ov-Iov"/>
-                <outlet property="publisherTextField" destination="uhS-Ot-Cen" id="F2a-ly-zSP"/>
-                <outlet property="releaseDateLabel" destination="oyx-gl-cmU" id="1q8-pU-9Jc"/>
-                <outlet property="releaseDateTextField" destination="XFa-J4-Z4b" id="aEL-wc-sfy"/>
-                <outlet property="retakePhotoButton" destination="w1O-sR-U3a" id="3zy-bu-AAZ"/>
-                <outlet property="scrollView" destination="8pQ-9n-KZP" id="P3h-s3-pwy"/>
-                <outlet property="selectAConditionButton" destination="ZXp-2w-6eh" id="GBp-m0-CUU"/>
-                <outlet property="selectAGenreButton" destination="1aa-2q-qU9" id="7Jh-hk-Bo9"/>
-                <outlet property="seriesTitleLabel" destination="axH-lC-bPW" id="ex6-33-ahu"/>
-                <outlet property="seriesTitleTextField" destination="vd3-95-lmT" id="99v-xz-fqm"/>
-                <outlet property="seriesTitleWarningLabel" destination="6vw-lW-ZtI" id="6VB-QG-qEh"/>
-                <outlet property="storyTitleLabel" destination="9jV-Sr-z48" id="xJt-v8-aUR"/>
-                <outlet property="storyTitleTextField" destination="MqB-MZ-awC" id="SPr-JD-EwC"/>
-                <outlet property="storyTitleWarningLabel" destination="7WS-CL-QZe" id="icp-JL-p7c"/>
-                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
-                <outlet property="volumeLabel" destination="xfL-O8-HUU" id="NXm-Hz-dtm"/>
-                <outlet property="volumeTextField" destination="0uv-dQ-6SL" id="Ulb-yL-Ow5"/>
+                <outlet property="conditionBottomLine" destination="wKY-4h-eXB" id="2qk-QD-6FL"/>
+                <outlet property="conditionLabel" destination="KtO-eh-4L9" id="SIV-2B-hrV"/>
+                <outlet property="conditionPicker" destination="1zr-ip-Ltu" id="X2N-8c-MbE"/>
+                <outlet property="coverPhotoButton" destination="IDD-iP-gW7" id="aT1-Ss-Uxj"/>
+                <outlet property="coverPhotoDividerView" destination="KBE-dq-QxV" id="zDO-Dy-IPY"/>
+                <outlet property="coverPhotoLabel" destination="ZeW-7M-5vu" id="jTG-bL-zWE"/>
+                <outlet property="deletePhotoButton" destination="782-o4-ATO" id="05V-NE-eQY"/>
+                <outlet property="genreBottomLine" destination="UCL-mM-64f" id="Dtc-66-Xc9"/>
+                <outlet property="genreLabel" destination="uFa-hA-XU1" id="YNg-Ys-4Di"/>
+                <outlet property="genrePicker" destination="fCM-4s-5OC" id="Z9D-DL-zOw"/>
+                <outlet property="issueLabel" destination="tQp-yn-pha" id="mgQ-iK-Qli"/>
+                <outlet property="issueTextField" destination="Kwp-Vh-ark" id="KB9-FD-7Ki"/>
+                <outlet property="publisherLabel" destination="rah-tt-duF" id="bOL-KO-kcB"/>
+                <outlet property="publisherTextField" destination="uhS-Ot-Cen" id="GnX-QU-kQ3"/>
+                <outlet property="releaseDateLabel" destination="oyx-gl-cmU" id="VBE-Jr-rhs"/>
+                <outlet property="releaseDateTextField" destination="XFa-J4-Z4b" id="ycf-ta-ycX"/>
+                <outlet property="retakePhotoButton" destination="w1O-sR-U3a" id="oXZ-81-mwU"/>
+                <outlet property="scrollView" destination="8pQ-9n-KZP" id="AGo-C9-xlV"/>
+                <outlet property="selectAConditionButton" destination="ZXp-2w-6eh" id="5j1-x9-QMW"/>
+                <outlet property="selectAGenreButton" destination="1aa-2q-qU9" id="7H5-Fs-5C2"/>
+                <outlet property="seriesTitleLabel" destination="axH-lC-bPW" id="uPI-9N-0mL"/>
+                <outlet property="seriesTitleTextField" destination="vd3-95-lmT" id="0kG-Dt-syK"/>
+                <outlet property="seriesTitleWarningLabel" destination="6vw-lW-ZtI" id="6wr-1H-xRn"/>
+                <outlet property="storyTitleLabel" destination="9jV-Sr-z48" id="Mke-Tb-sUI"/>
+                <outlet property="storyTitleTextField" destination="MqB-MZ-awC" id="JtK-Wh-Rt9"/>
+                <outlet property="storyTitleWarningLabel" destination="7WS-CL-QZe" id="YVN-38-vHq"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="CQJ-lj-fNX"/>
+                <outlet property="volumeLabel" destination="xfL-O8-HUU" id="9Bm-h8-AII"/>
+                <outlet property="volumeTextField" destination="0uv-dQ-6SL" id="s4x-lY-fSh"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="1064"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8pQ-9n-KZP">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="1064"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="COVER PHOTO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZeW-7M-5vu">
                             <rect key="frame" x="24" y="27" width="85" height="15.5"/>
@@ -109,11 +108,11 @@ Photo</string>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                             <connections>
-                                <action selector="addCoverButtonTapped:" destination="-1" eventType="touchUpInside" id="cxc-v6-WKW"/>
+                                <action selector="addCoverButtonTapped:" destination="-1" eventType="touchUpInside" id="fbQ-Rb-1fa"/>
                             </connections>
                         </button>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="Pct-Cd-9cv">
-                            <rect key="frame" x="0.0" y="260.5" width="375" height="757"/>
+                            <rect key="frame" x="0.0" y="260.5" width="375" height="966"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="9CE-ER-7JU">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="63"/>
@@ -143,7 +142,7 @@ Photo</string>
                                                     <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
                                                     <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                                                     <connections>
-                                                        <outlet property="delegate" destination="-1" id="cuU-PQ-Azx"/>
+                                                        <outlet property="delegate" destination="-1" id="i8H-LY-AZG"/>
                                                     </connections>
                                                 </textField>
                                                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This field is required." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6vw-lW-ZtI">
@@ -195,13 +194,13 @@ Photo</string>
                                                     <color key="textColor" red="0.5607843137254902" green="0.56470588235294117" blue="0.60392156862745094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Story Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0uv-dQ-6SL" customClass="BottomBorderTextField" customModule="lucien_ios" customModuleProvider="target">
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Volume" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0uv-dQ-6SL" customClass="BottomBorderTextField" customModule="lucien_ios" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="33" width="327" height="30"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
                                                     <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                                                     <connections>
-                                                        <outlet property="delegate" destination="-1" id="3rZ-Wr-Cjw"/>
+                                                        <outlet property="delegate" destination="-1" id="wtv-30-jIs"/>
                                                     </connections>
                                                 </textField>
                                             </subviews>
@@ -250,7 +249,7 @@ Photo</string>
                                                     <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
                                                     <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                                                     <connections>
-                                                        <outlet property="delegate" destination="-1" id="eFm-KJ-gSN"/>
+                                                        <outlet property="delegate" destination="-1" id="RfB-vF-gAO"/>
                                                     </connections>
                                                 </textField>
                                                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This field is required." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7WS-CL-QZe">
@@ -306,7 +305,7 @@ Photo</string>
                                                     <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
                                                     <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                                                     <connections>
-                                                        <outlet property="delegate" destination="-1" id="HyP-4a-Zht"/>
+                                                        <outlet property="delegate" destination="-1" id="RDm-pN-zQR"/>
                                                     </connections>
                                                 </textField>
                                             </subviews>
@@ -359,7 +358,7 @@ Photo</string>
                                                     <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
                                                     <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                                                     <connections>
-                                                        <outlet property="delegate" destination="-1" id="5Sb-68-hS7"/>
+                                                        <outlet property="delegate" destination="-1" id="0JG-mL-4WR"/>
                                                     </connections>
                                                 </textField>
                                             </subviews>
@@ -411,7 +410,7 @@ Photo</string>
                                                     <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
                                                     <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
                                                     <connections>
-                                                        <outlet property="delegate" destination="-1" id="jXe-UE-f7o"/>
+                                                        <outlet property="delegate" destination="-1" id="bR5-6r-Swj"/>
                                                     </connections>
                                                 </textField>
                                             </subviews>
@@ -468,14 +467,14 @@ Photo</string>
                                                     </state>
                                                     <state key="selected" image="dropDownArrowFlipped"/>
                                                     <connections>
-                                                        <action selector="selectGenreButtonTapped:" destination="-1" eventType="touchUpInside" id="hmn-dA-qdA"/>
+                                                        <action selector="selectGenreButtonTapped:" destination="-1" eventType="touchUpInside" id="nrU-J2-mvA"/>
                                                     </connections>
                                                 </button>
                                                 <pickerView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fCM-4s-5OC">
                                                     <rect key="frame" x="0.0" y="69" width="320" height="0.0"/>
                                                     <connections>
-                                                        <outlet property="dataSource" destination="-1" id="lXA-ca-Voc"/>
-                                                        <outlet property="delegate" destination="-1" id="YIp-J9-phc"/>
+                                                        <outlet property="dataSource" destination="-1" id="ROA-O5-u03"/>
+                                                        <outlet property="delegate" destination="-1" id="emm-EJ-i7K"/>
                                                     </connections>
                                                 </pickerView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UCL-mM-64f">
@@ -507,10 +506,10 @@ Photo</string>
                                     </constraints>
                                 </stackView>
                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="yyA-lP-bTz">
-                                    <rect key="frame" x="0.0" y="678" width="375" height="79"/>
+                                    <rect key="frame" x="0.0" y="678" width="375" height="288"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DQT-dw-D3E">
-                                            <rect key="frame" x="0.0" y="0.0" width="24" height="63"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="24" height="272"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="24" id="sXP-2a-fzp"/>
@@ -537,14 +536,14 @@ Photo</string>
                                                     </state>
                                                     <state key="selected" image="dropDownArrowFlipped"/>
                                                     <connections>
-                                                        <action selector="selectConditionButtonTapped:" destination="-1" eventType="touchUpInside" id="ejk-fL-bG2"/>
+                                                        <action selector="selectConditionButtonTapped:" destination="-1" eventType="touchUpInside" id="YfW-kI-kwZ"/>
                                                     </connections>
                                                 </button>
                                                 <pickerView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1zr-ip-Ltu">
                                                     <rect key="frame" x="0.0" y="60" width="320" height="0.0"/>
                                                     <connections>
-                                                        <outlet property="dataSource" destination="-1" id="2Ri-tm-0Jh"/>
-                                                        <outlet property="delegate" destination="-1" id="PLd-4D-Txi"/>
+                                                        <outlet property="dataSource" destination="-1" id="43T-GX-7m6"/>
+                                                        <outlet property="delegate" destination="-1" id="xfU-jW-aOh"/>
                                                     </connections>
                                                 </pickerView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wKY-4h-eXB">
@@ -563,7 +562,7 @@ Photo</string>
                                             </constraints>
                                         </stackView>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qZ0-Ey-Z4W">
-                                            <rect key="frame" x="351" y="0.0" width="24" height="63"/>
+                                            <rect key="frame" x="351" y="0.0" width="24" height="272"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="24" id="JHY-CJ-8Xl"/>
@@ -604,7 +603,7 @@ Photo</string>
                                 <color key="titleColor" red="1" green="0.23137254901960785" blue="0.32549019607843138" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
-                                <action selector="deleteCoverPhoto:" destination="-1" eventType="touchUpInside" id="Gbj-6x-hOU"/>
+                                <action selector="deleteCoverPhoto:" destination="-1" eventType="touchUpInside" id="u4g-uj-8FU"/>
                             </connections>
                         </button>
                         <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KBE-dq-QxV">
@@ -628,7 +627,7 @@ Photo</string>
                                 <color key="titleColor" red="0.16862745100000001" green="0.1764705882" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                             <connections>
-                                <action selector="retakeButtonTapped:" destination="-1" eventType="touchUpInside" id="eTa-2z-vSL"/>
+                                <action selector="retakeButtonTapped:" destination="-1" eventType="touchUpInside" id="PZ7-WO-LMA"/>
                             </connections>
                         </button>
                     </subviews>
@@ -660,8 +659,9 @@ Photo</string>
                 <constraint firstItem="8pQ-9n-KZP" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="dbk-XA-fDD"/>
                 <constraint firstItem="8pQ-9n-KZP" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="xhY-S2-w5M"/>
             </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <point key="canvasLocation" x="-15.5" y="383.5"/>
+            <point key="canvasLocation" x="-15.5" y="582"/>
         </view>
     </objects>
     <resources>
