@@ -8,8 +8,17 @@
 
 import Foundation
 
-struct Comic {
-
+struct Comic: Codable {
+    var comicTitle: String
+    var storyTitle: String
+    var volume: String?
+    var issueNumber: String?
+    var publisher: String?
+    var releaseYear: String?
+    var comicPhotoURL: String?
+    var returnDate: String?
+    var condition: String?
+    var genre: String?
 }
 
 extension Comic {

@@ -93,4 +93,57 @@ final class LucienAPIClient: APIClient {
             }
         }
     }
+
+    func createPhotoURL(completion: @escaping (Result<S3ImageURL>) -> Void) {
+        let lucienRequest = LucienRequest.createPhotoURL
+        let urlRequest = lucienRequest.urlRequest
+        self.sendRequest(urlRequest) { response in
+            switch response {
+            case .success(let result):
+                guard let result = result else {
+                    return completion(.failure(LucienAPIError.noResult))
+                }
+                let decoder = JSONDecoder()
+                decoder.dateDecodingStrategy = .iso8601
+                guard let s3ImageURL = try? decoder.decode(S3ImageURL.self, from: result) else {
+                    return completion(.failure(LucienAPIError.cannotDecode))
+                }
+                completion(.success(s3ImageURL))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+
+    func addComicBook(comicTitle: String,
+                      storyTitle: String,
+                      volume: String?,
+                      issueNumber: String?,
+                      publisher: String?,
+                      releaseYear: String?,
+                      comicPhotoURL: String?,
+                      returnDate: String?,
+                      condition: String?,
+                      genre: String?,
+                      completion: @escaping (Result<Error?>) -> Void) {
+        let lucienRequest = LucienRequest.addComicBook(comicTitle: "Test Comic Title",
+                                                       storyTitle: "Test STory Title",
+                                                       volume: volume,
+                                                       issueNumber: issueNumber,
+                                                       publisher: publisher,
+                                                       releaseYear: releaseYear,
+                                                       comicPhotoURL: comicPhotoURL,
+                                                       returnDate: returnDate,
+                                                       condition: condition,
+                                                       genre: genre)
+        let urlRequest = lucienRequest.urlRequest
+        self.sendRequest(urlRequest) { response in
+            switch response {
+            case .success(let result):
+                completion(.success(nil))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
 }

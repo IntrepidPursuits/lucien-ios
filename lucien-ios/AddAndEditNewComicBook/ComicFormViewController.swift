@@ -49,11 +49,13 @@ final class ComicFormViewController: UIViewController, AlertDisplaying {
     private var activeField: UITextField?
     private var comicFormViewControllerTextFields: [UITextField]?
     private var overlayButton = UIButton()
+    private var currentImage: UIImage?
 
     // MARK: - Constants
 
     private let cameraViewController = CameraViewController()
     private let comicFormViewModel: ComicFormViewModel?
+    private let loginViewModel = LoginViewModel()
 
     init(viewModel: ComicFormViewModel) {
         comicFormViewModel = viewModel
@@ -137,7 +139,23 @@ final class ComicFormViewController: UIViewController, AlertDisplaying {
         finishButton.setTitleTextAttributes([NSAttributedStringKey.font: LucienTheme.Fonts.muliSemiBold(size: 17) ?? UIFont()], for: .normal)
         finishButton.tintColor = LucienTheme.finishButtonGrey
         finishButton.isEnabled = false
+        finishButton.target = self
+        finishButton.action = #selector(ComicFormViewController.finishButtonTapped)
         navigationItem.rightBarButtonItem = finishButton
+    }
+
+    @objc private func finishButtonTapped() {
+        var publicURL = ""
+        if let coverPhoto = currentImage {
+            loginViewModel.createPhotoURL(image: coverPhoto, completion: { publicURLResponse in
+                print(publicURLResponse)
+                publicURL = publicURLResponse
+            })
+        }
+
+        loginViewModel.addComicBook(comicTitle: "Test Comic Title", storyTitle: "Test Story Title", volume: "Test Volume", issueNumber: "Test Issue", publisher: "Test Publisher", releaseYear: "Test Release Year", comicPhotoURL: publicURL, returnDate: nil, condition: "good", genre: "fantasy") { (_) in
+            print("DONE DONE")
+        }
     }
 
     private func configureViewController() {
