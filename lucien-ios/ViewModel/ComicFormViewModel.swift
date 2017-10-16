@@ -7,7 +7,6 @@
 //
 
 import Foundation
-
 /// Specifies whether the ComicFormViewController will "add" comic books or "edit" comic books in a users collection.
 enum  ComicFormMode {
     case add
@@ -16,7 +15,7 @@ enum  ComicFormMode {
 
 struct ComicFormViewModel {
     var coverPhoto: UIImage?
-    var comicFormMode: ComicFormMode = .add
+    var comicFormMode: ComicFormMode
     var seriesTitle: String?
     var volume: String?
     var storyTitle: String?
@@ -25,13 +24,24 @@ struct ComicFormViewModel {
     var release: String?
     var genre: Comic.Genre?
     var condition: Comic.Condition?
+    var navigationBarTitle: String {
+        return comicFormMode == .add ? "Add Book" : "Edit Book"
+    }
 
     // ComicFormMode is set to .add by default if default init is used.
-    init() {}
+    init() { comicFormMode = .add }
 
     /// Initializes ComicFormViewModel with a ComicFormMode of edit.
     /// The parameters will be used by the ComicFormViewController to fill in its textfields.
-    init(coverPhoto: UIImage?, seriesTitle: String, volume: String?, storyTitle: String, issue: String?, publisher: String?, release: String?, genre: Comic.Genre?, condition: Comic.Condition?) {
+    init(coverPhoto: UIImage?,
+         seriesTitle: String,
+         volume: String?,
+         storyTitle: String,
+         issue: String?,
+         publisher: String?,
+         release: String?,
+         genre: Comic.Genre?,
+         condition: Comic.Condition?) {
         comicFormMode = .edit
         self.coverPhoto = coverPhoto
         self.seriesTitle = seriesTitle

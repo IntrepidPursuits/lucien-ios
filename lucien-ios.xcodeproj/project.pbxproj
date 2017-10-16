@@ -221,6 +221,14 @@
 			path = Camera;
 			sourceTree = "<group>";
 		};
+		1C577CD61F94F2C000EB9423 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				1CACA1371F9157D600271E19 /* ComicFormViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		1C7E9F911F7994050061EFF6 /* StartMyCollection */ = {
 			isa = PBXGroup;
 			children = (
@@ -263,6 +271,7 @@
 		1CAFFC651F797FA200B79F11 /* lucien-ios */ = {
 			isa = PBXGroup;
 			children = (
+				1C577CD61F94F2C000EB9423 /* ViewModel */,
 				1C21642C1F8FCA8C00938D59 /* Subclasses */,
 				1C7EE07F1F87F8CF003F2A81 /* Protocols */,
 				1C45D0E81F85608500E651A5 /* Camera */,
@@ -433,7 +442,6 @@
 		FBE07CC61F7C2A1900CF1A3F /* ViewProfile */ = {
 			isa = PBXGroup;
 			children = (
-				1CACA1371F9157D600271E19 /* ComicFormViewModel.swift */,
 				FBE07CC71F7C2A4500CF1A3F /* ProfileViewController.swift */,
 				FBE07CC81F7C2A4500CF1A3F /* ProfileViewController.xib */,
 			);

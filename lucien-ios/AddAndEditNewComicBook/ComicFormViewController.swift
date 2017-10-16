@@ -53,14 +53,15 @@ final class ComicFormViewController: UIViewController, AlertDisplaying {
     // MARK: - Constants
 
     private let cameraViewController = CameraViewController()
-    private var comicFormViewModel: ComicFormViewModel?
+    private let comicFormViewModel: ComicFormViewModel?
 
     init(viewModel: ComicFormViewModel) {
-        super.init(nibName: nil, bundle: nil)
         comicFormViewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
     }
 
     required init?(coder aDecoder: NSCoder) {
+        comicFormViewModel = ComicFormViewModel()
         super.init(coder: aDecoder)
     }
 
@@ -101,7 +102,7 @@ final class ComicFormViewController: UIViewController, AlertDisplaying {
             genrePicker.selectRow(comicFormViewModel.genre?.rawValue ?? 0, inComponent: 0, animated: false)
             conditionPicker.selectRow(comicFormViewModel.condition?.rawValue ?? 0, inComponent: 0, animated: false)
             if let coverPhoto = comicFormViewModel.coverPhoto {
-                self.cameraViewController(didCapture: coverPhoto)
+                updateCoverPhotoButton(image: coverPhoto)
             }
         }
     }
@@ -121,7 +122,7 @@ final class ComicFormViewController: UIViewController, AlertDisplaying {
     }
 
     private func setNavBarTitle() {
-        navigationController?.viewControllers[0].title = comicFormViewModel?.comicFormMode == .add ?  "Add Book" : "Edit Book"
+        navigationController?.viewControllers[0].title = comicFormViewModel?.navigationBarTitle
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: LucienTheme.Fonts.permanentMarkerRegular(size: 30) ?? UIFont()]
     }
 
@@ -181,6 +182,40 @@ final class ComicFormViewController: UIViewController, AlertDisplaying {
         }
         finishButton.isEnabled = true
         finishButton.tintColor = LucienTheme.dark
+    }
+
+    private func updateCoverPhotoButton(image: UIImage) {
+        showCoverPhotoMenu()
+        resetCoverPhotoButton()
+
+        let resizedImage = image.resize(size: CGSize(width: coverPhotoButton.frame.width, height: coverPhotoButton.frame.height))
+        let blurredImage = image.blur(radius: LucienConstants.coverButtonBlurRadius)?.resize(size: CGSize(width: coverPhotoButton.frame.width, height: coverPhotoButton.frame.height))
+
+        coverPhotoButton.setImage(nil, for: .normal)
+        coverPhotoButton.backgroundColor = nil
+        coverPhotoButton.setBackgroundImage(blurredImage, for: .normal)
+        coverPhotoButton.isUserInteractionEnabled = false
+        coverPhotoButton.transform = CGAffineTransform(scaleX: LucienConstants.coverButtonScaleX, y: LucienConstants.coverButtonScaleY)
+        coverPhotoButton.alpha = LucienConstants.coverButtonOpacity
+        coverPhotoButton.setAttributedTitle(NSAttributedString(string: ""), for: .normal)
+        coverPhotoButton.layer.shadowColor = UIColor.black.cgColor
+        coverPhotoButton.layer.shadowRadius = LucienConstants.coverButtonShadowRadius
+        coverPhotoButton.layer.shadowOpacity = LucienConstants.coverButtonShadowOpacity
+
+        overlayButton = UIButton(frame: coverPhotoButton.frame)
+        overlayButton.transform = CGAffineTransform(scaleX: LucienConstants.overlayButtonScaleX, y: LucienConstants.overlayButtonScaleY)
+        overlayButton.setBackgroundImage(resizedImage, for: .normal)
+        overlayButton.isUserInteractionEnabled = false
+        overlayButton.layer.masksToBounds = true
+        overlayButton.layer.cornerRadius = LucienConstants.buttonBorderRadius
+        overlayButton.translatesAutoresizingMaskIntoConstraints = false
+
+        scrollView.addSubview(overlayButton)
+
+        view.addConstraints([
+            NSLayoutConstraint(item: overlayButton, attribute: .leading, relatedBy: .equal, toItem: scrollView, attribute: .leading, multiplier: 1, constant: LucienConstants.overlayButtonLeadingConstraint),
+            NSLayoutConstraint(item: overlayButton, attribute: .top, relatedBy: .equal, toItem: coverPhotoLabel, attribute: .top, multiplier: 1, constant: LucienConstants.overlayButtonTopConstraint)
+            ])
     }
 
     @objc private func seriesTitleEditingChanged(_ textField: UITextField) {
