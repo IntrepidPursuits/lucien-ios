@@ -54,6 +54,7 @@ final class ProfileViewController: UIViewController {
 
     @IBAction func logoutButtonPressed(_ sender: UIButton) {
         GIDSignIn.sharedInstance().signOut()
+        DashboardViewModel.dashboardData = nil
         let rootViewController = RootViewController()
         self.navigationController?.present(rootViewController, animated: true, completion: nil)
     }

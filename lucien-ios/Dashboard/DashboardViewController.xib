@@ -12,8 +12,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DashboardViewController" customModule="lucien_ios" customModuleProvider="target">
             <connections>
+                <outlet property="borrowingCollectionView" destination="zzt-Lh-hKr" id="UD7-LW-LBG"/>
                 <outlet property="dashboardScrollView" destination="5Bd-Ir-PZh" id="H4N-6n-8y6"/>
-                <outlet property="lendingCollectionView" destination="p70-D4-YfJ" id="q9r-KK-gBF"/>
+                <outlet property="lendingCollectionView" destination="LTX-5B-CXm" id="QLg-kc-tHG"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -25,61 +26,49 @@
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="5Bd-Ir-PZh">
                     <rect key="frame" x="0.0" y="20" width="571" height="1234"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lcY-Ok-qvG">
-                            <rect key="frame" x="0.0" y="0.0" width="570" height="358"/>
-                            <subviews>
-                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="p70-D4-YfJ">
-                                    <rect key="frame" x="0.0" y="47" width="570" height="311"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="i91-6M-XCt">
-                                        <size key="itemSize" width="50" height="50"/>
-                                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                    </collectionViewFlowLayout>
-                                </collectionView>
-                            </subviews>
+                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="LTX-5B-CXm" customClass="DashboardCollectionView" customModule="lucien_ios" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="47" width="571" height="311"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="358" id="3kb-87-G3c"/>
-                                <constraint firstAttribute="bottom" secondItem="p70-D4-YfJ" secondAttribute="bottom" id="Hk5-Qx-zZP"/>
-                                <constraint firstItem="p70-D4-YfJ" firstAttribute="leading" secondItem="lcY-Ok-qvG" secondAttribute="leading" id="V50-a5-RcC"/>
-                                <constraint firstAttribute="trailing" secondItem="p70-D4-YfJ" secondAttribute="trailing" id="fsk-Kf-dEk"/>
-                                <constraint firstItem="p70-D4-YfJ" firstAttribute="top" secondItem="lcY-Ok-qvG" secondAttribute="top" constant="47" id="t0t-Rh-bmF"/>
+                                <constraint firstAttribute="height" constant="311" id="Xrg-Fy-tPs"/>
                             </constraints>
-                        </view>
-                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AdI-jk-AXd">
-                            <rect key="frame" x="0.0" y="755" width="570" height="471"/>
+                            <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="NNx-Ba-hZY">
+                                <size key="itemSize" width="50" height="50"/>
+                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            </collectionViewFlowLayout>
+                        </collectionView>
+                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="zzt-Lh-hKr" customClass="DashboardCollectionView" customModule="lucien_ios" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="430" width="571" height="311"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="400" id="8ct-13-MJH"/>
+                                <constraint firstAttribute="height" constant="311" id="di7-H7-Ig9"/>
                             </constraints>
-                        </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cEP-kL-Dwy">
-                            <rect key="frame" x="0.0" y="368" width="570" height="377"/>
-                            <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="377" id="nct-YD-lUH"/>
-                            </constraints>
-                        </view>
+                            <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Fe8-u6-yxa">
+                                <size key="itemSize" width="50" height="50"/>
+                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            </collectionViewFlowLayout>
+                        </collectionView>
                     </subviews>
                     <constraints>
-                        <constraint firstItem="cEP-kL-Dwy" firstAttribute="top" secondItem="lcY-Ok-qvG" secondAttribute="bottom" constant="10" id="0aX-IT-UF0"/>
-                        <constraint firstAttribute="trailing" secondItem="cEP-kL-Dwy" secondAttribute="trailing" id="1VX-0p-iS3"/>
-                        <constraint firstItem="AdI-jk-AXd" firstAttribute="top" secondItem="cEP-kL-Dwy" secondAttribute="bottom" constant="10" id="29H-SF-xi7"/>
-                        <constraint firstAttribute="bottom" secondItem="AdI-jk-AXd" secondAttribute="bottom" id="LE9-h6-BNV"/>
-                        <constraint firstItem="cEP-kL-Dwy" firstAttribute="leading" secondItem="5Bd-Ir-PZh" secondAttribute="leading" id="b5f-Rt-RAS"/>
-                        <constraint firstItem="lcY-Ok-qvG" firstAttribute="leading" secondItem="5Bd-Ir-PZh" secondAttribute="leading" id="jvO-yY-Zog"/>
-                        <constraint firstAttribute="trailing" secondItem="lcY-Ok-qvG" secondAttribute="trailing" id="mDZ-U7-KhM"/>
-                        <constraint firstAttribute="trailing" secondItem="AdI-jk-AXd" secondAttribute="trailing" id="oSY-Z6-4Mo"/>
-                        <constraint firstItem="lcY-Ok-qvG" firstAttribute="top" secondItem="5Bd-Ir-PZh" secondAttribute="top" id="qgU-M3-1jo"/>
-                        <constraint firstItem="lcY-Ok-qvG" firstAttribute="centerX" secondItem="5Bd-Ir-PZh" secondAttribute="centerX" id="tPq-Vu-O4T"/>
-                        <constraint firstItem="AdI-jk-AXd" firstAttribute="leading" secondItem="5Bd-Ir-PZh" secondAttribute="leading" id="vsT-Qg-uyn"/>
+                        <constraint firstItem="zzt-Lh-hKr" firstAttribute="leading" secondItem="5Bd-Ir-PZh" secondAttribute="leading" id="05r-S8-eYk"/>
+                        <constraint firstItem="zzt-Lh-hKr" firstAttribute="top" secondItem="LTX-5B-CXm" secondAttribute="bottom" constant="72" id="WBl-bh-RJJ"/>
+                        <constraint firstItem="LTX-5B-CXm" firstAttribute="centerX" secondItem="5Bd-Ir-PZh" secondAttribute="centerX" id="bPC-Nk-m8D"/>
+                        <constraint firstAttribute="trailing" secondItem="LTX-5B-CXm" secondAttribute="trailing" id="dtJ-7w-q6B"/>
+                        <constraint firstAttribute="bottom" secondItem="LTX-5B-CXm" secondAttribute="bottom" constant="923" id="jRC-3y-ksn"/>
+                        <constraint firstAttribute="trailing" secondItem="zzt-Lh-hKr" secondAttribute="trailing" id="ncK-FN-fRZ"/>
+                        <constraint firstItem="LTX-5B-CXm" firstAttribute="top" secondItem="5Bd-Ir-PZh" secondAttribute="top" constant="47" id="w22-wq-ElE"/>
+                        <constraint firstItem="LTX-5B-CXm" firstAttribute="leading" secondItem="5Bd-Ir-PZh" secondAttribute="leading" id="zBe-o9-249"/>
                     </constraints>
                 </scrollView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="5Bd-Ir-PZh" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="MsW-Uz-7FH"/>
+                <constraint firstItem="5Bd-Ir-PZh" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="VWb-Ml-XP2"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="5Bd-Ir-PZh" secondAttribute="bottom" id="YiJ-cc-oie"/>
                 <constraint firstItem="5Bd-Ir-PZh" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="ZBw-KF-zH7"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="5Bd-Ir-PZh" secondAttribute="trailing" id="cm6-Bq-xio"/>

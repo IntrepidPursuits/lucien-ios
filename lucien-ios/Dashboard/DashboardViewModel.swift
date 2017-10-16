@@ -10,15 +10,14 @@ import Foundation
 
 final class DashboardViewModel {
 
-    static let lendingCellTitles = ["Princess", "Gracie", "Kittens", "Blair Waldorf", "Serena Van der Woodsen"]
     let lucienAPIClient = LucienAPIClient()
-    var dashboardData: Dashboard?
+    static var dashboardData: Dashboard?
 
     func getDashboard(completion: @escaping () -> Void) {
         lucienAPIClient.getDashboard { response in
             switch response {
             case .success(let result):
-                self.dashboardData = result
+                DashboardViewModel.dashboardData = result
                 completion()
             case .failure(let error):
                 print(error)

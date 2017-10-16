@@ -14,6 +14,7 @@ final class RootViewController: UIViewController, GIDSignInDelegate, GIDSignInUI
     @IBOutlet private weak var appDescription: UILabel!
 
     let loginViewModel = LoginViewModel()
+    let dashboardViewModel = DashboardViewModel()
     let lucienAPIClient = LucienAPIClient()
 
     override func viewDidLoad() {
@@ -64,19 +65,18 @@ final class RootViewController: UIViewController, GIDSignInDelegate, GIDSignInUI
     }
 
     func showDashboard() {
-        let dashboardViewController = DashboardViewController()
-        let dashboardNavigationController = UINavigationController(rootViewController: dashboardViewController)
-        present(dashboardNavigationController, animated: true, completion: nil)
+        dashboardViewModel.getDashboard {
+            guard let dashboardData = DashboardViewModel.dashboardData else { return }
+            DashboardViewModel.dashboardData = dashboardData
+            let dashboardViewController = DashboardViewController()
+            let dashboardNavigationController = UINavigationController(rootViewController: dashboardViewController)
+            self.present(dashboardNavigationController, animated: true, completion: nil)
+        }
     }
 
     func showStartMyCollection() {
         let startMyCollectionViewController = StartMyCollectionViewController()
         present(startMyCollectionViewController, animated: true, completion: nil)
-    }
-
-    func showLendingCollection() {
-        let lendingCollectionController = LendingViewController()
-        present(lendingCollectionController, animated: true, completion: nil)
     }
 }
 
