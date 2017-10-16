@@ -1,5 +1,5 @@
 //
-//  AddComicViewController.swift
+//  ComicFormViewController.swift
 //  lucien-ios
 //
 //  Created by Ahmed, Guled on 9/26/17.
@@ -10,11 +10,10 @@ import UIKit
 import QuartzCore
 import AVFoundation
 
-final class AddComicViewController: UIViewController, AlertDisplaying {
+final class ComicFormViewController: UIViewController, AlertDisplaying {
 
     // MARK: - Private IBOutlets
 
-    @IBOutlet private weak var formStackView: UIStackView!
     @IBOutlet private weak var coverPhotoLabel: UILabel!
     @IBOutlet private weak var coverPhotoButton: UIButton!
     @IBOutlet private weak var seriesTitleLabel: UILabel!
@@ -48,19 +47,31 @@ final class AddComicViewController: UIViewController, AlertDisplaying {
 
     private var finishButton = UIBarButtonItem()
     private var activeField: UITextField?
-    private var addComicViewControllerTextFields: [UITextField]?
+    private var comicFormViewControllerTextFields: [UITextField]?
     private var overlayButton = UIButton()
 
     // MARK: - Constants
 
     private let cameraViewController = CameraViewController()
+    private var comicFormViewModel: ComicFormViewModel?
+
+    init(viewModel: ComicFormViewModel) {
+        super.init(nibName: nil, bundle: nil)
+        comicFormViewModel = viewModel
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        cameraViewController.delegate = self
         configureNavigationController()
         configureViewController()
         registerForKeyboardNotifications()
-        addComicViewControllerTextFields = [seriesTitleTextField, volumeTextField, storyTitleTextField, issueTextField, publisherTextField, releaseDateTextField]
+        comicFormViewControllerTextFields = [seriesTitleTextField, volumeTextField, storyTitleTextField, issueTextField, publisherTextField, releaseDateTextField]
+        fillFieldsWithComicFormViewModelData()
     }
 
     // MARK: - Private Instance Methods
@@ -72,6 +83,27 @@ final class AddComicViewController: UIViewController, AlertDisplaying {
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
         showAlert(title: "", message: "This will delete your current comic information.", actions: [goBackAction, cancelAction], preferredStyle: .actionSheet)
+    }
+
+    private func fillFieldsWithComicFormViewModelData() {
+        guard let comicFormViewModel = comicFormViewModel else { return }
+        if comicFormViewModel.comicFormMode == .edit {
+            seriesTitleTextField.text = comicFormViewModel.seriesTitle ?? ""
+            volumeTextField.text = comicFormViewModel.volume ?? ""
+            storyTitleTextField.text = comicFormViewModel.storyTitle
+            issueTextField.text = comicFormViewModel.issue ?? ""
+            publisherTextField.text = comicFormViewModel.publisher ?? ""
+            releaseDateTextField.text = comicFormViewModel.release ?? ""
+            genrePicker.isHidden = false
+            conditionPicker.isHidden = false
+            selectAGenreButton.setTitle(comicFormViewModel.genre?.title, for: .normal)
+            selectAConditionButton.setTitle(comicFormViewModel.condition?.title, for: .normal)
+            genrePicker.selectRow(comicFormViewModel.genre?.rawValue ?? 0, inComponent: 0, animated: false)
+            conditionPicker.selectRow(comicFormViewModel.condition?.rawValue ?? 0, inComponent: 0, animated: false)
+            if let coverPhoto = comicFormViewModel.coverPhoto {
+                self.cameraViewController(didCapture: coverPhoto)
+            }
+        }
     }
 
     private func configureNavigationController() {
@@ -89,12 +121,12 @@ final class AddComicViewController: UIViewController, AlertDisplaying {
     }
 
     private func setNavBarTitle() {
-        navigationController?.viewControllers[0].title = "Add Book"
+        navigationController?.viewControllers[0].title = comicFormViewModel?.comicFormMode == .add ?  "Add Book" : "Edit Book"
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: LucienTheme.Fonts.permanentMarkerRegular(size: 30) ?? UIFont()]
     }
 
     private func setNavBarBackButton() {
-        let backButton = UIBarButtonItem(image: UIImage(named: "navBackButton"), style: .plain, target: self, action: #selector(AddComicViewController.backButtonTapped))
+        let backButton = UIBarButtonItem(image: UIImage(named: "navBackButton"), style: .plain, target: self, action: #selector(ComicFormViewController.backButtonTapped))
         backButton.tintColor = UIColor.black
         navigationItem.leftBarButtonItem = backButton
     }
@@ -108,9 +140,9 @@ final class AddComicViewController: UIViewController, AlertDisplaying {
     }
 
     private func configureViewController() {
-        storyTitleTextField.addTarget(self, action: #selector(AddComicViewController.storyTitleEditingChanged), for: .editingChanged)
-        releaseDateTextField.addTarget(self, action: #selector(AddComicViewController.releaseDateEditingChanged), for: .editingChanged)
-        seriesTitleTextField.addTarget(self, action: #selector(AddComicViewController.seriesTitleEditingChanged), for: .editingChanged)
+        storyTitleTextField.addTarget(self, action: #selector(ComicFormViewController.storyTitleEditingChanged), for: .editingChanged)
+        releaseDateTextField.addTarget(self, action: #selector(ComicFormViewController.releaseDateEditingChanged), for: .editingChanged)
+        seriesTitleTextField.addTarget(self, action: #selector(ComicFormViewController.seriesTitleEditingChanged), for: .editingChanged)
         configureReleaseDateTextFieldToolBar()
         configurePickerUIButton(button: selectAGenreButton)
         configurePickerUIButton(button: selectAConditionButton)
@@ -120,7 +152,7 @@ final class AddComicViewController: UIViewController, AlertDisplaying {
         let releaseDateToolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 50))
         releaseDateToolBar.barStyle = UIBarStyle.default
         let flexSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
-        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.done, target: self, action: #selector(AddComicViewController.doneButtonTapped))
+        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.done, target: self, action: #selector(ComicFormViewController.doneButtonTapped))
         var barButtonItems = [UIBarButtonItem]()
         barButtonItems.append(flexSpace)
         barButtonItems.append(doneButton)
@@ -187,13 +219,11 @@ final class AddComicViewController: UIViewController, AlertDisplaying {
 
     @IBAction private func addCoverButtonTapped(_ sender: UIButton) {
         if AVCaptureDevice.authorizationStatus(for: .video) ==  .authorized {
-            cameraViewController.delegate = self
             present(cameraViewController, animated: true, completion: nil)
         } else {
             AVCaptureDevice.requestAccess(for: .video) { granted in
                 if granted {
                     DispatchQueue.main.async {
-                        self.cameraViewController.delegate = self
                         self.present(self.cameraViewController, animated: true, completion: nil)
                     }
                 }
@@ -243,7 +273,7 @@ final class AddComicViewController: UIViewController, AlertDisplaying {
     // MARK: - Keyboard Methods
 
     private func registerForKeyboardNotifications() {
-        NotificationCenter.default.addObserver(self, selector: #selector(AddComicViewController.keyboardWasShown), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(ComicFormViewController.keyboardWasShown), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
     }
 
     private func deregisterFromKeyboardNotifications() {
@@ -270,7 +300,7 @@ final class AddComicViewController: UIViewController, AlertDisplaying {
     }
 }
 
-extension AddComicViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+extension ComicFormViewController: UIPickerViewDelegate, UIPickerViewDataSource {
 
     // MARK: - UIPickerViewDelegate
 
@@ -302,7 +332,7 @@ extension AddComicViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     }
 }
 
-extension AddComicViewController: UITextFieldDelegate {
+extension ComicFormViewController: UITextFieldDelegate {
 
     // MARK: - UITextFieldDelegate
 
@@ -334,7 +364,7 @@ extension AddComicViewController: UITextFieldDelegate {
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         guard
-            let textFields = addComicViewControllerTextFields,
+            let textFields = comicFormViewControllerTextFields,
             let currentTextFieldArrayIndex = textFields.index(of: textField)
             else { return false }
         let currentTextFieldIndex = textFields.startIndex.distance(to: currentTextFieldArrayIndex)
@@ -348,7 +378,7 @@ extension AddComicViewController: UITextFieldDelegate {
     }
 }
 
-extension AddComicViewController: CameraViewControllerDelegate {
+extension ComicFormViewController: CameraViewControllerDelegate {
 
     // MARK: - CameraViewControllerDelegate
 

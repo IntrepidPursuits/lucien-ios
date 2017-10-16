@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1C07CBF41F7AE1FD007C66D0 /* AddComicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C07CBF21F7AE1FD007C66D0 /* AddComicViewController.swift */; };
-		1C07CBF51F7AE1FD007C66D0 /* AddComicViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C07CBF31F7AE1FD007C66D0 /* AddComicViewController.xib */; };
+		1C07CBF41F7AE1FD007C66D0 /* ComicFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C07CBF21F7AE1FD007C66D0 /* ComicFormViewController.swift */; };
+		1C07CBF51F7AE1FD007C66D0 /* ComicFormViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C07CBF31F7AE1FD007C66D0 /* ComicFormViewController.xib */; };
 		1C182A2F1F82CA70001566E1 /* Comic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C182A2E1F82CA70001566E1 /* Comic.swift */; };
 		1C182A321F82D1C1001566E1 /* RawRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C182A311F82D1C1001566E1 /* RawRepresentable.swift */; };
 		1C21642E1F8FCAA900938D59 /* BottomBorderTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C21642D1F8FCAA900938D59 /* BottomBorderTextField.swift */; };
@@ -16,6 +16,7 @@
 		1C45D0EC1F85611A00E651A5 /* CameraViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C45D0EA1F85611A00E651A5 /* CameraViewController.xib */; };
 		1C7EE0851F880DF6003F2A81 /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7EE0841F880DF6003F2A81 /* UIImageExtensions.swift */; };
 		1C7EE0891F8BEE43003F2A81 /* AlertDisplaying.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7EE0881F8BEE43003F2A81 /* AlertDisplaying.swift */; };
+		1CACA1381F9157D600271E19 /* ComicFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CACA1371F9157D600271E19 /* ComicFormViewModel.swift */; };
 		1CAE48D81F8412960087E96E /* LucienConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAE48D71F8412960087E96E /* LucienConstants.swift */; };
 		1CAFFC671F797FA200B79F11 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAFFC661F797FA200B79F11 /* AppDelegate.swift */; };
 		1CAFFC6E1F797FA200B79F11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CAFFC6D1F797FA200B79F11 /* Assets.xcassets */; };
@@ -89,8 +90,8 @@
 /* Begin PBXFileReference section */
 		074BF9F99258AD884EC6794A /* Pods_lucien_iosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_lucien_iosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D057BF04BE0EAF45ED19F37 /* Pods_lucien_iosUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_lucien_iosUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1C07CBF21F7AE1FD007C66D0 /* AddComicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddComicViewController.swift; sourceTree = "<group>"; };
-		1C07CBF31F7AE1FD007C66D0 /* AddComicViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddComicViewController.xib; sourceTree = "<group>"; };
+		1C07CBF21F7AE1FD007C66D0 /* ComicFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicFormViewController.swift; sourceTree = "<group>"; };
+		1C07CBF31F7AE1FD007C66D0 /* ComicFormViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ComicFormViewController.xib; sourceTree = "<group>"; };
 		1C182A2E1F82CA70001566E1 /* Comic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comic.swift; sourceTree = "<group>"; };
 		1C182A311F82D1C1001566E1 /* RawRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawRepresentable.swift; sourceTree = "<group>"; };
 		1C21642D1F8FCAA900938D59 /* BottomBorderTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBorderTextField.swift; sourceTree = "<group>"; };
@@ -98,6 +99,7 @@
 		1C45D0EA1F85611A00E651A5 /* CameraViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CameraViewController.xib; sourceTree = "<group>"; };
 		1C7EE0841F880DF6003F2A81 /* UIImageExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
 		1C7EE0881F8BEE43003F2A81 /* AlertDisplaying.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertDisplaying.swift; sourceTree = "<group>"; };
+		1CACA1371F9157D600271E19 /* ComicFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicFormViewModel.swift; sourceTree = "<group>"; };
 		1CAE48D71F8412960087E96E /* LucienConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LucienConstants.swift; sourceTree = "<group>"; };
 		1CAFFC631F797FA200B79F11 /* lucien-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "lucien-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CAFFC661F797FA200B79F11 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -277,7 +279,7 @@
 				FB6B91191F7BEE9900910B49 /* LoginScreen */,
 				1C7E9F911F7994050061EFF6 /* StartMyCollection */,
 				FBE07CC61F7C2A1900CF1A3F /* ViewProfile */,
-				1CDB6A251F79A52D003A2BB1 /* AddNewComicBook */,
+				1CDB6A251F79A52D003A2BB1 /* AddAndEditNewComicBook */,
 				1CDBD86E1F7C26B800408826 /* LucienTheme.swift */,
 				1CAE48D71F8412960087E96E /* LucienConstants.swift */,
 			);
@@ -302,13 +304,13 @@
 			path = "lucien-iosUITests";
 			sourceTree = "<group>";
 		};
-		1CDB6A251F79A52D003A2BB1 /* AddNewComicBook */ = {
+		1CDB6A251F79A52D003A2BB1 /* AddAndEditNewComicBook */ = {
 			isa = PBXGroup;
 			children = (
-				1C07CBF21F7AE1FD007C66D0 /* AddComicViewController.swift */,
-				1C07CBF31F7AE1FD007C66D0 /* AddComicViewController.xib */,
+				1C07CBF21F7AE1FD007C66D0 /* ComicFormViewController.swift */,
+				1C07CBF31F7AE1FD007C66D0 /* ComicFormViewController.xib */,
 			);
-			path = AddNewComicBook;
+			path = AddAndEditNewComicBook;
 			sourceTree = "<group>";
 		};
 		1CDBD8481F7C200A00408826 /* fonts */ = {
@@ -431,6 +433,7 @@
 		FBE07CC61F7C2A1900CF1A3F /* ViewProfile */ = {
 			isa = PBXGroup;
 			children = (
+				1CACA1371F9157D600271E19 /* ComicFormViewModel.swift */,
 				FBE07CC71F7C2A4500CF1A3F /* ProfileViewController.swift */,
 				FBE07CC81F7C2A4500CF1A3F /* ProfileViewController.xib */,
 			);
@@ -558,7 +561,7 @@
 			files = (
 				1CDBD8601F7C209800408826 /* Muli-ExtraBoldItalic.ttf in Resources */,
 				FB6AA1A11F85313500394500 /* DashboardViewController.xib in Resources */,
-				1C07CBF51F7AE1FD007C66D0 /* AddComicViewController.xib in Resources */,
+				1C07CBF51F7AE1FD007C66D0 /* ComicFormViewController.xib in Resources */,
 				1CDBD85B1F7C209800408826 /* Muli-Black.ttf in Resources */,
 				1CDBD8641F7C209800408826 /* Muli-Light.ttf in Resources */,
 				1CAFFC711F797FA200B79F11 /* LaunchScreen.storyboard in Resources */,
@@ -783,6 +786,7 @@
 				1CDB6A221F7995EC003A2BB1 /* StartMyCollectionViewController.swift in Sources */,
 				FB6AA1A81F85665200394500 /* UILabel+Extensions.swift in Sources */,
 				FBDDE2CB1F7E7C4F00A4EA34 /* LucienRequest.swift in Sources */,
+				1CACA1381F9157D600271E19 /* ComicFormViewModel.swift in Sources */,
 				FBAB04711F8D42080099F197 /* LucienAPIClient.swift in Sources */,
 				FBAEE5781F7EE75C00A44F50 /* LoginViewModel.swift in Sources */,
 				FBB975691F7EBB31007951C4 /* User.swift in Sources */,
@@ -795,7 +799,7 @@
 				1CAE48D81F8412960087E96E /* LucienConstants.swift in Sources */,
 				1CAFFC671F797FA200B79F11 /* AppDelegate.swift in Sources */,
 				1C7EE0891F8BEE43003F2A81 /* AlertDisplaying.swift in Sources */,
-				1C07CBF41F7AE1FD007C66D0 /* AddComicViewController.swift in Sources */,
+				1C07CBF41F7AE1FD007C66D0 /* ComicFormViewController.swift in Sources */,
 				FB3238601F8BCED700FE81E2 /* LendingViewController.swift in Sources */,
 				1C182A321F82D1C1001566E1 /* RawRepresentable.swift in Sources */,
 				1C7EE0851F880DF6003F2A81 /* UIImageExtensions.swift in Sources */,
