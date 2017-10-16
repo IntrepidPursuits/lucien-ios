@@ -418,37 +418,7 @@ extension ComicFormViewController: CameraViewControllerDelegate {
     // MARK: - CameraViewControllerDelegate
 
     func cameraViewController(didCapture image: UIImage) {
-        showCoverPhotoMenu()
-        resetCoverPhotoButton()
-
-        let resizedImage = image.resize(size: CGSize(width: coverPhotoButton.frame.width, height: coverPhotoButton.frame.height))
-        let blurredImage = image.blur(radius: LucienConstants.coverButtonBlurRadius)?.resize(size: CGSize(width: coverPhotoButton.frame.width, height: coverPhotoButton.frame.height))
-
-        coverPhotoButton.setImage(nil, for: .normal)
-        coverPhotoButton.backgroundColor = nil
-        coverPhotoButton.setBackgroundImage(blurredImage, for: .normal)
-        coverPhotoButton.isUserInteractionEnabled = false
-        coverPhotoButton.transform = CGAffineTransform(scaleX: LucienConstants.coverButtonScaleX, y: LucienConstants.coverButtonScaleY)
-        coverPhotoButton.alpha = LucienConstants.coverButtonOpacity
-        coverPhotoButton.setAttributedTitle(NSAttributedString(string: ""), for: .normal)
-        coverPhotoButton.layer.shadowColor = UIColor.black.cgColor
-        coverPhotoButton.layer.shadowRadius = LucienConstants.coverButtonShadowRadius
-        coverPhotoButton.layer.shadowOpacity = LucienConstants.coverButtonShadowOpacity
-
-        overlayButton = UIButton(frame: coverPhotoButton.frame)
-        overlayButton.transform = CGAffineTransform(scaleX: LucienConstants.overlayButtonScaleX, y: LucienConstants.overlayButtonScaleY)
-        overlayButton.setBackgroundImage(resizedImage, for: .normal)
-        overlayButton.isUserInteractionEnabled = false
-        overlayButton.layer.masksToBounds = true
-        overlayButton.layer.cornerRadius = LucienConstants.buttonBorderRadius
-        overlayButton.translatesAutoresizingMaskIntoConstraints = false
-
-        scrollView.addSubview(overlayButton)
-
-        view.addConstraints([
-            NSLayoutConstraint(item: overlayButton, attribute: .leading, relatedBy: .equal, toItem: scrollView, attribute: .leading, multiplier: 1, constant: LucienConstants.overlayButtonLeadingConstraint),
-            NSLayoutConstraint(item: overlayButton, attribute: .top, relatedBy: .equal, toItem: coverPhotoLabel, attribute: .top, multiplier: 1, constant: LucienConstants.overlayButtonTopConstraint)
-        ])
+        updateCoverPhotoButton(image: image)
     }
 
     private func showCoverPhotoMenu() {

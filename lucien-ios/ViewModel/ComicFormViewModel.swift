@@ -29,7 +29,9 @@ struct ComicFormViewModel {
     }
 
     // ComicFormMode is set to .add by default if default init is used.
-    init() { comicFormMode = .add }
+    init() {
+        comicFormMode = .add
+    }
 
     /// Initializes ComicFormViewModel with a ComicFormMode of edit.
     /// The parameters will be used by the ComicFormViewController to fill in its textfields.
