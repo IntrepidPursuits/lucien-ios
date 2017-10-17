@@ -126,8 +126,8 @@ final class LucienAPIClient: APIClient {
                       condition: String?,
                       genre: String?,
                       completion: @escaping (Result<Error?>) -> Void) {
-        let lucienRequest = LucienRequest.addComicBook(comicTitle: "Test Comic Title",
-                                                       storyTitle: "Test STory Title",
+        let lucienRequest = LucienRequest.addComicBook(comicTitle: comicTitle,
+                                                       storyTitle: storyTitle,
                                                        volume: volume,
                                                        issueNumber: issueNumber,
                                                        publisher: publisher,
@@ -138,8 +138,9 @@ final class LucienAPIClient: APIClient {
                                                        genre: genre)
         let urlRequest = lucienRequest.urlRequest
         self.sendRequest(urlRequest) { response in
+            print(response)
             switch response {
-            case .success(let result):
+            case .success(let _):
                 completion(.success(nil))
             case .failure(let error):
                 completion(.failure(error))

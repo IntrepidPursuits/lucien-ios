@@ -61,6 +61,7 @@ final class LoginViewModel {
                       condition: String?,
                       genre: String?,
                       completion: @escaping (Error?) -> Void) {
+
         lucienAPIClient.addComicBook(comicTitle: comicTitle,
                                      storyTitle: storyTitle,
                                      volume: volume,
@@ -70,18 +71,21 @@ final class LoginViewModel {
                                      comicPhotoURL: comicPhotoURL,
                                      returnDate: returnDate,
                                      condition: condition,
-                                     genre: genre) { [weak self] response in
-
-                                        switch response {
-                                        case .success(let response):
-                                            print("DONE YO")
-                                        case .failure(let error):
-                                            print(error)
-                                        }
+                                     genre: genre) { response in
+                                    switch response {
+                                    case .success:
+                                        completion(nil)
+                                    case .failure(let error):
+                                        completion(error)
+                                    }
         }
     }
 
-    func createPhotoURL(image: UIImage, completion: @escaping (String) -> Void) {
+    func createPhotoURL(image: UIImage?, completion: @escaping (String) -> Void) {
+        guard let image = image else {
+            completion("")
+            return
+        }
         lucienAPIClient.createPhotoURL { [weak self] response in
             switch response {
             case .success(let url):

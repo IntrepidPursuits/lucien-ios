@@ -472,10 +472,6 @@ Photo</string>
                                                 </button>
                                                 <pickerView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fCM-4s-5OC">
                                                     <rect key="frame" x="0.0" y="69" width="320" height="0.0"/>
-                                                    <connections>
-                                                        <outlet property="dataSource" destination="-1" id="ROA-O5-u03"/>
-                                                        <outlet property="delegate" destination="-1" id="emm-EJ-i7K"/>
-                                                    </connections>
                                                 </pickerView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UCL-mM-64f">
                                                     <rect key="frame" x="0.0" y="75" width="327" height="1"/>
@@ -541,10 +537,6 @@ Photo</string>
                                                 </button>
                                                 <pickerView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1zr-ip-Ltu">
                                                     <rect key="frame" x="0.0" y="60" width="320" height="0.0"/>
-                                                    <connections>
-                                                        <outlet property="dataSource" destination="-1" id="43T-GX-7m6"/>
-                                                        <outlet property="delegate" destination="-1" id="xfU-jW-aOh"/>
-                                                    </connections>
                                                 </pickerView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wKY-4h-eXB">
                                                     <rect key="frame" x="0.0" y="66" width="327" height="1"/>

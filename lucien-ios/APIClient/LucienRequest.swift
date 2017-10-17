@@ -100,15 +100,15 @@ enum LucienRequest: Request {
         case .createPhotoURL:
             return nil
         case .addComicBook(let comicTitle,
-                        let storyTitle,
-                        let volume,
-                        let issueNumber,
-                        let publisher,
-                        let releaseYear,
-                        let comicPhotoURL,
-                        let returnDate,
-                        let condition,
-                        let genre):
+                           let storyTitle,
+                           let volume,
+                           let issueNumber,
+                           let publisher,
+                           let releaseYear,
+                           let comicPhotoURL,
+                           let returnDate,
+                           let condition,
+                           let genre):
             return ["comic": ["comic_title": comicTitle,
                               "story_title": storyTitle,
                               "volume": volume,

@@ -9,6 +9,8 @@ target 'lucien-ios' do
   pod 'SwiftLint'
   pod 'GoogleSignIn'
   pod 'Google/SignIn'
+  pod 'RxSwift', '~> 4.0.0-rc.0'
+  pod 'RxCocoa', '~> 4.0.0-rc.0'
 
   target 'lucien-iosTests' do
     inherit! :search_paths
