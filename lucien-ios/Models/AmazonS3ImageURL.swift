@@ -12,11 +12,11 @@ struct AmazonS3ImageURL: Decodable {
     var preSignedURL: String
     var publicURL: String
 
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case s3Object = "s3_object"
     }
 
-    enum AmazonS3ImageURLKeys: String, CodingKey {
+    private enum AmazonS3ImageURLKeys: String, CodingKey {
         case preSignedURL = "presigned_url"
         case publicURL = "public_url"
     }

@@ -18,16 +18,7 @@ enum LucienRequest: Request {
     case getDashboard
     case hasCollection
     case createPhotoURL
-    case addComicBook(comicTitle: String,
-                      storyTitle: String,
-                      volume: String?,
-                      issueNumber: String?,
-                      publisher: String?,
-                      releaseYear: String?,
-                      comicPhotoURL: String?,
-                      returnDate: String?,
-                      condition: String?,
-                      genre: String?)
+    case addComicBook(comic: Comic)
 
     var method: HTTPMethod {
         switch self {
@@ -87,10 +78,11 @@ enum LucienRequest: Request {
         }
     }
 
-    var bodyParameters: [String : Any]? {
+    var body: Data? {
+        let encoder = JSONEncoder()
         switch self {
         case .authenticate(let code):
-            return ["auth": ["token": code]]
+            return try? encoder.encode(AuthenticationRequestBody(code: code))
         case .getCurrentUser:
             return nil
         case .getDashboard:
@@ -99,26 +91,8 @@ enum LucienRequest: Request {
             return nil
         case .createPhotoURL:
             return nil
-        case .addComicBook(let comicTitle,
-                           let storyTitle,
-                           let volume,
-                           let issueNumber,
-                           let publisher,
-                           let releaseYear,
-                           let comicPhotoURL,
-                           let returnDate,
-                           let condition,
-                           let genre):
-            return ["comic": ["comic_title": comicTitle,
-                              "story_title": storyTitle,
-                              "volume": volume,
-                              "issue_number": issueNumber,
-                              "publisher": publisher,
-                              "release_year": releaseYear,
-                              "comic_photo_url": comicPhotoURL,
-                              "return_date": returnDate,
-                              "condition": condition,
-                              "genre": genre]]
+        case .addComicBook(let comic):
+            return try? encoder.encode(ComicRequestBody(comic: comic))
         }
     }
 

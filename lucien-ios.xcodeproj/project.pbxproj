@@ -268,7 +268,6 @@
 		1CAFFC651F797FA200B79F11 /* lucien-ios */ = {
 			isa = PBXGroup;
 			children = (
-				1CB8F1FC1F952A49000DE8F3 /* FormCompletionViewController */,
 				1C21642C1F8FCA8C00938D59 /* Subclasses */,
 				1C7EE07F1F87F8CF003F2A81 /* Protocols */,
 				1C45D0E81F85608500E651A5 /* Camera */,
@@ -308,13 +307,6 @@
 				1CAFFC881F797FA200B79F11 /* Info.plist */,
 			);
 			path = "lucien-iosUITests";
-			sourceTree = "<group>";
-		};
-		1CB8F1FC1F952A49000DE8F3 /* FormCompletionViewController */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = FormCompletionViewController;
 			sourceTree = "<group>";
 		};
 		1CDB6A251F79A52D003A2BB1 /* AddAndEditNewComicBook */ = {

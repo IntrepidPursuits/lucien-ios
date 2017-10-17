@@ -16,17 +16,56 @@ enum  ComicFormMode {
     case edit
 }
 
-struct ComicFormViewModel {
-    var coverPhoto: UIImage?
+/// Encapsulates optional Comic properties to circumvent 8 parameter limit of Observable.combineLatest.
+struct OptionalComicFields {
+    var volume: String?
+    var issueNumber: String?
+    var publisher: String?
+    var releaseYear: String?
+    var comicPhotoURL: String?
+}
+
+class ComicFormViewModel {
+
+    // MARK: - RxSwift
+
+    var comic: Observable<Comic> {
+        let optionalObservable = Observable.combineLatest(volume.asObservable(), issue.asObservable(), publisher.asObservable(), release.asObservable(), coverPhotoURL.asObservable()) { volume, issue, publisher, release, coverPhotoURL in
+            return OptionalComicFields(volume: volume, issueNumber: issue, publisher: publisher, releaseYear: release, comicPhotoURL: coverPhotoURL)
+        }
+
+        let comicFormViewModelAttributeObservables = Observable.combineLatest(
+            seriesTitle.asObservable(),
+            storyTitle.asObservable(),
+            optionalObservable,
+            condition.asObservable(),
+            genre.asObservable()
+        ) { seriesTitle, storyTitle, optionalFields, condition, genre in
+            return Comic(seriesTitle: seriesTitle,
+                         storyTitle: storyTitle,
+                         optionalComicFields: optionalFields,
+                         returnDate: nil,
+                         condition: condition?.title,
+                         genre: genre?.title)
+        }
+
+        return comicFormViewModelAttributeObservables
+    }
+
+    let seriesTitle = Variable("")
+    let storyTitle = Variable("")
+    let volume = Variable<String?>(nil)
+    let issue = Variable<String?>(nil)
+    let publisher = Variable<String?>(nil)
+    let release = Variable<String?>(nil)
+    let coverPhotoURL = Variable<String?>(nil)
+    let condition = Variable<Comic.Condition?>(nil)
+    let genre = Variable<Comic.Genre?>(nil)
+
+    // MARK: - Variables
+
     var comicFormMode: ComicFormMode
-    var seriesTitle = Variable<String>("")
-    var volume = Variable<String>("")
-    var storyTitle = Variable<String>("")
-    var issue = Variable<String>("")
-    var publisher = Variable<String>("")
-    var release = Variable<String>("")
-    var genre: Comic.Genre?
-    var condition: Comic.Condition?
+
     var navigationBarTitle: String {
         return comicFormMode == .add ? "Add Book" : "Edit Book"
     }
@@ -36,6 +75,13 @@ struct ComicFormViewModel {
     var conditionTitles: Observable<[String]> {
         return Observable.just(Comic.Condition.allCases.map { $0.title })
     }
+
+    var coverPhoto: UIImage?
+
+    // MARK: - Private Variables
+
+    private let disposeBag = DisposeBag()
+    private let lucienAPIClient = LucienAPIClient()
 
     // ComicFormMode is set to .add by default if default init is used.
     init() {
@@ -61,7 +107,56 @@ struct ComicFormViewModel {
         self.issue.value = issue ?? ""
         self.publisher.value = publisher ?? ""
         self.release.value = release ?? ""
-        self.genre = genre
-        self.condition = condition
+        self.genre.value = genre
+        self.condition.value = condition
+    }
+
+    // MARK: - Instance Methods
+
+    func finishButtonTapped(completion: @escaping (Error?) -> Void) {
+        createPhotoURLAndUploadImage(image: coverPhoto) { [weak self] publicURL in
+            self?.coverPhotoURL.value = publicURL
+            guard
+                let comic = self?.comic,
+                let disposeBag = self?.disposeBag
+                else { return }
+
+            comic.asObservable().subscribe(onNext: { comic in
+                self?.addComicBook(comic: comic, completion: completion)
+            }) >>> disposeBag
+        }
+    }
+
+    private func addComicBook(comic: Comic, completion: @escaping (Error?) -> Void) {
+        lucienAPIClient.addComicBook(comic: comic) { response in
+            switch response {
+            case .success:
+                completion(nil)
+            case .failure(let error):
+                completion(error)
+            }
+        }
+    }
+
+    private func createPhotoURLAndUploadImage(image: UIImage?, completion: @escaping (String) -> Void) {
+        guard let image = image else {
+            completion("")
+            return
+        }
+        lucienAPIClient.createPhotoURLAndUploadImage { [weak self] response in
+            switch response {
+            case .success(let url):
+                self?.upload(image: image, urlString: url.preSignedURL) { _ in
+                    completion(url.publicURL)
+                }
+            case .failure:
+                completion("")
+            }
+        }
+    }
+
+    private func upload(image: UIImage, urlString: String, completion: @escaping (Error?) -> Void) {
+        guard let imageData = UIImageJPEGRepresentation(image, LucienConstants.compressionQuality) else { return }
+        lucienAPIClient.sendRequestToS3(data: imageData, urlString: urlString, completion: completion)
     }
 }
