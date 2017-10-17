@@ -11,15 +11,22 @@ import UIKit
 final class DashboardViewController: UIViewController, UIScrollViewDelegate {
 
     @IBOutlet weak var dashboardScrollView: UIScrollView!
-
     @IBOutlet weak var lendingCollectionView: DashboardCollectionView!
     @IBOutlet weak var borrowingCollectionView: DashboardCollectionView!
+    @IBOutlet weak var lendingLabel: UILabel!
+    @IBOutlet weak var borrowingLabel: UILabel!
 
     let viewModel = DashboardViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         configureNavigationController()
+        setUpStyling()
+    }
+
+    func setUpStyling() {
+        lendingLabel.addTextSpacing(spacing: 0.5)
+        borrowingLabel.addTextSpacing(spacing: 0.5)
     }
 
     private func configureNavigationController() {

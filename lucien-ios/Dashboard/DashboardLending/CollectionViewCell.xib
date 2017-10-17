@@ -64,6 +64,14 @@
                                 <color key="textColor" red="0.16862745100000001" green="0.1764705882" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9lO-a1-IK5">
+                                <rect key="frame" x="0.0" y="188.5" width="24" height="0.5"/>
+                                <color key="backgroundColor" red="0.56078431370000004" green="0.56470588239999997" blue="0.60392156860000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="24" id="2u1-Vx-97D"/>
+                                    <constraint firstAttribute="height" constant="0.5" id="9f3-Nh-pSM"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <constraints>
                             <constraint firstItem="lvB-tV-ZpY" firstAttribute="leading" secondItem="hJ0-ye-jce" secondAttribute="leading" id="2Oi-r7-sla"/>
@@ -71,6 +79,7 @@
                             <constraint firstItem="c7w-fX-uh5" firstAttribute="top" secondItem="lvB-tV-ZpY" secondAttribute="bottom" constant="16" id="FqA-uG-KBh"/>
                             <constraint firstItem="36b-qo-W6h" firstAttribute="top" secondItem="c7w-fX-uh5" secondAttribute="bottom" constant="8" id="Kk4-qk-0K2"/>
                             <constraint firstItem="373-vF-xYQ" firstAttribute="top" secondItem="36b-qo-W6h" secondAttribute="bottom" id="Mmi-gt-jve"/>
+                            <constraint firstItem="9lO-a1-IK5" firstAttribute="leading" secondItem="hJ0-ye-jce" secondAttribute="leading" id="QlU-jD-aFp"/>
                             <constraint firstItem="373-vF-xYQ" firstAttribute="leading" secondItem="hJ0-ye-jce" secondAttribute="leading" id="YhA-dh-vgZ"/>
                             <constraint firstItem="c7w-fX-uh5" firstAttribute="leading" secondItem="hJ0-ye-jce" secondAttribute="leading" id="Ykp-Qe-5pY"/>
                             <constraint firstAttribute="trailing" secondItem="lvB-tV-ZpY" secondAttribute="trailing" id="doj-vc-ytc"/>
@@ -78,6 +87,7 @@
                             <constraint firstItem="c7w-fX-uh5" firstAttribute="leading" secondItem="lvB-tV-ZpY" secondAttribute="leading" id="hXG-gF-kcd"/>
                             <constraint firstAttribute="trailing" secondItem="c7w-fX-uh5" secondAttribute="trailing" id="nY4-Iv-d2E"/>
                             <constraint firstAttribute="trailing" secondItem="373-vF-xYQ" secondAttribute="trailing" id="oKI-dI-7RN"/>
+                            <constraint firstItem="9lO-a1-IK5" firstAttribute="top" secondItem="lvB-tV-ZpY" secondAttribute="bottom" constant="16.5" id="xZB-gz-b4f"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -91,8 +101,8 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <connections>
                 <outlet property="bookImage" destination="lvB-tV-ZpY" id="biT-SV-y0R"/>
-                <outlet property="borrowerNameLabel" destination="373-vF-xYQ" id="0Yl-pB-po6"/>
                 <outlet property="dueDateLabel" destination="c7w-fX-uh5" id="6Xs-R5-mix"/>
+                <outlet property="ownerBorrowerNameLabel" destination="373-vF-xYQ" id="0Yl-pB-po6"/>
             </connections>
             <point key="canvasLocation" x="-2909" y="-25"/>
         </collectionViewCell>

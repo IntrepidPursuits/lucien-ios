@@ -11,14 +11,14 @@ import UIKit
 final class CollectionViewCell: UICollectionViewCell {
 
     @IBOutlet private weak var dueDateLabel: UILabel!
-    @IBOutlet weak var borrowerNameLabel: UILabel!
+    @IBOutlet weak var ownerBorrowerNameLabel: UILabel!
     @IBOutlet weak var bookImage: UIImageView!
 
     static let reuseIdentifier = "comicCell"
 
-    func configure(comicDueDate: Date, borrowerName: String, imageURL: String) {
+    func configure(comicDueDate: Date, ownerBorrowerName: String, imageURL: String) {
         dueDateLabel.text = formatDateToString(date: comicDueDate)
-        borrowerNameLabel.text = borrowerName
+        ownerBorrowerNameLabel.text = ownerBorrowerName
         setImage(imageURL: imageURL)
         setStyling()
     }
@@ -37,7 +37,7 @@ final class CollectionViewCell: UICollectionViewCell {
     }
 
     func setStyling() {
-//        bookImage.layer.masksToBounds = true
+        bookImage.layer.masksToBounds = true
         bookImage.clipsToBounds = true
         bookImage.layer.cornerRadius = CGFloat(6.0)
     }

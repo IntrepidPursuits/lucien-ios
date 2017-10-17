@@ -43,10 +43,10 @@ class DashboardCollectionView: UICollectionView, UICollectionViewDataSource, UIC
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-        guard let lendingCell = cell as? CollectionViewCell else { return cell}
+        guard let configuredCell = cell as? CollectionViewCell else { return cell}
         let index = indexPath.item
-        lendingCell.configure(comicDueDate: viewModel.comicDueDate(forIndex: index), borrowerName: viewModel.comicBorrower(forIndex: index), imageURL: viewModel.comicImageURL(forIndex: index))
-        return lendingCell
+        configuredCell.configure(comicDueDate: viewModel.comicDueDate(forIndex: index), ownerBorrowerName: viewModel.comicBorrower(forIndex: index), imageURL: viewModel.comicImageURL(forIndex: index))
+        return configuredCell
     }
 }
 

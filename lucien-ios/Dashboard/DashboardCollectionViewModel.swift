@@ -33,6 +33,12 @@ class DashboardCollectionViewModel {
         return firstName + " " + lastName
     }
 
+    func comicOwner(forIndex index: Int) -> String {
+        let firstName = borrowedComics![index].owner?.firstName ?? ""
+        let lastName = borrowedComics![index].owner?.lastName ?? ""
+        return firstName + " " + lastName
+    }
+
     func comicImageURL(forIndex index: Int) -> String {
         guard let url = lendedComics![index].comicPhotoURL else { return "https://www.petsworld.in/blog/wp-content/uploads/2014/09/adorable-cat.jpg" }
         return url
