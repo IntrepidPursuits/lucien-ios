@@ -31,7 +31,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="130" height="286"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Due date" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c7w-fX-uh5">
-                                <rect key="frame" x="0.0" y="188" width="130" height="29"/>
+                                <rect key="frame" x="0.0" y="206" width="130" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="23" id="UxN-Tc-ClN"/>
                                     <constraint firstAttribute="height" constant="29" id="xJJ-18-HzX"/>
@@ -41,13 +41,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lvB-tV-ZpY">
-                                <rect key="frame" x="0.0" y="-18" width="130" height="190"/>
+                                <rect key="frame" x="0.0" y="0.0" width="130" height="190"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="190" id="rqi-ke-rj8"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LENT TO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="36b-qo-W6h">
-                                <rect key="frame" x="0.0" y="225" width="48.5" height="15"/>
+                                <rect key="frame" x="0.0" y="243" width="48.5" height="15"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="15" id="7Na-ck-Frc"/>
                                 </constraints>
@@ -56,7 +56,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Borrower" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="373-vF-xYQ">
-                                <rect key="frame" x="0.0" y="240" width="130" height="23"/>
+                                <rect key="frame" x="0.0" y="258" width="130" height="23"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="23" id="hSM-Kz-cUX"/>
                                 </constraints>
@@ -65,7 +65,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9lO-a1-IK5">
-                                <rect key="frame" x="0.0" y="188.5" width="24" height="0.5"/>
+                                <rect key="frame" x="0.0" y="206.5" width="24" height="0.5"/>
                                 <color key="backgroundColor" red="0.56078431370000004" green="0.56470588239999997" blue="0.60392156860000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="24" id="2u1-Vx-97D"/>
@@ -77,6 +77,7 @@
                             <constraint firstItem="lvB-tV-ZpY" firstAttribute="leading" secondItem="hJ0-ye-jce" secondAttribute="leading" id="2Oi-r7-sla"/>
                             <constraint firstItem="36b-qo-W6h" firstAttribute="leading" secondItem="hJ0-ye-jce" secondAttribute="leading" id="6dF-TH-T2d"/>
                             <constraint firstItem="c7w-fX-uh5" firstAttribute="top" secondItem="lvB-tV-ZpY" secondAttribute="bottom" constant="16" id="FqA-uG-KBh"/>
+                            <constraint firstItem="lvB-tV-ZpY" firstAttribute="top" secondItem="hJ0-ye-jce" secondAttribute="top" id="H1D-Gx-oPR"/>
                             <constraint firstItem="36b-qo-W6h" firstAttribute="top" secondItem="c7w-fX-uh5" secondAttribute="bottom" constant="8" id="Kk4-qk-0K2"/>
                             <constraint firstItem="373-vF-xYQ" firstAttribute="top" secondItem="36b-qo-W6h" secondAttribute="bottom" id="Mmi-gt-jve"/>
                             <constraint firstItem="9lO-a1-IK5" firstAttribute="leading" secondItem="hJ0-ye-jce" secondAttribute="leading" id="QlU-jD-aFp"/>
@@ -102,7 +103,9 @@
             <connections>
                 <outlet property="bookImage" destination="lvB-tV-ZpY" id="biT-SV-y0R"/>
                 <outlet property="dueDateLabel" destination="c7w-fX-uh5" id="6Xs-R5-mix"/>
+                <outlet property="lentOrBorrowedLabel" destination="36b-qo-W6h" id="qrN-5l-7qE"/>
                 <outlet property="ownerBorrowerNameLabel" destination="373-vF-xYQ" id="0Yl-pB-po6"/>
+                <outlet property="ownerOrBorrowerLabel" destination="373-vF-xYQ" id="bgg-Gw-EOX"/>
             </connections>
             <point key="canvasLocation" x="-2909" y="-25"/>
         </collectionViewCell>

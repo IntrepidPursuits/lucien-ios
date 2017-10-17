@@ -45,7 +45,13 @@ class DashboardCollectionView: UICollectionView, UICollectionViewDataSource, UIC
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
         guard let configuredCell = cell as? CollectionViewCell else { return cell}
         let index = indexPath.item
-        configuredCell.configure(comicDueDate: viewModel.comicDueDate(forIndex: index), ownerBorrowerName: viewModel.comicBorrower(forIndex: index), imageURL: viewModel.comicImageURL(forIndex: index))
+        var ownerBorrowerName = ""
+        if viewModel.collectionViewType == "lending" {
+            ownerBorrowerName = viewModel.comicBorrower(forIndex: index)
+        } else if viewModel.collectionViewType == "borrowing" {
+            ownerBorrowerName = viewModel.comicOwner(forIndex: index)
+        }
+        configuredCell.configure(cellType: viewModel.collectionViewType!, comicDueDate: viewModel.comicDueDate(forIndex: index), ownerBorrowerName: ownerBorrowerName, imageURL: viewModel.comicImageURL(forIndex: index))
         return configuredCell
     }
 }

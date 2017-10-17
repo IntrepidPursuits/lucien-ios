@@ -22,6 +22,8 @@ final class DashboardViewController: UIViewController, UIScrollViewDelegate {
         super.viewDidLoad()
         configureNavigationController()
         setUpStyling()
+        lendingCollectionView.viewModel.collectionViewType = "lending"
+        borrowingCollectionView.viewModel.collectionViewType = "borrowing"
     }
 
     func setUpStyling() {

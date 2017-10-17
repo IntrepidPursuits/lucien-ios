@@ -827,7 +827,6 @@
 				1CAFFC671F797FA200B79F11 /* AppDelegate.swift in Sources */,
 				1C7EE0891F8BEE43003F2A81 /* AlertDisplaying.swift in Sources */,
 				1C07CBF41F7AE1FD007C66D0 /* ComicFormViewController.swift in Sources */,
-				FBE3F29E1F913BCE008D4853 /* LendingViewController.swift in Sources */,
 				1C182A321F82D1C1001566E1 /* RawRepresentable.swift in Sources */,
 				1C7EE0851F880DF6003F2A81 /* UIImageExtensions.swift in Sources */,
 				FBE3F29B1F913335008D4853 /* APIClient.swift in Sources */,

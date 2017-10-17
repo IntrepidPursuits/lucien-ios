@@ -33,7 +33,7 @@
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="5Bd-Ir-PZh">
                     <rect key="frame" x="0.0" y="20" width="571" height="1234"/>
                     <subviews>
-                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="LTX-5B-CXm" customClass="DashboardCollectionView" customModule="lucien_ios" customModuleProvider="target">
+                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="LTX-5B-CXm" customClass="DashboardCollectionView" customModule="lucien_ios" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="47" width="571" height="311"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
@@ -65,7 +65,7 @@
                                 <constraint firstAttribute="height" constant="0.5" id="YFl-ey-4Xi"/>
                             </constraints>
                         </view>
-                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="zzt-Lh-hKr" customClass="DashboardCollectionView" customModule="lucien_ios" customModuleProvider="target">
+                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="zzt-Lh-hKr" customClass="DashboardCollectionView" customModule="lucien_ios" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="430" width="571" height="311"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>

@@ -13,14 +13,28 @@ final class CollectionViewCell: UICollectionViewCell {
     @IBOutlet private weak var dueDateLabel: UILabel!
     @IBOutlet weak var ownerBorrowerNameLabel: UILabel!
     @IBOutlet weak var bookImage: UIImageView!
+    @IBOutlet weak var lentOrBorrowedLabel: UILabel!
+    @IBOutlet weak var ownerOrBorrowerLabel: UILabel!
 
     static let reuseIdentifier = "comicCell"
 
-    func configure(comicDueDate: Date, ownerBorrowerName: String, imageURL: String) {
+    func configure(cellType: String, comicDueDate: Date, ownerBorrowerName: String, imageURL: String) {
         dueDateLabel.text = formatDateToString(date: comicDueDate)
+        configureLentOrBorrowedLabel(cellType: cellType)
         ownerBorrowerNameLabel.text = ownerBorrowerName
         setImage(imageURL: imageURL)
         setStyling()
+    }
+
+    func configureLentOrBorrowedLabel(cellType: String) {
+        switch cellType {
+        case "lending":
+            lentOrBorrowedLabel.text = "LENT TO"
+        case "borrowing":
+            lentOrBorrowedLabel.text = "BORROWED FROM"
+        default:
+            lentOrBorrowedLabel.text = ""
+        }
     }
 
     func setImage(imageURL: String) {
@@ -37,7 +51,6 @@ final class CollectionViewCell: UICollectionViewCell {
     }
 
     func setStyling() {
-        bookImage.layer.masksToBounds = true
         bookImage.clipsToBounds = true
         bookImage.layer.cornerRadius = CGFloat(6.0)
     }

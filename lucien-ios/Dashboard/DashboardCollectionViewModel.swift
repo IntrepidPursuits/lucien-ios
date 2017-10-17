@@ -7,29 +7,41 @@
 //
 
 import Foundation
+import RxSwift
 
 class DashboardCollectionViewModel {
 
     private var lendedComics = DashboardViewModel.dashboardData?.lending
     private var borrowedComics = DashboardViewModel.dashboardData?.borrowing
+    var collectionViewType: String?
+
+    var comicsInPosession: [Comic]? {
+        if collectionViewType == "lending" {
+            return lendedComics
+        } else if collectionViewType == "borrowing" {
+            return borrowedComics
+        } else {
+            return nil
+        }
+    }
 
     func getComicCount() -> Int {
-        guard let count = lendedComics?.count else { return 0 }
+        guard let count = comicsInPosession?.count else { return 0 }
         return count
     }
 
     func comicTitle(forIndex index: Int) -> String {
-        return lendedComics![index].comicTitle
+        return comicsInPosession![index].comicTitle
     }
 
     func comicDueDate(forIndex index: Int) -> Date {
-        guard let returnDate = lendedComics![index].returnDate else { return Date()}
+        guard let returnDate = comicsInPosession![index].returnDate else { return Date()}
         return returnDate
     }
 
     func comicBorrower(forIndex index: Int) -> String {
-        let firstName = lendedComics![index].borrower?.firstName ?? ""
-        let lastName = lendedComics![index].borrower?.lastName ?? ""
+        let firstName = comicsInPosession![index].borrower?.firstName ?? ""
+        let lastName = comicsInPosession![index].borrower?.lastName ?? ""
         return firstName + " " + lastName
     }
 
@@ -40,7 +52,7 @@ class DashboardCollectionViewModel {
     }
 
     func comicImageURL(forIndex index: Int) -> String {
-        guard let url = lendedComics![index].comicPhotoURL else { return "https://www.petsworld.in/blog/wp-content/uploads/2014/09/adorable-cat.jpg" }
+        guard let url = comicsInPosession![index].comicPhotoURL else { return "https://www.petsworld.in/blog/wp-content/uploads/2014/09/adorable-cat.jpg" }
         return url
     }
 }
