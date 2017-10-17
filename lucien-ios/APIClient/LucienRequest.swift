@@ -11,7 +11,7 @@ enum LucienRequest: Request {
 
     static let baseURL = "https://lucien-server-staging.herokuapp.com"
     static let acceptHeader = "application/vnd.lucien-app.com; version=1"
-    static var authorizationHeader = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyNDU1NTZlMi0zODEwLTRmNmYtYjhiZi1lZTQ2YWQ5YTg2ODIiLCJleHAiOjE1MDkzMDI2MzB9.0WYbXPTsbNYrwAWTOqQC921w-w1sxJBCvJu94-lFVN8"
+    static var authorizationHeader = ""
 
     case authenticate(code: String)
     case getCurrentUser

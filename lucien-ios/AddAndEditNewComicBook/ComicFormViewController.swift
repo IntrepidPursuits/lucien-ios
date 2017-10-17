@@ -95,40 +95,37 @@ final class ComicFormViewController: UIViewController, AlertDisplaying {
         issueTextField.rx.text.orEmpty <->  comicFormViewModel.issue >>> disposeBag
         publisherTextField.rx.text.orEmpty <->  comicFormViewModel.publisher >>> disposeBag
         releaseDateTextField.rx.text.orEmpty <-> comicFormViewModel.release >>> disposeBag
-
         seriesTitleTextField.rx.controlEvent([.editingChanged]).asObservable().subscribeNext { [weak self] in
             self?.seriesTitleWarningLabel.isHidden = true
             self?.seriesTitleTextField.borderColor = LucienTheme.dark
             self?.checkIfAllRequiredFieldsAreFilled()
-        }
+        } >>> disposeBag
         storyTitleTextField.rx.controlEvent([.editingChanged]).asObservable().subscribeNext { [weak self] in
             self?.storyTitleWarningLabel.isHidden = true
             self?.storyTitleTextField.borderColor = LucienTheme.dark
             self?.checkIfAllRequiredFieldsAreFilled()
-        }
+        } >>> disposeBag
         releaseDateTextField.rx.controlEvent([.editingChanged]).asObservable().subscribeNext { [weak self] in
             guard let text = self?.releaseDateTextField.text else { return }
             if text.characters.count > 4 {
                 self?.releaseDateTextField.deleteBackward()
             }
-        }
+        } >>> disposeBag
     }
 
     private func configureUIPickerViewObservables() {
         comicFormViewModel.genreTitles.bind(to: genrePicker.rx.itemTitles) { _, title in return title } >>> disposeBag
         comicFormViewModel.conditionTitles.bind(to: conditionPicker.rx.itemTitles) { _, title in return title } >>> disposeBag
-
-        genrePicker.rx.itemSelected.subscribeNext{ [weak self] row, _ in
+        genrePicker.rx.itemSelected.subscribeNext { [weak self] row, _ in
             let selectedGenre = Comic.Genre(rawValue: row)
             self?.comicFormViewModel.genre = selectedGenre
             self?.selectAGenreButton.setTitle(selectedGenre?.title, for: .normal)
-        }
-
-        conditionPicker.rx.itemSelected.subscribeNext{ [weak self] row, _ in
+        } >>> disposeBag
+        conditionPicker.rx.itemSelected.subscribeNext { [weak self] row, _ in
             let selectedCondition = Comic.Condition(rawValue: row)
             self?.comicFormViewModel.condition = selectedCondition
             self?.selectAConditionButton.setTitle(selectedCondition?.title, for: .normal)
-        }
+        } >>> disposeBag
     }
 
     private func fillFieldsWithComicFormViewModelData() {
@@ -191,29 +188,24 @@ final class ComicFormViewController: UIViewController, AlertDisplaying {
         finishButton.setTitleTextAttributes([NSAttributedStringKey.font: LucienTheme.Fonts.muliSemiBold(size: 17) ?? UIFont()], for: .normal)
         finishButton.tintColor = LucienTheme.finishButtonGrey
         finishButton.isEnabled = false
-        finishButton.target = self
-        finishButton.action = #selector(ComicFormViewController.finishButtonTapped)
+        finishButton.rx.tap.subscribeNext { [weak self] in
+            self?.loginViewModel.createPhotoURL(image: self?.currentImage) { publicURL in
+                self?.loginViewModel.addComicBook(comicTitle: self?.comicFormViewModel.seriesTitle.value ?? "",
+                                                  storyTitle: self?.comicFormViewModel.seriesTitle.value ?? "",
+                                                  volume: self?.comicFormViewModel.volume.value ?? "",
+                                                  issueNumber: self?.comicFormViewModel.issue.value ?? "",
+                                                  publisher: self?.comicFormViewModel.publisher.value ?? "",
+                                                  releaseYear: self?.comicFormViewModel.release.value ?? "",
+                                                  comicPhotoURL: publicURL,
+                                                  returnDate: nil,
+                                                  condition: self?.selectAConditionButton.titleLabel?.text ?? "",
+                                                  genre: self?.selectAGenreButton.titleLabel?.text ?? "") { _ in
+                                                    // TODO: Transition to CompletionViewController
+
+                }
+            }
+            } >>> disposeBag
         navigationItem.rightBarButtonItem = finishButton
-    }
-
-    @objc private func finishButtonTapped() {
-        /*
-        loginViewModel.createPhotoURL(image: currentImage) { [weak self] publicURL in
-            self?.loginViewModel.addComicBook(comicTitle: comicFormViewModel?.seriesTitle.value,
-                                              storyTitle: self?.comicFormViewModel?.seriesTitle.value,
-                                              volume: self?.comicFormViewModel?.volume.value,
-                                              issueNumber: self?.comicFormViewModel?.issue.value,
-                                              publisher: self?.comicFormViewModel?.publisher.value,
-                                              releaseYear: self?.comicFormViewModel?.release.value,
-                                              comicPhotoURL: publicURL,
-                                              returnDate: nil,
-                                              condition: self?.selectAConditionButton.titleLabel?.text ?? "",
-                                              genre: self?.selectAGenreButton.titleLabel?.text ?? "") { _ in
-                                                // TODO: Transition to CompletionViewController
-
-                                              }
-        }
-         */
     }
 
     private func configureViewController() {

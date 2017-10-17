@@ -50,6 +50,7 @@ final class LoginViewModel {
         }
     }
 
+    // TODO: Replace completion (Error?) with completion (Comic?) when Comic model is complete.
     func addComicBook(comicTitle: String,
                       storyTitle: String,
                       volume: String?,
@@ -89,9 +90,9 @@ final class LoginViewModel {
         lucienAPIClient.createPhotoURL { [weak self] response in
             switch response {
             case .success(let url):
-                self?.upload(image: image, urlString: url.preSignedURL, completion: { _ in
+                self?.upload(image: image, urlString: url.preSignedURL) { _ in
                     completion(url.publicURL)
-                })
+                }
             case .failure(let error):
                 print(error)
             }
@@ -105,17 +106,17 @@ final class LoginViewModel {
         request.httpBody = data
         request.setValue("image/jpeg", forHTTPHeaderField: "Content-Type")
         request.setValue("\(data.count)", forHTTPHeaderField: "Content-Length")
-        let task = URLSession.shared.dataTask(with: request, completionHandler: { (response, responseObject, error) in
+        let task = URLSession.shared.dataTask(with: request) { _, _, error in
             if error == nil {
                 completion(nil)
             }
             completion(error)
-        })
+        }
         task.resume()
     }
 
     func upload(image: UIImage, urlString: String, completion: @escaping (Error?) -> Void) {
-        let data = UIImageJPEGRepresentation(image, 0.9)!
-        sendRequestToS3(data: data, urlString: urlString, completion: completion)
+        guard let imageData = UIImageJPEGRepresentation(image, 0.9) else { return }
+        sendRequestToS3(data: imageData, urlString: urlString, completion: completion)
     }
 }

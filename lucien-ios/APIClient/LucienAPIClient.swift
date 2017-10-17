@@ -94,10 +94,10 @@ final class LucienAPIClient: APIClient {
         }
     }
 
-    func createPhotoURL(completion: @escaping (Result<S3ImageURL>) -> Void) {
+    func createPhotoURL(completion: @escaping (Result<AmazonS3ImageURL>) -> Void) {
         let lucienRequest = LucienRequest.createPhotoURL
         let urlRequest = lucienRequest.urlRequest
-        self.sendRequest(urlRequest) { response in
+        sendRequest(urlRequest) { response in
             switch response {
             case .success(let result):
                 guard let result = result else {
@@ -105,7 +105,7 @@ final class LucienAPIClient: APIClient {
                 }
                 let decoder = JSONDecoder()
                 decoder.dateDecodingStrategy = .iso8601
-                guard let s3ImageURL = try? decoder.decode(S3ImageURL.self, from: result) else {
+                guard let s3ImageURL = try? decoder.decode(AmazonS3ImageURL.self, from: result) else {
                     return completion(.failure(LucienAPIError.cannotDecode))
                 }
                 completion(.success(s3ImageURL))
@@ -115,6 +115,7 @@ final class LucienAPIClient: APIClient {
         }
     }
 
+    // TODO: Replace Result<Error> with Result<Comic> when Comic model is complete.
     func addComicBook(comicTitle: String,
                       storyTitle: String,
                       volume: String?,
@@ -137,10 +138,10 @@ final class LucienAPIClient: APIClient {
                                                        condition: condition,
                                                        genre: genre)
         let urlRequest = lucienRequest.urlRequest
-        self.sendRequest(urlRequest) { response in
+        sendRequest(urlRequest) { response in
             print(response)
             switch response {
-            case .success(let _):
+            case .success(_):
                 completion(.success(nil))
             case .failure(let error):
                 completion(.failure(error))
