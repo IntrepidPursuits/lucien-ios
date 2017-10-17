@@ -66,8 +66,12 @@ final class RootViewController: UIViewController, GIDSignInDelegate, GIDSignInUI
 
     func showDashboard() {
         dashboardViewModel.getDashboard {
-            guard let dashboardData = DashboardViewModel.dashboardData else { return }
+            let dashboardData = DashboardViewModel.dashboardData
             DashboardViewModel.dashboardData = dashboardData
+
+//            let dashboardData = self.dashboardViewModel.getDashboardData
+//            self.dashboardViewModel.getDashboardData = dashboardData
+//            let collectionViewModel = DashboardCollectionViewModel(dashboardViewModel: self.dashboardViewModel)
             let dashboardViewController = DashboardViewController()
             let dashboardNavigationController = UINavigationController(rootViewController: dashboardViewController)
             self.present(dashboardNavigationController, animated: true, completion: nil)

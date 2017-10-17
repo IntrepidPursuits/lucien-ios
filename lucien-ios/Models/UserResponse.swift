@@ -1,5 +1,5 @@
 //
-//  NestedUser.swift
+//  UserResponse.swift
 //  lucien-ios
 //
 //  Created by Fang, Gracie on 10/11/17.

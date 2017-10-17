@@ -11,16 +11,16 @@ import Foundation
 struct Dashboard: Decodable {
 
     var myCollectionCount: Int
-    var lendingCount: Int
-    var borrowingCount: Int
-    var lending: [Comic]
-    var borrowing: [Comic]
+    var lendingComicCount: Int
+    var borrowingComicCount: Int
+    var lendingComics: [Comic]
+    var borrowingComics: [Comic]
 
     enum CodingKeys: String, CodingKey {
         case myCollectionCount = "my_collection_count_by_issue"
-        case lendingCount = "lending_count"
-        case borrowingCount = "borrowing_count"
-        case lending
-        case borrowing
+        case lendingComicCount = "lending_count"
+        case borrowingComicCount = "borrowing_count"
+        case lendingComics = "lending"
+        case borrowingComics = "borrowing"
     }
 }

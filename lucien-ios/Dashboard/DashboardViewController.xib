@@ -34,10 +34,10 @@
                     <rect key="frame" x="0.0" y="20" width="571" height="1234"/>
                     <subviews>
                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="LTX-5B-CXm" customClass="DashboardCollectionView" customModule="lucien_ios" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="47" width="571" height="311"/>
+                            <rect key="frame" x="0.0" y="47" width="571" height="280"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="311" id="Xrg-Fy-tPs"/>
+                                <constraint firstAttribute="height" constant="280" id="Xrg-Fy-tPs"/>
                             </constraints>
                             <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="NNx-Ba-hZY">
                                 <size key="itemSize" width="50" height="50"/>
@@ -53,23 +53,23 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BORROWING" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YSO-cO-I99">
-                            <rect key="frame" x="15" y="391" width="121" height="23"/>
+                            <rect key="frame" x="15" y="375.5" width="121" height="23"/>
                             <fontDescription key="fontDescription" name="Muli-Black" family="Muli" pointSize="18"/>
                             <color key="textColor" red="0.16862745100000001" green="0.1764705882" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FGQ-7a-mRc">
-                            <rect key="frame" x="8" y="374.5" width="555" height="0.5"/>
+                            <rect key="frame" x="8" y="351" width="555" height="0.5"/>
                             <color key="backgroundColor" red="0.83529411764705885" green="0.83529411764705885" blue="0.85098039215686272" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="0.5" id="YFl-ey-4Xi"/>
                             </constraints>
                         </view>
                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="zzt-Lh-hKr" customClass="DashboardCollectionView" customModule="lucien_ios" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="430" width="571" height="311"/>
+                            <rect key="frame" x="0.0" y="414.5" width="571" height="280"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="311" id="di7-H7-Ig9"/>
+                                <constraint firstAttribute="height" constant="280" id="di7-H7-Ig9"/>
                             </constraints>
                             <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Fe8-u6-yxa">
                                 <size key="itemSize" width="50" height="50"/>
@@ -79,7 +79,7 @@
                             </collectionViewFlowLayout>
                         </collectionView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bqo-Ug-85F">
-                            <rect key="frame" x="8" y="741" width="555" height="0.5"/>
+                            <rect key="frame" x="8" y="718.5" width="555" height="0.5"/>
                             <color key="backgroundColor" red="0.83529411760000005" green="0.83529411760000005" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="0.5" id="ZDi-bl-UQk"/>
@@ -89,20 +89,20 @@
                     <constraints>
                         <constraint firstItem="zzt-Lh-hKr" firstAttribute="leading" secondItem="5Bd-Ir-PZh" secondAttribute="leading" id="05r-S8-eYk"/>
                         <constraint firstItem="FGQ-7a-mRc" firstAttribute="leading" secondItem="5Bd-Ir-PZh" secondAttribute="leading" constant="8" id="0Ol-GN-VJU"/>
-                        <constraint firstItem="YSO-cO-I99" firstAttribute="top" secondItem="FGQ-7a-mRc" secondAttribute="bottom" constant="16" id="Akl-Kw-yq1"/>
+                        <constraint firstItem="YSO-cO-I99" firstAttribute="top" secondItem="FGQ-7a-mRc" secondAttribute="bottom" constant="24" id="Akl-Kw-yq1"/>
                         <constraint firstItem="bqo-Ug-85F" firstAttribute="leading" secondItem="5Bd-Ir-PZh" secondAttribute="leading" constant="8" id="Rvx-pp-Wz6"/>
                         <constraint firstAttribute="trailing" secondItem="FGQ-7a-mRc" secondAttribute="trailing" constant="8" id="VOJ-hm-Lye"/>
-                        <constraint firstItem="zzt-Lh-hKr" firstAttribute="top" secondItem="LTX-5B-CXm" secondAttribute="bottom" constant="72" id="WBl-bh-RJJ"/>
                         <constraint firstItem="LTX-5B-CXm" firstAttribute="top" secondItem="zKh-rh-dhN" secondAttribute="bottom" constant="16" id="YTn-eJ-t2q"/>
                         <constraint firstItem="LTX-5B-CXm" firstAttribute="centerX" secondItem="5Bd-Ir-PZh" secondAttribute="centerX" id="bPC-Nk-m8D"/>
-                        <constraint firstItem="zzt-Lh-hKr" firstAttribute="top" secondItem="YSO-cO-I99" secondAttribute="bottom" constant="16" id="d6M-6o-8Db"/>
+                        <constraint firstItem="zzt-Lh-hKr" firstAttribute="top" secondItem="YSO-cO-I99" secondAttribute="bottom" constant="16" id="cIu-xK-Pvd"/>
                         <constraint firstItem="YSO-cO-I99" firstAttribute="leading" secondItem="5Bd-Ir-PZh" secondAttribute="leading" constant="15" id="dn5-PD-Y05"/>
                         <constraint firstAttribute="trailing" secondItem="LTX-5B-CXm" secondAttribute="trailing" id="dtJ-7w-q6B"/>
+                        <constraint firstItem="FGQ-7a-mRc" firstAttribute="top" secondItem="LTX-5B-CXm" secondAttribute="bottom" constant="24" id="hfZ-6O-Wsz"/>
                         <constraint firstItem="zKh-rh-dhN" firstAttribute="leading" secondItem="5Bd-Ir-PZh" secondAttribute="leading" constant="15" id="hhr-vD-uJR"/>
                         <constraint firstAttribute="bottom" secondItem="LTX-5B-CXm" secondAttribute="bottom" constant="923" id="jRC-3y-ksn"/>
                         <constraint firstAttribute="trailing" secondItem="bqo-Ug-85F" secondAttribute="trailing" constant="8" id="ltp-xe-cj3"/>
                         <constraint firstAttribute="trailing" secondItem="zzt-Lh-hKr" secondAttribute="trailing" id="ncK-FN-fRZ"/>
-                        <constraint firstItem="bqo-Ug-85F" firstAttribute="top" secondItem="zzt-Lh-hKr" secondAttribute="bottom" id="sG4-yI-3ul"/>
+                        <constraint firstItem="bqo-Ug-85F" firstAttribute="top" secondItem="zzt-Lh-hKr" secondAttribute="bottom" constant="24" id="sG4-yI-3ul"/>
                         <constraint firstItem="LTX-5B-CXm" firstAttribute="top" secondItem="5Bd-Ir-PZh" secondAttribute="top" constant="47" id="w22-wq-ElE"/>
                         <constraint firstItem="LTX-5B-CXm" firstAttribute="leading" secondItem="5Bd-Ir-PZh" secondAttribute="leading" id="zBe-o9-249"/>
                     </constraints>

@@ -9,17 +9,23 @@
 import Foundation
 import RxSwift
 
-class DashboardCollectionViewModel {
+final class DashboardCollectionViewModel {
 
-    private var lendedComics = DashboardViewModel.dashboardData?.lending
-    private var borrowedComics = DashboardViewModel.dashboardData?.borrowing
+//    var viewModel: DashboardViewModel
     var collectionViewType: String?
+
+//    init(dashboardViewModel: DashboardViewModel) {
+//        viewModel = dashboardViewModel
+//    }
 
     var comicsInPosession: [Comic]? {
         if collectionViewType == "lending" {
-            return lendedComics
+//            return viewModel.getDashboardData?.lendingComics
+            return DashboardViewModel.dashboardData?.lendingComics
         } else if collectionViewType == "borrowing" {
-            return borrowedComics
+//            return viewModel.getDashboardData?.borrowingComics
+            return DashboardViewModel.dashboardData?.borrowingComics
+
         } else {
             return nil
         }
@@ -46,8 +52,8 @@ class DashboardCollectionViewModel {
     }
 
     func comicOwner(forIndex index: Int) -> String {
-        let firstName = borrowedComics![index].owner?.firstName ?? ""
-        let lastName = borrowedComics![index].owner?.lastName ?? ""
+        let firstName = comicsInPosession![index].owner?.firstName ?? ""
+        let lastName = comicsInPosession![index].owner?.lastName ?? ""
         return firstName + " " + lastName
     }
 

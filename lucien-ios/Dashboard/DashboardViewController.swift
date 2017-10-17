@@ -10,20 +10,31 @@ import UIKit
 
 final class DashboardViewController: UIViewController, UIScrollViewDelegate {
 
-    @IBOutlet weak var dashboardScrollView: UIScrollView!
-    @IBOutlet weak var lendingCollectionView: DashboardCollectionView!
-    @IBOutlet weak var borrowingCollectionView: DashboardCollectionView!
-    @IBOutlet weak var lendingLabel: UILabel!
-    @IBOutlet weak var borrowingLabel: UILabel!
+    @IBOutlet private weak var dashboardScrollView: UIScrollView!
+    @IBOutlet private weak var lendingCollectionView: DashboardCollectionView!
+    @IBOutlet private weak var borrowingCollectionView: DashboardCollectionView!
+    @IBOutlet private weak var lendingLabel: UILabel!
+    @IBOutlet private weak var borrowingLabel: UILabel!
 
-    let viewModel = DashboardViewModel()
+//    var viewModel: DashboardCollectionViewModel
+
+//    init(collectionViewModel: DashboardCollectionViewModel) {
+//        viewModel = collectionViewModel
+//        super.init(nibName: nil, bundle: nil)
+//    }
+
+//    required init?(coder aDecoder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+//        self.lendingCollectionView.viewModel = viewModel
+//        self.borrowingCollectionView.viewModel = viewModel
+        self.lendingCollectionView.viewModel.collectionViewType = "lending"
+        self.borrowingCollectionView.viewModel.collectionViewType = "borrowing"
         configureNavigationController()
         setUpStyling()
-        lendingCollectionView.viewModel.collectionViewType = "lending"
-        borrowingCollectionView.viewModel.collectionViewType = "borrowing"
     }
 
     func setUpStyling() {
@@ -36,6 +47,18 @@ final class DashboardViewController: UIViewController, UIScrollViewDelegate {
         navigationItem.title = "Lucien"
         navigationController?.navigationBar.setNavBarTitle()
         setViewProfileButton()
+        setAddBookButton()
+    }
+
+    private func setAddBookButton() {
+        let addBookButton = UIBarButtonItem(image: UIImage(named: "plusIcon"), style: .plain, target: self, action: #selector(DashboardViewController.addBookButtonPressed))
+        navigationItem.rightBarButtonItem = addBookButton
+    }
+
+    @objc private func addBookButtonPressed() {
+        let addComicViewModel = ComicFormViewModel()
+        let addBookViewController = ComicFormViewController(viewModel: addComicViewModel)
+        navigationController?.pushViewController(addBookViewController, animated: true)
     }
 
     private func setViewProfileButton() {

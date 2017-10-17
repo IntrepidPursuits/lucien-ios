@@ -10,24 +10,25 @@ import UIKit
 
 class DashboardCollectionView: UICollectionView, UICollectionViewDataSource, UICollectionViewDelegate {
 
-    let viewModel = DashboardCollectionViewModel()
+//    var viewModel: DashboardCollectionViewModel!
+    var viewModel = DashboardCollectionViewModel()
     let reuseIdentifier = CollectionViewCell.reuseIdentifier
 
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)
-        self.dataSource = self
-        self.delegate = self
-        let nib = UINib(nibName: "CollectionViewCell", bundle: nil)
-        self.register(nib, forCellWithReuseIdentifier: reuseIdentifier)
+        dataSource = self
+        delegate = self
+        let nib = UINib(nibName: String(describing: CollectionViewCell.self), bundle: nil)
+        register(nib, forCellWithReuseIdentifier: reuseIdentifier)
         setLayout()
     }
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        self.dataSource = self
-        self.delegate = self
-        let nib = UINib(nibName: "CollectionViewCell", bundle: nil)
-        self.register(nib, forCellWithReuseIdentifier: reuseIdentifier)
+        dataSource = self
+        delegate = self
+        let nib = UINib(nibName: String(describing: CollectionViewCell.self), bundle: nil)
+        register(nib, forCellWithReuseIdentifier: reuseIdentifier)
         setLayout()
     }
 

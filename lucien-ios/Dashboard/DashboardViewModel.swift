@@ -11,7 +11,22 @@ import Foundation
 final class DashboardViewModel {
 
     let lucienAPIClient = LucienAPIClient()
+//    private var dashboardData: Dashboard?
     static var dashboardData: Dashboard?
+
+//    var getDashboardData: Dashboard? {
+//        get {
+//            return dashboardData
+//        }
+//        set {
+//            dashboardData = newValue
+//        }
+//    }
+
+    func emptyDashboardData() {
+        DashboardViewModel.dashboardData = nil
+
+    }
 
     func getDashboard(completion: @escaping () -> Void) {
         lucienAPIClient.getDashboard { response in

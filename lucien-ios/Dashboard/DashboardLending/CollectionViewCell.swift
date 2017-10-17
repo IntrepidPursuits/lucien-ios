@@ -52,6 +52,7 @@ final class CollectionViewCell: UICollectionViewCell {
 
     func setStyling() {
         bookImage.clipsToBounds = true
+        bookImage.layer.masksToBounds = true
         bookImage.layer.cornerRadius = CGFloat(6.0)
     }
 }
