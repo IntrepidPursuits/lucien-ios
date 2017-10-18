@@ -13,8 +13,8 @@ struct Dashboard: Decodable {
     var myCollectionCount: Int
     var lendingComicCount: Int
     var borrowingComicCount: Int
-    var lendingComics: [Comic]
-    var borrowingComics: [Comic]
+    var lendingComics: [DashboardComic]
+    var borrowingComics: [DashboardComic]
 
     enum CodingKeys: String, CodingKey {
         case myCollectionCount = "my_collection_count_by_issue"

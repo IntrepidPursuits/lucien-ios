@@ -8,10 +8,9 @@
 
 import UIKit
 
-class DashboardCollectionView: UICollectionView, UICollectionViewDataSource, UICollectionViewDelegate {
+final class DashboardCollectionView: UICollectionView, UICollectionViewDataSource, UICollectionViewDelegate {
 
-//    var viewModel: DashboardCollectionViewModel!
-    var viewModel = DashboardCollectionViewModel()
+    var collectionViewModel: DashboardCollectionViewModel?
     let reuseIdentifier = CollectionViewCell.reuseIdentifier
 
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
@@ -34,25 +33,26 @@ class DashboardCollectionView: UICollectionView, UICollectionViewDataSource, UIC
 
     func setLayout() {
         let collectionViewLayout = self.collectionViewLayout as? UICollectionViewFlowLayout
-        let sectionInset = UIEdgeInsetsMake(0.0, 24.0, 0.0, 0.0)
+        let sectionInset = UIEdgeInsets(top: 0, left: 24, bottom: 0, right: 0)
         collectionViewLayout?.sectionInset = sectionInset
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.getComicCount()
+        guard let cellCount = collectionViewModel?.getComicCount() else { return 0 }
+        return cellCount
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
         guard let configuredCell = cell as? CollectionViewCell else { return cell}
         let index = indexPath.item
-        var ownerBorrowerName = ""
-        if viewModel.collectionViewType == "lending" {
-            ownerBorrowerName = viewModel.comicBorrower(forIndex: index)
-        } else if viewModel.collectionViewType == "borrowing" {
-            ownerBorrowerName = viewModel.comicOwner(forIndex: index)
-        }
-        configuredCell.configure(cellType: viewModel.collectionViewType!, comicDueDate: viewModel.comicDueDate(forIndex: index), ownerBorrowerName: ownerBorrowerName, imageURL: viewModel.comicImageURL(forIndex: index))
+        let userType = collectionViewModel?.dashboardComics[index].dashboardUserType ?? ""
+        let comicDueDate = collectionViewModel?.comicDueDate(forIndex: index)
+        let userName = collectionViewModel?.comicPerson(forIndex: index) ?? "No name found"
+        configuredCell.configure(userType: userType,
+                                 comicDueDate: comicDueDate,
+                                 ownerBorrowerName: userName,
+                                 imageURL: collectionViewModel?.comicImageURL(forIndex: index))
         return configuredCell
     }
 }

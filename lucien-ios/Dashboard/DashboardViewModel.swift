@@ -11,33 +11,17 @@ import Foundation
 final class DashboardViewModel {
 
     let lucienAPIClient = LucienAPIClient()
-//    private var dashboardData: Dashboard?
-    static var dashboardData: Dashboard?
+    private var dashboardData: Dashboard
 
-//    var getDashboardData: Dashboard? {
-//        get {
-//            return dashboardData
-//        }
-//        set {
-//            dashboardData = newValue
-//        }
-//    }
-
-    func emptyDashboardData() {
-        DashboardViewModel.dashboardData = nil
-
+    init(dashboard: Dashboard) {
+        dashboardData = dashboard
     }
 
-    func getDashboard(completion: @escaping () -> Void) {
-        lucienAPIClient.getDashboard { response in
-            switch response {
-            case .success(let result):
-                DashboardViewModel.dashboardData = result
-                completion()
-            case .failure(let error):
-                print(error)
-                completion()
-            }
-        }
+    var lendingViewModel: DashboardCollectionViewModel {
+        return DashboardCollectionViewModel(comics: (dashboardData.lendingComics))
+    }
+
+    var borrowingViewModel: DashboardCollectionViewModel {
+        return DashboardCollectionViewModel(comics: (dashboardData.borrowingComics))
     }
 }

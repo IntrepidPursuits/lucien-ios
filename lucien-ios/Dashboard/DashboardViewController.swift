@@ -16,23 +16,21 @@ final class DashboardViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet private weak var lendingLabel: UILabel!
     @IBOutlet private weak var borrowingLabel: UILabel!
 
-//    var viewModel: DashboardCollectionViewModel
+    var viewModel: DashboardViewModel
 
-//    init(collectionViewModel: DashboardCollectionViewModel) {
-//        viewModel = collectionViewModel
-//        super.init(nibName: nil, bundle: nil)
-//    }
+    init(dashboardViewModel: DashboardViewModel) {
+        viewModel = dashboardViewModel
+        super.init(nibName: nil, bundle: nil)
+    }
 
-//    required init?(coder aDecoder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.lendingCollectionView.viewModel = viewModel
-//        self.borrowingCollectionView.viewModel = viewModel
-        self.lendingCollectionView.viewModel.collectionViewType = "lending"
-        self.borrowingCollectionView.viewModel.collectionViewType = "borrowing"
+        lendingCollectionView.collectionViewModel = viewModel.lendingViewModel
+        borrowingCollectionView.collectionViewModel = viewModel.borrowingViewModel
         configureNavigationController()
         setUpStyling()
     }

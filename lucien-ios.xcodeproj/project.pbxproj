@@ -48,6 +48,7 @@
 		EC0F6CA4839D3BF363E4EE9E /* Pods_lucien_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 074BF9F99258AD884EC6794A /* Pods_lucien_iosTests.framework */; };
 		FB32385B1F868B8100FE81E2 /* Dashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB32385A1F868B8100FE81E2 /* Dashboard.swift */; };
 		FB32385D1F87CB3400FE81E2 /* AuthenticationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB32385C1F87CB3400FE81E2 /* AuthenticationResponse.swift */; };
+		FB32A7581F97A0E70058AB97 /* DashboardComic.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB32A7571F97A0E70058AB97 /* DashboardComic.swift */; };
 		FB480C391F9154D700DFAB08 /* DashboardCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB480C381F9154D700DFAB08 /* DashboardCollectionView.swift */; };
 		FB480C3B1F9160AE00DFAB08 /* DashboardCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB480C3A1F9160AE00DFAB08 /* DashboardCollectionViewModel.swift */; };
 		FB6AA1A01F85313500394500 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6AA19E1F85313500394500 /* DashboardViewController.swift */; };
@@ -59,7 +60,6 @@
 		FB743DA61F8D61150066A43F /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB743DA41F8D61150066A43F /* CollectionViewCell.swift */; };
 		FB743DA71F8D61150066A43F /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB743DA51F8D61150066A43F /* CollectionViewCell.xib */; };
 		FB778BB11F8EA81300068A44 /* DashboardResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB778BB01F8EA81300068A44 /* DashboardResponse.swift */; };
-		FB778BB51F8FAB9800068A44 /* MyCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB778BB41F8FAB9800068A44 /* MyCollection.swift */; };
 		FB9C91C01F8FF4F200AEE21A /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9C91BF1F8FF4F200AEE21A /* DashboardViewModel.swift */; };
 		FBAB04711F8D42080099F197 /* LucienAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAB04701F8D42070099F197 /* LucienAPIClient.swift */; };
 		FBAEE5781F7EE75C00A44F50 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAEE5771F7EE75C00A44F50 /* LoginViewModel.swift */; };
@@ -145,6 +145,7 @@
 		E8801CCEE845676EFB1D691F /* Pods-lucien-iosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lucien-iosTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-lucien-iosTests/Pods-lucien-iosTests.release.xcconfig"; sourceTree = "<group>"; };
 		FB32385A1F868B8100FE81E2 /* Dashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dashboard.swift; sourceTree = "<group>"; };
 		FB32385C1F87CB3400FE81E2 /* AuthenticationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationResponse.swift; sourceTree = "<group>"; };
+		FB32A7571F97A0E70058AB97 /* DashboardComic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardComic.swift; sourceTree = "<group>"; };
 		FB480C381F9154D700DFAB08 /* DashboardCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardCollectionView.swift; sourceTree = "<group>"; };
 		FB480C3A1F9160AE00DFAB08 /* DashboardCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardCollectionViewModel.swift; sourceTree = "<group>"; };
 		FB6AA19E1F85313500394500 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
@@ -156,7 +157,6 @@
 		FB743DA41F8D61150066A43F /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		FB743DA51F8D61150066A43F /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
 		FB778BB01F8EA81300068A44 /* DashboardResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardResponse.swift; sourceTree = "<group>"; };
-		FB778BB41F8FAB9800068A44 /* MyCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCollection.swift; sourceTree = "<group>"; };
 		FB9C91BF1F8FF4F200AEE21A /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
 		FBAB04701F8D42070099F197 /* LucienAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LucienAPIClient.swift; sourceTree = "<group>"; };
 		FBAEE5771F7EE75C00A44F50 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -440,7 +440,7 @@
 				1C577CD71F94FADA00EB9423 /* AmazonS3ImageURL.swift */,
 				FB7224A11F8E95FF00E8DE8C /* UserResponse.swift */,
 				FB778BB01F8EA81300068A44 /* DashboardResponse.swift */,
-				FB778BB41F8FAB9800068A44 /* MyCollection.swift */,
+				FB32A7571F97A0E70058AB97 /* DashboardComic.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -812,10 +812,10 @@
 				FBB975691F7EBB31007951C4 /* User.swift in Sources */,
 				FB480C3B1F9160AE00DFAB08 /* DashboardCollectionViewModel.swift in Sources */,
 				FB6B911B1F7C195000910B49 /* AnimatedTransition.swift in Sources */,
-				FB778BB51F8FAB9800068A44 /* MyCollection.swift in Sources */,
 				1CDBD86F1F7C26B800408826 /* LucienTheme.swift in Sources */,
 				1CB8F1FE1F953D4F000DE8F3 /* Rx+Extensions.swift in Sources */,
 				FBB9756D1F7ED8E6007951C4 /* Request.swift in Sources */,
+				FB32A7581F97A0E70058AB97 /* DashboardComic.swift in Sources */,
 				FBD844431F798B1D00A8E352 /* RootViewController.swift in Sources */,
 				1C21642E1F8FCAA900938D59 /* BottomBorderTextField.swift in Sources */,
 				FBE07CC91F7C2A4500CF1A3F /* ProfileViewController.swift in Sources */,

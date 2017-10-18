@@ -16,6 +16,8 @@ final class StartMyCollectionViewController: UIViewController {
     @IBOutlet private weak var getStartedDescriptionLabel: UILabel!
     @IBOutlet private weak var welcomeLabel: UILabel!
 
+    let lucienAPIClient = LucienAPIClient()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpStyling()
@@ -50,8 +52,16 @@ final class StartMyCollectionViewController: UIViewController {
     }
 
     @IBAction func dashboardButtonPressed(_ sender: UIButton) {
-        let dashboardViewController = DashboardViewController()
-        let dashboardNavigationController = UINavigationController(rootViewController: dashboardViewController)
-        present(dashboardNavigationController, animated: true, completion: nil)
+        lucienAPIClient.getDashboard { response in
+            switch response {
+            case .success(let result):
+                let viewModel = DashboardViewModel(dashboard: result)
+                let dashboardViewController = DashboardViewController(dashboardViewModel: viewModel)
+                let dashboardNavigationController = UINavigationController(rootViewController: dashboardViewController)
+                self.present(dashboardNavigationController, animated: true, completion: nil)
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
 }

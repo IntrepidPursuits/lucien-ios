@@ -18,36 +18,36 @@ final class CollectionViewCell: UICollectionViewCell {
 
     static let reuseIdentifier = "comicCell"
 
-    func configure(cellType: String, comicDueDate: Date, ownerBorrowerName: String, imageURL: String) {
+    func configure(userType: String, comicDueDate: Date?, ownerBorrowerName: String, imageURL: String?) {
         dueDateLabel.text = formatDateToString(date: comicDueDate)
-        configureLentOrBorrowedLabel(cellType: cellType)
+        configureLentOrBorrowedLabel(userType: userType)
         ownerBorrowerNameLabel.text = ownerBorrowerName
         setImage(imageURL: imageURL)
         setStyling()
     }
 
-    func configureLentOrBorrowedLabel(cellType: String) {
-        switch cellType {
-        case "lending":
+    func configureLentOrBorrowedLabel(userType: String) {
+        switch userType {
+        case "borrower":
             lentOrBorrowedLabel.text = "LENT TO"
-        case "borrowing":
+        case "owner":
             lentOrBorrowedLabel.text = "BORROWED FROM"
         default:
             lentOrBorrowedLabel.text = ""
         }
     }
 
-    func setImage(imageURL: String) {
-        guard let url = URL(string: imageURL) else { return }
+    func setImage(imageURL: String?) {
+        guard let url = URL(string: imageURL!) else { return }
         guard let data = try? Data(contentsOf: url) else { return }
         bookImage.image = UIImage(data: data)
     }
 
-    func formatDateToString(date: Date) -> String {
+    func formatDateToString(date: Date?) -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "LLL. dd"
-        let formattedDate = formatter.string(from: date)
-        return "Due " + formattedDate
+        guard let date: Date = date else { return "No due date" }
+        return "Due " + formatter.string(from: date)
     }
 
     func setStyling() {
