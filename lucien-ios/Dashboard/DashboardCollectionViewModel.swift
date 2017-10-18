@@ -31,8 +31,8 @@ final class DashboardCollectionViewModel {
     }
 
     func comicPerson(forIndex index: Int) -> String {
-        let firstName = dashboardComics[index].dashboardUser.firstName ?? ""
-        let lastName = dashboardComics[index].dashboardUser.lastName ?? ""
+        let firstName = dashboardComics[index].dashboardUser.firstName
+        let lastName = dashboardComics[index].dashboardUser.lastName
         return firstName + " " + lastName
     }
 
