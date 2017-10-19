@@ -15,6 +15,8 @@
 		1C45D0EB1F85611A00E651A5 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C45D0E91F85611A00E651A5 /* CameraViewController.swift */; };
 		1C45D0EC1F85611A00E651A5 /* CameraViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C45D0EA1F85611A00E651A5 /* CameraViewController.xib */; };
 		1C577CD81F94FADA00EB9423 /* AmazonS3ImageURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C577CD71F94FADA00EB9423 /* AmazonS3ImageURL.swift */; };
+		1C7275261F99289100D4D10C /* LendABookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7275241F99289100D4D10C /* LendABookViewController.swift */; };
+		1C7275271F99289100D4D10C /* LendABookViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C7275251F99289100D4D10C /* LendABookViewController.xib */; };
 		1C7EE0851F880DF6003F2A81 /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7EE0841F880DF6003F2A81 /* UIImageExtensions.swift */; };
 		1C7EE0891F8BEE43003F2A81 /* AlertDisplaying.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7EE0881F8BEE43003F2A81 /* AlertDisplaying.swift */; };
 		1CACA1381F9157D600271E19 /* ComicFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CACA1371F9157D600271E19 /* ComicFormViewModel.swift */; };
@@ -108,6 +110,8 @@
 		1C45D0E91F85611A00E651A5 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		1C45D0EA1F85611A00E651A5 /* CameraViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CameraViewController.xib; sourceTree = "<group>"; };
 		1C577CD71F94FADA00EB9423 /* AmazonS3ImageURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmazonS3ImageURL.swift; sourceTree = "<group>"; };
+		1C7275241F99289100D4D10C /* LendABookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LendABookViewController.swift; sourceTree = "<group>"; };
+		1C7275251F99289100D4D10C /* LendABookViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LendABookViewController.xib; sourceTree = "<group>"; };
 		1C7EE0841F880DF6003F2A81 /* UIImageExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
 		1C7EE0881F8BEE43003F2A81 /* AlertDisplaying.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertDisplaying.swift; sourceTree = "<group>"; };
 		1CACA1371F9157D600271E19 /* ComicFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicFormViewModel.swift; sourceTree = "<group>"; };
@@ -241,6 +245,15 @@
 			path = Camera;
 			sourceTree = "<group>";
 		};
+		1C7275231F9925CC00D4D10C /* Lending */ = {
+			isa = PBXGroup;
+			children = (
+				1C7275241F99289100D4D10C /* LendABookViewController.swift */,
+				1C7275251F99289100D4D10C /* LendABookViewController.xib */,
+			);
+			path = Lending;
+			sourceTree = "<group>";
+		};
 		1C7E9F911F7994050061EFF6 /* StartMyCollection */ = {
 			isa = PBXGroup;
 			children = (
@@ -283,6 +296,7 @@
 		1CAFFC651F797FA200B79F11 /* lucien-ios */ = {
 			isa = PBXGroup;
 			children = (
+				1C7275231F9925CC00D4D10C /* Lending */,
 				1C21642C1F8FCA8C00938D59 /* Subclasses */,
 				1C7EE07F1F87F8CF003F2A81 /* Protocols */,
 				1C45D0E81F85608500E651A5 /* Camera */,
@@ -608,6 +622,7 @@
 				1CDBD8621F7C209800408826 /* Muli-ExtraLightItalic.ttf in Resources */,
 				FB65690A1F9E27E700AABA5D /* MyCollectionTableViewCell.xib in Resources */,
 				1CDBD85F1F7C209800408826 /* Muli-ExtraBold.ttf in Resources */,
+				1C7275271F99289100D4D10C /* LendABookViewController.xib in Resources */,
 				1CDB6A231F7995EC003A2BB1 /* StartMyCollectionViewController.xib in Resources */,
 				1CDBD8681F7C209800408826 /* Muli-SemiBoldItalic.ttf in Resources */,
 				1CDBD8611F7C209800408826 /* Muli-ExtraLight.ttf in Resources */,
@@ -828,6 +843,7 @@
 				FBB975691F7EBB31007951C4 /* User.swift in Sources */,
 				FB480C3B1F9160AE00DFAB08 /* DashboardCollectionViewModel.swift in Sources */,
 				FB6B911B1F7C195000910B49 /* AnimatedTransition.swift in Sources */,
+				1C7275261F99289100D4D10C /* LendABookViewController.swift in Sources */,
 				1CDBD86F1F7C26B800408826 /* LucienTheme.swift in Sources */,
 				1CB8F1FE1F953D4F000DE8F3 /* Rx+Extensions.swift in Sources */,
 				FBB9756D1F7ED8E6007951C4 /* Request.swift in Sources */,
