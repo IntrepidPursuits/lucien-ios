@@ -168,8 +168,8 @@ final class LucienAPIClient: APIClient {
      - parameter comic: Comic Object
      - parameter completion:
      */
-    func editComicBook(id: String, comic: Comic, completion: @escaping (Result<Error?>) -> Void) {
-        let lucienRequest = LucienRequest.editComicBook(id: id, comic: comic)
+    func editComicBook(comicID: String, comic: Comic, completion: @escaping (Result<Error?>) -> Void) {
+        let lucienRequest = LucienRequest.editComicBook(comicID: comicID, comic: comic)
         let urlRequest = lucienRequest.urlRequest
         sendRequest(urlRequest) { response in
             print(response)

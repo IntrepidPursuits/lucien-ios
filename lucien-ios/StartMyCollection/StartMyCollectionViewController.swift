@@ -44,7 +44,7 @@ final class StartMyCollectionViewController: UIViewController {
     }
 
     @IBAction func startCollectionButtonPressed(_ sender: UIButton) {
-        let comicFormViewController = ComicFormViewController(comicFormViewModel: ComicFormViewModel(comicID: "af47db5b-2525-4b0e-8819-464c7bc4e5ed", coverPhoto: nil, seriesTitle: "nsj", volume: "msms", storyTitle: "ms", issue: nil, publisher: "kxkkd", release: nil, genre: nil, condition: nil))
+        let comicFormViewController = ComicFormViewController(comicFormViewModel: ComicFormViewModel())
         let comicFormViewControllerNavigationController = UINavigationController(rootViewController: comicFormViewController)
         present(comicFormViewControllerNavigationController, animated: true, completion: nil)
     }

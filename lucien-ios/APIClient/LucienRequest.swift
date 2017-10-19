@@ -19,7 +19,7 @@ enum LucienRequest: Request {
     case hasCollection
     case createPhotoURL
     case addComicBook(comic: Comic)
-    case editComicBook(id: String, comic: Comic)
+    case editComicBook(comicID: String, comic: Comic)
 
     var method: HTTPMethod {
         switch self {
@@ -54,8 +54,8 @@ enum LucienRequest: Request {
             return "/comic_photo_urls"
         case .addComicBook:
             return "/my_comics"
-        case .editComicBook(let id, _):
-            return "/my_comics/\(id)"
+        case .editComicBook(let comicID, _):
+            return "/my_comics/\(comicID)"
         }
     }
 

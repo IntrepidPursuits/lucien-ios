@@ -65,28 +65,29 @@ class ComicFormViewModel {
     // MARK: - Variables
 
     var comicFormMode: ComicFormMode
-
+    var coverPhoto: UIImage?
     var navigationBarTitle: String {
         return comicFormMode == .add ? "Add Book" : "Edit Book"
     }
+
     var genreTitles: Observable<[String]> {
         return Observable.just(Comic.Genre.allCases.map { $0.title })
     }
+
     var conditionTitles: Observable<[String]> {
         return Observable.just(Comic.Condition.allCases.map { $0.title })
     }
-
-    var coverPhoto: UIImage?
-    var comicID = ""
 
     // MARK: - Private Variables
 
     private let disposeBag = DisposeBag()
     private let lucienAPIClient = LucienAPIClient()
+    private let comicID: String?
 
     // ComicFormMode is set to .add by default if default init is used.
     init() {
         comicFormMode = .add
+        comicID = ""
     }
 
     /// Initializes ComicFormViewModel with a ComicFormMode of edit.
@@ -128,10 +129,9 @@ class ComicFormViewModel {
                 if self?.comicFormMode == .add {
                     self?.addComicBook(comic: comic, completion: completion)
                 } else {
-                    guard let id = self?.comicID else { return }
-                    self?.editComicBook(id: id, comic: comic, completion: completion)
+                    guard let comicID = self?.comicID else { return }
+                    self?.editComicBook(comicID: comicID, comic: comic, completion: completion)
                 }
-                
             }) >>> disposeBag
         }
     }
@@ -147,8 +147,8 @@ class ComicFormViewModel {
         }
     }
 
-    private func editComicBook(id: String, comic: Comic, completion: @escaping (Error?) -> Void) {
-        lucienAPIClient.editComicBook(id: id, comic: comic) { response in
+    private func editComicBook(comicID: String, comic: Comic, completion: @escaping (Error?) -> Void) {
+        lucienAPIClient.editComicBook(comicID: comicID, comic: comic) { response in
             switch response {
             case .success:
                 completion(nil)
