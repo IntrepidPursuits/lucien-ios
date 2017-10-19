@@ -37,9 +37,14 @@ final class CollectionViewCell: UICollectionViewCell {
         }
     }
 
+    // TO DO: load another image created by me if no comic book cover
     func setImage(imageURL: String?) {
         guard let url = URL(string: imageURL!) else { return }
-        guard let data = try? Data(contentsOf: url) else { return }
+        let sampleImageData = try? Data(contentsOf: URL(string: "https://www.petsworld.in/blog/wp-content/uploads/2014/09/adorable-cat.jpg")!)
+        guard let data = try? Data(contentsOf: url) else {
+            bookImage.image = UIImage(data: sampleImageData!)
+            return
+        }
         bookImage.image = UIImage(data: data)
     }
 
@@ -52,7 +57,6 @@ final class CollectionViewCell: UICollectionViewCell {
 
     func setStyling() {
         bookImage.clipsToBounds = true
-        bookImage.layer.masksToBounds = true
-        bookImage.layer.cornerRadius = CGFloat(6.0)
+        bookImage.layer.cornerRadius = CGFloat(7.0)
     }
 }

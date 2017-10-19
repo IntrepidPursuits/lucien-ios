@@ -390,7 +390,7 @@
 			children = (
 				FB6AA19F1F85313500394500 /* DashboardViewController.xib */,
 				FB6AA19E1F85313500394500 /* DashboardViewController.swift */,
-				FB9C91C11F90058800AEE21A /* DashboardLending */,
+				FB9C91C11F90058800AEE21A /* DashboardComicCells */,
 				FB9C91BF1F8FF4F200AEE21A /* DashboardViewModel.swift */,
 				FB480C381F9154D700DFAB08 /* DashboardCollectionView.swift */,
 				FB480C3A1F9160AE00DFAB08 /* DashboardCollectionViewModel.swift */,
@@ -409,13 +409,13 @@
 			path = LoginScreen;
 			sourceTree = "<group>";
 		};
-		FB9C91C11F90058800AEE21A /* DashboardLending */ = {
+		FB9C91C11F90058800AEE21A /* DashboardComicCells */ = {
 			isa = PBXGroup;
 			children = (
 				FB743DA41F8D61150066A43F /* CollectionViewCell.swift */,
 				FB743DA51F8D61150066A43F /* CollectionViewCell.xib */,
 			);
-			path = DashboardLending;
+			path = DashboardComicCells;
 			sourceTree = "<group>";
 		};
 		FB9D84831F7D97CD00EC1B5E /* APIClient */ = {
