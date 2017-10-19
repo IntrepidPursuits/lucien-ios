@@ -48,9 +48,10 @@
 		EC0F6CA4839D3BF363E4EE9E /* Pods_lucien_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 074BF9F99258AD884EC6794A /* Pods_lucien_iosTests.framework */; };
 		FB32385B1F868B8100FE81E2 /* Dashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB32385A1F868B8100FE81E2 /* Dashboard.swift */; };
 		FB32385D1F87CB3400FE81E2 /* AuthenticationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB32385C1F87CB3400FE81E2 /* AuthenticationResponse.swift */; };
-		FB32A7581F97A0E70058AB97 /* DashboardComic.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB32A7571F97A0E70058AB97 /* DashboardComic.swift */; };
+		FB32A7581F97A0E70058AB97 /* DashboardComicUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB32A7571F97A0E70058AB97 /* DashboardComicUser.swift */; };
 		FB480C391F9154D700DFAB08 /* DashboardCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB480C381F9154D700DFAB08 /* DashboardCollectionView.swift */; };
 		FB480C3B1F9160AE00DFAB08 /* DashboardCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB480C3A1F9160AE00DFAB08 /* DashboardCollectionViewModel.swift */; };
+		FB5389C81F9A31C90099FB98 /* AddEditComic.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5389C71F9A31C90099FB98 /* AddEditComic.swift */; };
 		FB6AA1A01F85313500394500 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6AA19E1F85313500394500 /* DashboardViewController.swift */; };
 		FB6AA1A11F85313500394500 /* DashboardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB6AA19F1F85313500394500 /* DashboardViewController.xib */; };
 		FB6AA1A61F855E7100394500 /* UINavigationBar+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6AA1A51F855E7100394500 /* UINavigationBar+Extensions.swift */; };
@@ -60,6 +61,7 @@
 		FB743DA61F8D61150066A43F /* DashboardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB743DA41F8D61150066A43F /* DashboardCollectionViewCell.swift */; };
 		FB743DA71F8D61150066A43F /* DashboardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB743DA51F8D61150066A43F /* DashboardCollectionViewCell.xib */; };
 		FB778BB11F8EA81300068A44 /* DashboardResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB778BB01F8EA81300068A44 /* DashboardResponse.swift */; };
+		FB82CC5B1F994513009E42B0 /* DashboardComic.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB82CC5A1F994513009E42B0 /* DashboardComic.swift */; };
 		FB9C91C01F8FF4F200AEE21A /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9C91BF1F8FF4F200AEE21A /* DashboardViewModel.swift */; };
 		FBAB04711F8D42080099F197 /* LucienAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAB04701F8D42070099F197 /* LucienAPIClient.swift */; };
 		FBAEE5781F7EE75C00A44F50 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAEE5771F7EE75C00A44F50 /* LoginViewModel.swift */; };
@@ -145,9 +147,10 @@
 		E8801CCEE845676EFB1D691F /* Pods-lucien-iosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lucien-iosTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-lucien-iosTests/Pods-lucien-iosTests.release.xcconfig"; sourceTree = "<group>"; };
 		FB32385A1F868B8100FE81E2 /* Dashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dashboard.swift; sourceTree = "<group>"; };
 		FB32385C1F87CB3400FE81E2 /* AuthenticationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationResponse.swift; sourceTree = "<group>"; };
-		FB32A7571F97A0E70058AB97 /* DashboardComic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardComic.swift; sourceTree = "<group>"; };
+		FB32A7571F97A0E70058AB97 /* DashboardComicUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardComicUser.swift; sourceTree = "<group>"; };
 		FB480C381F9154D700DFAB08 /* DashboardCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardCollectionView.swift; sourceTree = "<group>"; };
 		FB480C3A1F9160AE00DFAB08 /* DashboardCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardCollectionViewModel.swift; sourceTree = "<group>"; };
+		FB5389C71F9A31C90099FB98 /* AddEditComic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditComic.swift; sourceTree = "<group>"; };
 		FB6AA19E1F85313500394500 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		FB6AA19F1F85313500394500 /* DashboardViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DashboardViewController.xib; sourceTree = "<group>"; };
 		FB6AA1A51F855E7100394500 /* UINavigationBar+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+Extensions.swift"; sourceTree = "<group>"; };
@@ -157,6 +160,7 @@
 		FB743DA41F8D61150066A43F /* DashboardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardCollectionViewCell.swift; sourceTree = "<group>"; };
 		FB743DA51F8D61150066A43F /* DashboardCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DashboardCollectionViewCell.xib; sourceTree = "<group>"; };
 		FB778BB01F8EA81300068A44 /* DashboardResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardResponse.swift; sourceTree = "<group>"; };
+		FB82CC5A1F994513009E42B0 /* DashboardComic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardComic.swift; sourceTree = "<group>"; };
 		FB9C91BF1F8FF4F200AEE21A /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
 		FBAB04701F8D42070099F197 /* LucienAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LucienAPIClient.swift; sourceTree = "<group>"; };
 		FBAEE5771F7EE75C00A44F50 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -207,9 +211,7 @@
 				1C7EE0841F880DF6003F2A81 /* UIImageExtensions.swift */,
 				FB6AA1A51F855E7100394500 /* UINavigationBar+Extensions.swift */,
 				FB6AA1A71F85665200394500 /* UILabel+Extensions.swift */,
-				FB3238621F8BD37600FE81E2 /* UIViewToNib.swift */,
 				1CB8F1FD1F953D4F000DE8F3 /* Rx+Extensions.swift */,
-				FB9C91BD1F8FF10700AEE21A /* UIView+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -440,7 +442,9 @@
 				1C577CD71F94FADA00EB9423 /* AmazonS3ImageURL.swift */,
 				FB7224A11F8E95FF00E8DE8C /* UserResponse.swift */,
 				FB778BB01F8EA81300068A44 /* DashboardResponse.swift */,
-				FB32A7571F97A0E70058AB97 /* DashboardComic.swift */,
+				FB32A7571F97A0E70058AB97 /* DashboardComicUser.swift */,
+				FB82CC5A1F994513009E42B0 /* DashboardComic.swift */,
+				FB5389C71F9A31C90099FB98 /* AddEditComic.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -804,7 +808,6 @@
 				1CDB6A221F7995EC003A2BB1 /* StartMyCollectionViewController.swift in Sources */,
 				FB6AA1A81F85665200394500 /* UILabel+Extensions.swift in Sources */,
 				1C577CD81F94FADA00EB9423 /* AmazonS3ImageURL.swift in Sources */,
-				FB9C91BE1F8FF10700AEE21A /* UIView+Extensions.swift in Sources */,
 				FBDDE2CB1F7E7C4F00A4EA34 /* LucienRequest.swift in Sources */,
 				1CACA1381F9157D600271E19 /* ComicFormViewModel.swift in Sources */,
 				FBAB04711F8D42080099F197 /* LucienAPIClient.swift in Sources */,
@@ -815,7 +818,7 @@
 				1CDBD86F1F7C26B800408826 /* LucienTheme.swift in Sources */,
 				1CB8F1FE1F953D4F000DE8F3 /* Rx+Extensions.swift in Sources */,
 				FBB9756D1F7ED8E6007951C4 /* Request.swift in Sources */,
-				FB32A7581F97A0E70058AB97 /* DashboardComic.swift in Sources */,
+				FB32A7581F97A0E70058AB97 /* DashboardComicUser.swift in Sources */,
 				FBD844431F798B1D00A8E352 /* RootViewController.swift in Sources */,
 				1C21642E1F8FCAA900938D59 /* BottomBorderTextField.swift in Sources */,
 				FBE07CC91F7C2A4500CF1A3F /* ProfileViewController.swift in Sources */,
@@ -823,6 +826,7 @@
 				1CAFFC671F797FA200B79F11 /* AppDelegate.swift in Sources */,
 				1C7EE0891F8BEE43003F2A81 /* AlertDisplaying.swift in Sources */,
 				1C07CBF41F7AE1FD007C66D0 /* ComicFormViewController.swift in Sources */,
+				FB82CC5B1F994513009E42B0 /* DashboardComic.swift in Sources */,
 				1C182A321F82D1C1001566E1 /* RawRepresentable.swift in Sources */,
 				1C7EE0851F880DF6003F2A81 /* UIImageExtensions.swift in Sources */,
 				FBE3F29B1F913335008D4853 /* APIClient.swift in Sources */,
@@ -830,6 +834,7 @@
 				FB7224A21F8E95FF00E8DE8C /* UserResponse.swift in Sources */,
 				1C182A2F1F82CA70001566E1 /* Comic.swift in Sources */,
 				FB6AA1A01F85313500394500 /* DashboardViewController.swift in Sources */,
+				FB5389C81F9A31C90099FB98 /* AddEditComic.swift in Sources */,
 				FB32385B1F868B8100FE81E2 /* Dashboard.swift in Sources */,
 				FB32385D1F87CB3400FE81E2 /* AuthenticationResponse.swift in Sources */,
 			);

@@ -125,13 +125,13 @@ final class ComicFormViewController: UIViewController, AlertDisplaying {
         viewModel.conditionTitles.bind(to: conditionPicker.rx.itemTitles) { _, title in return title } >>> disposeBag
 
         genrePicker.rx.itemSelected.subscribeNext { [weak self] row, _ in
-            let selectedGenre = Comic.Genre(rawValue: row)
+            let selectedGenre = Genre(rawValue: row)
             self?.viewModel.genre.value = selectedGenre
             self?.selectAGenreButton.setTitle(selectedGenre?.title, for: .normal)
         } >>> disposeBag
 
         conditionPicker.rx.itemSelected.subscribeNext { [weak self] row, _ in
-            let selectedCondition = Comic.Condition(rawValue: row)
+            let selectedCondition = Condition(rawValue: row)
             self?.viewModel.condition.value = selectedCondition
             self?.selectAConditionButton.setTitle(selectedCondition?.title, for: .normal)
         } >>> disposeBag
@@ -384,7 +384,7 @@ extension ComicFormViewController: UIPickerViewDelegate, UIPickerViewDataSource 
     // MARK: - UIPickerViewDelegate
 
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return pickerView == genrePicker ? Comic.Genre.allCases.count : Comic.Condition.allCases.count
+        return pickerView == genrePicker ? Genre.allCases.count : Condition.allCases.count
     }
 
     // MARK: - UIPickerViewDataSource

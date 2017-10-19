@@ -55,7 +55,7 @@ final class DashboardViewController: UIViewController, UIScrollViewDelegate {
 
     @objc private func addBookButtonPressed() {
         let addComicViewModel = ComicFormViewModel()
-        let addBookViewController = ComicFormViewController(viewModel: addComicViewModel)
+        let addBookViewController = ComicFormViewController(comicFormViewModel: addComicViewModel)
         navigationController?.pushViewController(addBookViewController, animated: true)
     }
 

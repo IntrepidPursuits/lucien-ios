@@ -18,8 +18,8 @@ enum LucienRequest: Request {
     case getDashboard
     case hasCollection
     case createPhotoURL
-    case addComicBook(comic: Comic)
-    case editComicBook(comicID: String, comic: Comic)
+    case addComicBook(comic: AddEditComic)
+    case editComicBook(comicID: String, comic: AddEditComic)
 
     var method: HTTPMethod {
         switch self {

@@ -10,9 +10,9 @@ import Foundation
 
 final class DashboardCollectionViewModel {
 
-    private let dashboardComics: [DashboardComic]
+    private let dashboardComics: [DashboardComicUser]
 
-    init(comics: [DashboardComic]) {
+    init(comics: [DashboardComicUser]) {
         dashboardComics = comics
     }
 
