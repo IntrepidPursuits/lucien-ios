@@ -101,7 +101,6 @@ enum LucienRequest: Request {
         case .addComicBook(let comic):
             return try? encoder.encode(ComicRequestBody(comic: comic))
         case .editComicBook(_, let comic):
-
             return try? encoder.encode(ComicRequestBody(comic: comic))
         }
     }
