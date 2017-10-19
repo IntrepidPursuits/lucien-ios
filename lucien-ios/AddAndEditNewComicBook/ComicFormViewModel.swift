@@ -41,7 +41,7 @@ class ComicFormViewModel {
             condition.asObservable(),
             genre.asObservable()
         ) { seriesTitle, storyTitle, optionalFields, condition, genre in
-            return Comic(seriesTitle: seriesTitle,
+            return Comic(comicTitle: seriesTitle,
                          storyTitle: storyTitle,
                          optionalComicFields: optionalFields,
                          returnDate: nil,
@@ -64,7 +64,7 @@ class ComicFormViewModel {
 
     // MARK: - Variables
 
-    var comicFormMode: ComicFormMode
+    var comicFormMode = ComicFormMode.add
     var coverPhoto: UIImage?
     var navigationBarTitle: String {
         return comicFormMode == .add ? "Add Book" : "Edit Book"
@@ -82,37 +82,24 @@ class ComicFormViewModel {
 
     private let disposeBag = DisposeBag()
     private let lucienAPIClient = LucienAPIClient()
-    private let comicID: String?
+    private var comicID: String? 
 
-    // ComicFormMode is set to .add by default if default init is used.
-    init() {
-        comicFormMode = .add
-        comicID = ""
-    }
+    init() {}
 
     /// Initializes ComicFormViewModel with a ComicFormMode of edit.
     /// The parameters will be used by the ComicFormViewController to fill in its textfields.
-    init(comicID: String,
-         coverPhoto: UIImage?,
-         seriesTitle: String,
-         volume: String?,
-         storyTitle: String,
-         issue: String?,
-         publisher: String?,
-         release: String?,
-         genre: Comic.Genre?,
-         condition: Comic.Condition?) {
+    init(comic: Comic, coverPhoto: UIImage?) {
         comicFormMode = .edit
-        self.comicID = comicID
+        self.comicID = comic.comicID
         self.coverPhoto = coverPhoto
-        self.seriesTitle.value = seriesTitle
-        self.volume.value = volume ?? ""
-        self.storyTitle.value = storyTitle
-        self.issue.value = issue ?? ""
-        self.publisher.value = publisher ?? ""
-        self.release.value = release ?? ""
-        self.genre.value = genre
-        self.condition.value = condition
+        self.seriesTitle.value = comic.comicTitle
+        self.volume.value = comic.volume ?? ""
+        self.storyTitle.value = comic.storyTitle
+        self.issue.value = comic.issueNumber ?? ""
+        self.publisher.value = comic.publisher ?? ""
+        self.release.value = comic.releaseYear ?? ""
+        self.genre.value = Comic.Genre.convertStringToGenre(genre: comic.genre)
+        self.condition.value = Comic.Condition.convertStringToCondition(condition: comic.condition)
     }
 
     // MARK: - Instance Methods
