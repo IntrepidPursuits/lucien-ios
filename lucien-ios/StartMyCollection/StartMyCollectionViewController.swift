@@ -44,7 +44,7 @@ final class StartMyCollectionViewController: UIViewController {
     }
 
     @IBAction func startCollectionButtonPressed(_ sender: UIButton) {
-        let comicFormViewController = ComicFormViewController(viewModel: ComicFormViewModel())
+        let comicFormViewController = ComicFormViewController(comicFormViewModel: ComicFormViewModel())
         let comicFormViewControllerNavigationController = UINavigationController(rootViewController: comicFormViewController)
         present(comicFormViewControllerNavigationController, animated: true, completion: nil)
     }

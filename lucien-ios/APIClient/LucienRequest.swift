@@ -17,6 +17,8 @@ enum LucienRequest: Request {
     case getCurrentUser
     case getDashboard
     case hasCollection
+    case createPhotoURL
+    case addComicBook(comic: Comic)
 
     var method: HTTPMethod {
         switch self {
@@ -28,6 +30,10 @@ enum LucienRequest: Request {
             return .GET
         case .hasCollection:
             return .GET
+        case .createPhotoURL:
+            return .POST
+        case .addComicBook:
+            return .POST
         }
     }
 
@@ -41,6 +47,10 @@ enum LucienRequest: Request {
             return "/dashboard"
         case .hasCollection:
             return "/has_collection"
+        case .createPhotoURL:
+            return "/comic_photo_urls"
+        case .addComicBook:
+            return "/my_comics"
         }
     }
 
@@ -54,32 +64,41 @@ enum LucienRequest: Request {
             return true
         case .hasCollection:
             return true
+        case .createPhotoURL:
+            return true
+        case .addComicBook:
+            return true
         }
     }
 
     var queryParameters: [String : Any]? {
         switch self {
-        case .authenticate, .getCurrentUser, .getDashboard, .hasCollection:
+        case .authenticate, .getCurrentUser, .getDashboard, .hasCollection, .createPhotoURL, .addComicBook:
             return nil
         }
     }
 
-    var bodyParameters: [String : Any]? {
+    var body: Data? {
+        let encoder = JSONEncoder()
         switch self {
         case .authenticate(let code):
-            return ["auth": ["token": code]]
+            return try? encoder.encode(AuthenticationRequestBody(code: code))
         case .getCurrentUser:
             return nil
         case .getDashboard:
             return nil
         case .hasCollection:
             return nil
+        case .createPhotoURL:
+            return nil
+        case .addComicBook(let comic):
+            return try? encoder.encode(ComicRequestBody(comic: comic))
         }
     }
 
     var contentType: String {
         switch self {
-    case .authenticate, .getCurrentUser, .getDashboard, .hasCollection:
+        case .authenticate, .getCurrentUser, .getDashboard, .hasCollection, .createPhotoURL, .addComicBook:
             return "Application/JSON"
         }
     }

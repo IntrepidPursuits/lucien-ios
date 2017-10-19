@@ -9,6 +9,8 @@
 import UIKit
 import QuartzCore
 import AVFoundation
+import RxSwift
+import RxCocoa
 
 final class ComicFormViewController: UIViewController, AlertDisplaying {
 
@@ -49,19 +51,27 @@ final class ComicFormViewController: UIViewController, AlertDisplaying {
     private var activeField: UITextField?
     private var comicFormViewControllerTextFields: [UITextField]?
     private var overlayButton = UIButton()
+    private var currentImage: UIImage?
+    private var viewModel: ComicFormViewModel
 
     // MARK: - Constants
 
     private let cameraViewController = CameraViewController()
-    private let comicFormViewModel: ComicFormViewModel?
+    private let disposeBag = DisposeBag()
 
-    init(viewModel: ComicFormViewModel) {
-        comicFormViewModel = viewModel
+    init(comicFormViewModel: ComicFormViewModel) {
+        viewModel = comicFormViewModel
         super.init(nibName: nil, bundle: nil)
+
+        if let coverPhoto = viewModel.coverPhoto {
+            if viewModel.comicFormMode == .edit {
+                updateCoverPhotoButton(image: coverPhoto)
+            }
+        }
     }
 
     required init?(coder aDecoder: NSCoder) {
-        comicFormViewModel = ComicFormViewModel()
+        viewModel = ComicFormViewModel()
         super.init(coder: aDecoder)
     }
 
@@ -72,39 +82,75 @@ final class ComicFormViewController: UIViewController, AlertDisplaying {
         configureViewController()
         registerForKeyboardNotifications()
         comicFormViewControllerTextFields = [seriesTitleTextField, volumeTextField, storyTitleTextField, issueTextField, publisherTextField, releaseDateTextField]
-        fillFieldsWithComicFormViewModelData()
+        configureObservables()
     }
 
     // MARK: - Private Instance Methods
 
-    @objc internal func backButtonTapped() {
-        let goBackAction = UIAlertAction(title: "Go Back to Previous Page", style: .destructive) { [weak self] _ in
-            self?.dismiss(animated: true, completion: nil)
-            self?.deregisterFromKeyboardNotifications()
-        }
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
-        showAlert(title: "", message: "This will delete your current comic information.", actions: [goBackAction, cancelAction], preferredStyle: .actionSheet)
+    private func configureObservables() {
+        configureUITextFieldObservables()
+        configureUIPickerViewObservables()
     }
 
-    private func fillFieldsWithComicFormViewModelData() {
-        guard let comicFormViewModel = comicFormViewModel else { return }
-        if comicFormViewModel.comicFormMode == .edit {
-            seriesTitleTextField.text = comicFormViewModel.seriesTitle ?? ""
-            volumeTextField.text = comicFormViewModel.volume ?? ""
-            storyTitleTextField.text = comicFormViewModel.storyTitle
-            issueTextField.text = comicFormViewModel.issue ?? ""
-            publisherTextField.text = comicFormViewModel.publisher ?? ""
-            releaseDateTextField.text = comicFormViewModel.release ?? ""
-            genrePicker.isHidden = false
-            conditionPicker.isHidden = false
-            selectAGenreButton.setTitle(comicFormViewModel.genre?.title, for: .normal)
-            selectAConditionButton.setTitle(comicFormViewModel.condition?.title, for: .normal)
-            genrePicker.selectRow(comicFormViewModel.genre?.rawValue ?? 0, inComponent: 0, animated: false)
-            conditionPicker.selectRow(comicFormViewModel.condition?.rawValue ?? 0, inComponent: 0, animated: false)
-            if let coverPhoto = comicFormViewModel.coverPhoto {
-                updateCoverPhotoButton(image: coverPhoto)
+    private func configureUITextFieldObservables() {
+        seriesTitleTextField.rx.text.orEmpty <-> viewModel.seriesTitle >>> disposeBag
+        volumeTextField.rx.text <-> viewModel.volume >>> disposeBag
+        storyTitleTextField.rx.text.orEmpty <->  viewModel.storyTitle >>> disposeBag
+        issueTextField.rx.text <->  viewModel.issue >>> disposeBag
+        publisherTextField.rx.text <->  viewModel.publisher >>> disposeBag
+        releaseDateTextField.rx.text <-> viewModel.release >>> disposeBag
+
+        seriesTitleTextField.rx.controlEvent([.editingChanged]).asObservable().subscribeNext { [weak self] in
+            self?.seriesTitleWarningLabel.isHidden = true
+            self?.seriesTitleTextField.borderColor = LucienTheme.dark
+            self?.checkIfAllRequiredFieldsAreFilled()
+        } >>> disposeBag
+
+        storyTitleTextField.rx.controlEvent([.editingChanged]).asObservable().subscribeNext { [weak self] in
+            self?.storyTitleWarningLabel.isHidden = true
+            self?.storyTitleTextField.borderColor = LucienTheme.dark
+            self?.checkIfAllRequiredFieldsAreFilled()
+        } >>> disposeBag
+
+        releaseDateTextField.rx.controlEvent([.editingChanged]).asObservable().subscribeNext { [weak self] in
+            guard let text = self?.releaseDateTextField.text else { return }
+            if text.characters.count > LucienConstants.releaseDateTextFieldCharacterCountLimit {
+                self?.releaseDateTextField.deleteBackward()
             }
-        }
+        } >>> disposeBag
+    }
+
+    private func configureUIPickerViewObservables() {
+        viewModel.genreTitles.bind(to: genrePicker.rx.itemTitles) { _, title in return title } >>> disposeBag
+        viewModel.conditionTitles.bind(to: conditionPicker.rx.itemTitles) { _, title in return title } >>> disposeBag
+
+        genrePicker.rx.itemSelected.subscribeNext { [weak self] row, _ in
+            let selectedGenre = Comic.Genre(rawValue: row)
+            self?.viewModel.genre.value = selectedGenre
+            self?.selectAGenreButton.setTitle(selectedGenre?.title, for: .normal)
+        } >>> disposeBag
+
+        conditionPicker.rx.itemSelected.subscribeNext { [weak self] row, _ in
+            let selectedCondition = Comic.Condition(rawValue: row)
+            self?.viewModel.condition.value = selectedCondition
+            self?.selectAConditionButton.setTitle(selectedCondition?.title, for: .normal)
+        } >>> disposeBag
+
+        viewModel.genre.asObservable().subscribe(onNext: { [weak self] genre in
+            if let genre = genre {
+                self?.genrePicker.isHidden = false
+                self?.genrePicker.selectRow(genre.rawValue, inComponent: 0, animated: false)
+                self?.selectAGenreButton.setTitle(genre.title, for: .normal)
+            }
+        }) >>> disposeBag
+
+        viewModel.condition.asObservable().subscribe(onNext: { [weak self] condition in
+            if let condition = condition {
+                self?.conditionPicker.isHidden = false
+                self?.conditionPicker.selectRow(condition.rawValue, inComponent: 0, animated: false)
+                self?.selectAConditionButton.setTitle(condition.title, for: .normal)
+            }
+        }) >>> disposeBag
     }
 
     private func configureNavigationController() {
@@ -122,12 +168,22 @@ final class ComicFormViewController: UIViewController, AlertDisplaying {
     }
 
     private func setNavBarTitle() {
-        navigationController?.viewControllers[0].title = comicFormViewModel?.navigationBarTitle
+        navigationController?.viewControllers[0].title = viewModel.navigationBarTitle
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: LucienTheme.Fonts.permanentMarkerRegular(size: 30) ?? UIFont()]
     }
 
     private func setNavBarBackButton() {
-        let backButton = UIBarButtonItem(image: UIImage(named: "navBackButton"), style: .plain, target: self, action: #selector(ComicFormViewController.backButtonTapped))
+        let backButton = UIBarButtonItem()
+        backButton.image = UIImage(named: "navBackButton")
+        backButton.style = .plain
+        backButton.rx.tap.subscribeNext { [weak self] in
+            let goBackAction = UIAlertAction(title: "Go Back to Previous Page", style: .destructive) { _ in
+                self?.dismiss(animated: true, completion: nil)
+                self?.deregisterFromKeyboardNotifications()
+            }
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+            self?.showAlert(title: "", message: "This will delete your current comic information.", actions: [goBackAction, cancelAction], preferredStyle: .actionSheet)
+        } >>> disposeBag
         backButton.tintColor = UIColor.black
         navigationItem.leftBarButtonItem = backButton
     }
@@ -137,13 +193,17 @@ final class ComicFormViewController: UIViewController, AlertDisplaying {
         finishButton.setTitleTextAttributes([NSAttributedStringKey.font: LucienTheme.Fonts.muliSemiBold(size: 17) ?? UIFont()], for: .normal)
         finishButton.tintColor = LucienTheme.finishButtonGrey
         finishButton.isEnabled = false
+        finishButton.rx.tap.subscribeNext { [weak self] in
+            self?.viewModel.finishButtonTapped { error in
+                if error != nil {
+                    self?.showAlert(title: "Error", message: "Our service is currently encountering an issue. Please ensure that you are connected to the internet and try again.")
+                }
+            }
+        } >>> disposeBag
         navigationItem.rightBarButtonItem = finishButton
     }
 
     private func configureViewController() {
-        storyTitleTextField.addTarget(self, action: #selector(ComicFormViewController.storyTitleEditingChanged), for: .editingChanged)
-        releaseDateTextField.addTarget(self, action: #selector(ComicFormViewController.releaseDateEditingChanged), for: .editingChanged)
-        seriesTitleTextField.addTarget(self, action: #selector(ComicFormViewController.seriesTitleEditingChanged), for: .editingChanged)
         configureReleaseDateTextFieldToolBar()
         configurePickerUIButton(button: selectAGenreButton)
         configurePickerUIButton(button: selectAConditionButton)
@@ -153,7 +213,13 @@ final class ComicFormViewController: UIViewController, AlertDisplaying {
         let releaseDateToolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 50))
         releaseDateToolBar.barStyle = UIBarStyle.default
         let flexSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
-        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.done, target: self, action: #selector(ComicFormViewController.doneButtonTapped))
+        let doneButton = UIBarButtonItem()
+        doneButton.title = "Done"
+        doneButton.style = .done
+        doneButton.rx.tap.subscribeNext { [weak self] in
+            self?.view.endEditing(true)
+            self?.deregisterFromKeyboardNotifications()
+        } >>> disposeBag
         var barButtonItems = [UIBarButtonItem]()
         barButtonItems.append(flexSpace)
         barButtonItems.append(doneButton)
@@ -185,6 +251,7 @@ final class ComicFormViewController: UIViewController, AlertDisplaying {
     }
 
     private func updateCoverPhotoButton(image: UIImage) {
+        viewModel.coverPhoto = image
         showCoverPhotoMenu()
         resetCoverPhotoButton()
 
@@ -216,30 +283,6 @@ final class ComicFormViewController: UIViewController, AlertDisplaying {
             NSLayoutConstraint(item: overlayButton, attribute: .leading, relatedBy: .equal, toItem: scrollView, attribute: .leading, multiplier: 1, constant: LucienConstants.overlayButtonLeadingConstraint),
             NSLayoutConstraint(item: overlayButton, attribute: .top, relatedBy: .equal, toItem: coverPhotoLabel, attribute: .top, multiplier: 1, constant: LucienConstants.overlayButtonTopConstraint)
             ])
-    }
-
-    @objc private func seriesTitleEditingChanged(_ textField: UITextField) {
-        seriesTitleWarningLabel.isHidden = true
-        seriesTitleTextField.borderColor = LucienTheme.dark
-        checkIfAllRequiredFieldsAreFilled()
-    }
-
-    @objc private func storyTitleEditingChanged(_ textField: UITextField) {
-        storyTitleWarningLabel.isHidden = true
-        storyTitleTextField.borderColor = LucienTheme.dark
-        checkIfAllRequiredFieldsAreFilled()
-    }
-
-    @objc private func releaseDateEditingChanged(_ textField: UITextField) {
-        guard let text = textField.text else { return }
-        if text.characters.count > 4 {
-            textField.deleteBackward()
-        }
-    }
-
-    @objc private func doneButtonTapped() {
-        view.endEditing(true)
-        deregisterFromKeyboardNotifications()
     }
 
     private func showWarningLabel(label: UILabel, textField: UITextField) {
@@ -343,23 +386,6 @@ extension ComicFormViewController: UIPickerViewDelegate, UIPickerViewDataSource 
         return pickerView == genrePicker ? Comic.Genre.allCases.count : Comic.Condition.allCases.count
     }
 
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return pickerView == genrePicker ? Comic.Genre(rawValue: row)?.title : Comic.Condition(rawValue: row)?.title
-    }
-
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        switch pickerView {
-        case genrePicker:
-            let selectedGenre = Comic.Genre(rawValue: row)?.title
-            selectAGenreButton.setTitle(selectedGenre, for: .normal)
-        case conditionPicker:
-            let selectedCondition = Comic.Condition(rawValue: row)?.title
-            selectAConditionButton.setTitle(selectedCondition, for: .normal)
-        default:
-            return
-        }
-    }
-
     // MARK: - UIPickerViewDataSource
 
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -436,19 +462,19 @@ extension ComicFormViewController: CameraViewControllerDelegate {
     private func resetCoverPhotoButton() {
         coverPhotoButton.transform = .identity
         overlayButton.removeFromSuperview()
-        coverPhotoButton.alpha = 1.0
+        coverPhotoButton.alpha = LucienConstants.coverPhotoDefaultAlpha
         coverPhotoButton.isUserInteractionEnabled = true
         coverPhotoButton.setBackgroundImage(nil, for: .normal)
         coverPhotoButton.backgroundColor = LucienTheme.dark
-        coverPhotoButton.layer.shadowOpacity = 0.0
-        coverPhotoButton.layer.shadowRadius = 0.0
+        coverPhotoButton.layer.shadowOpacity = LucienConstants.coverPhotoDefaultShadowOpacity
+        coverPhotoButton.layer.shadowRadius = LucienConstants.coverPhotoDefaultShadowRadius
         coverPhotoButton.setImage(UIImage(named: "cameraButtonIcon"), for: .normal)
-        coverPhotoButton.imageEdgeInsets.bottom = 70
-        let coverPhotoButtonTitleNormal = NSAttributedString(string: "Take Cover Photo", attributes: [NSAttributedStringKey.font: LucienTheme.Fonts.muliBold(size: 16.0) ?? UIFont(), NSAttributedStringKey.foregroundColor: UIColor.white])
-        let coverPhotoButtonTitleHighlighted = NSAttributedString(string: "Take Cover Photo", attributes: [NSAttributedStringKey.font: LucienTheme.Fonts.muliBold(size: 16.0) ?? UIFont(), NSAttributedStringKey.foregroundColor: UIColor.white.withAlphaComponent(0.5)])
+        coverPhotoButton.imageEdgeInsets.bottom = LucienConstants.coverPhotoBottomImageInset
+        let coverPhotoButtonTitleNormal = LucienConstants.coverPhotoNormalStateTitle
+        let coverPhotoButtonTitleHighlighted = LucienConstants.coverPhotoHighlightedStateTitle
         coverPhotoButton.setAttributedTitle(coverPhotoButtonTitleNormal, for: .normal)
         coverPhotoButton.setAttributedTitle(coverPhotoButtonTitleHighlighted, for: .highlighted)
-        coverPhotoButton.titleEdgeInsets = UIEdgeInsets(top: 25, left: 0, bottom: 0, right: 40)
+        coverPhotoButton.titleEdgeInsets.top = LucienConstants.coverPhotoTopTitleEdgeInset
         coverPhotoButton.titleLabel?.textAlignment = .center
         coverPhotoButton.titleLabel?.lineBreakMode = .byWordWrapping
     }

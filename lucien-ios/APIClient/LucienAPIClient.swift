@@ -13,7 +13,7 @@ enum LucienAPIError: Error {
 
 final class LucienAPIClient: APIClient {
 
-    func authenticateUser(code: String, completion: @escaping (Result<AuthenticationResponse>) -> Void) {
+    func authenticateUser(code: String, completion: @escaping (Result<AuthenticationToken>) -> Void) {
         let urlRequest = LucienRequest.authenticate(code: code).urlRequest
         sendRequest(urlRequest) { response in
             switch response {
@@ -23,8 +23,8 @@ final class LucienAPIClient: APIClient {
                 }
                 do {
                     let decoder = JSONDecoder()
-                    let authenticationResponse = try decoder.decode(AuthenticationResponse.self, from: result)
-                    completion(.success(authenticationResponse))
+                    let authenticationToken = try decoder.decode(AuthenticationToken.self, from: result)
+                    completion(.success(authenticationToken))
                 } catch(let error) {
                     completion(.failure(error))
                 }
@@ -88,6 +88,75 @@ final class LucienAPIClient: APIClient {
                 }
                  let hasCollection = (resultString as NSString).boolValue
                 completion(.success(hasCollection))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+
+    /**
+     Sends a request to the Lucien server to create a public URL for a comic book image.
+     - parameter completion:
+     */
+    func createPhotoURLAndUploadImage(completion: @escaping (Result<AmazonS3ImageURL>) -> Void) {
+        let lucienRequest = LucienRequest.createPhotoURL
+        let urlRequest = lucienRequest.urlRequest
+        sendRequest(urlRequest) { response in
+            switch response {
+            case .success(let result):
+                guard let result = result else {
+                    return completion(.failure(LucienAPIError.noResult))
+                }
+
+                do {
+                    let decoder = JSONDecoder()
+                    let s3ImageURL = try decoder.decode(AmazonS3ImageURL.self, from: result)
+                    completion(.success(s3ImageURL))
+                } catch(let error) {
+                    completion(.failure(error))
+                }
+
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+
+    /**
+     Sends a request to the Lucien server to upload an image to the specified presigned url.
+     - parameter data: UIImage data.
+     - parameter urlString: presigned url
+     - parameter completion:
+    */
+    func sendRequestToS3(data: Data, urlString: String, completion: @escaping (Error?) -> Void) {
+        let requestURL = URL(string: urlString)!
+        var request = URLRequest(url: requestURL)
+        request.httpMethod = "PUT"
+        request.httpBody = data
+        request.setValue("image/jpeg", forHTTPHeaderField: "Content-Type")
+        request.setValue("\(data.count)", forHTTPHeaderField: "Content-Length")
+        let task = URLSession.shared.dataTask(with: request) { _, _, error in
+            if error == nil {
+                completion(nil)
+            }
+            completion(error)
+        }
+        task.resume()
+    }
+
+    /**
+     Sends a request to the Lucien server to add a comic book.
+     - parameter comic: Comic Object
+     - parameter completion:
+     */
+    func addComicBook(comic: Comic, completion: @escaping (Result<Error?>) -> Void) {
+        let lucienRequest = LucienRequest.addComicBook(comic: comic)
+        let urlRequest = lucienRequest.urlRequest
+        sendRequest(urlRequest) { response in
+            print(response)
+            switch response {
+            case .success:
+                completion(.success(nil))
             case .failure(let error):
                 completion(.failure(error))
             }

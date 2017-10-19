@@ -8,8 +8,56 @@
 
 import Foundation
 
-struct Comic {
+struct Comic: Codable {
+    var seriesTitle: String
+    var storyTitle: String
+    var volume: String?
+    var issueNumber: String?
+    var publisher: String?
+    var releaseYear: String?
+    var comicPhotoURL: String?
+    var returnDate: String?
+    var condition: String?
+    var genre: String?
 
+    private enum CodingKeys: String, CodingKey {
+        case seriesTitle = "comic_title"
+        case storyTitle = "story_title"
+        case volume = "volume"
+        case issueNumber = "issue_number"
+        case publisher = "publisher"
+        case releaseYear = "release_year"
+        case comicPhotoURL = "comic_photo_url"
+        case returnDate = "return_date"
+        case condition = "condition"
+        case genre = "genre"
+    }
+
+    init(seriesTitle: String,
+         storyTitle: String,
+         optionalComicFields: OptionalComicFields? = nil,
+         returnDate: String? = nil,
+         condition: String? = nil,
+         genre: String? = nil) {
+        self.seriesTitle = seriesTitle
+        self.storyTitle = storyTitle
+        self.volume = optionalComicFields?.volume
+        self.issueNumber = optionalComicFields?.issueNumber
+        self.publisher = optionalComicFields?.publisher
+        self.releaseYear = optionalComicFields?.releaseYear
+        self.comicPhotoURL = optionalComicFields?.comicPhotoURL
+        self.returnDate = returnDate
+        self.condition = condition
+        self.genre = genre
+    }
+}
+
+struct ComicRequestBody: Encodable {
+    var comic: Comic
+
+    init(comic: Comic) {
+        self.comic = comic
+    }
 }
 
 extension Comic {

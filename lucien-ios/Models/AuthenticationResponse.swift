@@ -8,6 +8,14 @@
 
 import Foundation
 
-struct AuthenticationResponse: Decodable {
+struct AuthenticationToken: Codable {
     var token: String
+}
+
+struct AuthenticationRequestBody: Encodable {
+    var auth: AuthenticationToken
+
+    init(code: String) {
+        auth = AuthenticationToken(token: code)
+    }
 }

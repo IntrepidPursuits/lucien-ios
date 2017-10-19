@@ -14,6 +14,7 @@
 		1C21642E1F8FCAA900938D59 /* BottomBorderTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C21642D1F8FCAA900938D59 /* BottomBorderTextField.swift */; };
 		1C45D0EB1F85611A00E651A5 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C45D0E91F85611A00E651A5 /* CameraViewController.swift */; };
 		1C45D0EC1F85611A00E651A5 /* CameraViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C45D0EA1F85611A00E651A5 /* CameraViewController.xib */; };
+		1C577CD81F94FADA00EB9423 /* AmazonS3ImageURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C577CD71F94FADA00EB9423 /* AmazonS3ImageURL.swift */; };
 		1C7EE0851F880DF6003F2A81 /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7EE0841F880DF6003F2A81 /* UIImageExtensions.swift */; };
 		1C7EE0891F8BEE43003F2A81 /* AlertDisplaying.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7EE0881F8BEE43003F2A81 /* AlertDisplaying.swift */; };
 		1CACA1381F9157D600271E19 /* ComicFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CACA1371F9157D600271E19 /* ComicFormViewModel.swift */; };
@@ -23,6 +24,7 @@
 		1CAFFC711F797FA200B79F11 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CAFFC6F1F797FA200B79F11 /* LaunchScreen.storyboard */; };
 		1CAFFC7C1F797FA200B79F11 /* lucien_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAFFC7B1F797FA200B79F11 /* lucien_iosTests.swift */; };
 		1CAFFC871F797FA200B79F11 /* lucien_iosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAFFC861F797FA200B79F11 /* lucien_iosUITests.swift */; };
+		1CB8F1FE1F953D4F000DE8F3 /* Rx+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB8F1FD1F953D4F000DE8F3 /* Rx+Extensions.swift */; };
 		1CDB6A221F7995EC003A2BB1 /* StartMyCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDB6A201F7995EC003A2BB1 /* StartMyCollectionViewController.swift */; };
 		1CDB6A231F7995EC003A2BB1 /* StartMyCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CDB6A211F7995EC003A2BB1 /* StartMyCollectionViewController.xib */; };
 		1CDBD85B1F7C209800408826 /* Muli-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1CDBD8541F7C209400408826 /* Muli-Black.ttf */; };
@@ -97,6 +99,7 @@
 		1C21642D1F8FCAA900938D59 /* BottomBorderTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBorderTextField.swift; sourceTree = "<group>"; };
 		1C45D0E91F85611A00E651A5 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		1C45D0EA1F85611A00E651A5 /* CameraViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CameraViewController.xib; sourceTree = "<group>"; };
+		1C577CD71F94FADA00EB9423 /* AmazonS3ImageURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmazonS3ImageURL.swift; sourceTree = "<group>"; };
 		1C7EE0841F880DF6003F2A81 /* UIImageExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
 		1C7EE0881F8BEE43003F2A81 /* AlertDisplaying.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertDisplaying.swift; sourceTree = "<group>"; };
 		1CACA1371F9157D600271E19 /* ComicFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicFormViewModel.swift; sourceTree = "<group>"; };
@@ -112,6 +115,7 @@
 		1CAFFC821F797FA200B79F11 /* lucien-iosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "lucien-iosUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CAFFC861F797FA200B79F11 /* lucien_iosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lucien_iosUITests.swift; sourceTree = "<group>"; };
 		1CAFFC881F797FA200B79F11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1CB8F1FD1F953D4F000DE8F3 /* Rx+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Rx+Extensions.swift"; sourceTree = "<group>"; };
 		1CDB6A201F7995EC003A2BB1 /* StartMyCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartMyCollectionViewController.swift; sourceTree = "<group>"; };
 		1CDB6A211F7995EC003A2BB1 /* StartMyCollectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StartMyCollectionViewController.xib; sourceTree = "<group>"; };
 		1CDBD84D1F7C209300408826 /* Muli-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
@@ -200,6 +204,7 @@
 				FB6AA1A51F855E7100394500 /* UINavigationBar+Extensions.swift */,
 				FB6AA1A71F85665200394500 /* UILabel+Extensions.swift */,
 				FB3238621F8BD37600FE81E2 /* UIViewToNib.swift */,
+				1CB8F1FD1F953D4F000DE8F3 /* Rx+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -219,14 +224,6 @@
 				1C45D0EA1F85611A00E651A5 /* CameraViewController.xib */,
 			);
 			path = Camera;
-			sourceTree = "<group>";
-		};
-		1C577CD61F94F2C000EB9423 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				1CACA1371F9157D600271E19 /* ComicFormViewModel.swift */,
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		1C7E9F911F7994050061EFF6 /* StartMyCollection */ = {
@@ -271,7 +268,6 @@
 		1CAFFC651F797FA200B79F11 /* lucien-ios */ = {
 			isa = PBXGroup;
 			children = (
-				1C577CD61F94F2C000EB9423 /* ViewModel */,
 				1C21642C1F8FCA8C00938D59 /* Subclasses */,
 				1C7EE07F1F87F8CF003F2A81 /* Protocols */,
 				1C45D0E81F85608500E651A5 /* Camera */,
@@ -316,6 +312,7 @@
 		1CDB6A251F79A52D003A2BB1 /* AddAndEditNewComicBook */ = {
 			isa = PBXGroup;
 			children = (
+				1CACA1371F9157D600271E19 /* ComicFormViewModel.swift */,
 				1C07CBF21F7AE1FD007C66D0 /* ComicFormViewController.swift */,
 				1C07CBF31F7AE1FD007C66D0 /* ComicFormViewController.xib */,
 			);
@@ -435,6 +432,7 @@
 				FBB975681F7EBB31007951C4 /* User.swift */,
 				FB32385A1F868B8100FE81E2 /* Dashboard.swift */,
 				FB32385C1F87CB3400FE81E2 /* AuthenticationResponse.swift */,
+				1C577CD71F94FADA00EB9423 /* AmazonS3ImageURL.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -622,12 +620,16 @@
 				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -793,6 +795,7 @@
 				FBB9756B1F7ED8A9007951C4 /* Result.swift in Sources */,
 				1CDB6A221F7995EC003A2BB1 /* StartMyCollectionViewController.swift in Sources */,
 				FB6AA1A81F85665200394500 /* UILabel+Extensions.swift in Sources */,
+				1C577CD81F94FADA00EB9423 /* AmazonS3ImageURL.swift in Sources */,
 				FBDDE2CB1F7E7C4F00A4EA34 /* LucienRequest.swift in Sources */,
 				1CACA1381F9157D600271E19 /* ComicFormViewModel.swift in Sources */,
 				FBAB04711F8D42080099F197 /* LucienAPIClient.swift in Sources */,
@@ -800,6 +803,7 @@
 				FBB975691F7EBB31007951C4 /* User.swift in Sources */,
 				FB6B911B1F7C195000910B49 /* AnimatedTransition.swift in Sources */,
 				1CDBD86F1F7C26B800408826 /* LucienTheme.swift in Sources */,
+				1CB8F1FE1F953D4F000DE8F3 /* Rx+Extensions.swift in Sources */,
 				FBB9756D1F7ED8E6007951C4 /* Request.swift in Sources */,
 				FBD844431F798B1D00A8E352 /* RootViewController.swift in Sources */,
 				1C21642E1F8FCAA900938D59 /* BottomBorderTextField.swift in Sources */,

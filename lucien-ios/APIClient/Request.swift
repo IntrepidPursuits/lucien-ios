@@ -25,7 +25,7 @@ public protocol Request {
     var path: String { get }
     var authenticated: Bool { get }
     var queryParameters: [String: Any]? { get }
-    var bodyParameters: [String: Any]? { get }
+    var body: Data? { get }
     var contentType: String { get }
 }
 
@@ -37,13 +37,13 @@ public extension Request {
 
         var request = URLRequest(url: url)
         request.httpMethod = method.rawValue
+        request.httpBody = body
 
         request.setValue(Self.acceptHeader, forHTTPHeaderField: "Accept")
         request.setValue(Self.authorizationHeader, forHTTPHeaderField: "Authorization")
         request.setValue(contentType, forHTTPHeaderField: "Content-Type")
 
         encodeQueryParameters(request: &request, parameters: queryParameters)
-        encodeHTTPBody(request: &request, parameters: bodyParameters)
 
         return request as URLRequest
     }
@@ -64,16 +64,5 @@ public extension Request {
         let percentEncondedQuery = components.percentEncodedQuery.map { $0 + "&" } ?? "" + queryParameterString
         components.percentEncodedQuery = percentEncondedQuery
         request.url = components.url
-    }
-
-    private func encodeHTTPBody(request: inout URLRequest, parameters: [String : Any]?) {
-        guard let parameters = parameters else { return }
-
-        do {
-            let data = try JSONSerialization.data(withJSONObject: parameters, options: [])
-            request.httpBody = data
-        } catch {
-            print("Error creating JSON paramters")
-        }
     }
 }

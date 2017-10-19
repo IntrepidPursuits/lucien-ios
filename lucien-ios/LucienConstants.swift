@@ -10,6 +10,10 @@ import Foundation
 
 final class LucienConstants {
 
+    // MARK: - UIImage Constants
+
+    static let compressionQuality = CGFloat(0.9)
+
     // MARK: - BottomBorderTextField Constants
 
     static let bottomBorderYOffset = CGFloat(3.0)
@@ -17,12 +21,13 @@ final class LucienConstants {
     // MARK: - Keyboard Constants
 
     static let keyboardHeightPadding = CGFloat(50)
+    static let releaseDateTextFieldCharacterCountLimit = 4
 
     // MARK: - Form Constants
 
     static let pickerViewLeftimageEdgeInsetOffset = CGFloat(72)
 
-    // MARK: - UIButton Glow Effect Constants
+    // MARK: - CoverPhotoButton Glow Effect Constants
 
     static let overlayButtonScaleX = CGFloat(0.9)
     static let overlayButtonScaleY = CGFloat(0.9)
@@ -33,6 +38,17 @@ final class LucienConstants {
     static let coverButtonShadowOpacity = Float(0.35)
     static let coverButtonOpacity = CGFloat(0.6)
     static let buttonBorderRadius = CGFloat(10)
+
+    // MARK: - CoverPhotoButton Default Button Constants
+
+    static let coverPhotoDefaultAlpha =  CGFloat(1.0)
+    static let coverPhotoDefaultShadowOpacity =  Float(0.0)
+    static let coverPhotoDefaultShadowRadius =  CGFloat(0.0)
+    static let coverPhotoBottomImageInset =  CGFloat(70)
+    static let coverPhotoNormalStateTitle = NSAttributedString(string: "Take Cover Photo", attributes: [NSAttributedStringKey.font: LucienTheme.Fonts.muliBold(size: 16.0) ?? UIFont(), NSAttributedStringKey.foregroundColor: UIColor.white])
+    static let coverPhotoHighlightedStateTitle = NSAttributedString(string: "Take Cover Photo",
+                                                                    attributes: [NSAttributedStringKey.font: LucienTheme.Fonts.muliBold(size: 16.0) ?? UIFont(), NSAttributedStringKey.foregroundColor: UIColor.white.withAlphaComponent(0.5)])
+    static let coverPhotoTopTitleEdgeInset =  CGFloat(25)
 
     // MARK: - Dispatch Queue Constants
 
