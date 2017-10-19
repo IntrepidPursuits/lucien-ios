@@ -42,7 +42,7 @@ struct DashboardComic: Decodable {
         let issueNumber = try? container.decode(String.self, forKey: .issueNumber)
         let publisher = try? container.decode(String.self, forKey: .publisher)
         let releaseDate = try? container.decode(Date.self, forKey: .releaseDate)
-        let comicPhotoURL = try? container.decode(String.self, forKey: .comicPhotoURL)
+        let comicPhotoURL = try? container.decode(String.self, forKey: .comicPhotoURL) 
         let returnDate = try? container.decode(Date.self, forKey: .returnDate)
         let condition = try? container.decode(String.self, forKey: .condition)
         let genre = try? container.decode(String.self, forKey: .genre)
