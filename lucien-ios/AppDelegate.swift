@@ -30,4 +30,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             annotation: options[UIApplicationOpenURLOptionsKey.annotation]
         )
     }
+
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+
+        return GIDSignIn.sharedInstance().handle(url, sourceApplication:options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String, annotation: [:])
+    }
 }

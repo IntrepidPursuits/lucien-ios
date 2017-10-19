@@ -77,6 +77,7 @@ class ComicFormViewModel {
     }
 
     var coverPhoto: UIImage?
+    var comicID = ""
 
     // MARK: - Private Variables
 
@@ -90,7 +91,8 @@ class ComicFormViewModel {
 
     /// Initializes ComicFormViewModel with a ComicFormMode of edit.
     /// The parameters will be used by the ComicFormViewController to fill in its textfields.
-    init(coverPhoto: UIImage?,
+    init(comicID: String,
+         coverPhoto: UIImage?,
          seriesTitle: String,
          volume: String?,
          storyTitle: String,
@@ -100,6 +102,7 @@ class ComicFormViewModel {
          genre: Comic.Genre?,
          condition: Comic.Condition?) {
         comicFormMode = .edit
+        self.comicID = comicID
         self.coverPhoto = coverPhoto
         self.seriesTitle.value = seriesTitle
         self.volume.value = volume ?? ""
@@ -122,13 +125,30 @@ class ComicFormViewModel {
                 else { return }
 
             comic.asObservable().subscribe(onNext: { comic in
-                self?.addComicBook(comic: comic, completion: completion)
+                if self?.comicFormMode == .add {
+                    self?.addComicBook(comic: comic, completion: completion)
+                } else {
+                    guard let id = self?.comicID else { return }
+                    self?.editComicBook(id: id, comic: comic, completion: completion)
+                }
+                
             }) >>> disposeBag
         }
     }
 
     private func addComicBook(comic: Comic, completion: @escaping (Error?) -> Void) {
         lucienAPIClient.addComicBook(comic: comic) { response in
+            switch response {
+            case .success:
+                completion(nil)
+            case .failure(let error):
+                completion(error)
+            }
+        }
+    }
+
+    private func editComicBook(id: String, comic: Comic, completion: @escaping (Error?) -> Void) {
+        lucienAPIClient.editComicBook(id: id, comic: comic) { response in
             switch response {
             case .success:
                 completion(nil)

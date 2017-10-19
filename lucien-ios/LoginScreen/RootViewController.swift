@@ -58,7 +58,7 @@ final class RootViewController: UIViewController, GIDSignInDelegate, GIDSignInUI
         guard let idToken = user.authentication.idToken else { return }
         loginViewModel.authenticateUser(code: idToken) {
             self.loginViewModel.hasCollection { result in
-                result ? self.showDashboard() : self.showStartMyCollection()
+                self.showStartMyCollection()
             }
         }
     }
