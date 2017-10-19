@@ -16,14 +16,20 @@ enum DashboardComicError: Error {
 struct DashboardComic: Decodable {
     var dashboardComic: Comic
     var dashboardUser: User
-    var dashboardUserType: String
+    var dashboardUserType: UserType
+
+    enum UserType: String {
+        case borrower
+        case owner
+        case none
+    }
 
     enum CodingKeys: String, CodingKey {
         case borrower
         case owner
     }
 
-    init(dashboardComic: Comic, dashboardUser: User, dashboardUserType: String) {
+    init(dashboardComic: Comic, dashboardUser: User, dashboardUserType: UserType) {
         self.dashboardComic = dashboardComic
         self.dashboardUser = dashboardUser
         self.dashboardUserType = dashboardUserType
@@ -42,7 +48,7 @@ struct DashboardComic: Decodable {
         let issueNumber = try? container.decode(String.self, forKey: .issueNumber)
         let publisher = try? container.decode(String.self, forKey: .publisher)
         let releaseDate = try? container.decode(Date.self, forKey: .releaseDate)
-        let comicPhotoURL = try? container.decode(String.self, forKey: .comicPhotoURL) 
+        let comicPhotoURL = try? container.decode(String.self, forKey: .comicPhotoURL)
         let returnDate = try? container.decode(Date.self, forKey: .returnDate)
         let condition = try? container.decode(String.self, forKey: .condition)
         let genre = try? container.decode(String.self, forKey: .genre)
@@ -55,14 +61,13 @@ struct DashboardComic: Decodable {
 
         guard let user = owner ?? borrower else { throw DashboardComicError.noUser }
 
-        var userType: String {
+        var dashUserType: UserType {
             if owner != nil {
-                return "owner"
+                return UserType.owner
             } else if borrower != nil {
-                return "borrower"
-            } else { return "" }
+                return UserType.borrower
+            } else { return UserType.none }
         }
-
-        self.init(dashboardComic: comic, dashboardUser: user, dashboardUserType: userType)
+        self.init(dashboardComic: comic, dashboardUser: user, dashboardUserType: dashUserType)
     }
 }

@@ -7,11 +7,10 @@
 //
 
 import Foundation
-import RxSwift
 
 final class DashboardCollectionViewModel {
 
-    var dashboardComics: [DashboardComic]
+    private let dashboardComics: [DashboardComic]
 
     init(comics: [DashboardComic]) {
         dashboardComics = comics
@@ -21,11 +20,23 @@ final class DashboardCollectionViewModel {
         return dashboardComics.count
     }
 
+    func getUserTypeText(forIndex index: Int) -> String {
+        let userType = dashboardComics[index].dashboardUserType
+        switch userType {
+        case .borrower:
+            return "LENT TO"
+        case .owner:
+            return "BORROWED FROM"
+        case .none:
+            return ""
+        }
+    }
+
     func comicTitle(forIndex index: Int) -> String {
         return dashboardComics[index].dashboardComic.comicTitle
     }
 
-    func comicDueDate(forIndex index: Int) -> Date {
+    func getComicDueDate(forIndex index: Int) -> Date {
         guard let returnDate = dashboardComics[index].dashboardComic.returnDate else { return Date()}
         return returnDate
     }
@@ -37,7 +48,7 @@ final class DashboardCollectionViewModel {
     }
 
     func comicImageURL(forIndex index: Int) -> String {
-        guard let url = dashboardComics[index].dashboardComic.comicPhotoURL else { return "https://www.petsworld.in/blog/wp-content/uploads/2014/09/adorable-cat.jpg" }
+        guard let url = dashboardComics[index].dashboardComic.comicPhotoURL else { return "" }
         return url
     }
 }

@@ -1,5 +1,5 @@
 //
-//  LendingCollectionViewCell.swift
+//  DashboardCollectionViewCell.swift
 //  lucien-ios
 //
 //  Created by Fang, Gracie on 10/10/17.
@@ -8,41 +8,29 @@
 
 import UIKit
 
-final class CollectionViewCell: UICollectionViewCell {
+final class DashboardCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet private weak var dueDateLabel: UILabel!
-    @IBOutlet weak var ownerBorrowerNameLabel: UILabel!
-    @IBOutlet weak var bookImage: UIImageView!
-    @IBOutlet weak var lentOrBorrowedLabel: UILabel!
-    @IBOutlet weak var ownerOrBorrowerLabel: UILabel!
+    @IBOutlet private weak var ownerBorrowerNameLabel: UILabel!
+    @IBOutlet private weak var bookImage: UIImageView!
+    @IBOutlet private weak var lentOrBorrowedLabel: UILabel!
+    @IBOutlet private weak var ownerOrBorrowerLabel: UILabel!
 
     static let reuseIdentifier = "comicCell"
 
-    func configure(userType: String, comicDueDate: Date?, ownerBorrowerName: String, imageURL: String?) {
+    func configure(userTypeText: String, comicDueDate: Date?, ownerBorrowerName: String, imageURL: String?) {
         dueDateLabel.text = formatDateToString(date: comicDueDate)
-        configureLentOrBorrowedLabel(userType: userType)
+        lentOrBorrowedLabel.text = userTypeText
         ownerBorrowerNameLabel.text = ownerBorrowerName
         setImage(imageURL: imageURL)
         setStyling()
     }
 
-    func configureLentOrBorrowedLabel(userType: String) {
-        switch userType {
-        case "borrower":
-            lentOrBorrowedLabel.text = "LENT TO"
-        case "owner":
-            lentOrBorrowedLabel.text = "BORROWED FROM"
-        default:
-            lentOrBorrowedLabel.text = ""
-        }
-    }
-
     // TO DO: load another image created by me if no comic book cover
     func setImage(imageURL: String?) {
-        guard let url = URL(string: imageURL!) else { return }
-        let sampleImageData = try? Data(contentsOf: URL(string: "https://www.petsworld.in/blog/wp-content/uploads/2014/09/adorable-cat.jpg")!)
+        guard let imageURL = imageURL else { return }
+        guard let url = URL(string: imageURL) else { return }
         guard let data = try? Data(contentsOf: url) else {
-            bookImage.image = UIImage(data: sampleImageData!)
             return
         }
         bookImage.image = UIImage(data: data)

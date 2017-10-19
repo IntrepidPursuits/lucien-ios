@@ -25,7 +25,10 @@ final class ProfileViewController: UIViewController {
             guard let currentUser = self.loginViewModel.currentUser else { return }
             self.nameLabel.text = currentUser.firstName + " " + currentUser.lastName
             self.emailLabel.text = currentUser.email
-            guard let profilePicURL = currentUser.googlePictureURL else { return }
+            guard let profilePicURL = currentUser.googlePictureURL else {
+                self.emptyProfilePicture.image = UIImage(named: "emptyProfile")
+                return
+            }
             self.setImage(imageURL: profilePicURL)
         }
         configureNavigationController()

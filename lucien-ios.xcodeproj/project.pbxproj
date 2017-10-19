@@ -57,8 +57,8 @@
 		FB6AA1A81F85665200394500 /* UILabel+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6AA1A71F85665200394500 /* UILabel+Extensions.swift */; };
 		FB6B911B1F7C195000910B49 /* AnimatedTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6B911A1F7C195000910B49 /* AnimatedTransition.swift */; };
 		FB7224A21F8E95FF00E8DE8C /* UserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7224A11F8E95FF00E8DE8C /* UserResponse.swift */; };
-		FB743DA61F8D61150066A43F /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB743DA41F8D61150066A43F /* CollectionViewCell.swift */; };
-		FB743DA71F8D61150066A43F /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB743DA51F8D61150066A43F /* CollectionViewCell.xib */; };
+		FB743DA61F8D61150066A43F /* DashboardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB743DA41F8D61150066A43F /* DashboardCollectionViewCell.swift */; };
+		FB743DA71F8D61150066A43F /* DashboardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB743DA51F8D61150066A43F /* DashboardCollectionViewCell.xib */; };
 		FB778BB11F8EA81300068A44 /* DashboardResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB778BB01F8EA81300068A44 /* DashboardResponse.swift */; };
 		FB9C91C01F8FF4F200AEE21A /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9C91BF1F8FF4F200AEE21A /* DashboardViewModel.swift */; };
 		FBAB04711F8D42080099F197 /* LucienAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAB04701F8D42070099F197 /* LucienAPIClient.swift */; };
@@ -154,8 +154,8 @@
 		FB6AA1A71F85665200394500 /* UILabel+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extensions.swift"; sourceTree = "<group>"; };
 		FB6B911A1F7C195000910B49 /* AnimatedTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AnimatedTransition.swift; path = "lucien-ios/AnimatedTransition.swift"; sourceTree = SOURCE_ROOT; };
 		FB7224A11F8E95FF00E8DE8C /* UserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResponse.swift; sourceTree = "<group>"; };
-		FB743DA41F8D61150066A43F /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
-		FB743DA51F8D61150066A43F /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
+		FB743DA41F8D61150066A43F /* DashboardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardCollectionViewCell.swift; sourceTree = "<group>"; };
+		FB743DA51F8D61150066A43F /* DashboardCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DashboardCollectionViewCell.xib; sourceTree = "<group>"; };
 		FB778BB01F8EA81300068A44 /* DashboardResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardResponse.swift; sourceTree = "<group>"; };
 		FB9C91BF1F8FF4F200AEE21A /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
 		FBAB04701F8D42070099F197 /* LucienAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LucienAPIClient.swift; sourceTree = "<group>"; };
@@ -412,8 +412,8 @@
 		FB9C91C11F90058800AEE21A /* DashboardComicCells */ = {
 			isa = PBXGroup;
 			children = (
-				FB743DA41F8D61150066A43F /* CollectionViewCell.swift */,
-				FB743DA51F8D61150066A43F /* CollectionViewCell.xib */,
+				FB743DA41F8D61150066A43F /* DashboardCollectionViewCell.swift */,
+				FB743DA51F8D61150066A43F /* DashboardCollectionViewCell.xib */,
 			);
 			path = DashboardComicCells;
 			sourceTree = "<group>";
@@ -587,7 +587,7 @@
 				1CDBD85E1F7C209800408826 /* Muli-BoldItalic.ttf in Resources */,
 				1CDBD86B1F7C20B500408826 /* PermanentMarker-Regular.ttf in Resources */,
 				1CDBD85C1F7C209800408826 /* Muli-BlackItalic.ttf in Resources */,
-				FB743DA71F8D61150066A43F /* CollectionViewCell.xib in Resources */,
+				FB743DA71F8D61150066A43F /* DashboardCollectionViewCell.xib in Resources */,
 				1CDBD85D1F7C209800408826 /* Muli-Bold.ttf in Resources */,
 				1CDBD8621F7C209800408826 /* Muli-ExtraLightItalic.ttf in Resources */,
 				1CDBD85F1F7C209800408826 /* Muli-ExtraBold.ttf in Resources */,
@@ -798,7 +798,7 @@
 				1C45D0EB1F85611A00E651A5 /* CameraViewController.swift in Sources */,
 				FB9C91C01F8FF4F200AEE21A /* DashboardViewModel.swift in Sources */,
 				FB778BB11F8EA81300068A44 /* DashboardResponse.swift in Sources */,
-				FB743DA61F8D61150066A43F /* CollectionViewCell.swift in Sources */,
+				FB743DA61F8D61150066A43F /* DashboardCollectionViewCell.swift in Sources */,
 				FB480C391F9154D700DFAB08 /* DashboardCollectionView.swift in Sources */,
 				FBB9756B1F7ED8A9007951C4 /* Result.swift in Sources */,
 				1CDB6A221F7995EC003A2BB1 /* StartMyCollectionViewController.swift in Sources */,

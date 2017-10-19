@@ -11,22 +11,22 @@ import UIKit
 final class DashboardCollectionView: UICollectionView, UICollectionViewDataSource, UICollectionViewDelegate {
 
     var collectionViewModel: DashboardCollectionViewModel?
-    let reuseIdentifier = CollectionViewCell.reuseIdentifier
+    let reuseIdentifier = DashboardCollectionViewCell.reuseIdentifier
 
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)
-        dataSource = self
-        delegate = self
-        let nib = UINib(nibName: String(describing: CollectionViewCell.self), bundle: nil)
-        register(nib, forCellWithReuseIdentifier: reuseIdentifier)
-        setLayout()
+        initializeView()
     }
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        initializeView()
+    }
+
+    func initializeView() {
         dataSource = self
         delegate = self
-        let nib = UINib(nibName: String(describing: CollectionViewCell.self), bundle: nil)
+        let nib = UINib(nibName: String(describing: DashboardCollectionViewCell.self), bundle: nil)
         register(nib, forCellWithReuseIdentifier: reuseIdentifier)
         setLayout()
     }
@@ -44,12 +44,12 @@ final class DashboardCollectionView: UICollectionView, UICollectionViewDataSourc
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-        guard let configuredCell = cell as? CollectionViewCell else { return cell}
+        guard let configuredCell = cell as? DashboardCollectionViewCell else { return cell}
         let index = indexPath.item
-        let userType = collectionViewModel?.dashboardComics[index].dashboardUserType ?? ""
-        let comicDueDate = collectionViewModel?.comicDueDate(forIndex: index)
+        let userTypeText = collectionViewModel?.getUserTypeText(forIndex: index) ?? ""
+        let comicDueDate = collectionViewModel?.getComicDueDate(forIndex: index)
         let userName = collectionViewModel?.comicPerson(forIndex: index) ?? "No name found"
-        configuredCell.configure(userType: userType,
+        configuredCell.configure(userTypeText: userTypeText,
                                  comicDueDate: comicDueDate,
                                  ownerBorrowerName: userName,
                                  imageURL: collectionViewModel?.comicImageURL(forIndex: index))
