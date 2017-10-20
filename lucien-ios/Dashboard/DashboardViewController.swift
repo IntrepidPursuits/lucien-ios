@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class DashboardViewController: UIViewController, UIScrollViewDelegate {
+final class DashboardViewController: UIViewController, UIScrollViewDelegate, DismissViewController {
 
     @IBOutlet private weak var dashboardScrollView: UIScrollView!
     @IBOutlet private weak var lendingCollectionView: DashboardCollectionView!
@@ -35,6 +35,10 @@ final class DashboardViewController: UIViewController, UIScrollViewDelegate {
         setUpStyling()
     }
 
+    func dismissPresentedViewController() {
+        navigationController?.popViewController(animated: true)
+    }
+
     func setUpStyling() {
         lendingLabel.addTextSpacing(spacing: 0.5)
         borrowingLabel.addTextSpacing(spacing: 0.5)
@@ -56,6 +60,7 @@ final class DashboardViewController: UIViewController, UIScrollViewDelegate {
     @objc private func addBookButtonPressed() {
         let addComicViewModel = ComicFormViewModel()
         let addBookViewController = ComicFormViewController(comicFormViewModel: addComicViewModel)
+        addBookViewController.delegate = self
         navigationController?.pushViewController(addBookViewController, animated: true)
     }
 

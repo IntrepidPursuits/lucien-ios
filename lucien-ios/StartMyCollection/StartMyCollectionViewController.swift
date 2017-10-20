@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class StartMyCollectionViewController: UIViewController {
+final class StartMyCollectionViewController: UIViewController, DismissViewController {
 
     @IBOutlet private weak var addBookButton: UIButton!
     @IBOutlet private weak var welcomeImageView: UIImageView!
@@ -29,6 +29,10 @@ final class StartMyCollectionViewController: UIViewController {
         setUpAddBookButton()
     }
 
+    func dismissPresentedViewController() {
+        dismiss(animated: true, completion: nil)
+    }
+
     func setUpWelcomeLabel() {
         welcomeLabel.addTextSpacing(spacing: 1.2)
     }
@@ -47,6 +51,7 @@ final class StartMyCollectionViewController: UIViewController {
 
     @IBAction func startCollectionButtonPressed(_ sender: UIButton) {
         let comicFormViewController = ComicFormViewController(comicFormViewModel: ComicFormViewModel())
+        comicFormViewController.delegate = self
         let comicFormViewControllerNavigationController = UINavigationController(rootViewController: comicFormViewController)
         present(comicFormViewControllerNavigationController, animated: true, completion: nil)
     }

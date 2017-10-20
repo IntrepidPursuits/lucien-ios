@@ -52,6 +52,7 @@
 		FB480C391F9154D700DFAB08 /* DashboardCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB480C381F9154D700DFAB08 /* DashboardCollectionView.swift */; };
 		FB480C3B1F9160AE00DFAB08 /* DashboardCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB480C3A1F9160AE00DFAB08 /* DashboardCollectionViewModel.swift */; };
 		FB5389C81F9A31C90099FB98 /* AddEditComic.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5389C71F9A31C90099FB98 /* AddEditComic.swift */; };
+		FB5389CC1F9A3EC00099FB98 /* DismissViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5389CB1F9A3EC00099FB98 /* DismissViewController.swift */; };
 		FB6AA1A01F85313500394500 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6AA19E1F85313500394500 /* DashboardViewController.swift */; };
 		FB6AA1A11F85313500394500 /* DashboardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB6AA19F1F85313500394500 /* DashboardViewController.xib */; };
 		FB6AA1A61F855E7100394500 /* UINavigationBar+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6AA1A51F855E7100394500 /* UINavigationBar+Extensions.swift */; };
@@ -151,6 +152,7 @@
 		FB480C381F9154D700DFAB08 /* DashboardCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardCollectionView.swift; sourceTree = "<group>"; };
 		FB480C3A1F9160AE00DFAB08 /* DashboardCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardCollectionViewModel.swift; sourceTree = "<group>"; };
 		FB5389C71F9A31C90099FB98 /* AddEditComic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditComic.swift; sourceTree = "<group>"; };
+		FB5389CB1F9A3EC00099FB98 /* DismissViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissViewController.swift; sourceTree = "<group>"; };
 		FB6AA19E1F85313500394500 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		FB6AA19F1F85313500394500 /* DashboardViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DashboardViewController.xib; sourceTree = "<group>"; };
 		FB6AA1A51F855E7100394500 /* UINavigationBar+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+Extensions.swift"; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 			isa = PBXGroup;
 			children = (
 				1C7EE0881F8BEE43003F2A81 /* AlertDisplaying.swift */,
+				FB5389CB1F9A3EC00099FB98 /* DismissViewController.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -825,6 +828,7 @@
 				1CAE48D81F8412960087E96E /* LucienConstants.swift in Sources */,
 				1CAFFC671F797FA200B79F11 /* AppDelegate.swift in Sources */,
 				1C7EE0891F8BEE43003F2A81 /* AlertDisplaying.swift in Sources */,
+				FB5389CC1F9A3EC00099FB98 /* DismissViewController.swift in Sources */,
 				1C07CBF41F7AE1FD007C66D0 /* ComicFormViewController.swift in Sources */,
 				FB82CC5B1F994513009E42B0 /* DashboardComic.swift in Sources */,
 				1C182A321F82D1C1001566E1 /* RawRepresentable.swift in Sources */,
