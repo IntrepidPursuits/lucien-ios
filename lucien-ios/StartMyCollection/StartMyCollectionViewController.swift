@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class StartMyCollectionViewController: UIViewController, DismissViewController {
+final class StartMyCollectionViewController: UIViewController {
 
     @IBOutlet private weak var addBookButton: UIButton!
     @IBOutlet private weak var welcomeImageView: UIImageView!
@@ -22,15 +22,21 @@ final class StartMyCollectionViewController: UIViewController, DismissViewContro
         super.viewDidLoad()
         setUpStyling()
     }
+    override func viewDidAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(true, animated: true)
+        super.viewDidAppear(true)
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(false, animated: true)
+        super.viewDidDisappear(true)
+    }
 
     func setUpStyling() {
+        navigationController?.navigationBar.isHidden = true
         setUpWelcomeLabel()
         setUpToDashboardButton()
         setUpAddBookButton()
-    }
-
-    func dismissPresentedViewController() {
-        dismiss(animated: true, completion: nil)
     }
 
     func setUpWelcomeLabel() {
@@ -51,19 +57,18 @@ final class StartMyCollectionViewController: UIViewController, DismissViewContro
 
     @IBAction func startCollectionButtonPressed(_ sender: UIButton) {
         let comicFormViewController = ComicFormViewController(comicFormViewModel: ComicFormViewModel())
-        comicFormViewController.delegate = self
-        let comicFormViewControllerNavigationController = UINavigationController(rootViewController: comicFormViewController)
-        present(comicFormViewControllerNavigationController, animated: true, completion: nil)
+        navigationController?.pushViewController(comicFormViewController, animated: true)
     }
 
     @IBAction func dashboardButtonPressed(_ sender: UIButton) {
         lucienAPIClient.getDashboard { response in
             switch response {
             case .success(let result):
-                let viewModel = DashboardViewModel(dashboard: result)
-                let dashboardViewController = DashboardViewController(dashboardViewModel: viewModel)
-                let dashboardNavigationController = UINavigationController(rootViewController: dashboardViewController)
-                self.present(dashboardNavigationController, animated: true, completion: nil)
+                DispatchQueue.main.async {
+                    let viewModel = DashboardViewModel(dashboard: result)
+                    let dashboardViewController = DashboardViewController(dashboardViewModel: viewModel)
+                    self.navigationController?.pushViewController(dashboardViewController, animated: true)
+                }
             case .failure(let error):
                 print(error)
             }

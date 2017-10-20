@@ -66,6 +66,3 @@ struct ComicRequestBody: Encodable {
         self.comic = comic
     }
 }
-
-
-

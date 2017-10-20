@@ -59,10 +59,6 @@ final class ComicFormViewController: UIViewController, AlertDisplaying {
     private let cameraViewController = CameraViewController()
     private let disposeBag = DisposeBag()
 
-    // MARK: - Variables
-
-    var delegate: DismissViewController?
-
     init(comicFormViewModel: ComicFormViewModel) {
         viewModel = comicFormViewModel
         super.init(nibName: nil, bundle: nil)
@@ -183,7 +179,7 @@ final class ComicFormViewController: UIViewController, AlertDisplaying {
         backButton.style = .plain
         backButton.rx.tap.subscribeNext { [weak self] in
             let goBackAction = UIAlertAction(title: "Go Back to Previous Page", style: .destructive) { _ in
-                self?.delegate?.dismissPresentedViewController()
+                self?.navigationController?.popViewController(animated: true)
                 self?.deregisterFromKeyboardNotifications()
             }
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
