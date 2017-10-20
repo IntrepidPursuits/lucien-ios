@@ -9,7 +9,8 @@
 import Foundation
 
 struct Comic: Codable {
-    var seriesTitle: String
+    var comicID: String?
+    var comicTitle: String
     var storyTitle: String
     var volume: String?
     var issueNumber: String?
@@ -21,7 +22,8 @@ struct Comic: Codable {
     var genre: String?
 
     private enum CodingKeys: String, CodingKey {
-        case seriesTitle = "comic_title"
+        case comicID = "id"
+        case comicTitle = "comic_title"
         case storyTitle = "story_title"
         case volume = "volume"
         case issueNumber = "issue_number"
@@ -33,13 +35,15 @@ struct Comic: Codable {
         case genre = "genre"
     }
 
-    init(seriesTitle: String,
+    init(comicID: String? =  nil,
+         comicTitle: String,
          storyTitle: String,
          optionalComicFields: OptionalComicFields? = nil,
          returnDate: String? = nil,
          condition: String? = nil,
          genre: String? = nil) {
-        self.seriesTitle = seriesTitle
+        self.comicID = comicID
+        self.comicTitle = comicTitle
         self.storyTitle = storyTitle
         self.volume = optionalComicFields?.volume
         self.issueNumber = optionalComicFields?.issueNumber
@@ -87,6 +91,11 @@ extension Comic {
             case .poor:
                 return "Poor"
             }
+        }
+
+        static func convertStringToCondition(condition: String?) -> Condition? {
+            guard let condition = condition else { return nil }
+            return Condition.allCases.filter { $0.title == condition }.first
         }
     }
 
@@ -183,6 +192,11 @@ extension Comic {
                 return "Western"
 
             }
+        }
+
+        static func convertStringToGenre(genre: String?) -> Genre? {
+            guard let genre = genre else { return nil }
+            return Genre.allCases.filter { $0.title == genre }.first
         }
     }
 }

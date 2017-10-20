@@ -149,14 +149,31 @@ final class LucienAPIClient: APIClient {
      - parameter comic: Comic Object
      - parameter completion:
      */
-    func addComicBook(comic: Comic, completion: @escaping (Result<Error?>) -> Void) {
+    func addComicBook(comic: Comic, completion: @escaping (Result<Void>) -> Void) {
         let lucienRequest = LucienRequest.addComicBook(comic: comic)
         let urlRequest = lucienRequest.urlRequest
         sendRequest(urlRequest) { response in
-            print(response)
             switch response {
             case .success:
-                completion(.success(nil))
+                completion(.success(()))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+
+    /**
+     Sends a request to the Lucien server to edit a comic book.
+     - parameter comic: Comic Object
+     - parameter completion:
+     */
+    func editComicBook(comicID: String, comic: Comic, completion: @escaping (Result<Void>) -> Void) {
+        let lucienRequest = LucienRequest.editComicBook(comicID: comicID, comic: comic)
+        let urlRequest = lucienRequest.urlRequest
+        sendRequest(urlRequest) { response in
+            switch response {
+            case .success:
+                completion(.success(()))
             case .failure(let error):
                 completion(.failure(error))
             }

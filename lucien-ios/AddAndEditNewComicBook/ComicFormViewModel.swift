@@ -41,7 +41,7 @@ class ComicFormViewModel {
             condition.asObservable(),
             genre.asObservable()
         ) { seriesTitle, storyTitle, optionalFields, condition, genre in
-            return Comic(seriesTitle: seriesTitle,
+            return Comic(comicTitle: seriesTitle,
                          storyTitle: storyTitle,
                          optionalComicFields: optionalFields,
                          returnDate: nil,
@@ -64,51 +64,42 @@ class ComicFormViewModel {
 
     // MARK: - Variables
 
-    var comicFormMode: ComicFormMode
-
+    var comicFormMode = ComicFormMode.add
+    var coverPhoto: UIImage?
     var navigationBarTitle: String {
         return comicFormMode == .add ? "Add Book" : "Edit Book"
     }
+
     var genreTitles: Observable<[String]> {
         return Observable.just(Comic.Genre.allCases.map { $0.title })
     }
+
     var conditionTitles: Observable<[String]> {
         return Observable.just(Comic.Condition.allCases.map { $0.title })
     }
-
-    var coverPhoto: UIImage?
 
     // MARK: - Private Variables
 
     private let disposeBag = DisposeBag()
     private let lucienAPIClient = LucienAPIClient()
+    private var comicID: String? 
 
-    // ComicFormMode is set to .add by default if default init is used.
-    init() {
-        comicFormMode = .add
-    }
+    init() {}
 
     /// Initializes ComicFormViewModel with a ComicFormMode of edit.
     /// The parameters will be used by the ComicFormViewController to fill in its textfields.
-    init(coverPhoto: UIImage?,
-         seriesTitle: String,
-         volume: String?,
-         storyTitle: String,
-         issue: String?,
-         publisher: String?,
-         release: String?,
-         genre: Comic.Genre?,
-         condition: Comic.Condition?) {
+    init(comic: Comic, coverPhoto: UIImage?) {
         comicFormMode = .edit
+        self.comicID = comic.comicID
         self.coverPhoto = coverPhoto
-        self.seriesTitle.value = seriesTitle
-        self.volume.value = volume ?? ""
-        self.storyTitle.value = storyTitle
-        self.issue.value = issue ?? ""
-        self.publisher.value = publisher ?? ""
-        self.release.value = release ?? ""
-        self.genre.value = genre
-        self.condition.value = condition
+        self.seriesTitle.value = comic.comicTitle
+        self.volume.value = comic.volume ?? ""
+        self.storyTitle.value = comic.storyTitle
+        self.issue.value = comic.issueNumber ?? ""
+        self.publisher.value = comic.publisher ?? ""
+        self.release.value = comic.releaseYear ?? ""
+        self.genre.value = Comic.Genre.convertStringToGenre(genre: comic.genre)
+        self.condition.value = Comic.Condition.convertStringToCondition(condition: comic.condition)
     }
 
     // MARK: - Instance Methods
@@ -122,13 +113,29 @@ class ComicFormViewModel {
                 else { return }
 
             comic.asObservable().subscribe(onNext: { comic in
-                self?.addComicBook(comic: comic, completion: completion)
+                if self?.comicFormMode == .add {
+                    self?.addComicBook(comic: comic, completion: completion)
+                } else {
+                    guard let comicID = self?.comicID else { return }
+                    self?.editComicBook(comicID: comicID, comic: comic, completion: completion)
+                }
             }) >>> disposeBag
         }
     }
 
     private func addComicBook(comic: Comic, completion: @escaping (Error?) -> Void) {
         lucienAPIClient.addComicBook(comic: comic) { response in
+            switch response {
+            case .success:
+                completion(nil)
+            case .failure(let error):
+                completion(error)
+            }
+        }
+    }
+
+    private func editComicBook(comicID: String, comic: Comic, completion: @escaping (Error?) -> Void) {
+        lucienAPIClient.editComicBook(comicID: comicID, comic: comic) { response in
             switch response {
             case .success:
                 completion(nil)
