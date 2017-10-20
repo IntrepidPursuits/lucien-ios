@@ -8,13 +8,36 @@
 
 import UIKit
 
-final class DashboardViewController: UIViewController {
+final class DashboardViewController: UIViewController, UIScrollViewDelegate {
 
     @IBOutlet private weak var dashboardScrollView: UIScrollView!
+    @IBOutlet private weak var lendingCollectionView: DashboardCollectionView!
+    @IBOutlet private weak var borrowingCollectionView: DashboardCollectionView!
+    @IBOutlet private weak var lendingLabel: UILabel!
+    @IBOutlet private weak var borrowingLabel: UILabel!
+
+    var viewModel: DashboardViewModel
+
+    init(dashboardViewModel: DashboardViewModel) {
+        viewModel = dashboardViewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        lendingCollectionView.collectionViewModel = viewModel.lendingViewModel
+        borrowingCollectionView.collectionViewModel = viewModel.borrowingViewModel
         configureNavigationController()
+        setUpStyling()
+    }
+
+    func setUpStyling() {
+        lendingLabel.addTextSpacing(spacing: 0.5)
+        borrowingLabel.addTextSpacing(spacing: 0.5)
     }
 
     private func configureNavigationController() {
@@ -22,6 +45,18 @@ final class DashboardViewController: UIViewController {
         navigationItem.title = "Lucien"
         navigationController?.navigationBar.setNavBarTitle()
         setViewProfileButton()
+        setAddBookButton()
+    }
+
+    private func setAddBookButton() {
+        let addBookButton = UIBarButtonItem(image: UIImage(named: "plusIcon"), style: .plain, target: self, action: #selector(DashboardViewController.addBookButtonPressed))
+        navigationItem.rightBarButtonItem = addBookButton
+    }
+
+    @objc private func addBookButtonPressed() {
+        let addComicViewModel = ComicFormViewModel()
+        let addBookViewController = ComicFormViewController(comicFormViewModel: addComicViewModel)
+        navigationController?.pushViewController(addBookViewController, animated: true)
     }
 
     private func setViewProfileButton() {

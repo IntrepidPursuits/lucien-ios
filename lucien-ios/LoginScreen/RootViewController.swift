@@ -64,19 +64,22 @@ final class RootViewController: UIViewController, GIDSignInDelegate, GIDSignInUI
     }
 
     func showDashboard() {
-        let dashboardViewController = DashboardViewController()
-        let dashboardNavigationController = UINavigationController(rootViewController: dashboardViewController)
-        present(dashboardNavigationController, animated: true, completion: nil)
+        lucienAPIClient.getDashboard { response in
+            switch response {
+            case .success(let result):
+                let viewModel = DashboardViewModel(dashboard: result)
+                let dashboardViewController = DashboardViewController(dashboardViewModel: viewModel)
+                let dashboardNavigationController = UINavigationController(rootViewController: dashboardViewController)
+                self.present(dashboardNavigationController, animated: true, completion: nil)
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
 
     func showStartMyCollection() {
         let startMyCollectionViewController = StartMyCollectionViewController()
         present(startMyCollectionViewController, animated: true, completion: nil)
-    }
-
-    func showLendingCollection() {
-        let lendingCollectionController = LendingViewController()
-        present(lendingCollectionController, animated: true, completion: nil)
     }
 }
 

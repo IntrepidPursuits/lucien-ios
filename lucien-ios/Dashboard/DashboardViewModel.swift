@@ -10,20 +10,18 @@ import Foundation
 
 final class DashboardViewModel {
 
-    static let lendingCellTitles = ["Princess", "Gracie", "Kittens"]
     let lucienAPIClient = LucienAPIClient()
-    var dashboardData: Dashboard?
+    private var dashboardData: Dashboard
 
-    func getDashboard(completion: @escaping () -> Void) {
-        lucienAPIClient.getDashboard { response in
-            switch response {
-            case .success(let result):
-                self.dashboardData = result
-                completion()
-            case .failure(let error):
-                print(error)
-                completion()
-            }
-        }
+    init(dashboard: Dashboard) {
+        dashboardData = dashboard
+    }
+
+    var lendingViewModel: DashboardCollectionViewModel {
+        return DashboardCollectionViewModel(comics: (dashboardData.lendingComics))
+    }
+
+    var borrowingViewModel: DashboardCollectionViewModel {
+        return DashboardCollectionViewModel(comics: (dashboardData.borrowingComics))
     }
 }

@@ -48,18 +48,21 @@
 		EC0F6CA4839D3BF363E4EE9E /* Pods_lucien_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 074BF9F99258AD884EC6794A /* Pods_lucien_iosTests.framework */; };
 		FB32385B1F868B8100FE81E2 /* Dashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB32385A1F868B8100FE81E2 /* Dashboard.swift */; };
 		FB32385D1F87CB3400FE81E2 /* AuthenticationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB32385C1F87CB3400FE81E2 /* AuthenticationResponse.swift */; };
-		FB3238601F8BCED700FE81E2 /* LendingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB32385E1F8BCED700FE81E2 /* LendingViewController.swift */; };
-		FB3238611F8BCED700FE81E2 /* LendingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB32385F1F8BCED700FE81E2 /* LendingViewController.xib */; };
-		FB3238631F8BD37600FE81E2 /* UIViewToNib.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3238621F8BD37600FE81E2 /* UIViewToNib.swift */; };
+		FB32A7581F97A0E70058AB97 /* DashboardComicUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB32A7571F97A0E70058AB97 /* DashboardComicUser.swift */; };
+		FB480C391F9154D700DFAB08 /* DashboardCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB480C381F9154D700DFAB08 /* DashboardCollectionView.swift */; };
+		FB480C3B1F9160AE00DFAB08 /* DashboardCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB480C3A1F9160AE00DFAB08 /* DashboardCollectionViewModel.swift */; };
+		FB5389C81F9A31C90099FB98 /* AddEditComic.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5389C71F9A31C90099FB98 /* AddEditComic.swift */; };
 		FB6AA1A01F85313500394500 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6AA19E1F85313500394500 /* DashboardViewController.swift */; };
 		FB6AA1A11F85313500394500 /* DashboardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB6AA19F1F85313500394500 /* DashboardViewController.xib */; };
 		FB6AA1A61F855E7100394500 /* UINavigationBar+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6AA1A51F855E7100394500 /* UINavigationBar+Extensions.swift */; };
 		FB6AA1A81F85665200394500 /* UILabel+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6AA1A71F85665200394500 /* UILabel+Extensions.swift */; };
 		FB6B911B1F7C195000910B49 /* AnimatedTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6B911A1F7C195000910B49 /* AnimatedTransition.swift */; };
-		FB743DA61F8D61150066A43F /* LendingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB743DA41F8D61150066A43F /* LendingCollectionViewCell.swift */; };
-		FB743DA71F8D61150066A43F /* LendingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB743DA51F8D61150066A43F /* LendingCollectionViewCell.xib */; };
+		FB7224A21F8E95FF00E8DE8C /* UserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7224A11F8E95FF00E8DE8C /* UserResponse.swift */; };
+		FB743DA61F8D61150066A43F /* DashboardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB743DA41F8D61150066A43F /* DashboardCollectionViewCell.swift */; };
+		FB743DA71F8D61150066A43F /* DashboardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB743DA51F8D61150066A43F /* DashboardCollectionViewCell.xib */; };
+		FB778BB11F8EA81300068A44 /* DashboardResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB778BB01F8EA81300068A44 /* DashboardResponse.swift */; };
+		FB82CC5B1F994513009E42B0 /* DashboardComic.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB82CC5A1F994513009E42B0 /* DashboardComic.swift */; };
 		FB9C91C01F8FF4F200AEE21A /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9C91BF1F8FF4F200AEE21A /* DashboardViewModel.swift */; };
-		FBAB046F1F8D42010099F197 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAB046E1F8D42010099F197 /* APIClient.swift */; };
 		FBAB04711F8D42080099F197 /* LucienAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAB04701F8D42070099F197 /* LucienAPIClient.swift */; };
 		FBAEE5781F7EE75C00A44F50 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAEE5771F7EE75C00A44F50 /* LoginViewModel.swift */; };
 		FBB975691F7EBB31007951C4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB975681F7EBB31007951C4 /* User.swift */; };
@@ -70,6 +73,7 @@
 		FBDDE2CB1F7E7C4F00A4EA34 /* LucienRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDDE2CA1F7E7C4F00A4EA34 /* LucienRequest.swift */; };
 		FBE07CC91F7C2A4500CF1A3F /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE07CC71F7C2A4500CF1A3F /* ProfileViewController.swift */; };
 		FBE07CCA1F7C2A4500CF1A3F /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBE07CC81F7C2A4500CF1A3F /* ProfileViewController.xib */; };
+		FBE3F29B1F913335008D4853 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE3F29A1F913335008D4853 /* APIClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -143,18 +147,21 @@
 		E8801CCEE845676EFB1D691F /* Pods-lucien-iosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lucien-iosTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-lucien-iosTests/Pods-lucien-iosTests.release.xcconfig"; sourceTree = "<group>"; };
 		FB32385A1F868B8100FE81E2 /* Dashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dashboard.swift; sourceTree = "<group>"; };
 		FB32385C1F87CB3400FE81E2 /* AuthenticationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationResponse.swift; sourceTree = "<group>"; };
-		FB32385E1F8BCED700FE81E2 /* LendingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LendingViewController.swift; sourceTree = "<group>"; };
-		FB32385F1F8BCED700FE81E2 /* LendingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LendingViewController.xib; sourceTree = "<group>"; };
-		FB3238621F8BD37600FE81E2 /* UIViewToNib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewToNib.swift; sourceTree = "<group>"; };
+		FB32A7571F97A0E70058AB97 /* DashboardComicUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardComicUser.swift; sourceTree = "<group>"; };
+		FB480C381F9154D700DFAB08 /* DashboardCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardCollectionView.swift; sourceTree = "<group>"; };
+		FB480C3A1F9160AE00DFAB08 /* DashboardCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardCollectionViewModel.swift; sourceTree = "<group>"; };
+		FB5389C71F9A31C90099FB98 /* AddEditComic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditComic.swift; sourceTree = "<group>"; };
 		FB6AA19E1F85313500394500 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		FB6AA19F1F85313500394500 /* DashboardViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DashboardViewController.xib; sourceTree = "<group>"; };
 		FB6AA1A51F855E7100394500 /* UINavigationBar+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+Extensions.swift"; sourceTree = "<group>"; };
 		FB6AA1A71F85665200394500 /* UILabel+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extensions.swift"; sourceTree = "<group>"; };
 		FB6B911A1F7C195000910B49 /* AnimatedTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AnimatedTransition.swift; path = "lucien-ios/AnimatedTransition.swift"; sourceTree = SOURCE_ROOT; };
-		FB743DA41F8D61150066A43F /* LendingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LendingCollectionViewCell.swift; sourceTree = "<group>"; };
-		FB743DA51F8D61150066A43F /* LendingCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LendingCollectionViewCell.xib; sourceTree = "<group>"; };
+		FB7224A11F8E95FF00E8DE8C /* UserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResponse.swift; sourceTree = "<group>"; };
+		FB743DA41F8D61150066A43F /* DashboardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardCollectionViewCell.swift; sourceTree = "<group>"; };
+		FB743DA51F8D61150066A43F /* DashboardCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DashboardCollectionViewCell.xib; sourceTree = "<group>"; };
+		FB778BB01F8EA81300068A44 /* DashboardResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardResponse.swift; sourceTree = "<group>"; };
+		FB82CC5A1F994513009E42B0 /* DashboardComic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardComic.swift; sourceTree = "<group>"; };
 		FB9C91BF1F8FF4F200AEE21A /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
-		FBAB046E1F8D42010099F197 /* APIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		FBAB04701F8D42070099F197 /* LucienAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LucienAPIClient.swift; sourceTree = "<group>"; };
 		FBAEE5771F7EE75C00A44F50 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		FBB975681F7EBB31007951C4 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -166,6 +173,7 @@
 		FBDDE2CA1F7E7C4F00A4EA34 /* LucienRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LucienRequest.swift; sourceTree = "<group>"; };
 		FBE07CC71F7C2A4500CF1A3F /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = "lucien-ios/ProfileViewController.swift"; sourceTree = "<group>"; };
 		FBE07CC81F7C2A4500CF1A3F /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ProfileViewController.xib; path = "lucien-ios/ProfileViewController.xib"; sourceTree = "<group>"; };
+		FBE3F29A1F913335008D4853 /* APIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,7 +211,6 @@
 				1C7EE0841F880DF6003F2A81 /* UIImageExtensions.swift */,
 				FB6AA1A51F855E7100394500 /* UINavigationBar+Extensions.swift */,
 				FB6AA1A71F85665200394500 /* UILabel+Extensions.swift */,
-				FB3238621F8BD37600FE81E2 /* UIViewToNib.swift */,
 				1CB8F1FD1F953D4F000DE8F3 /* Rx+Extensions.swift */,
 			);
 			path = Extensions;
@@ -383,10 +390,12 @@
 		FB6AA1A21F85313900394500 /* Dashboard */ = {
 			isa = PBXGroup;
 			children = (
-				FB6AA19E1F85313500394500 /* DashboardViewController.swift */,
 				FB6AA19F1F85313500394500 /* DashboardViewController.xib */,
-				FB9C91C11F90058800AEE21A /* DashboardLending */,
+				FB6AA19E1F85313500394500 /* DashboardViewController.swift */,
+				FB9C91C11F90058800AEE21A /* DashboardComicCells */,
 				FB9C91BF1F8FF4F200AEE21A /* DashboardViewModel.swift */,
+				FB480C381F9154D700DFAB08 /* DashboardCollectionView.swift */,
+				FB480C3A1F9160AE00DFAB08 /* DashboardCollectionViewModel.swift */,
 			);
 			path = Dashboard;
 			sourceTree = "<group>";
@@ -402,22 +411,20 @@
 			path = LoginScreen;
 			sourceTree = "<group>";
 		};
-		FB9C91C11F90058800AEE21A /* DashboardLending */ = {
+		FB9C91C11F90058800AEE21A /* DashboardComicCells */ = {
 			isa = PBXGroup;
 			children = (
-				FB32385E1F8BCED700FE81E2 /* LendingViewController.swift */,
-				FB32385F1F8BCED700FE81E2 /* LendingViewController.xib */,
-				FB743DA41F8D61150066A43F /* LendingCollectionViewCell.swift */,
-				FB743DA51F8D61150066A43F /* LendingCollectionViewCell.xib */,
+				FB743DA41F8D61150066A43F /* DashboardCollectionViewCell.swift */,
+				FB743DA51F8D61150066A43F /* DashboardCollectionViewCell.xib */,
 			);
-			path = DashboardLending;
+			path = DashboardComicCells;
 			sourceTree = "<group>";
 		};
 		FB9D84831F7D97CD00EC1B5E /* APIClient */ = {
 			isa = PBXGroup;
 			children = (
+				FBE3F29A1F913335008D4853 /* APIClient.swift */,
 				FBAB04701F8D42070099F197 /* LucienAPIClient.swift */,
-				FBAB046E1F8D42010099F197 /* APIClient.swift */,
 				FBDDE2CA1F7E7C4F00A4EA34 /* LucienRequest.swift */,
 				FBB9756A1F7ED8A9007951C4 /* Result.swift */,
 				FBB9756C1F7ED8E6007951C4 /* Request.swift */,
@@ -433,6 +440,11 @@
 				FB32385A1F868B8100FE81E2 /* Dashboard.swift */,
 				FB32385C1F87CB3400FE81E2 /* AuthenticationResponse.swift */,
 				1C577CD71F94FADA00EB9423 /* AmazonS3ImageURL.swift */,
+				FB7224A11F8E95FF00E8DE8C /* UserResponse.swift */,
+				FB778BB01F8EA81300068A44 /* DashboardResponse.swift */,
+				FB32A7571F97A0E70058AB97 /* DashboardComicUser.swift */,
+				FB82CC5A1F994513009E42B0 /* DashboardComic.swift */,
+				FB5389C71F9A31C90099FB98 /* AddEditComic.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -579,7 +591,7 @@
 				1CDBD85E1F7C209800408826 /* Muli-BoldItalic.ttf in Resources */,
 				1CDBD86B1F7C20B500408826 /* PermanentMarker-Regular.ttf in Resources */,
 				1CDBD85C1F7C209800408826 /* Muli-BlackItalic.ttf in Resources */,
-				FB743DA71F8D61150066A43F /* LendingCollectionViewCell.xib in Resources */,
+				FB743DA71F8D61150066A43F /* DashboardCollectionViewCell.xib in Resources */,
 				1CDBD85D1F7C209800408826 /* Muli-Bold.ttf in Resources */,
 				1CDBD8621F7C209800408826 /* Muli-ExtraLightItalic.ttf in Resources */,
 				1CDBD85F1F7C209800408826 /* Muli-ExtraBold.ttf in Resources */,
@@ -587,7 +599,6 @@
 				1CDBD8681F7C209800408826 /* Muli-SemiBoldItalic.ttf in Resources */,
 				1CDBD8611F7C209800408826 /* Muli-ExtraLight.ttf in Resources */,
 				1CDBD8671F7C209800408826 /* Muli-SemiBold.ttf in Resources */,
-				FB3238611F8BCED700FE81E2 /* LendingViewController.xib in Resources */,
 				1CDBD8661F7C209800408826 /* Muli-Regular.ttf in Resources */,
 				1CDBD8651F7C209800408826 /* Muli-LightItalic.ttf in Resources */,
 			);
@@ -790,8 +801,9 @@
 			files = (
 				1C45D0EB1F85611A00E651A5 /* CameraViewController.swift in Sources */,
 				FB9C91C01F8FF4F200AEE21A /* DashboardViewModel.swift in Sources */,
-				FBAB046F1F8D42010099F197 /* APIClient.swift in Sources */,
-				FB743DA61F8D61150066A43F /* LendingCollectionViewCell.swift in Sources */,
+				FB778BB11F8EA81300068A44 /* DashboardResponse.swift in Sources */,
+				FB743DA61F8D61150066A43F /* DashboardCollectionViewCell.swift in Sources */,
+				FB480C391F9154D700DFAB08 /* DashboardCollectionView.swift in Sources */,
 				FBB9756B1F7ED8A9007951C4 /* Result.swift in Sources */,
 				1CDB6A221F7995EC003A2BB1 /* StartMyCollectionViewController.swift in Sources */,
 				FB6AA1A81F85665200394500 /* UILabel+Extensions.swift in Sources */,
@@ -801,10 +813,12 @@
 				FBAB04711F8D42080099F197 /* LucienAPIClient.swift in Sources */,
 				FBAEE5781F7EE75C00A44F50 /* LoginViewModel.swift in Sources */,
 				FBB975691F7EBB31007951C4 /* User.swift in Sources */,
+				FB480C3B1F9160AE00DFAB08 /* DashboardCollectionViewModel.swift in Sources */,
 				FB6B911B1F7C195000910B49 /* AnimatedTransition.swift in Sources */,
 				1CDBD86F1F7C26B800408826 /* LucienTheme.swift in Sources */,
 				1CB8F1FE1F953D4F000DE8F3 /* Rx+Extensions.swift in Sources */,
 				FBB9756D1F7ED8E6007951C4 /* Request.swift in Sources */,
+				FB32A7581F97A0E70058AB97 /* DashboardComicUser.swift in Sources */,
 				FBD844431F798B1D00A8E352 /* RootViewController.swift in Sources */,
 				1C21642E1F8FCAA900938D59 /* BottomBorderTextField.swift in Sources */,
 				FBE07CC91F7C2A4500CF1A3F /* ProfileViewController.swift in Sources */,
@@ -812,13 +826,15 @@
 				1CAFFC671F797FA200B79F11 /* AppDelegate.swift in Sources */,
 				1C7EE0891F8BEE43003F2A81 /* AlertDisplaying.swift in Sources */,
 				1C07CBF41F7AE1FD007C66D0 /* ComicFormViewController.swift in Sources */,
-				FB3238601F8BCED700FE81E2 /* LendingViewController.swift in Sources */,
+				FB82CC5B1F994513009E42B0 /* DashboardComic.swift in Sources */,
 				1C182A321F82D1C1001566E1 /* RawRepresentable.swift in Sources */,
 				1C7EE0851F880DF6003F2A81 /* UIImageExtensions.swift in Sources */,
-				FB3238631F8BD37600FE81E2 /* UIViewToNib.swift in Sources */,
+				FBE3F29B1F913335008D4853 /* APIClient.swift in Sources */,
 				FB6AA1A61F855E7100394500 /* UINavigationBar+Extensions.swift in Sources */,
+				FB7224A21F8E95FF00E8DE8C /* UserResponse.swift in Sources */,
 				1C182A2F1F82CA70001566E1 /* Comic.swift in Sources */,
 				FB6AA1A01F85313500394500 /* DashboardViewController.swift in Sources */,
+				FB5389C81F9A31C90099FB98 /* AddEditComic.swift in Sources */,
 				FB32385B1F868B8100FE81E2 /* Dashboard.swift in Sources */,
 				FB32385D1F87CB3400FE81E2 /* AuthenticationResponse.swift in Sources */,
 			);
@@ -980,6 +996,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = THP5EV5EJ9;
 				INFOPLIST_FILE = "lucien-ios/Info.plist";
@@ -987,7 +1004,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "lucien.lucien-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "87389d3b-35be-45fb-a2d7-28e9789b78d0";
+				PROVISIONING_PROFILE = "02ce98a4-a6e7-4cfe-90c2-310f473567f8";
 				PROVISIONING_PROFILE_SPECIFIER = "General iOS Development Provisioning Profile";
 				SWIFT_OBJC_BRIDGING_HEADER = "lucien-ios/lucien-ios-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1002,6 +1019,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = THP5EV5EJ9;
 				INFOPLIST_FILE = "lucien-ios/Info.plist";
@@ -1009,7 +1027,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "lucien.lucien-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "c35b8b66-bd4e-4d96-9cf3-ab4522fea9cc";
+				PROVISIONING_PROFILE = "02ce98a4-a6e7-4cfe-90c2-310f473567f8";
 				PROVISIONING_PROFILE_SPECIFIER = "General iOS Development Provisioning Profile";
 				SWIFT_OBJC_BRIDGING_HEADER = "lucien-ios/lucien-ios-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;

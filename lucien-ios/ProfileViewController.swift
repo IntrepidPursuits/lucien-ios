@@ -21,17 +21,28 @@ final class ProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureNavigationController()
         loginViewModel.getCurrentUser {
             guard let currentUser = self.loginViewModel.currentUser else { return }
             self.nameLabel.text = currentUser.firstName + " " + currentUser.lastName
             self.emailLabel.text = currentUser.email
+            guard let profilePicURL = currentUser.googlePictureURL else {
+                self.emptyProfilePicture.image = UIImage(named: "emptyProfile")
+                return
+            }
+            self.setImage(imageURL: profilePicURL)
         }
+        configureNavigationController()
         setUpStyling()
     }
 
     @objc func back(sender: UIBarButtonItem) {
         navigationController?.popViewController(animated: true)
+    }
+
+    func setImage(imageURL: String) {
+        guard let url = URL(string: imageURL) else { return }
+        guard let data = try? Data(contentsOf: url) else { return }
+        emptyProfilePicture.image = UIImage(data: data)
     }
 
     private func configureNavigationController() {

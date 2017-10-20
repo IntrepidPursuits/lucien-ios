@@ -9,19 +9,18 @@
 import Foundation
 
 struct Dashboard: Decodable {
+
     var myCollectionCount: Int
+    var lendingComicCount: Int
+    var borrowingComicCount: Int
+    var lendingComics: [DashboardComicUser]
+    var borrowingComics: [DashboardComicUser]
 
     enum CodingKeys: String, CodingKey {
-        case dashboard
-    }
-
-    enum DashboardKeys: String, CodingKey {
         case myCollectionCount = "my_collection_count_by_issue"
-    }
-
-    init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self)
-        let dashboardContainer = try values.nestedContainer(keyedBy: DashboardKeys.self, forKey: .dashboard)
-        myCollectionCount = try dashboardContainer.decode(Int.self, forKey: .myCollectionCount)
+        case lendingComicCount = "lending_count"
+        case borrowingComicCount = "borrowing_count"
+        case lendingComics = "lending"
+        case borrowingComics = "borrowing"
     }
 }

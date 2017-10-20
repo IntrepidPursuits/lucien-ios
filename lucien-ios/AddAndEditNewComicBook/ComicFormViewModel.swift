@@ -29,7 +29,7 @@ class ComicFormViewModel {
 
     // MARK: - RxSwift
 
-    var comic: Observable<Comic> {
+    var comic: Observable<AddEditComic> {
         let optionalObservable = Observable.combineLatest(volume.asObservable(), issue.asObservable(), publisher.asObservable(), release.asObservable(), coverPhotoURL.asObservable()) { volume, issue, publisher, release, coverPhotoURL in
             return OptionalComicFields(volume: volume, issueNumber: issue, publisher: publisher, releaseYear: release, comicPhotoURL: coverPhotoURL)
         }
@@ -41,7 +41,7 @@ class ComicFormViewModel {
             condition.asObservable(),
             genre.asObservable()
         ) { seriesTitle, storyTitle, optionalFields, condition, genre in
-            return Comic(comicTitle: seriesTitle,
+            return AddEditComic(comicTitle: seriesTitle,
                          storyTitle: storyTitle,
                          optionalComicFields: optionalFields,
                          returnDate: nil,
@@ -59,8 +59,8 @@ class ComicFormViewModel {
     let publisher = Variable<String?>(nil)
     let release = Variable<String?>(nil)
     let coverPhotoURL = Variable<String?>(nil)
-    let condition = Variable<Comic.Condition?>(nil)
-    let genre = Variable<Comic.Genre?>(nil)
+    let condition = Variable<Condition?>(nil)
+    let genre = Variable<Genre?>(nil)
 
     // MARK: - Variables
 
@@ -71,11 +71,11 @@ class ComicFormViewModel {
     }
 
     var genreTitles: Observable<[String]> {
-        return Observable.just(Comic.Genre.allCases.map { $0.title })
+        return Observable.just(Genre.allCases.map { $0.title })
     }
 
     var conditionTitles: Observable<[String]> {
-        return Observable.just(Comic.Condition.allCases.map { $0.title })
+        return Observable.just(Condition.allCases.map { $0.title })
     }
 
     // MARK: - Private Variables
@@ -88,7 +88,7 @@ class ComicFormViewModel {
 
     /// Initializes ComicFormViewModel with a ComicFormMode of edit.
     /// The parameters will be used by the ComicFormViewController to fill in its textfields.
-    init(comic: Comic, coverPhoto: UIImage?) {
+    init(comic: AddEditComic, coverPhoto: UIImage?) {
         comicFormMode = .edit
         self.comicID = comic.comicID
         self.coverPhoto = coverPhoto
@@ -98,8 +98,14 @@ class ComicFormViewModel {
         self.issue.value = comic.issueNumber ?? ""
         self.publisher.value = comic.publisher ?? ""
         self.release.value = comic.releaseYear ?? ""
-        self.genre.value = Comic.Genre.convertStringToGenre(genre: comic.genre)
-        self.condition.value = Comic.Condition.convertStringToCondition(condition: comic.condition)
+        self.genre.value = Genre.convertStringToGenre(genre: comic.genre)
+        self.condition.value = Condition.convertStringToCondition(condition: comic.condition)
+    }
+
+
+    func convertStringToCondition(condition: String?) -> Condition? {
+        guard let condition = condition else { return nil }
+        return Condition.allCases.filter { $0.title == condition }.first
     }
 
     // MARK: - Instance Methods
@@ -123,7 +129,7 @@ class ComicFormViewModel {
         }
     }
 
-    private func addComicBook(comic: Comic, completion: @escaping (Error?) -> Void) {
+    private func addComicBook(comic: AddEditComic, completion: @escaping (Error?) -> Void) {
         lucienAPIClient.addComicBook(comic: comic) { response in
             switch response {
             case .success:
@@ -134,7 +140,7 @@ class ComicFormViewModel {
         }
     }
 
-    private func editComicBook(comicID: String, comic: Comic, completion: @escaping (Error?) -> Void) {
+    private func editComicBook(comicID: String, comic: AddEditComic, completion: @escaping (Error?) -> Void) {
         lucienAPIClient.editComicBook(comicID: comicID, comic: comic) { response in
             switch response {
             case .success:
