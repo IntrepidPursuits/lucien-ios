@@ -67,10 +67,12 @@ final class RootViewController: UIViewController, GIDSignInDelegate, GIDSignInUI
         lucienAPIClient.getDashboard { response in
             switch response {
             case .success(let result):
-                let viewModel = DashboardViewModel(dashboard: result)
-                let dashboardViewController = DashboardViewController(dashboardViewModel: viewModel)
-                let dashboardNavigationController = UINavigationController(rootViewController: dashboardViewController)
-                self.present(dashboardNavigationController, animated: true, completion: nil)
+                DispatchQueue.main.async {
+                    let viewModel = DashboardViewModel(dashboard: result)
+                    let dashboardViewController = DashboardViewController(dashboardViewModel: viewModel)
+                    let dashboardNavigationController = UINavigationController(rootViewController: dashboardViewController)
+                    self.present(dashboardNavigationController, animated: true, completion: nil)
+                }
             case .failure(let error):
                 print(error)
             }
@@ -79,7 +81,8 @@ final class RootViewController: UIViewController, GIDSignInDelegate, GIDSignInUI
 
     func showStartMyCollection() {
         let startMyCollectionViewController = StartMyCollectionViewController()
-        present(startMyCollectionViewController, animated: true, completion: nil)
+        let startCollectionNavigationController = UINavigationController(rootViewController: startMyCollectionViewController)
+        present(startCollectionNavigationController, animated: true, completion: nil)
     }
 }
 

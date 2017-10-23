@@ -179,7 +179,7 @@ final class ComicFormViewController: UIViewController, AlertDisplaying {
         backButton.style = .plain
         backButton.rx.tap.subscribeNext { [weak self] in
             let goBackAction = UIAlertAction(title: "Go Back to Previous Page", style: .destructive) { _ in
-                self?.dismiss(animated: true, completion: nil)
+                self?.navigationController?.popViewController(animated: true)
                 self?.deregisterFromKeyboardNotifications()
             }
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
