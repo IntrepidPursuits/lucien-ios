@@ -55,6 +55,7 @@
 		FB5389CE1F9A8B290099FB98 /* DashboardTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5389CD1F9A8B290099FB98 /* DashboardTableView.swift */; };
 		FB6569091F9E27E700AABA5D /* MyCollectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6569071F9E27E700AABA5D /* MyCollectionTableViewCell.swift */; };
 		FB65690A1F9E27E700AABA5D /* MyCollectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB6569081F9E27E700AABA5D /* MyCollectionTableViewCell.xib */; };
+		FB65690C1F9E59C500AABA5D /* MyComics.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB65690B1F9E59C500AABA5D /* MyComics.swift */; };
 		FB6AA1A01F85313500394500 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6AA19E1F85313500394500 /* DashboardViewController.swift */; };
 		FB6AA1A11F85313500394500 /* DashboardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB6AA19F1F85313500394500 /* DashboardViewController.xib */; };
 		FB6AA1A61F855E7100394500 /* UINavigationBar+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6AA1A51F855E7100394500 /* UINavigationBar+Extensions.swift */; };
@@ -157,6 +158,7 @@
 		FB5389CD1F9A8B290099FB98 /* DashboardTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTableView.swift; sourceTree = "<group>"; };
 		FB6569071F9E27E700AABA5D /* MyCollectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCollectionTableViewCell.swift; sourceTree = "<group>"; };
 		FB6569081F9E27E700AABA5D /* MyCollectionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyCollectionTableViewCell.xib; sourceTree = "<group>"; };
+		FB65690B1F9E59C500AABA5D /* MyComics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyComics.swift; sourceTree = "<group>"; };
 		FB6AA19E1F85313500394500 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		FB6AA19F1F85313500394500 /* DashboardViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DashboardViewController.xib; sourceTree = "<group>"; };
 		FB6AA1A51F855E7100394500 /* UINavigationBar+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+Extensions.swift"; sourceTree = "<group>"; };
@@ -454,6 +456,7 @@
 				FB32A7571F97A0E70058AB97 /* DashboardComicUser.swift */,
 				FB82CC5A1F994513009E42B0 /* DashboardComic.swift */,
 				FB5389C71F9A31C90099FB98 /* AddEditComic.swift */,
+				FB65690B1F9E59C500AABA5D /* MyComics.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -839,6 +842,7 @@
 				FB82CC5B1F994513009E42B0 /* DashboardComic.swift in Sources */,
 				1C182A321F82D1C1001566E1 /* RawRepresentable.swift in Sources */,
 				1C7EE0851F880DF6003F2A81 /* UIImageExtensions.swift in Sources */,
+				FB65690C1F9E59C500AABA5D /* MyComics.swift in Sources */,
 				FBE3F29B1F913335008D4853 /* APIClient.swift in Sources */,
 				FB6AA1A61F855E7100394500 /* UINavigationBar+Extensions.swift in Sources */,
 				FB7224A21F8E95FF00E8DE8C /* UserResponse.swift in Sources */,

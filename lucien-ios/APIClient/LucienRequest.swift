@@ -20,6 +20,7 @@ enum LucienRequest: Request {
     case createPhotoURL
     case addComicBook(comic: AddEditComic)
     case editComicBook(comicID: String, comic: AddEditComic)
+    case myComics
 
     var method: HTTPMethod {
         switch self {
@@ -37,6 +38,8 @@ enum LucienRequest: Request {
             return .POST
         case .editComicBook:
             return .PATCH
+        case .myComics:
+            return .GET
         }
     }
 
@@ -56,6 +59,8 @@ enum LucienRequest: Request {
             return "/my_comics"
         case .editComicBook(let comicID, _):
             return "/my_comics/\(comicID)"
+        case .myComics:
+            return "/my_comics"
         }
     }
 
@@ -75,16 +80,18 @@ enum LucienRequest: Request {
             return true
         case .editComicBook:
             return true
+        case .myComics:
+            return true
         }
     }
 
     var queryParameters: [String : Any]? {
         switch self {
-        case .authenticate, .getCurrentUser, .getDashboard, .hasCollection, .createPhotoURL, .addComicBook, .editComicBook:
+        case .authenticate, .getCurrentUser, .getDashboard, .hasCollection, .createPhotoURL, .addComicBook, .editComicBook, .myComics:
             return nil
         }
     }
-
+,
     var body: Data? {
         let encoder = JSONEncoder()
         switch self {
@@ -102,12 +109,14 @@ enum LucienRequest: Request {
             return try? encoder.encode(ComicRequestBody(comic: comic))
         case .editComicBook(_, let comic):
             return try? encoder.encode(ComicRequestBody(comic: comic))
+        case .myComics:
+            return nil
         }
     }
 
     var contentType: String {
         switch self {
-        case .authenticate, .getCurrentUser, .getDashboard, .hasCollection, .createPhotoURL, .addComicBook, .editComicBook:
+        case .authenticate, .getCurrentUser, .getDashboard, .hasCollection, .createPhotoURL, .addComicBook, .editComicBook, .myComics:
             return "Application/JSON"
 
         }

@@ -15,7 +15,8 @@ final class DashboardViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet private weak var borrowingCollectionView: DashboardCollectionView!
     @IBOutlet private weak var lendingLabel: UILabel!
     @IBOutlet private weak var borrowingLabel: UILabel!
-    @IBOutlet weak var tableView: DashboardTableView!
+    @IBOutlet private weak var tableView: DashboardTableView!
+    @IBOutlet private weak var myCollectionLabel: UILabel!
 
     var viewModel: DashboardViewModel
 
@@ -44,6 +45,7 @@ final class DashboardViewController: UIViewController, UIScrollViewDelegate {
     func setStyling() {
         lendingLabel.addTextSpacing(spacing: 0.5)
         borrowingLabel.addTextSpacing(spacing: 0.5)
+        myCollectionLabel.addTextSpacing(spacing: 0.7)
     }
 
     private func configureNavigationController() {
