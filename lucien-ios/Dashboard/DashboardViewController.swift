@@ -15,6 +15,7 @@ final class DashboardViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet private weak var borrowingCollectionView: DashboardCollectionView!
     @IBOutlet private weak var lendingLabel: UILabel!
     @IBOutlet private weak var borrowingLabel: UILabel!
+    @IBOutlet weak var tableView: DashboardTableView!
 
     var viewModel: DashboardViewModel
 
@@ -29,13 +30,18 @@ final class DashboardViewController: UIViewController, UIScrollViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        lendingCollectionView.collectionViewModel = viewModel.lendingViewModel
-        borrowingCollectionView.collectionViewModel = viewModel.borrowingViewModel
         configureNavigationController()
-        setUpStyling()
+        setViewModels()
+        setStyling()
     }
 
-    func setUpStyling() {
+    func setViewModels() {
+        lendingCollectionView.collectionViewModel = viewModel.lendingViewModel
+        borrowingCollectionView.collectionViewModel = viewModel.borrowingViewModel
+        tableView.collectionViewModel = viewModel.lendingViewModel
+    }
+
+    func setStyling() {
         lendingLabel.addTextSpacing(spacing: 0.5)
         borrowingLabel.addTextSpacing(spacing: 0.5)
     }
