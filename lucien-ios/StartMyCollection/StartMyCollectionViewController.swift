@@ -22,14 +22,14 @@ final class StartMyCollectionViewController: UIViewController {
         super.viewDidLoad()
         setUpStyling()
     }
-    override func viewDidAppear(_ animated: Bool) {
-        navigationController?.setNavigationBarHidden(true, animated: true)
-        super.viewDidAppear(true)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: false)
     }
 
-    override func viewDidDisappear(_ animated: Bool) {
-        navigationController?.setNavigationBarHidden(false, animated: true)
-        super.viewDidDisappear(true)
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: false)
     }
 
     func setUpStyling() {
