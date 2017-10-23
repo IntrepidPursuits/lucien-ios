@@ -97,6 +97,28 @@ final class LucienAPIClient: APIClient {
         }
     }
 
+    func getMyComics(completion: @escaping (Result<[DashboardComicUser]>) -> Void) {
+        let urlRequest = LucienRequest.getMyComics.urlRequest
+        sendRequest(urlRequest) { response in
+            switch response {
+            case .success(let result):
+                guard let result = result else {
+                    return completion(.failure(LucienAPIError.noResult))
+                }
+                let decoder = JSONDecoder()
+                decoder.dateDecodingStrategy = .iso8601
+                do {
+                    let myComicResponse = try decoder.decode(MyComics.self, from: result)
+                    completion(.success(myComicResponse.myCollection))
+                } catch (let error) {
+                    completion(.failure(error))
+                }
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+
     /**
      Sends a request to the Lucien server to create a public URL for a comic book image.
      - parameter completion:

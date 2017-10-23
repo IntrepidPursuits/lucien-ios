@@ -64,14 +64,23 @@ final class RootViewController: UIViewController, GIDSignInDelegate, GIDSignInUI
     }
 
     func showDashboard() {
-        lucienAPIClient.getDashboard { response in
+        var dashboardComics = [DashboardComicUser]()
+        lucienAPIClient.getMyComics { response in
             switch response {
             case .success(let result):
                 DispatchQueue.main.async {
-                    let viewModel = DashboardViewModel(dashboard: result)
-                    let dashboardViewController = DashboardViewController(dashboardViewModel: viewModel)
-                    let dashboardNavigationController = UINavigationController(rootViewController: dashboardViewController)
-                    self.present(dashboardNavigationController, animated: true, completion: nil)
+                    dashboardComics = result
+                    self.lucienAPIClient.getDashboard { response in
+                        switch response {
+                        case .success(let result):
+                            let viewModel = DashboardViewModel(dashboard: result, myComics: dashboardComics)
+                            let dashboardViewController = DashboardViewController(dashboardViewModel: viewModel)
+                            let dashboardNavigationController = UINavigationController(rootViewController: dashboardViewController)
+                            self.present(dashboardNavigationController, animated: true, completion: nil)
+                        case .failure(let error):
+                            print(error)
+                        }
+                    }
                 }
             case .failure(let error):
                 print(error)

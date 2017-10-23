@@ -18,15 +18,16 @@ public enum HTTPMethod: String {
 public protocol Request {
 
     static var baseURL: String { get }
-    static var acceptHeader: String { get }
     static var authorizationHeader: String { get set }
 
+    var acceptHeader: String { get }
     var method: HTTPMethod { get }
     var path: String { get }
     var authenticated: Bool { get }
     var queryParameters: [String: Any]? { get }
     var body: Data? { get }
     var contentType: String { get }
+
 }
 
 public extension Request {
@@ -39,7 +40,7 @@ public extension Request {
         request.httpMethod = method.rawValue
         request.httpBody = body
 
-        request.setValue(Self.acceptHeader, forHTTPHeaderField: "Accept")
+        request.setValue(acceptHeader, forHTTPHeaderField: "Accept")
         request.setValue(Self.authorizationHeader, forHTTPHeaderField: "Authorization")
         request.setValue(contentType, forHTTPHeaderField: "Content-Type")
 

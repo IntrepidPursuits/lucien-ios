@@ -39,7 +39,7 @@ final class DashboardViewController: UIViewController, UIScrollViewDelegate {
     func setViewModels() {
         lendingCollectionView.collectionViewModel = viewModel.lendingViewModel
         borrowingCollectionView.collectionViewModel = viewModel.borrowingViewModel
-        tableView.collectionViewModel = viewModel.lendingViewModel
+        tableView.collectionViewModel = viewModel.myComicsViewModel
     }
 
     func setStyling() {

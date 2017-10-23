@@ -15,7 +15,7 @@ enum DashboardComicUserError: Error {
 
 struct DashboardComicUser: Decodable {
     var dashboardComic: DashboardComic
-    var dashboardUser: User
+    var dashboardUser: User?
     var dashboardUserType: UserType
 
     enum UserType: String {
@@ -29,9 +29,9 @@ struct DashboardComicUser: Decodable {
         case owner
     }
 
-    init(dashboardComic: DashboardComic, dashboardUser: User, dashboardUserType: UserType) {
+    init(dashboardComic: DashboardComic, dashboardUser: User?, dashboardUserType: UserType) {
         self.dashboardComic = dashboardComic
-        self.dashboardUser = dashboardUser
+        self.dashboardUser = dashboardUser ?? nil
         self.dashboardUserType = dashboardUserType
     }
 
@@ -60,7 +60,7 @@ struct DashboardComicUser: Decodable {
 
         let comic = DashboardComic(comicID: id, comicTitle: comicTitle, storyTitle: storyTitle, volume: volume, issueNumber: issueNumber, publisher: publisher, releaseDate: releaseDate, comicPhotoURL: comicPhotoURL, returnDate: returnDate, condition: condition, genre: genre, releaseYear: releaseYear, createdAt: createdAt, updatedAt: updatedAt, ownerID: ownerID, borrowerID: borrowerID)
 
-        guard let user = owner ?? borrower else { throw DashboardComicUserError.noUser }
+        let user = owner ?? borrower ?? nil
 
         var dashUserType: UserType {
             if owner != nil {

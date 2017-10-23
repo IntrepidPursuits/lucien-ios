@@ -9,12 +9,9 @@
 import Foundation
 
 struct MyComics: Decodable {
-
-    var myComics: [Comic]
+    var myCollection: [DashboardComicUser]
 
     enum CodingKeys: String, CodingKey {
-        case myComics = "my_comics"
+        case myCollection = "my_comics"
     }
-
-    
 }
