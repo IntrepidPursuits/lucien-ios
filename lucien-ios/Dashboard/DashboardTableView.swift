@@ -28,6 +28,7 @@ final class DashboardTableView: UITableView, UITableViewDataSource, UITableViewD
         dataSource = self
         let nib = UINib(nibName: String(describing: MyCollectionTableViewCell.self), bundle: nil)
         register(nib, forCellReuseIdentifier: reuseIdentifier)
+        self.contentInset = UIEdgeInsets(top: 0, left: 16, bottom: 24, right: 16)
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -46,7 +47,13 @@ final class DashboardTableView: UITableView, UITableViewDataSource, UITableViewD
         let storyTitle = collectionViewModel?.getStoryTitle(forIndex: index) ?? ""
         let volume = collectionViewModel?.getVolume(forIndex: index) ?? ""
         let issue = collectionViewModel?.getIssueNumber(forIndex: index) ?? ""
-        configuredCell.configure(comicTitle: comicTitle, storyTitle: storyTitle, volume: volume, issueNumber: issue)
+        let imageURL = collectionViewModel?.comicImageURL(forIndex: index) ?? ""
+        configuredCell.configure(comicTitle: comicTitle, storyTitle: storyTitle, volume: volume, issueNumber: issue, imageURL: imageURL)
+
+        let whiteCellBackground = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width - 32, height: 116))
+        configuredCell.styleCell(whiteCellBackground: whiteCellBackground)
+
+        tableView.contentSize = CGSize(width: tableView.frame.size.width - 32, height: tableView.contentSize.height)
         return configuredCell
     }
 }

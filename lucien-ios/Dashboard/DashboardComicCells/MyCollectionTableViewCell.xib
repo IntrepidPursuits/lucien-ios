@@ -79,6 +79,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="comicImageView" destination="v0q-i0-Mat" id="S0j-hY-AdY"/>
                 <outlet property="comicTitleLabel" destination="TTx-7Y-83S" id="6ux-iW-9dP"/>
                 <outlet property="storyTitleLabel" destination="4Jv-Zk-bNh" id="iWB-Sa-ds9"/>
                 <outlet property="volumeIssueLabel" destination="eFu-6c-Fx4" id="hil-W0-S6i"/>

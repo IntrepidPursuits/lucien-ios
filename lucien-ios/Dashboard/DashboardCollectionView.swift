@@ -49,10 +49,11 @@ final class DashboardCollectionView: UICollectionView, UICollectionViewDataSourc
         let userTypeText = collectionViewModel?.getUserTypeText(forIndex: index) ?? ""
         let comicDueDate = collectionViewModel?.getComicDueDate(forIndex: index)
         let userName = collectionViewModel?.comicPerson(forIndex: index) ?? "No name found"
+        let imageURL = collectionViewModel?.comicImageURL(forIndex: index)
         configuredCell.configure(userTypeText: userTypeText,
                                  comicDueDate: comicDueDate,
                                  ownerBorrowerName: userName,
-                                 imageURL: collectionViewModel?.comicImageURL(forIndex: index))
+                                 imageURL: imageURL)
         return configuredCell
     }
 }
