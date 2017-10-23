@@ -21,6 +21,7 @@ final class ProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        clearProfile()
         loginViewModel.getCurrentUser {
             guard let currentUser = self.loginViewModel.currentUser else { return }
             self.nameLabel.text = currentUser.firstName + " " + currentUser.lastName
@@ -33,6 +34,12 @@ final class ProfileViewController: UIViewController {
         }
         configureNavigationController()
         setUpStyling()
+    }
+
+    func clearProfile() {
+        self.nameLabel.text = ""
+        self.emailLabel.text = ""
+        self.emptyProfilePicture.image = nil
     }
 
     @objc func back(sender: UIBarButtonItem) {
@@ -65,6 +72,7 @@ final class ProfileViewController: UIViewController {
 
     @IBAction func logoutButtonPressed(_ sender: UIButton) {
         GIDSignIn.sharedInstance().signOut()
+        clearProfile()
         let rootViewController = RootViewController()
         self.navigationController?.present(rootViewController, animated: true, completion: nil)
     }
