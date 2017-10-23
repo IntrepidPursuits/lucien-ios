@@ -59,7 +59,8 @@ final class DashboardCollectionView: UICollectionView, UICollectionViewDataSourc
         configuredCell.configure(userTypeText: userTypeText,
                                  comicDueDate: comicDueDate,
                                  ownerBorrowerName: userName,
-                                 imageURL: imageURL, storyTitle: storyTitle)
+                                 imageURL: imageURL,
+                                 storyTitle: storyTitle)
         return configuredCell
     }
 
