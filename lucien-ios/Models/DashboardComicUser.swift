@@ -31,7 +31,7 @@ struct DashboardComicUser: Decodable {
 
     init(dashboardComic: DashboardComic, dashboardUser: User?, dashboardUserType: UserType) {
         self.dashboardComic = dashboardComic
-        self.dashboardUser = dashboardUser ?? nil
+        self.dashboardUser = dashboardUser
         self.dashboardUserType = dashboardUserType
     }
 
@@ -60,7 +60,7 @@ struct DashboardComicUser: Decodable {
 
         let comic = DashboardComic(comicID: id, comicTitle: comicTitle, storyTitle: storyTitle, volume: volume, issueNumber: issueNumber, publisher: publisher, releaseDate: releaseDate, comicPhotoURL: comicPhotoURL, returnDate: returnDate, condition: condition, genre: genre, releaseYear: releaseYear, createdAt: createdAt, updatedAt: updatedAt, ownerID: ownerID, borrowerID: borrowerID)
 
-        let user = owner ?? borrower ?? nil
+        let user = owner ?? borrower
 
         var dashUserType: UserType {
             if owner != nil {
