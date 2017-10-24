@@ -117,7 +117,7 @@ class ComicFormViewModel {
                 let disposeBag = self?.disposeBag
                 else { return }
 
-            comic.asObservable().subscribe(onNext: { comic in
+            comic.asObservable().single().subscribe(onNext: { comic in
                 if self?.comicFormMode == .add {
                     self?.addComicBook(comic: comic, completion: completion)
                 } else {
