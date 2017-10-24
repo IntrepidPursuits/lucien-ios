@@ -82,7 +82,7 @@ class ComicFormViewModel {
 
     private let disposeBag = DisposeBag()
     private let lucienAPIClient = LucienAPIClient()
-    private var comicID: String? 
+    private var comicID: String?
 
     init() {}
 
@@ -102,7 +102,6 @@ class ComicFormViewModel {
         self.condition.value = Condition.convertStringToCondition(condition: comic.condition)
     }
 
-
     func convertStringToCondition(condition: String?) -> Condition? {
         guard let condition = condition else { return nil }
         return Condition.allCases.filter { $0.title == condition }.first
@@ -118,7 +117,7 @@ class ComicFormViewModel {
                 let disposeBag = self?.disposeBag
                 else { return }
 
-            comic.asObservable().subscribe(onNext: { comic in
+            comic.asObservable().single().subscribe(onNext: { comic in
                 if self?.comicFormMode == .add {
                     self?.addComicBook(comic: comic, completion: completion)
                 } else {

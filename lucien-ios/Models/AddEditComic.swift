@@ -6,11 +6,10 @@
 //  Copyright © 2017 Intrepid Pursuits. All rights reserved.
 //
 
-
 import Foundation
 
 struct AddEditComic: Comic, Codable {
-    
+
     var comicID: String?
     var comicTitle: String
     var storyTitle: String
@@ -23,7 +22,7 @@ struct AddEditComic: Comic, Codable {
     var condition: String?
     var genre: String?
     var releaseYear: String?
-    
+
     enum CodingKeys: String, CodingKey {
         case comicID = "id"
         case comicTitle = "comic_title"
@@ -38,7 +37,7 @@ struct AddEditComic: Comic, Codable {
         case genre = "genre"
         case releaseYear = "release_year"
     }
-    
+
     init(comicID: String? =  nil,
          comicTitle: String,
          storyTitle: String,
