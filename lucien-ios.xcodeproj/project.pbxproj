@@ -52,6 +52,10 @@
 		FB480C391F9154D700DFAB08 /* DashboardCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB480C381F9154D700DFAB08 /* DashboardCollectionView.swift */; };
 		FB480C3B1F9160AE00DFAB08 /* DashboardCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB480C3A1F9160AE00DFAB08 /* DashboardCollectionViewModel.swift */; };
 		FB5389C81F9A31C90099FB98 /* AddEditComic.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5389C71F9A31C90099FB98 /* AddEditComic.swift */; };
+		FB5389CE1F9A8B290099FB98 /* DashboardTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5389CD1F9A8B290099FB98 /* DashboardTableView.swift */; };
+		FB6569091F9E27E700AABA5D /* MyCollectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6569071F9E27E700AABA5D /* MyCollectionTableViewCell.swift */; };
+		FB65690A1F9E27E700AABA5D /* MyCollectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB6569081F9E27E700AABA5D /* MyCollectionTableViewCell.xib */; };
+		FB65690C1F9E59C500AABA5D /* MyComics.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB65690B1F9E59C500AABA5D /* MyComics.swift */; };
 		FB6AA1A01F85313500394500 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6AA19E1F85313500394500 /* DashboardViewController.swift */; };
 		FB6AA1A11F85313500394500 /* DashboardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB6AA19F1F85313500394500 /* DashboardViewController.xib */; };
 		FB6AA1A61F855E7100394500 /* UINavigationBar+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6AA1A51F855E7100394500 /* UINavigationBar+Extensions.swift */; };
@@ -151,6 +155,10 @@
 		FB480C381F9154D700DFAB08 /* DashboardCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardCollectionView.swift; sourceTree = "<group>"; };
 		FB480C3A1F9160AE00DFAB08 /* DashboardCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardCollectionViewModel.swift; sourceTree = "<group>"; };
 		FB5389C71F9A31C90099FB98 /* AddEditComic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditComic.swift; sourceTree = "<group>"; };
+		FB5389CD1F9A8B290099FB98 /* DashboardTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTableView.swift; sourceTree = "<group>"; };
+		FB6569071F9E27E700AABA5D /* MyCollectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCollectionTableViewCell.swift; sourceTree = "<group>"; };
+		FB6569081F9E27E700AABA5D /* MyCollectionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyCollectionTableViewCell.xib; sourceTree = "<group>"; };
+		FB65690B1F9E59C500AABA5D /* MyComics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyComics.swift; sourceTree = "<group>"; };
 		FB6AA19E1F85313500394500 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		FB6AA19F1F85313500394500 /* DashboardViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DashboardViewController.xib; sourceTree = "<group>"; };
 		FB6AA1A51F855E7100394500 /* UINavigationBar+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+Extensions.swift"; sourceTree = "<group>"; };
@@ -396,6 +404,7 @@
 				FB9C91BF1F8FF4F200AEE21A /* DashboardViewModel.swift */,
 				FB480C381F9154D700DFAB08 /* DashboardCollectionView.swift */,
 				FB480C3A1F9160AE00DFAB08 /* DashboardCollectionViewModel.swift */,
+				FB5389CD1F9A8B290099FB98 /* DashboardTableView.swift */,
 			);
 			path = Dashboard;
 			sourceTree = "<group>";
@@ -416,6 +425,8 @@
 			children = (
 				FB743DA41F8D61150066A43F /* DashboardCollectionViewCell.swift */,
 				FB743DA51F8D61150066A43F /* DashboardCollectionViewCell.xib */,
+				FB6569071F9E27E700AABA5D /* MyCollectionTableViewCell.swift */,
+				FB6569081F9E27E700AABA5D /* MyCollectionTableViewCell.xib */,
 			);
 			path = DashboardComicCells;
 			sourceTree = "<group>";
@@ -445,6 +456,7 @@
 				FB32A7571F97A0E70058AB97 /* DashboardComicUser.swift */,
 				FB82CC5A1F994513009E42B0 /* DashboardComic.swift */,
 				FB5389C71F9A31C90099FB98 /* AddEditComic.swift */,
+				FB65690B1F9E59C500AABA5D /* MyComics.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -594,6 +606,7 @@
 				FB743DA71F8D61150066A43F /* DashboardCollectionViewCell.xib in Resources */,
 				1CDBD85D1F7C209800408826 /* Muli-Bold.ttf in Resources */,
 				1CDBD8621F7C209800408826 /* Muli-ExtraLightItalic.ttf in Resources */,
+				FB65690A1F9E27E700AABA5D /* MyCollectionTableViewCell.xib in Resources */,
 				1CDBD85F1F7C209800408826 /* Muli-ExtraBold.ttf in Resources */,
 				1CDB6A231F7995EC003A2BB1 /* StartMyCollectionViewController.xib in Resources */,
 				1CDBD8681F7C209800408826 /* Muli-SemiBoldItalic.ttf in Resources */,
@@ -829,14 +842,17 @@
 				FB82CC5B1F994513009E42B0 /* DashboardComic.swift in Sources */,
 				1C182A321F82D1C1001566E1 /* RawRepresentable.swift in Sources */,
 				1C7EE0851F880DF6003F2A81 /* UIImageExtensions.swift in Sources */,
+				FB65690C1F9E59C500AABA5D /* MyComics.swift in Sources */,
 				FBE3F29B1F913335008D4853 /* APIClient.swift in Sources */,
 				FB6AA1A61F855E7100394500 /* UINavigationBar+Extensions.swift in Sources */,
 				FB7224A21F8E95FF00E8DE8C /* UserResponse.swift in Sources */,
+				FB5389CE1F9A8B290099FB98 /* DashboardTableView.swift in Sources */,
 				1C182A2F1F82CA70001566E1 /* Comic.swift in Sources */,
 				FB6AA1A01F85313500394500 /* DashboardViewController.swift in Sources */,
 				FB5389C81F9A31C90099FB98 /* AddEditComic.swift in Sources */,
 				FB32385B1F868B8100FE81E2 /* Dashboard.swift in Sources */,
 				FB32385D1F87CB3400FE81E2 /* AuthenticationResponse.swift in Sources */,
+				FB6569091F9E27E700AABA5D /* MyCollectionTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

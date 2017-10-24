@@ -32,8 +32,22 @@ final class DashboardCollectionViewModel {
         }
     }
 
-    func comicTitle(forIndex index: Int) -> String {
+    func getComicTitle(forIndex index: Int) -> String {
         return dashboardComics[index].dashboardComic.comicTitle
+    }
+
+    func getStoryTitle(forIndex index: Int) -> String {
+        return dashboardComics[index].dashboardComic.storyTitle
+    }
+
+    func getIssueNumber(forIndex index: Int) -> String {
+        guard let issue = dashboardComics[index].dashboardComic.issueNumber else { return "" }
+        return issue
+    }
+
+    func getVolume(forIndex index: Int) -> String {
+        guard let volume = dashboardComics[index].dashboardComic.volume else { return "" }
+        return volume
     }
 
     func getComicDueDate(forIndex index: Int) -> Date {
@@ -42,8 +56,8 @@ final class DashboardCollectionViewModel {
     }
 
     func comicPerson(forIndex index: Int) -> String {
-        let firstName = dashboardComics[index].dashboardUser.firstName
-        let lastName = dashboardComics[index].dashboardUser.lastName
+        guard let firstName = dashboardComics[index].dashboardUser?.firstName else { return "" }
+        guard let lastName = dashboardComics[index].dashboardUser?.lastName else { return "" }
         return firstName + " " + lastName
     }
 

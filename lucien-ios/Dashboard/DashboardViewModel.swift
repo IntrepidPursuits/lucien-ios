@@ -12,9 +12,11 @@ final class DashboardViewModel {
 
     let lucienAPIClient = LucienAPIClient()
     private var dashboardData: Dashboard
+    private var myComicList: [DashboardComicUser]
 
-    init(dashboard: Dashboard) {
+    init(dashboard: Dashboard, myComics: [DashboardComicUser]) {
         dashboardData = dashboard
+        myComicList = myComics
     }
 
     var lendingViewModel: DashboardCollectionViewModel {
@@ -23,5 +25,9 @@ final class DashboardViewModel {
 
     var borrowingViewModel: DashboardCollectionViewModel {
         return DashboardCollectionViewModel(comics: (dashboardData.borrowingComics))
+    }
+
+    var myComicsViewModel: DashboardCollectionViewModel {
+        return DashboardCollectionViewModel(comics: myComicList)
     }
 }
