@@ -23,10 +23,6 @@ final class RootViewController: UIViewController, GIDSignInDelegate, GIDSignInUI
         setUpStyling()
     }
 
-    @IBAction func signOutButtonPressed(_ sender: Any) {
-        GIDSignIn.sharedInstance().signOut()
-    }
-
     func setUpSignIn() {
         GIDSignIn.sharedInstance().uiDelegate = self
         GIDSignIn.sharedInstance().delegate = self

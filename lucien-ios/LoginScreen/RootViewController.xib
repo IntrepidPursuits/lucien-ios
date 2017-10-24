@@ -36,30 +36,21 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vLa-sM-XWW">
-                    <rect key="frame" x="116" y="632" width="143" height="30"/>
-                    <state key="normal" title="Sign out with Google"/>
-                    <connections>
-                        <action selector="signOutButtonPressed:" destination="-1" eventType="touchUpInside" id="s2X-ZY-6iC"/>
-                    </connections>
-                </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="253" verticalHuggingPriority="253" text="Share your love for comics." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U31-Nv-4XI">
                     <rect key="frame" x="84" y="243" width="207.5" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-              </subviews>
+            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="U31-Nv-4XI" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="0j5-0p-Vk8"/>
                 <constraint firstItem="xBX-Is-tn2" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="120" id="4PN-Hq-JNC"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="vLa-sM-XWW" secondAttribute="bottom" constant="5" id="6Uf-fu-WW2"/>
                 <constraint firstItem="xBX-Is-tn2" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Fa1-xQ-8Fp"/>
                 <constraint firstItem="U31-Nv-4XI" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="223" id="b6u-xa-E5r"/>
                 <constraint firstItem="XbY-RA-90Y" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="mTI-Y2-bdG"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="XbY-RA-90Y" secondAttribute="bottom" constant="40" id="rec-k2-Y6l"/>
-                <constraint firstItem="vLa-sM-XWW" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="yuO-Hg-rs2"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="35.5" y="53.5"/>
