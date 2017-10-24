@@ -218,7 +218,6 @@ final class LucienAPIClient: APIClient {
                 decoder.dateDecodingStrategy = .iso8601
                 do {
                     let userResponse = try decoder.decode(AllUsersResponse.self, from: result)
-                    print(userResponse)
                     completion(.success(userResponse.users))
                 } catch(let error) {
                     completion(.failure(error))

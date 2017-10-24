@@ -50,6 +50,8 @@ class LendABookViewController: UIViewController, UITableViewDelegate, AlertDispl
     // MARK: - Private Instance Methods
 
     private func configureTableView() {
+        tableView.estimatedRowHeight = 76
+        tableView.rowHeight = UITableViewAutomaticDimension
         tableView.register(lendingCell, forCellReuseIdentifier: "userCell")
 
         tableView.rx.itemSelected.subscribe(onNext: { [weak self] indexPath in
