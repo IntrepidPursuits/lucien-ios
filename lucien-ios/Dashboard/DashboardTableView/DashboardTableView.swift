@@ -8,10 +8,15 @@
 
 import UIKit
 
+protocol DashboardTableViewDelegate: class {
+    func dashboardTableViewDidSelectComic(with viewModel: ComicDetailViewModel)
+}
+
 final class DashboardTableView: UITableView, UITableViewDataSource, UITableViewDelegate {
 
     var viewModel: DashboardTableViewModel?
     let reuseIdentifier = MyCollectionTableViewCell.reuseIdentifier
+    weak var dashboardDelegate: DashboardTableViewDelegate?
 
     override init(frame: CGRect, style: UITableViewStyle) {
         super.init(frame: frame, style: style)
@@ -60,5 +65,10 @@ final class DashboardTableView: UITableView, UITableViewDataSource, UITableViewD
 
         tableView.contentSize = CGSize(width: tableView.frame.size.width - 32, height: tableView.contentSize.height)
         return configuredCell
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let viewModel = collectionViewModel else { return }
+        dashboardDelegate?.dashboardTableViewDidSelectComic(with: viewModel.createComicDetailViewModel(forIndex: indexPath.item))
     }
 }

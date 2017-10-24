@@ -18,7 +18,4 @@ final class ComicDetailViewModel {
         dashboardComicUser = comic
     }
 
-    var volume: String {
-
-    }
 }
