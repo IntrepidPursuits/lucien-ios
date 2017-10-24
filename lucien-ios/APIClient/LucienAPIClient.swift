@@ -227,4 +227,18 @@ final class LucienAPIClient: APIClient {
             }
         }
     }
+
+    func lendComic(comicID: String, comic: LentComic, completion: @escaping (Result<Void>) -> Void) {
+        let lucienRequest = LucienRequest.lendComic(comicID: comicID, comic: comic)
+        let urlRequest = lucienRequest.urlRequest
+        sendRequest(urlRequest) { response in
+            print(response)
+            switch response {
+            case .success:
+                completion(.success(()))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
 }

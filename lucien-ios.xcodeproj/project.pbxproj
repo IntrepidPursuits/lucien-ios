@@ -48,6 +48,7 @@
 		1CDBD8681F7C209800408826 /* Muli-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1CDBD84D1F7C209300408826 /* Muli-SemiBoldItalic.ttf */; };
 		1CDBD86B1F7C20B500408826 /* PermanentMarker-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1CDBD86A1F7C20B200408826 /* PermanentMarker-Regular.ttf */; };
 		1CDBD86F1F7C26B800408826 /* LucienTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDBD86E1F7C26B800408826 /* LucienTheme.swift */; };
+		1CE3DC2C1F9FAD9E00814DBA /* LentComic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE3DC2B1F9FAD9E00814DBA /* LentComic.swift */; };
 		991B58C032595B40ADDCFCC7 /* Pods_lucien_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 964D4E26A56CF8BC634B2BBD /* Pods_lucien_ios.framework */; };
 		A59B2FE58EB5BC7B617AB83F /* Pods_lucien_iosUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D057BF04BE0EAF45ED19F37 /* Pods_lucien_iosUITests.framework */; };
 		EC0F6CA4839D3BF363E4EE9E /* Pods_lucien_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 074BF9F99258AD884EC6794A /* Pods_lucien_iosTests.framework */; };
@@ -154,6 +155,7 @@
 		1CDBD85A1F7C209400408826 /* Muli-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
 		1CDBD86A1F7C20B200408826 /* PermanentMarker-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PermanentMarker-Regular.ttf"; sourceTree = "<group>"; };
 		1CDBD86E1F7C26B800408826 /* LucienTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LucienTheme.swift; sourceTree = "<group>"; };
+		1CE3DC2B1F9FAD9E00814DBA /* LentComic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LentComic.swift; sourceTree = "<group>"; };
 		2083B8809618B8D581195F54 /* Pods-lucien-iosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lucien-iosTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-lucien-iosTests/Pods-lucien-iosTests.debug.xcconfig"; sourceTree = "<group>"; };
 		20D48F3384B15989F6E46E08 /* Pods-lucien-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lucien-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-lucien-ios/Pods-lucien-ios.debug.xcconfig"; sourceTree = "<group>"; };
 		24966642CEA9E5D05286C959 /* Pods-lucien-iosUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lucien-iosUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-lucien-iosUITests/Pods-lucien-iosUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -472,6 +474,7 @@
 				FB5389C71F9A31C90099FB98 /* AddEditComic.swift */,
 				FB65690B1F9E59C500AABA5D /* MyComics.swift */,
 				1CDAB2A41F9E2526004511C5 /* AllUsers.swift */,
+				1CE3DC2B1F9FAD9E00814DBA /* LentComic.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -894,6 +897,7 @@
 				1C182A2F1F82CA70001566E1 /* Comic.swift in Sources */,
 				FB6AA1A01F85313500394500 /* DashboardViewController.swift in Sources */,
 				FB5389C81F9A31C90099FB98 /* AddEditComic.swift in Sources */,
+				1CE3DC2C1F9FAD9E00814DBA /* LentComic.swift in Sources */,
 				FB32385B1F868B8100FE81E2 /* Dashboard.swift in Sources */,
 				FB32385D1F87CB3400FE81E2 /* AuthenticationResponse.swift in Sources */,
 				FB6569091F9E27E700AABA5D /* MyCollectionTableViewCell.swift in Sources */,

@@ -56,8 +56,9 @@ final class StartMyCollectionViewController: UIViewController {
     }
 
     @IBAction func startCollectionButtonPressed(_ sender: UIButton) {
-        let comicFormViewController = ComicFormViewController(comicFormViewModel: ComicFormViewModel())
-        navigationController?.pushViewController(comicFormViewController, animated: true)
+        let lend = LendABookViewController()
+        let nav = UINavigationController(rootViewController: lend)
+        present(nav, animated: false, completion: nil)
     }
 
     @IBAction func dashboardButtonPressed(_ sender: UIButton) {
