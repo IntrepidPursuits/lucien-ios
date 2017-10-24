@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 final class ComicDetailScreenViewController: UIViewController, UIScrollViewDelegate {
 
@@ -24,9 +26,15 @@ final class ComicDetailScreenViewController: UIViewController, UIScrollViewDeleg
     @IBOutlet weak var conditionLabel: UILabel!
 
     private var viewModel: ComicDetailViewModel
+    let disposeBag = DisposeBag()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setUpObservers()
     }
 
     init(comicDetailViewModel: ComicDetailViewModel) {
@@ -36,5 +44,17 @@ final class ComicDetailScreenViewController: UIViewController, UIScrollViewDeleg
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    func setUpObservers() {
+        seriesTitleLabel.rx.text <- viewModel.comicTitle >>> disposeBag
+        storyTitleLabel.rx.text <- viewModel.storyTitle >>> disposeBag
+        volumeLabel.rx.text <- viewModel.volume >>> disposeBag
+        issueLabel.rx.text <- viewModel.issue >>> disposeBag
+        releaseDateLabel.rx.text <- viewModel.releaseDate >>> disposeBag
+        publisherLabel.rx.text <- viewModel.publisher >>> disposeBag
+        genreLabel.rx.text <- viewModel.genre >>> disposeBag
+        conditionLabel.rx.text <- viewModel.condition >>> disposeBag
+        comicImageCover.rx.image <- viewModel.comicImage >>> disposeBag
     }
 }
