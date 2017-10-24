@@ -43,8 +43,7 @@ final class DashboardTableView: UITableView, UITableViewDataSource, UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath)
         guard let configuredCell = cell as? MyCollectionTableViewCell else { return cell }
-        let whiteCellBackground = UIView(frame: CGRect(x: 0, y: 16, width: tableView.frame.size.width - 32, height: 100))
-        whiteCellBackground.removeFromSuperview()
+
         let index = indexPath.item
         let comicTitle = viewModel?.getComicTitle(forIndex: index) ?? ""
         let storyTitle = viewModel?.getStoryTitle(forIndex: index) ?? ""
@@ -53,7 +52,11 @@ final class DashboardTableView: UITableView, UITableViewDataSource, UITableViewD
         let imageURL = viewModel?.comicImageURL(forIndex: index) ?? ""
         configuredCell.configure(comicTitle: comicTitle, storyTitle: storyTitle, volume: volume, issueNumber: issue, imageURL: imageURL)
 
-        configuredCell.styleCell(whiteCellBackground: whiteCellBackground)
+        if MyCollectionTableViewCell.subview == nil {
+            let subview = UIView(frame: CGRect(x: 0, y: 16, width: frame.size.width - 32, height: 100))
+            MyCollectionTableViewCell.subview = subview
+            configuredCell.styleCell(subview: subview)
+        }
 
         tableView.contentSize = CGSize(width: tableView.frame.size.width - 32, height: tableView.contentSize.height)
         return configuredCell

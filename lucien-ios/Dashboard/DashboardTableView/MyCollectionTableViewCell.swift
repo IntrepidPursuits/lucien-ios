@@ -16,6 +16,7 @@ final class MyCollectionTableViewCell: UITableViewCell {
     @IBOutlet private weak var volumeIssueLabel: UILabel!
 
     static let reuseIdentifier = "myCollectionCell"
+    static var subview: UIView?
 
     func configure(comicTitle: String, storyTitle: String, volume: String, issueNumber: String, imageURL: String) {
         comicTitleLabel.text = comicTitle
@@ -39,21 +40,15 @@ final class MyCollectionTableViewCell: UITableViewCell {
         comicImageView.layer.cornerRadius = CGFloat(6.0)
     }
 
-    func styleCell(whiteCellBackground: UIView) {
+    func styleCell(subview: UIView) {
         contentView.backgroundColor = UIColor.white
-        whiteCellBackground.layer.backgroundColor = CGColor(colorSpace: CGColorSpaceCreateDeviceRGB(), components: [1.0, 1.0, 1.0, 0.8])
-        whiteCellBackground.layer.masksToBounds = false
-        whiteCellBackground.layer.cornerRadius = 6.0
-        whiteCellBackground.layer.shadowOffset = CGSize(width: 0, height: 4)
-        whiteCellBackground.layer.shadowOpacity = 0.1
-        whiteCellBackground.layer.shadowRadius = 18.0
-        contentView.addSubview(whiteCellBackground)
-        contentView.sendSubview(toBack: whiteCellBackground)
-    }
-
-    func removeSubviews() {
-        for subview in subviews {
-            subview.removeFromSuperview()
-        }
+        subview.layer.backgroundColor = CGColor(colorSpace: CGColorSpaceCreateDeviceRGB(), components: [1.0, 1.0, 1.0, 0.8])
+        subview.layer.masksToBounds = false
+        subview.layer.cornerRadius = 6.0
+        subview.layer.shadowOffset = CGSize(width: 0, height: 4)
+        subview.layer.shadowOpacity = 0.1
+        subview.layer.shadowRadius = 18.0
+        contentView.addSubview(subview)
+        contentView.sendSubview(toBack: subview)
     }
 }
