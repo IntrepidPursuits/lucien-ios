@@ -40,15 +40,20 @@ final class MyCollectionTableViewCell: UITableViewCell {
     }
 
     func styleCell(whiteCellBackground: UIView) {
-        self.contentView.backgroundColor = UIColor.white
+        contentView.backgroundColor = UIColor.white
         whiteCellBackground.layer.backgroundColor = CGColor(colorSpace: CGColorSpaceCreateDeviceRGB(), components: [1.0, 1.0, 1.0, 0.8])
         whiteCellBackground.layer.masksToBounds = false
         whiteCellBackground.layer.cornerRadius = 6.0
         whiteCellBackground.layer.shadowOffset = CGSize(width: 0, height: 4)
         whiteCellBackground.layer.shadowOpacity = 0.1
         whiteCellBackground.layer.shadowRadius = 18.0
+        contentView.addSubview(whiteCellBackground)
+        contentView.sendSubview(toBack: whiteCellBackground)
+    }
 
-        self.contentView.addSubview(whiteCellBackground)
-        self.contentView.sendSubview(toBack: whiteCellBackground)
+    func removeSubviews() {
+        for subview in subviews {
+            subview.removeFromSuperview()
+        }
     }
 }

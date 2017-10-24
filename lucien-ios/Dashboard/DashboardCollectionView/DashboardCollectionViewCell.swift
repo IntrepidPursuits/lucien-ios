@@ -28,19 +28,14 @@ final class DashboardCollectionViewCell: UICollectionViewCell {
         setStyling()
     }
 
-    // TO DO: load another image created by me if no comic book cover
     func setImage(imageURL: String?, storyTitle: String) {
-        guard let imageURL = imageURL else {
-            setNoCoverImage(storyTitle: storyTitle)
-            return
-        }
-        guard let url = URL(string: imageURL) else {
-            setNoCoverImage(storyTitle: storyTitle)
-            return
-        }
-        guard let data = try? Data(contentsOf: url) else {
-            setNoCoverImage(storyTitle: storyTitle)
-            return
+        guard
+            let imageURL = imageURL,
+            let url = URL(string: imageURL),
+            let data = try? Data(contentsOf: url)
+            else {
+                setNoCoverImage(storyTitle: storyTitle)
+                return
         }
         bookImage.image = UIImage(data: data)
         initialLabel.text = ""
