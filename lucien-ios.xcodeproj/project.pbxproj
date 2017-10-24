@@ -77,6 +77,7 @@
 		FBB975691F7EBB31007951C4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB975681F7EBB31007951C4 /* User.swift */; };
 		FBB9756B1F7ED8A9007951C4 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB9756A1F7ED8A9007951C4 /* Result.swift */; };
 		FBB9756D1F7ED8E6007951C4 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB9756C1F7ED8E6007951C4 /* Request.swift */; };
+		FBC5C6E21F9FBF5B0019C872 /* DashboardTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC5C6E11F9FBF5B0019C872 /* DashboardTableViewModel.swift */; };
 		FBD844431F798B1D00A8E352 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD844411F798B1D00A8E352 /* RootViewController.swift */; };
 		FBD844441F798B1D00A8E352 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBD844421F798B1D00A8E352 /* RootViewController.xib */; };
 		FBDDE2CB1F7E7C4F00A4EA34 /* LucienRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDDE2CA1F7E7C4F00A4EA34 /* LucienRequest.swift */; };
@@ -186,6 +187,7 @@
 		FBB975681F7EBB31007951C4 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		FBB9756A1F7ED8A9007951C4 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		FBB9756C1F7ED8E6007951C4 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		FBC5C6E11F9FBF5B0019C872 /* DashboardTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTableViewModel.swift; sourceTree = "<group>"; };
 		FBD844411F798B1D00A8E352 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		FBD844421F798B1D00A8E352 /* RootViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
 		FBD844451F799A6F00A8E352 /* lucien-ios-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "lucien-ios-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -425,11 +427,9 @@
 			children = (
 				FB6AA19F1F85313500394500 /* DashboardViewController.xib */,
 				FB6AA19E1F85313500394500 /* DashboardViewController.swift */,
-				FB9C91C11F90058800AEE21A /* DashboardComicCells */,
 				FB9C91BF1F8FF4F200AEE21A /* DashboardViewModel.swift */,
-				FB480C381F9154D700DFAB08 /* DashboardCollectionView.swift */,
-				FB480C3A1F9160AE00DFAB08 /* DashboardCollectionViewModel.swift */,
-				FB5389CD1F9A8B290099FB98 /* DashboardTableView.swift */,
+				FBC5C6E31F9FC1690019C872 /* DashboardCollectionView */,
+				FBC5C6E41F9FC1930019C872 /* DashboardTableView */,
 			);
 			path = Dashboard;
 			sourceTree = "<group>";
@@ -443,17 +443,6 @@
 				FB6B911A1F7C195000910B49 /* AnimatedTransition.swift */,
 			);
 			path = LoginScreen;
-			sourceTree = "<group>";
-		};
-		FB9C91C11F90058800AEE21A /* DashboardComicCells */ = {
-			isa = PBXGroup;
-			children = (
-				FB743DA41F8D61150066A43F /* DashboardCollectionViewCell.swift */,
-				FB743DA51F8D61150066A43F /* DashboardCollectionViewCell.xib */,
-				FB6569071F9E27E700AABA5D /* MyCollectionTableViewCell.swift */,
-				FB6569081F9E27E700AABA5D /* MyCollectionTableViewCell.xib */,
-			);
-			path = DashboardComicCells;
 			sourceTree = "<group>";
 		};
 		FB9D84831F7D97CD00EC1B5E /* APIClient */ = {
@@ -485,6 +474,28 @@
 				1CDAB2A41F9E2526004511C5 /* AllUsers.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		FBC5C6E31F9FC1690019C872 /* DashboardCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				FB480C381F9154D700DFAB08 /* DashboardCollectionView.swift */,
+				FB480C3A1F9160AE00DFAB08 /* DashboardCollectionViewModel.swift */,
+				FB743DA41F8D61150066A43F /* DashboardCollectionViewCell.swift */,
+				FB743DA51F8D61150066A43F /* DashboardCollectionViewCell.xib */,
+			);
+			path = DashboardCollectionView;
+			sourceTree = "<group>";
+		};
+		FBC5C6E41F9FC1930019C872 /* DashboardTableView */ = {
+			isa = PBXGroup;
+			children = (
+				FBC5C6E11F9FBF5B0019C872 /* DashboardTableViewModel.swift */,
+				FB5389CD1F9A8B290099FB98 /* DashboardTableView.swift */,
+				FB6569071F9E27E700AABA5D /* MyCollectionTableViewCell.swift */,
+				FB6569081F9E27E700AABA5D /* MyCollectionTableViewCell.xib */,
+			);
+			path = DashboardTableView;
 			sourceTree = "<group>";
 		};
 		FBE07CC61F7C2A1900CF1A3F /* ViewProfile */ = {
@@ -840,6 +851,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FBC5C6E21F9FBF5B0019C872 /* DashboardTableViewModel.swift in Sources */,
 				1C45D0EB1F85611A00E651A5 /* CameraViewController.swift in Sources */,
 				FB9C91C01F8FF4F200AEE21A /* DashboardViewModel.swift in Sources */,
 				FB778BB11F8EA81300068A44 /* DashboardResponse.swift in Sources */,

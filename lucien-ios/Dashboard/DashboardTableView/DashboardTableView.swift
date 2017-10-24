@@ -10,7 +10,7 @@ import UIKit
 
 final class DashboardTableView: UITableView, UITableViewDataSource, UITableViewDelegate {
 
-    var collectionViewModel: DashboardCollectionViewModel?
+    var viewModel: DashboardTableViewModel?
     let reuseIdentifier = MyCollectionTableViewCell.reuseIdentifier
 
     override init(frame: CGRect, style: UITableViewStyle) {
@@ -33,7 +33,7 @@ final class DashboardTableView: UITableView, UITableViewDataSource, UITableViewD
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (collectionViewModel?.getComicCount())!
+        return (viewModel?.getComicCount())!
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -44,11 +44,11 @@ final class DashboardTableView: UITableView, UITableViewDataSource, UITableViewD
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath)
         guard let configuredCell = cell as? MyCollectionTableViewCell else { return cell }
         let index = indexPath.item
-        let comicTitle = collectionViewModel?.getComicTitle(forIndex: index) ?? ""
-        let storyTitle = collectionViewModel?.getStoryTitle(forIndex: index) ?? ""
-        let volume = collectionViewModel?.getVolume(forIndex: index) ?? ""
-        let issue = collectionViewModel?.getIssueNumber(forIndex: index) ?? ""
-        let imageURL = collectionViewModel?.comicImageURL(forIndex: index) ?? ""
+        let comicTitle = viewModel?.getComicTitle(forIndex: index) ?? ""
+        let storyTitle = viewModel?.getStoryTitle(forIndex: index) ?? ""
+        let volume = viewModel?.getVolume(forIndex: index) ?? ""
+        let issue = viewModel?.getIssueNumber(forIndex: index) ?? ""
+        let imageURL = viewModel?.comicImageURL(forIndex: index) ?? ""
         configuredCell.configure(comicTitle: comicTitle, storyTitle: storyTitle, volume: volume, issueNumber: issue, imageURL: imageURL)
 
         let whiteCellBackground = UIView(frame: CGRect(x: 0, y: 16, width: tableView.frame.size.width - 32, height: 100))

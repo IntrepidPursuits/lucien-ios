@@ -1,14 +1,14 @@
 //
-//  DashboardCollectionViewModel.swift
+//  DashboardTableViewModel.swift
 //  lucien-ios
 //
-//  Created by Fang, Gracie on 10/13/17.
+//  Created by Fang, Gracie on 10/24/17.
 //  Copyright © 2017 Intrepid Pursuits. All rights reserved.
 //
 
 import Foundation
 
-final class DashboardCollectionViewModel {
+final class DashboardTableViewModel {
 
     private let dashboardComics: [DashboardComicUser]
 
@@ -18,18 +18,6 @@ final class DashboardCollectionViewModel {
 
     func getComicCount() -> Int {
         return dashboardComics.count
-    }
-
-    func getUserTypeText(forIndex index: Int) -> String {
-        let userType = dashboardComics[index].dashboardUserType
-        switch userType {
-        case .borrower:
-            return "LENT TO"
-        case .owner:
-            return "BORROWED FROM"
-        case .none:
-            return ""
-        }
     }
 
     func getComicTitle(forIndex index: Int) -> String {
@@ -50,19 +38,9 @@ final class DashboardCollectionViewModel {
         return volume
     }
 
-    func getComicDueDate(forIndex index: Int) -> Date {
-        guard let returnDate = dashboardComics[index].dashboardComic.returnDate else { return Date()}
-        return returnDate
-    }
-
-    func comicPerson(forIndex index: Int) -> String {
-        guard let firstName = dashboardComics[index].dashboardUser?.firstName else { return "" }
-        guard let lastName = dashboardComics[index].dashboardUser?.lastName else { return "" }
-        return firstName + " " + lastName
-    }
-
     func comicImageURL(forIndex index: Int) -> String {
         guard let url = dashboardComics[index].dashboardComic.comicPhotoURL else { return "" }
         return url
     }
 }
+

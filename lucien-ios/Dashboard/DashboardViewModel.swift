@@ -27,7 +27,7 @@ final class DashboardViewModel {
         return DashboardCollectionViewModel(comics: (dashboardData.borrowingComics))
     }
 
-    var myComicsViewModel: DashboardCollectionViewModel {
-        return DashboardCollectionViewModel(comics: myComicList)
+    var myComicsViewModel: DashboardTableViewModel {
+        return DashboardTableViewModel(comics: myComicList)
     }
 }
