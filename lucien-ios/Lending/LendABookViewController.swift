@@ -66,18 +66,18 @@ class LendABookViewController: UIViewController, UITableViewDelegate, AlertDispl
             self?.tableView.reloadData()
         }) >>> disposeBag
 
-        viewModel.users.asObservable().bind(to: tableView.rx.items(cellIdentifier: "userCell",
-                                                                   cellType: LendingTableViewCell.self)) { [weak self] row, user, cell in
-
-                                                                    cell.nameLabel.text = "\(user.firstName) \(user.lastName)"
-                                                                    cell.emailLabel.text = user.email
-
-                                                                    if row  == self?.selectedIndex {
-                                                                        cell.accessoryType = .checkmark
-                                                                        cell.accessoryView = UIImageView(image: UIImage(named: "checkmark"))
-                                                                    } else {
-                                                                        cell.accessoryType = .none
-                                                                    }
+        viewModel.users.asObservable().bind(to: tableView.rx.items(
+            cellIdentifier: "userCell",
+            cellType: LendingTableViewCell.self)
+        ) { [weak self] row, user, cell in
+            cell.nameLabel.text = "\(user.firstName) \(user.lastName)"
+            cell.emailLabel.text = user.email
+            if row  == self?.selectedIndex {
+                cell.accessoryType = .checkmark
+                cell.accessoryView = UIImageView(image: UIImage(named: "checkmark"))
+            } else {
+                cell.accessoryType = .none
+            }
         } >>> disposeBag
     }
 
@@ -117,16 +117,11 @@ class LendABookViewController: UIViewController, UITableViewDelegate, AlertDispl
         nextButton.tintColor = LucienTheme.finishButtonGrey
         nextButton.isEnabled = false
         // TODO: Add implementation for next button
-        nextButton.rx.tap.subscribeNext { [weak self] in } >>> disposeBag
         navigationItem.rightBarButtonItem = nextButton
     }
 
     // MARK: - UITableViewDelegate
-
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 68
     }

@@ -13,6 +13,7 @@ class LendingTableViewCell: UITableViewCell {
     @IBOutlet weak var emailLabel: UILabel!
 
     override func prepareForReuse() {
+        super.prepareForReuse()
         accessoryView = nil
     }
 }

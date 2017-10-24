@@ -209,7 +209,6 @@ final class LucienAPIClient: APIClient {
         let lucienRequest = LucienRequest.getAllUsers
         let urlRequest = lucienRequest.urlRequest
         sendRequest(urlRequest) { response in
-            print(response)
             switch response {
             case .success(let result):
                 guard let result = result else {

@@ -24,7 +24,7 @@ enum LucienRequest: Request {
 
     var acceptHeader: String {
         switch self {
-        case .authenticate, .getCurrentUser, .getDashboard, .hasCollection, .createPhotoURL, .addComicBook, .editComicBook:
+        case .authenticate, .getCurrentUser, .getDashboard, .hasCollection, .createPhotoURL, .addComicBook, .editComicBook, .getAllUsers:
             return "application/vnd.lucien-app.com; version=1"
         case .getMyComics:
             return "application/vnd.lucien-app.com; version=2"
