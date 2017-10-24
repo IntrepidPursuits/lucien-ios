@@ -10,11 +10,17 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Muli-Bold.ttf">
+            <string>Muli-Bold</string>
+        </array>
         <array key="Muli-Light.ttf">
             <string>Muli-Light</string>
         </array>
         <array key="Muli-SemiBold.ttf">
             <string>Muli-SemiBold</string>
+        </array>
+        <array key="PermanentMarker-Regular.ttf">
+            <string>PermanentMarker-Regular</string>
         </array>
     </customFonts>
     <objects>
@@ -71,18 +77,38 @@
                                     <constraint firstAttribute="height" constant="0.5" id="9f3-Nh-pSM"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="C" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4O8-kS-b3n">
+                                <rect key="frame" x="40.5" y="16" width="50" height="92"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="MJT-wF-SWa"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PermanentMarker-Regular" family="Permanent Marker" pointSize="64"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Story Title" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ttE-pK-6On">
+                                <rect key="frame" x="8" y="108" width="114" height="16.5"/>
+                                <fontDescription key="fontDescription" name="Muli-Bold" family="Muli" pointSize="13"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="4O8-kS-b3n" firstAttribute="top" secondItem="hJ0-ye-jce" secondAttribute="top" constant="16" id="0jC-Yz-HWG"/>
                             <constraint firstItem="lvB-tV-ZpY" firstAttribute="leading" secondItem="hJ0-ye-jce" secondAttribute="leading" id="2Oi-r7-sla"/>
                             <constraint firstItem="36b-qo-W6h" firstAttribute="leading" secondItem="hJ0-ye-jce" secondAttribute="leading" id="6dF-TH-T2d"/>
                             <constraint firstItem="c7w-fX-uh5" firstAttribute="top" secondItem="lvB-tV-ZpY" secondAttribute="bottom" constant="21" id="FqA-uG-KBh"/>
+                            <constraint firstItem="ttE-pK-6On" firstAttribute="top" secondItem="4O8-kS-b3n" secondAttribute="bottom" id="GBF-n8-i3j"/>
                             <constraint firstItem="lvB-tV-ZpY" firstAttribute="top" secondItem="hJ0-ye-jce" secondAttribute="top" constant="3" id="H1D-Gx-oPR"/>
                             <constraint firstItem="36b-qo-W6h" firstAttribute="top" secondItem="c7w-fX-uh5" secondAttribute="bottom" constant="8" id="Kk4-qk-0K2"/>
                             <constraint firstItem="373-vF-xYQ" firstAttribute="top" secondItem="36b-qo-W6h" secondAttribute="bottom" id="Mmi-gt-jve"/>
                             <constraint firstItem="9lO-a1-IK5" firstAttribute="leading" secondItem="hJ0-ye-jce" secondAttribute="leading" id="QlU-jD-aFp"/>
                             <constraint firstItem="373-vF-xYQ" firstAttribute="leading" secondItem="hJ0-ye-jce" secondAttribute="leading" id="YhA-dh-vgZ"/>
                             <constraint firstItem="c7w-fX-uh5" firstAttribute="leading" secondItem="hJ0-ye-jce" secondAttribute="leading" id="Ykp-Qe-5pY"/>
+                            <constraint firstItem="4O8-kS-b3n" firstAttribute="centerX" secondItem="hJ0-ye-jce" secondAttribute="centerX" id="Zbd-RF-7WY"/>
+                            <constraint firstAttribute="trailing" secondItem="ttE-pK-6On" secondAttribute="trailing" constant="8" id="d38-Tb-8C1"/>
                             <constraint firstAttribute="trailing" secondItem="lvB-tV-ZpY" secondAttribute="trailing" id="doj-vc-ytc"/>
+                            <constraint firstItem="ttE-pK-6On" firstAttribute="leading" secondItem="hJ0-ye-jce" secondAttribute="leading" constant="8" id="hMG-pN-3fb"/>
                             <constraint firstItem="c7w-fX-uh5" firstAttribute="leading" secondItem="lvB-tV-ZpY" secondAttribute="leading" id="hXG-gF-kcd"/>
                             <constraint firstAttribute="trailing" secondItem="c7w-fX-uh5" secondAttribute="trailing" id="nY4-Iv-d2E"/>
                             <constraint firstAttribute="trailing" secondItem="373-vF-xYQ" secondAttribute="trailing" id="oKI-dI-7RN"/>
@@ -101,9 +127,11 @@
             <connections>
                 <outlet property="bookImage" destination="lvB-tV-ZpY" id="biT-SV-y0R"/>
                 <outlet property="dueDateLabel" destination="c7w-fX-uh5" id="6Xs-R5-mix"/>
+                <outlet property="initialLabel" destination="4O8-kS-b3n" id="aaQ-bS-IN8"/>
                 <outlet property="lentOrBorrowedLabel" destination="36b-qo-W6h" id="qrN-5l-7qE"/>
                 <outlet property="ownerBorrowerNameLabel" destination="373-vF-xYQ" id="0Yl-pB-po6"/>
                 <outlet property="ownerOrBorrowerLabel" destination="373-vF-xYQ" id="bgg-Gw-EOX"/>
+                <outlet property="storyTitleLabel" destination="ttE-pK-6On" id="UNJ-g9-0OW"/>
             </connections>
             <point key="canvasLocation" x="-2909" y="-25.5"/>
         </collectionViewCell>

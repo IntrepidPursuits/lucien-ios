@@ -47,13 +47,14 @@ final class DashboardCollectionView: UICollectionView, UICollectionViewDataSourc
         guard let configuredCell = cell as? DashboardCollectionViewCell else { return cell}
         let index = indexPath.item
         let userTypeText = collectionViewModel?.getUserTypeText(forIndex: index) ?? ""
+        let storyTitle = collectionViewModel?.getStoryTitle(forIndex: index) ?? ""
         let comicDueDate = collectionViewModel?.getComicDueDate(forIndex: index)
         let userName = collectionViewModel?.comicPerson(forIndex: index) ?? "No name found"
         let imageURL = collectionViewModel?.comicImageURL(forIndex: index)
         configuredCell.configure(userTypeText: userTypeText,
                                  comicDueDate: comicDueDate,
                                  ownerBorrowerName: userName,
-                                 imageURL: imageURL)
+                                 imageURL: imageURL, storyTitle: storyTitle)
         return configuredCell
     }
 }
