@@ -81,6 +81,8 @@
 		FBB9756B1F7ED8A9007951C4 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB9756A1F7ED8A9007951C4 /* Result.swift */; };
 		FBB9756D1F7ED8E6007951C4 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB9756C1F7ED8E6007951C4 /* Request.swift */; };
 		FBC5C6E21F9FBF5B0019C872 /* DashboardTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC5C6E11F9FBF5B0019C872 /* DashboardTableViewModel.swift */; };
+		FBC5C6DC1F9F91700019C872 /* ComicDetailScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC5C6DA1F9F91700019C872 /* ComicDetailScreenViewController.swift */; };
+		FBC5C6DD1F9F91700019C872 /* ComicDetailScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBC5C6DB1F9F91700019C872 /* ComicDetailScreenViewController.xib */; };
 		FBD844431F798B1D00A8E352 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD844411F798B1D00A8E352 /* RootViewController.swift */; };
 		FBD844441F798B1D00A8E352 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBD844421F798B1D00A8E352 /* RootViewController.xib */; };
 		FBDDE2CB1F7E7C4F00A4EA34 /* LucienRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDDE2CA1F7E7C4F00A4EA34 /* LucienRequest.swift */; };
@@ -194,6 +196,8 @@
 		FBB9756A1F7ED8A9007951C4 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		FBB9756C1F7ED8E6007951C4 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		FBC5C6E11F9FBF5B0019C872 /* DashboardTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTableViewModel.swift; sourceTree = "<group>"; };
+		FBC5C6DA1F9F91700019C872 /* ComicDetailScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicDetailScreenViewController.swift; sourceTree = "<group>"; };
+		FBC5C6DB1F9F91700019C872 /* ComicDetailScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ComicDetailScreenViewController.xib; sourceTree = "<group>"; };
 		FBD844411F798B1D00A8E352 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		FBD844421F798B1D00A8E352 /* RootViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
 		FBD844451F799A6F00A8E352 /* lucien-ios-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "lucien-ios-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -337,6 +341,7 @@
 				1CDB6A251F79A52D003A2BB1 /* AddAndEditNewComicBook */,
 				1CDBD86E1F7C26B800408826 /* LucienTheme.swift */,
 				1CAE48D71F8412960087E96E /* LucienConstants.swift */,
+				FBC5C6DE1F9F91770019C872 /* ComicDetailScreen */,
 			);
 			path = "lucien-ios";
 			sourceTree = "<group>";
@@ -507,6 +512,15 @@
 			path = DashboardTableView;
 			sourceTree = "<group>";
 		};
+		FBC5C6DE1F9F91770019C872 /* ComicDetailScreen */ = {
+			isa = PBXGroup;
+			children = (
+				FBC5C6DB1F9F91700019C872 /* ComicDetailScreenViewController.xib */,
+				FBC5C6DA1F9F91700019C872 /* ComicDetailScreenViewController.swift */,
+			);
+			path = ComicDetailScreen;
+			sourceTree = "<group>";
+		};
 		FBE07CC61F7C2A1900CF1A3F /* ViewProfile */ = {
 			isa = PBXGroup;
 			children = (
@@ -654,6 +668,7 @@
 				1C3A79531FA0F1BD00526CCF /* LendingSuccessViewController.xib in Resources */,
 				1CDBD85D1F7C209800408826 /* Muli-Bold.ttf in Resources */,
 				1CDBD8621F7C209800408826 /* Muli-ExtraLightItalic.ttf in Resources */,
+				FBC5C6DD1F9F91700019C872 /* ComicDetailScreenViewController.xib in Resources */,
 				FB65690A1F9E27E700AABA5D /* MyCollectionTableViewCell.xib in Resources */,
 				1CDBD85F1F7C209800408826 /* Muli-ExtraBold.ttf in Resources */,
 				1C7275271F99289100D4D10C /* LendABookViewController.xib in Resources */,
@@ -863,6 +878,7 @@
 			files = (
 				FBC5C6E21F9FBF5B0019C872 /* DashboardTableViewModel.swift in Sources */,
 				1C45D0EB1F85611A00E651A5 /* CameraViewController.swift in Sources */,
+				FBC5C6DC1F9F91700019C872 /* ComicDetailScreenViewController.swift in Sources */,
 				FB9C91C01F8FF4F200AEE21A /* DashboardViewModel.swift in Sources */,
 				FB778BB11F8EA81300068A44 /* DashboardResponse.swift in Sources */,
 				FB743DA61F8D61150066A43F /* DashboardCollectionViewCell.swift in Sources */,
