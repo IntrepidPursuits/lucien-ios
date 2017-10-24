@@ -204,4 +204,29 @@ final class LucienAPIClient: APIClient {
             }
         }
     }
+
+    func getAllUsers(completion: @escaping (Result<[User]>) -> Void) {
+        let lucienRequest = LucienRequest.getAllUsers
+        let urlRequest = lucienRequest.urlRequest
+        sendRequest(urlRequest) { response in
+            print(response)
+            switch response {
+            case .success(let result):
+                guard let result = result else {
+                    return completion(.failure(LucienAPIError.noResult))
+                }
+                let decoder = JSONDecoder()
+                decoder.dateDecodingStrategy = .iso8601
+                do {
+                    let userResponse = try decoder.decode(AllUsersResponse.self, from: result)
+                    print(userResponse)
+                    completion(.success(userResponse.users))
+                } catch(let error) {
+                    completion(.failure(error))
+                }
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
 }

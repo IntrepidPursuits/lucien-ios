@@ -66,7 +66,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="characterWrap" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IDD-iP-gW7">
-                            <rect key="frame" x="15" y="43.5" width="133" height="183"/>
+                            <rect key="frame" x="15" y="58" width="133" height="183"/>
                             <color key="backgroundColor" red="0.16862745098039217" green="0.1764705882352941" blue="0.25882352941176467" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="133" id="USp-HJ-Pqx"/>
@@ -112,7 +112,7 @@ Photo</string>
                             </connections>
                         </button>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="Pct-Cd-9cv">
-                            <rect key="frame" x="0.0" y="260.5" width="375" height="966"/>
+                            <rect key="frame" x="0.0" y="258.5" width="375" height="966"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="9CE-ER-7JU">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="63"/>
@@ -591,7 +591,7 @@ Photo</string>
                             </constraints>
                         </stackView>
                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="782-o4-ATO">
-                            <rect key="frame" x="156" y="132" width="65" height="80"/>
+                            <rect key="frame" x="156" y="130" width="65" height="80"/>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                             <inset key="titleEdgeInsets" minX="-30" minY="10" maxX="0.0" maxY="0.0"/>
                             <inset key="imageEdgeInsets" minX="12" minY="0.0" maxX="0.0" maxY="40"/>
@@ -603,7 +603,7 @@ Photo</string>
                             </connections>
                         </button>
                         <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KBE-dq-QxV">
-                            <rect key="frame" x="159" y="123" width="62" height="1"/>
+                            <rect key="frame" x="159" y="121" width="62" height="1"/>
                             <color key="backgroundColor" red="0.83529411764705885" green="0.83529411764705885" blue="0.85098039215686272" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="62" id="Mms-zN-25H"/>
@@ -611,7 +611,7 @@ Photo</string>
                             </constraints>
                         </view>
                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w1O-sR-U3a">
-                            <rect key="frame" x="156" y="44" width="65" height="72"/>
+                            <rect key="frame" x="156" y="42" width="65" height="72"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="72" id="9eZ-R9-VBx"/>
                                 <constraint firstAttribute="width" constant="65" id="BEr-e7-8bK"/>
@@ -630,7 +630,7 @@ Photo</string>
                     <constraints>
                         <constraint firstItem="KBE-dq-QxV" firstAttribute="trailing" secondItem="782-o4-ATO" secondAttribute="trailing" id="3yJ-ww-lRA"/>
                         <constraint firstItem="IDD-iP-gW7" firstAttribute="leading" secondItem="8pQ-9n-KZP" secondAttribute="leading" constant="15" id="7Kh-7g-Yx4"/>
-                        <constraint firstItem="w1O-sR-U3a" firstAttribute="top" secondItem="IDD-iP-gW7" secondAttribute="top" id="BDC-b2-YKs"/>
+                        <constraint firstItem="w1O-sR-U3a" firstAttribute="top" secondItem="IDD-iP-gW7" secondAttribute="top" constant="-16" id="BDC-b2-YKs"/>
                         <constraint firstItem="w1O-sR-U3a" firstAttribute="trailing" secondItem="KBE-dq-QxV" secondAttribute="trailing" id="D9r-3z-RGc"/>
                         <constraint firstItem="KBE-dq-QxV" firstAttribute="top" secondItem="w1O-sR-U3a" secondAttribute="bottom" constant="7" id="Hdb-Zd-MAX"/>
                         <constraint firstItem="w1O-sR-U3a" firstAttribute="leading" secondItem="IDD-iP-gW7" secondAttribute="trailing" constant="8" symbolic="YES" id="HhT-vr-pS7"/>
@@ -639,10 +639,10 @@ Photo</string>
                         <constraint firstItem="Pct-Cd-9cv" firstAttribute="leading" secondItem="8pQ-9n-KZP" secondAttribute="leading" id="PvU-57-aD3"/>
                         <constraint firstAttribute="bottom" secondItem="Pct-Cd-9cv" secondAttribute="bottom" constant="192.5" id="WRW-y8-kRL"/>
                         <constraint firstItem="Pct-Cd-9cv" firstAttribute="top" secondItem="782-o4-ATO" secondAttribute="bottom" constant="49" id="aJd-Mi-895"/>
-                        <constraint firstItem="Pct-Cd-9cv" firstAttribute="top" secondItem="IDD-iP-gW7" secondAttribute="bottom" constant="33.5" id="aqp-ty-3tm"/>
+                        <constraint firstItem="Pct-Cd-9cv" firstAttribute="top" secondItem="IDD-iP-gW7" secondAttribute="bottom" constant="17.5" id="aqp-ty-3tm"/>
                         <constraint firstItem="ZeW-7M-5vu" firstAttribute="top" secondItem="8pQ-9n-KZP" secondAttribute="top" constant="27" id="cQW-vm-6T1"/>
                         <constraint firstAttribute="trailing" secondItem="Pct-Cd-9cv" secondAttribute="trailing" id="cQn-Bs-a5P"/>
-                        <constraint firstItem="IDD-iP-gW7" firstAttribute="top" secondItem="ZeW-7M-5vu" secondAttribute="bottom" constant="1" id="mof-oJ-CWG"/>
+                        <constraint firstItem="IDD-iP-gW7" firstAttribute="top" secondItem="ZeW-7M-5vu" secondAttribute="bottom" constant="17" id="mof-oJ-CWG"/>
                         <constraint firstItem="782-o4-ATO" firstAttribute="top" secondItem="KBE-dq-QxV" secondAttribute="bottom" constant="8" symbolic="YES" id="rXl-Ro-Gyo"/>
                         <constraint firstItem="ZeW-7M-5vu" firstAttribute="leading" secondItem="8pQ-9n-KZP" secondAttribute="leading" constant="24" id="vlU-Be-M1B"/>
                     </constraints>
@@ -656,7 +656,7 @@ Photo</string>
                 <constraint firstItem="8pQ-9n-KZP" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="xhY-S2-w5M"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <point key="canvasLocation" x="-15.5" y="814"/>
+            <point key="canvasLocation" x="-15.5" y="1030"/>
         </view>
     </objects>
     <resources>

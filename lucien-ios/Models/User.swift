@@ -30,3 +30,14 @@ struct User: Decodable {
         case updatedAt = "updated_at"
     }
 }
+
+struct User2: Decodable {
+
+    var firstName: String
+    var lastName: String
+
+    enum CodingKeys: String, CodingKey {
+        case firstName = "first_name"
+        case lastName = "last_name"
+    }
+}
