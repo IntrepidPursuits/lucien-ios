@@ -60,7 +60,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="COVER PHOTO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZeW-7M-5vu">
-                            <rect key="frame" x="24" y="27" width="85" height="15.5"/>
+                            <rect key="frame" x="24" y="27" width="86" height="14"/>
                             <fontDescription key="fontDescription" name="Muli-Light" family="Muli" pointSize="12"/>
                             <color key="textColor" red="0.5607843137254902" green="0.56470588235294117" blue="0.60392156862745094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
@@ -146,7 +146,7 @@ Photo</string>
                                                     </connections>
                                                 </textField>
                                                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This field is required." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6vw-lW-ZtI">
-                                                    <rect key="frame" x="0.0" y="63" width="113.5" height="0.0"/>
+                                                    <rect key="frame" x="0.0" y="63" width="111" height="0.0"/>
                                                     <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="12"/>
                                                     <color key="textColor" red="1" green="0.23137254901960785" blue="0.32549019607843138" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -238,13 +238,13 @@ Photo</string>
                                             <rect key="frame" x="24" y="0.0" width="327" height="58"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="STORY TITLE *" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9jV-Sr-z48">
-                                                    <rect key="frame" x="0.0" y="0.0" width="327" height="15.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="327" height="14"/>
                                                     <fontDescription key="fontDescription" name="Muli-Light" family="Muli" pointSize="12"/>
                                                     <color key="textColor" red="0.5607843137254902" green="0.56470588235294117" blue="0.60392156862745094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Story Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MqB-MZ-awC" customClass="BottomBorderTextField" customModule="lucien_ios" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="27.5" width="327" height="30.5"/>
+                                                    <rect key="frame" x="0.0" y="26" width="327" height="32"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
                                                     <textInputTraits key="textInputTraits" autocorrectionType="no"/>
@@ -253,7 +253,7 @@ Photo</string>
                                                     </connections>
                                                 </textField>
                                                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This field is required." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7WS-CL-QZe">
-                                                    <rect key="frame" x="0.0" y="58" width="113.5" height="0.0"/>
+                                                    <rect key="frame" x="0.0" y="58" width="111" height="0.0"/>
                                                     <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="12"/>
                                                     <color key="textColor" red="1" green="0.23137254900000001" blue="0.32549019610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -294,13 +294,13 @@ Photo</string>
                                             <rect key="frame" x="24" y="0.0" width="327" height="58"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ISSUE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tQp-yn-pha">
-                                                    <rect key="frame" x="0.0" y="0.0" width="327" height="15.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="327" height="14"/>
                                                     <fontDescription key="fontDescription" name="Muli-Light" family="Muli" pointSize="12"/>
                                                     <color key="textColor" red="0.5607843137254902" green="0.56470588235294117" blue="0.60392156862745094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Issue" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kwp-Vh-ark" customClass="BottomBorderTextField" customModule="lucien_ios" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="27.5" width="327" height="30.5"/>
+                                                    <rect key="frame" x="0.0" y="26" width="327" height="32"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
                                                     <textInputTraits key="textInputTraits" autocorrectionType="no"/>
@@ -447,7 +447,7 @@ Photo</string>
                                             <rect key="frame" x="24" y="0.0" width="327" height="76"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GENRE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uFa-hA-XU1">
-                                                    <rect key="frame" x="0.0" y="0.0" width="40" height="21"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="41" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="uve-QV-AQF"/>
                                                     </constraints>
@@ -514,10 +514,10 @@ Photo</string>
                                             </constraints>
                                         </view>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="xvd-dF-dp6">
-                                            <rect key="frame" x="24" y="0.0" width="327" height="67"/>
+                                            <rect key="frame" x="24" y="0.0" width="327" height="65"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CONDITION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KtO-eh-4L9">
-                                                    <rect key="frame" x="0.0" y="0.0" width="66.5" height="21"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="66" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="nKe-Zk-eAr"/>
                                                     </constraints>
@@ -526,7 +526,7 @@ Photo</string>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZXp-2w-6eh">
-                                                    <rect key="frame" x="0.0" y="33" width="327" height="21"/>
+                                                    <rect key="frame" x="0.0" y="33" width="327" height="19"/>
                                                     <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
                                                     <inset key="imageEdgeInsets" minX="300" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                     <state key="normal" title="Select a Condition" image="dropDownArrow">
@@ -540,10 +540,10 @@ Photo</string>
                                                     </connections>
                                                 </button>
                                                 <pickerView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1zr-ip-Ltu">
-                                                    <rect key="frame" x="0.0" y="60" width="320" height="0.0"/>
+                                                    <rect key="frame" x="0.0" y="58" width="320" height="0.0"/>
                                                 </pickerView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wKY-4h-eXB">
-                                                    <rect key="frame" x="0.0" y="66" width="327" height="1"/>
+                                                    <rect key="frame" x="0.0" y="64" width="327" height="1"/>
                                                     <color key="backgroundColor" red="0.83529411760000005" green="0.83529411760000005" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="1" id="Url-8V-m8f"/>

@@ -10,10 +10,10 @@ import UIKit
 
 final class MyCollectionTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var comicImageView: UIImageView!
+    @IBOutlet private weak var comicImageView: UIImageView!
     @IBOutlet private weak var comicTitleLabel: UILabel!
     @IBOutlet private weak var storyTitleLabel: UILabel!
-    @IBOutlet weak var volumeIssueLabel: UILabel!
+    @IBOutlet private weak var volumeIssueLabel: UILabel!
 
     static let reuseIdentifier = "myCollectionCell"
 
@@ -36,11 +36,12 @@ final class MyCollectionTableViewCell: UITableViewCell {
 
     func setStyling() {
         comicImageView.clipsToBounds = true
-        comicImageView.layer.cornerRadius = CGFloat(7.0)
+        comicImageView.layer.cornerRadius = CGFloat(6.0)
     }
 
     func styleCell(whiteCellBackground: UIView) {
-        self.contentView.backgroundColor = UIColor.clear
+        self.contentView.backgroundColor = UIColor.white
+        whiteCellBackground.layer.backgroundColor = CGColor(colorSpace: CGColorSpaceCreateDeviceRGB(), components: [1.0, 1.0, 1.0, 0.8])
         whiteCellBackground.layer.masksToBounds = false
         whiteCellBackground.layer.cornerRadius = 6.0
         whiteCellBackground.layer.shadowOffset = CGSize(width: 0, height: 4)
@@ -50,5 +51,4 @@ final class MyCollectionTableViewCell: UITableViewCell {
         self.contentView.addSubview(whiteCellBackground)
         self.contentView.sendSubview(toBack: whiteCellBackground)
     }
-
 }

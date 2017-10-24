@@ -29,6 +29,7 @@ final class DashboardTableView: UITableView, UITableViewDataSource, UITableViewD
         let nib = UINib(nibName: String(describing: MyCollectionTableViewCell.self), bundle: nil)
         register(nib, forCellReuseIdentifier: reuseIdentifier)
         self.contentInset = UIEdgeInsets(top: 0, left: 16, bottom: 24, right: 16)
+        self.separatorStyle = UITableViewCellSeparatorStyle.none
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -36,7 +37,7 @@ final class DashboardTableView: UITableView, UITableViewDataSource, UITableViewD
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100.0
+        return 116.0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -50,7 +51,7 @@ final class DashboardTableView: UITableView, UITableViewDataSource, UITableViewD
         let imageURL = collectionViewModel?.comicImageURL(forIndex: index) ?? ""
         configuredCell.configure(comicTitle: comicTitle, storyTitle: storyTitle, volume: volume, issueNumber: issue, imageURL: imageURL)
 
-        let whiteCellBackground = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width - 32, height: 116))
+        let whiteCellBackground = UIView(frame: CGRect(x: 0, y: 16, width: tableView.frame.size.width - 32, height: 100))
         configuredCell.styleCell(whiteCellBackground: whiteCellBackground)
 
         tableView.contentSize = CGSize(width: tableView.frame.size.width - 32, height: tableView.contentSize.height)

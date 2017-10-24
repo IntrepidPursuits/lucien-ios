@@ -13,12 +13,16 @@
         <array key="Muli-Black.ttf">
             <string>Muli-Black</string>
         </array>
+        <array key="Muli-Light.ttf">
+            <string>Muli-Light</string>
+        </array>
     </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DashboardViewController" customModule="lucien_ios" customModuleProvider="target">
             <connections>
                 <outlet property="borrowingCollectionView" destination="zzt-Lh-hKr" id="UD7-LW-LBG"/>
                 <outlet property="borrowingLabel" destination="YSO-cO-I99" id="JZ6-EA-pAZ"/>
+                <outlet property="comicCountLabel" destination="wZe-1l-7I5" id="6Fv-MH-aZf"/>
                 <outlet property="dashboardScrollView" destination="5Bd-Ir-PZh" id="H4N-6n-8y6"/>
                 <outlet property="lendingCollectionView" destination="LTX-5B-CXm" id="QLg-kc-tHG"/>
                 <outlet property="lendingLabel" destination="zKh-rh-dhN" id="byL-y7-Jqb"/>
@@ -101,10 +105,17 @@
                             <color key="textColor" red="0.16862745100000001" green="0.1764705882" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comic Count" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wZe-1l-7I5">
+                            <rect key="frame" x="239" y="795" width="93" height="21"/>
+                            <fontDescription key="fontDescription" name="Muli-Light" family="Muli" pointSize="16"/>
+                            <color key="textColor" red="0.16862745100000001" green="0.1764705882" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <constraints>
                         <constraint firstItem="zzt-Lh-hKr" firstAttribute="leading" secondItem="5Bd-Ir-PZh" secondAttribute="leading" id="05r-S8-eYk"/>
                         <constraint firstItem="FGQ-7a-mRc" firstAttribute="leading" secondItem="5Bd-Ir-PZh" secondAttribute="leading" constant="8" id="0Ol-GN-VJU"/>
+                        <constraint firstItem="wZe-1l-7I5" firstAttribute="centerX" secondItem="5Bd-Ir-PZh" secondAttribute="centerX" id="5Cd-n8-b2z"/>
                         <constraint firstAttribute="trailing" secondItem="j76-3z-DBc" secondAttribute="trailing" id="5k4-f9-QVs"/>
                         <constraint firstItem="mlf-YE-chQ" firstAttribute="top" secondItem="bqo-Ug-85F" secondAttribute="bottom" constant="32" id="8Q1-SS-vxe"/>
                         <constraint firstItem="YSO-cO-I99" firstAttribute="top" secondItem="FGQ-7a-mRc" secondAttribute="bottom" constant="24" id="Akl-Kw-yq1"/>
@@ -126,6 +137,7 @@
                         <constraint firstItem="bqo-Ug-85F" firstAttribute="top" secondItem="zzt-Lh-hKr" secondAttribute="bottom" constant="24" id="sG4-yI-3ul"/>
                         <constraint firstItem="LTX-5B-CXm" firstAttribute="top" secondItem="5Bd-Ir-PZh" secondAttribute="top" constant="47" id="w22-wq-ElE"/>
                         <constraint firstItem="mlf-YE-chQ" firstAttribute="centerX" secondItem="5Bd-Ir-PZh" secondAttribute="centerX" id="wLK-am-vMi"/>
+                        <constraint firstItem="wZe-1l-7I5" firstAttribute="top" secondItem="mlf-YE-chQ" secondAttribute="bottom" constant="8" id="y0w-nF-reY"/>
                         <constraint firstItem="LTX-5B-CXm" firstAttribute="leading" secondItem="5Bd-Ir-PZh" secondAttribute="leading" id="zBe-o9-249"/>
                     </constraints>
                 </scrollView>

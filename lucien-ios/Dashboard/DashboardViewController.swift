@@ -17,6 +17,7 @@ final class DashboardViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet private weak var borrowingLabel: UILabel!
     @IBOutlet private weak var tableView: DashboardTableView!
     @IBOutlet private weak var myCollectionLabel: UILabel!
+    @IBOutlet private weak var comicCountLabel: UILabel!
 
     var viewModel: DashboardViewModel
 
@@ -46,6 +47,7 @@ final class DashboardViewController: UIViewController, UIScrollViewDelegate {
         lendingLabel.addTextSpacing(spacing: 0.5)
         borrowingLabel.addTextSpacing(spacing: 0.5)
         myCollectionLabel.addTextSpacing(spacing: 0.7)
+        comicCountLabel.text = String(viewModel.myComicsViewModel.getComicCount()) + " Comics"
     }
 
     private func configureNavigationController() {

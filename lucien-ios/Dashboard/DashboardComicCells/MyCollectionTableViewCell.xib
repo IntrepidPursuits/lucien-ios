@@ -29,13 +29,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="v0q-i0-Mat">
-                        <rect key="frame" x="0.0" y="0.0" width="69" height="99.5"/>
+                        <rect key="frame" x="0.0" y="16" width="69" height="83.5"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="69" id="hB1-pj-89T"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comic Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TTx-7Y-83S">
-                        <rect key="frame" x="85" y="24" width="278" height="25"/>
+                        <rect key="frame" x="85" y="40" width="278" height="25"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="25" id="W6r-LH-FrI"/>
                         </constraints>
@@ -44,7 +44,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Volume and Issue" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eFu-6c-Fx4">
-                        <rect key="frame" x="85" y="69" width="222" height="18"/>
+                        <rect key="frame" x="85" y="85" width="222" height="18"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="18" id="2uj-H0-yc5"/>
                         </constraints>
@@ -53,7 +53,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Story Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Jv-Zk-bNh">
-                        <rect key="frame" x="85" y="49" width="222" height="20"/>
+                        <rect key="frame" x="85" y="65" width="222" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="k55-ly-WJi"/>
                         </constraints>
@@ -65,14 +65,14 @@
                 <constraints>
                     <constraint firstItem="eFu-6c-Fx4" firstAttribute="leading" secondItem="v0q-i0-Mat" secondAttribute="trailing" constant="16" id="1u9-gw-ndc"/>
                     <constraint firstAttribute="trailingMargin" secondItem="eFu-6c-Fx4" secondAttribute="trailing" constant="28" id="4TQ-ae-eJD"/>
-                    <constraint firstItem="TTx-7Y-83S" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="16" id="5LI-Cs-iRU"/>
+                    <constraint firstItem="TTx-7Y-83S" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="32" id="5LI-Cs-iRU"/>
                     <constraint firstItem="4Jv-Zk-bNh" firstAttribute="leading" secondItem="v0q-i0-Mat" secondAttribute="trailing" constant="16" id="Dnx-ri-Az1"/>
                     <constraint firstAttribute="trailingMargin" secondItem="4Jv-Zk-bNh" secondAttribute="trailing" constant="28" id="HEg-hf-UMI"/>
-                    <constraint firstAttribute="bottom" secondItem="v0q-i0-Mat" secondAttribute="bottom" id="O4p-x8-BCY"/>
+                    <constraint firstItem="v0q-i0-Mat" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="RCp-vk-ght"/>
+                    <constraint firstAttribute="bottom" secondItem="v0q-i0-Mat" secondAttribute="bottom" id="jtV-QO-AMq"/>
                     <constraint firstItem="TTx-7Y-83S" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" constant="28" id="ljk-be-0K4"/>
-                    <constraint firstItem="4Jv-Zk-bNh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="41" id="mq3-aO-cpR"/>
+                    <constraint firstItem="4Jv-Zk-bNh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="57" id="mq3-aO-cpR"/>
                     <constraint firstItem="v0q-i0-Mat" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="nWk-zN-809"/>
-                    <constraint firstItem="v0q-i0-Mat" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="ngQ-r4-CTQ"/>
                     <constraint firstItem="TTx-7Y-83S" firstAttribute="leading" secondItem="v0q-i0-Mat" secondAttribute="trailing" constant="16" id="tX7-Ec-K0E"/>
                     <constraint firstItem="eFu-6c-Fx4" firstAttribute="top" secondItem="4Jv-Zk-bNh" secondAttribute="bottom" id="uFZ-aU-TSW"/>
                 </constraints>
@@ -84,7 +84,7 @@
                 <outlet property="storyTitleLabel" destination="4Jv-Zk-bNh" id="iWB-Sa-ds9"/>
                 <outlet property="volumeIssueLabel" destination="eFu-6c-Fx4" id="hil-W0-S6i"/>
             </connections>
-            <point key="canvasLocation" x="33.5" y="54"/>
+            <point key="canvasLocation" x="-171" y="30"/>
         </tableViewCell>
     </objects>
 </document>
