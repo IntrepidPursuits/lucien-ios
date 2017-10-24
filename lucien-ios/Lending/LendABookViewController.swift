@@ -8,7 +8,6 @@
 
 import UIKit
 import RxSwift
-import RxCocoa
 
 class LendABookViewController: UIViewController, UITableViewDelegate, AlertDisplaying {
 
@@ -41,14 +40,8 @@ class LendABookViewController: UIViewController, UITableViewDelegate, AlertDispl
         configureNavigationController()
         configureTableView()
 
-        viewModel.getAllUsers { [weak self] (users, error) in
-            if error == nil {
-                guard let users = users else { return }
-                self?.viewModel.users.value = users
-                DispatchQueue.main.async {
-                    self?.tableView.reloadData()
-                }
-            } else {
+        viewModel.getAllUsers { [weak self] (_, error) in
+            if error != nil {
                 self?.showAlert(title: "Error", message: "Our service is currently encountering an issue. Please ensure that you are connected to the internet and try again.")
             }
         }
@@ -66,18 +59,18 @@ class LendABookViewController: UIViewController, UITableViewDelegate, AlertDispl
             self?.tableView.reloadData()
         }) >>> disposeBag
 
-        viewModel.users.asObservable().bind(to: tableView.rx.items(cellIdentifier: "userCell",
-                                                                   cellType: LendingTableViewCell.self)) { [weak self] row, user, cell in
-
-                                                                    cell.nameLabel.text = "\(user.firstName) \(user.lastName)"
-                                                                    cell.emailLabel.text = user.email
-
-                                                                    if row  == self?.selectedIndex {
-                                                                        cell.accessoryType = .checkmark
-                                                                        cell.accessoryView = UIImageView(image: UIImage(named: "checkmark"))
-                                                                    } else {
-                                                                        cell.accessoryType = .none
-                                                                    }
+        viewModel.users.asObservable().bind(to: tableView.rx.items(
+            cellIdentifier: "userCell",
+            cellType: LendingTableViewCell.self)
+        ) { [weak self] row, user, cell in
+            cell.nameLabel.text = "\(user.firstName) \(user.lastName)"
+            cell.emailLabel.text = user.email
+            if row  == self?.selectedIndex {
+                cell.accessoryType = .checkmark
+                cell.accessoryView = UIImageView(image: UIImage(named: "checkmark"))
+            } else {
+                cell.accessoryType = .none
+            }
         } >>> disposeBag
     }
 
@@ -117,20 +110,11 @@ class LendABookViewController: UIViewController, UITableViewDelegate, AlertDispl
         nextButton.tintColor = LucienTheme.finishButtonGrey
         nextButton.isEnabled = false
         // TODO: Add implementation for next button
-        nextButton.rx.tap.subscribeNext { [weak self] in } >>> disposeBag
         navigationItem.rightBarButtonItem = nextButton
     }
 
     // MARK: - UITableViewDelegate
-
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 68
-    }
-
+    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         headerView.backgroundColor = UIColor.white
         headerView.layer.shadowColor = UIColor.black.withAlphaComponent(0.5).cgColor

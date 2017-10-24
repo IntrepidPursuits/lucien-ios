@@ -8,7 +8,6 @@
 
 import Foundation
 import RxSwift
-import RxCocoa
 
 class LendingBookViewModel {
 
@@ -16,14 +15,13 @@ class LendingBookViewModel {
 
     // MARK: - Private Constants
 
-    private let disposeBag = DisposeBag()
     private let lucienAPIClient = LucienAPIClient()
 
     func getAllUsers(completion: @escaping ([User]?, Error?) -> Void) {
         lucienAPIClient.getAllUsers { response in
             switch response {
             case .success(let users):
-                completion(users, nil)
+                self.users.value = users
             case .failure(let error):
                 completion(nil, error)
             }
