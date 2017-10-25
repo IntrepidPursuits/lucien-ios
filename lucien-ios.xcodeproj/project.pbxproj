@@ -15,6 +15,10 @@
 		1C45D0EB1F85611A00E651A5 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C45D0E91F85611A00E651A5 /* CameraViewController.swift */; };
 		1C45D0EC1F85611A00E651A5 /* CameraViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C45D0EA1F85611A00E651A5 /* CameraViewController.xib */; };
 		1C577CD81F94FADA00EB9423 /* AmazonS3ImageURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C577CD71F94FADA00EB9423 /* AmazonS3ImageURL.swift */; };
+		1C7275261F99289100D4D10C /* LendABookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7275241F99289100D4D10C /* LendABookViewController.swift */; };
+		1C7275271F99289100D4D10C /* LendABookViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C7275251F99289100D4D10C /* LendABookViewController.xib */; };
+		1C72752C1F9A7FF800D4D10C /* LendingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C72752A1F9A7FF800D4D10C /* LendingTableViewCell.swift */; };
+		1C72752D1F9A7FF800D4D10C /* LendingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C72752B1F9A7FF800D4D10C /* LendingTableViewCell.xib */; };
 		1C7EE0851F880DF6003F2A81 /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7EE0841F880DF6003F2A81 /* UIImageExtensions.swift */; };
 		1C7EE0891F8BEE43003F2A81 /* AlertDisplaying.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7EE0881F8BEE43003F2A81 /* AlertDisplaying.swift */; };
 		1CACA1381F9157D600271E19 /* ComicFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CACA1371F9157D600271E19 /* ComicFormViewModel.swift */; };
@@ -25,6 +29,8 @@
 		1CAFFC7C1F797FA200B79F11 /* lucien_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAFFC7B1F797FA200B79F11 /* lucien_iosTests.swift */; };
 		1CAFFC871F797FA200B79F11 /* lucien_iosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAFFC861F797FA200B79F11 /* lucien_iosUITests.swift */; };
 		1CB8F1FE1F953D4F000DE8F3 /* Rx+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB8F1FD1F953D4F000DE8F3 /* Rx+Extensions.swift */; };
+		1CDAB2A51F9E2526004511C5 /* AllUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDAB2A41F9E2526004511C5 /* AllUsers.swift */; };
+		1CDAB2A71F9E37D2004511C5 /* LendingBookViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDAB2A61F9E37D2004511C5 /* LendingBookViewModel.swift */; };
 		1CDB6A221F7995EC003A2BB1 /* StartMyCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDB6A201F7995EC003A2BB1 /* StartMyCollectionViewController.swift */; };
 		1CDB6A231F7995EC003A2BB1 /* StartMyCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CDB6A211F7995EC003A2BB1 /* StartMyCollectionViewController.xib */; };
 		1CDBD85B1F7C209800408826 /* Muli-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1CDBD8541F7C209400408826 /* Muli-Black.ttf */; };
@@ -108,6 +114,10 @@
 		1C45D0E91F85611A00E651A5 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		1C45D0EA1F85611A00E651A5 /* CameraViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CameraViewController.xib; sourceTree = "<group>"; };
 		1C577CD71F94FADA00EB9423 /* AmazonS3ImageURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmazonS3ImageURL.swift; sourceTree = "<group>"; };
+		1C7275241F99289100D4D10C /* LendABookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LendABookViewController.swift; sourceTree = "<group>"; };
+		1C7275251F99289100D4D10C /* LendABookViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LendABookViewController.xib; sourceTree = "<group>"; };
+		1C72752A1F9A7FF800D4D10C /* LendingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LendingTableViewCell.swift; sourceTree = "<group>"; };
+		1C72752B1F9A7FF800D4D10C /* LendingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LendingTableViewCell.xib; sourceTree = "<group>"; };
 		1C7EE0841F880DF6003F2A81 /* UIImageExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
 		1C7EE0881F8BEE43003F2A81 /* AlertDisplaying.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertDisplaying.swift; sourceTree = "<group>"; };
 		1CACA1371F9157D600271E19 /* ComicFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicFormViewModel.swift; sourceTree = "<group>"; };
@@ -124,6 +134,8 @@
 		1CAFFC861F797FA200B79F11 /* lucien_iosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lucien_iosUITests.swift; sourceTree = "<group>"; };
 		1CAFFC881F797FA200B79F11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1CB8F1FD1F953D4F000DE8F3 /* Rx+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Rx+Extensions.swift"; sourceTree = "<group>"; };
+		1CDAB2A41F9E2526004511C5 /* AllUsers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllUsers.swift; sourceTree = "<group>"; };
+		1CDAB2A61F9E37D2004511C5 /* LendingBookViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LendingBookViewModel.swift; sourceTree = "<group>"; };
 		1CDB6A201F7995EC003A2BB1 /* StartMyCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartMyCollectionViewController.swift; sourceTree = "<group>"; };
 		1CDB6A211F7995EC003A2BB1 /* StartMyCollectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StartMyCollectionViewController.xib; sourceTree = "<group>"; };
 		1CDBD84D1F7C209300408826 /* Muli-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
@@ -241,6 +253,18 @@
 			path = Camera;
 			sourceTree = "<group>";
 		};
+		1C7275231F9925CC00D4D10C /* Lending */ = {
+			isa = PBXGroup;
+			children = (
+				1C7275241F99289100D4D10C /* LendABookViewController.swift */,
+				1C7275251F99289100D4D10C /* LendABookViewController.xib */,
+				1C72752A1F9A7FF800D4D10C /* LendingTableViewCell.swift */,
+				1C72752B1F9A7FF800D4D10C /* LendingTableViewCell.xib */,
+				1CDAB2A61F9E37D2004511C5 /* LendingBookViewModel.swift */,
+			);
+			path = Lending;
+			sourceTree = "<group>";
+		};
 		1C7E9F911F7994050061EFF6 /* StartMyCollection */ = {
 			isa = PBXGroup;
 			children = (
@@ -283,6 +307,7 @@
 		1CAFFC651F797FA200B79F11 /* lucien-ios */ = {
 			isa = PBXGroup;
 			children = (
+				1C7275231F9925CC00D4D10C /* Lending */,
 				1C21642C1F8FCA8C00938D59 /* Subclasses */,
 				1C7EE07F1F87F8CF003F2A81 /* Protocols */,
 				1C45D0E81F85608500E651A5 /* Camera */,
@@ -457,6 +482,7 @@
 				FB82CC5A1F994513009E42B0 /* DashboardComic.swift */,
 				FB5389C71F9A31C90099FB98 /* AddEditComic.swift */,
 				FB65690B1F9E59C500AABA5D /* MyComics.swift */,
+				1CDAB2A41F9E2526004511C5 /* AllUsers.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -598,6 +624,7 @@
 				1C45D0EC1F85611A00E651A5 /* CameraViewController.xib in Resources */,
 				1CAFFC6E1F797FA200B79F11 /* Assets.xcassets in Resources */,
 				1CDBD8631F7C209800408826 /* Muli-Italic.ttf in Resources */,
+				1C72752D1F9A7FF800D4D10C /* LendingTableViewCell.xib in Resources */,
 				FBD844441F798B1D00A8E352 /* RootViewController.xib in Resources */,
 				FBE07CCA1F7C2A4500CF1A3F /* ProfileViewController.xib in Resources */,
 				1CDBD85E1F7C209800408826 /* Muli-BoldItalic.ttf in Resources */,
@@ -608,6 +635,7 @@
 				1CDBD8621F7C209800408826 /* Muli-ExtraLightItalic.ttf in Resources */,
 				FB65690A1F9E27E700AABA5D /* MyCollectionTableViewCell.xib in Resources */,
 				1CDBD85F1F7C209800408826 /* Muli-ExtraBold.ttf in Resources */,
+				1C7275271F99289100D4D10C /* LendABookViewController.xib in Resources */,
 				1CDB6A231F7995EC003A2BB1 /* StartMyCollectionViewController.xib in Resources */,
 				1CDBD8681F7C209800408826 /* Muli-SemiBoldItalic.ttf in Resources */,
 				1CDBD8611F7C209800408826 /* Muli-ExtraLight.ttf in Resources */,
@@ -817,6 +845,7 @@
 				FB778BB11F8EA81300068A44 /* DashboardResponse.swift in Sources */,
 				FB743DA61F8D61150066A43F /* DashboardCollectionViewCell.swift in Sources */,
 				FB480C391F9154D700DFAB08 /* DashboardCollectionView.swift in Sources */,
+				1CDAB2A71F9E37D2004511C5 /* LendingBookViewModel.swift in Sources */,
 				FBB9756B1F7ED8A9007951C4 /* Result.swift in Sources */,
 				1CDB6A221F7995EC003A2BB1 /* StartMyCollectionViewController.swift in Sources */,
 				FB6AA1A81F85665200394500 /* UILabel+Extensions.swift in Sources */,
@@ -828,14 +857,17 @@
 				FBB975691F7EBB31007951C4 /* User.swift in Sources */,
 				FB480C3B1F9160AE00DFAB08 /* DashboardCollectionViewModel.swift in Sources */,
 				FB6B911B1F7C195000910B49 /* AnimatedTransition.swift in Sources */,
+				1C7275261F99289100D4D10C /* LendABookViewController.swift in Sources */,
 				1CDBD86F1F7C26B800408826 /* LucienTheme.swift in Sources */,
 				1CB8F1FE1F953D4F000DE8F3 /* Rx+Extensions.swift in Sources */,
 				FBB9756D1F7ED8E6007951C4 /* Request.swift in Sources */,
 				FB32A7581F97A0E70058AB97 /* DashboardComicUser.swift in Sources */,
+				1CDAB2A51F9E2526004511C5 /* AllUsers.swift in Sources */,
 				FBD844431F798B1D00A8E352 /* RootViewController.swift in Sources */,
 				1C21642E1F8FCAA900938D59 /* BottomBorderTextField.swift in Sources */,
 				FBE07CC91F7C2A4500CF1A3F /* ProfileViewController.swift in Sources */,
 				1CAE48D81F8412960087E96E /* LucienConstants.swift in Sources */,
+				1C72752C1F9A7FF800D4D10C /* LendingTableViewCell.swift in Sources */,
 				1CAFFC671F797FA200B79F11 /* AppDelegate.swift in Sources */,
 				1C7EE0891F8BEE43003F2A81 /* AlertDisplaying.swift in Sources */,
 				1C07CBF41F7AE1FD007C66D0 /* ComicFormViewController.swift in Sources */,

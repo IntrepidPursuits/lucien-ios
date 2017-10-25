@@ -82,7 +82,7 @@ class ComicFormViewModel {
 
     private let disposeBag = DisposeBag()
     private let lucienAPIClient = LucienAPIClient()
-    private var comicID: String? 
+    private var comicID: String?
 
     init() {}
 
@@ -101,7 +101,6 @@ class ComicFormViewModel {
         self.genre.value = Genre.convertStringToGenre(genre: comic.genre)
         self.condition.value = Condition.convertStringToCondition(condition: comic.condition)
     }
-
 
     func convertStringToCondition(condition: String?) -> Condition? {
         guard let condition = condition else { return nil }
