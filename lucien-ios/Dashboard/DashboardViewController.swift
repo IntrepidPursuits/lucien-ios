@@ -46,12 +46,7 @@ final class DashboardViewController: UIViewController, UIScrollViewDelegate, Das
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        borrowingEmptyImageView.isHidden = true
-        borrowingEmptyDescriptionLabel.isHidden = true
-        lendingEmptyImageView.isHidden = true
-        lendingEmptyDescriptionLabel.isHidden = true
-        lendingEmptyPlusImageView.isHidden = true
-        lendingEmptyAddBookLabel.isHidden = true
+        setPlaceholdersHidden()
         setPlaceholders()
     }
 
@@ -62,6 +57,17 @@ final class DashboardViewController: UIViewController, UIScrollViewDelegate, Das
         lendingCollectionView.dashboardDelegate = self
         borrowingCollectionView.dashboardDelegate = self
         tableView.dashboardDelegate = self
+    }
+
+    func setPlaceholdersHidden() {
+        borrowingEmptyImageView.isHidden = true
+        borrowingEmptyDescriptionLabel.isHidden = true
+        if viewModel.myComicsViewModel.getComicCount == 0 {
+            lendingEmptyImageView.isHidden = true
+            lendingEmptyDescriptionLabel.isHidden = true
+            lendingEmptyPlusImageView.isHidden = true
+            lendingEmptyAddBookLabel.isHidden = true
+        }
     }
 
     func setStyling() {
