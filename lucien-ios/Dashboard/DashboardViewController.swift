@@ -62,7 +62,7 @@ final class DashboardViewController: UIViewController, UIScrollViewDelegate, Das
     func setPlaceholdersHidden() {
         borrowingEmptyImageView.isHidden = true
         borrowingEmptyDescriptionLabel.isHidden = true
-        if viewModel.myComicsViewModel.getComicCount == 0 {
+        if viewModel.myComicsViewModel.getComicCount() != 0 {
             lendingEmptyImageView.isHidden = true
             lendingEmptyDescriptionLabel.isHidden = true
             lendingEmptyPlusImageView.isHidden = true
