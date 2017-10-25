@@ -16,11 +16,16 @@
         <array key="Muli-Light.ttf">
             <string>Muli-Light</string>
         </array>
+        <array key="Muli-Regular.ttf">
+            <string>Muli-Regular</string>
+        </array>
     </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DashboardViewController" customModule="lucien_ios" customModuleProvider="target">
             <connections>
                 <outlet property="borrowingCollectionView" destination="zzt-Lh-hKr" id="UD7-LW-LBG"/>
+                <outlet property="borrowingEmptyDescriptionLabel" destination="Q86-XI-v5X" id="Nw3-MH-b4i"/>
+                <outlet property="borrowingEmptyImageView" destination="l9y-Px-Mrb" id="UvA-xo-oyj"/>
                 <outlet property="borrowingLabel" destination="YSO-cO-I99" id="JZ6-EA-pAZ"/>
                 <outlet property="comicCountLabel" destination="wZe-1l-7I5" id="6Fv-MH-aZf"/>
                 <outlet property="dashboardScrollView" destination="5Bd-Ir-PZh" id="H4N-6n-8y6"/>
@@ -53,13 +58,13 @@
                             </collectionViewFlowLayout>
                         </collectionView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LENDING" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zKh-rh-dhN">
-                            <rect key="frame" x="15" y="8" width="82.5" height="23"/>
+                            <rect key="frame" x="15" y="8" width="83" height="23"/>
                             <fontDescription key="fontDescription" name="Muli-Black" family="Muli" pointSize="18"/>
                             <color key="textColor" red="0.16862745100000001" green="0.1764705882" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BORROWING" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YSO-cO-I99">
-                            <rect key="frame" x="15" y="376" width="120.5" height="23"/>
+                            <rect key="frame" x="15" y="376" width="121" height="23"/>
                             <fontDescription key="fontDescription" name="Muli-Black" family="Muli" pointSize="18"/>
                             <color key="textColor" red="0.16862745100000001" green="0.1764705882" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
@@ -111,14 +116,30 @@
                             <color key="textColor" red="0.16862745100000001" green="0.1764705882" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="borrowingEmpty" translatesAutoresizingMaskIntoConstraints="NO" id="l9y-Px-Mrb">
+                            <rect key="frame" x="250" y="472" width="72" height="72"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="72" id="8hD-nC-Qz1"/>
+                                <constraint firstAttribute="height" constant="72" id="ccj-VS-ire"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Talk to a friend to borrow a book." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q86-XI-v5X">
+                            <rect key="frame" x="148" y="552" width="275" height="23"/>
+                            <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="18"/>
+                            <color key="textColor" red="0.16862745100000001" green="0.1764705882" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <constraints>
                         <constraint firstItem="zzt-Lh-hKr" firstAttribute="leading" secondItem="5Bd-Ir-PZh" secondAttribute="leading" id="05r-S8-eYk"/>
                         <constraint firstItem="FGQ-7a-mRc" firstAttribute="leading" secondItem="5Bd-Ir-PZh" secondAttribute="leading" constant="8" id="0Ol-GN-VJU"/>
                         <constraint firstItem="wZe-1l-7I5" firstAttribute="centerX" secondItem="5Bd-Ir-PZh" secondAttribute="centerX" id="5Cd-n8-b2z"/>
+                        <constraint firstItem="Q86-XI-v5X" firstAttribute="top" secondItem="l9y-Px-Mrb" secondAttribute="bottom" constant="8" id="5j4-ia-Ame"/>
                         <constraint firstAttribute="trailing" secondItem="j76-3z-DBc" secondAttribute="trailing" id="5k4-f9-QVs"/>
                         <constraint firstItem="mlf-YE-chQ" firstAttribute="top" secondItem="bqo-Ug-85F" secondAttribute="bottom" constant="32" id="8Q1-SS-vxe"/>
                         <constraint firstItem="YSO-cO-I99" firstAttribute="top" secondItem="FGQ-7a-mRc" secondAttribute="bottom" constant="24" id="Akl-Kw-yq1"/>
+                        <constraint firstItem="l9y-Px-Mrb" firstAttribute="top" secondItem="FGQ-7a-mRc" secondAttribute="bottom" constant="120" id="LTN-NN-zcn"/>
+                        <constraint firstItem="Q86-XI-v5X" firstAttribute="centerX" secondItem="5Bd-Ir-PZh" secondAttribute="centerX" id="RPk-1f-zxh"/>
                         <constraint firstItem="bqo-Ug-85F" firstAttribute="leading" secondItem="5Bd-Ir-PZh" secondAttribute="leading" constant="8" id="Rvx-pp-Wz6"/>
                         <constraint firstAttribute="trailing" secondItem="FGQ-7a-mRc" secondAttribute="trailing" constant="8" id="VOJ-hm-Lye"/>
                         <constraint firstItem="LTX-5B-CXm" firstAttribute="top" secondItem="zKh-rh-dhN" secondAttribute="bottom" constant="16" id="YTn-eJ-t2q"/>
@@ -127,6 +148,7 @@
                         <constraint firstItem="YSO-cO-I99" firstAttribute="leading" secondItem="5Bd-Ir-PZh" secondAttribute="leading" constant="15" id="dn5-PD-Y05"/>
                         <constraint firstAttribute="trailing" secondItem="LTX-5B-CXm" secondAttribute="trailing" id="dtJ-7w-q6B"/>
                         <constraint firstItem="j76-3z-DBc" firstAttribute="top" secondItem="zzt-Lh-hKr" secondAttribute="bottom" constant="127" id="fCe-EB-t68"/>
+                        <constraint firstItem="l9y-Px-Mrb" firstAttribute="centerX" secondItem="5Bd-Ir-PZh" secondAttribute="centerX" id="fOJ-Az-T3R"/>
                         <constraint firstItem="FGQ-7a-mRc" firstAttribute="top" secondItem="LTX-5B-CXm" secondAttribute="bottom" constant="24" id="hfZ-6O-Wsz"/>
                         <constraint firstItem="zKh-rh-dhN" firstAttribute="leading" secondItem="5Bd-Ir-PZh" secondAttribute="leading" constant="15" id="hhr-vD-uJR"/>
                         <constraint firstAttribute="bottom" secondItem="LTX-5B-CXm" secondAttribute="bottom" constant="923" id="jRC-3y-ksn"/>
@@ -156,4 +178,7 @@
             <point key="canvasLocation" x="-64.5" y="348"/>
         </view>
     </objects>
+    <resources>
+        <image name="borrowingEmpty" width="72" height="72"/>
+    </resources>
 </document>

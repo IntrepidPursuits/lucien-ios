@@ -19,6 +19,9 @@ final class DashboardViewController: UIViewController, UIScrollViewDelegate, Das
     @IBOutlet private weak var myCollectionLabel: UILabel!
     @IBOutlet private weak var comicCountLabel: UILabel!
 
+    @IBOutlet weak var borrowingEmptyImageView: UIImageView!
+    @IBOutlet weak var borrowingEmptyDescriptionLabel: UILabel!
+
     var viewModel: DashboardViewModel
 
     init(dashboardViewModel: DashboardViewModel) {
@@ -33,11 +36,18 @@ final class DashboardViewController: UIViewController, UIScrollViewDelegate, Das
     override func viewDidLoad() {
         super.viewDidLoad()
         configureNavigationController()
-        setUpSubviews()
+        setViewModels()
         setStyling()
     }
 
-    func setUpSubviews() {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        borrowingEmptyImageView.isHidden = true
+        borrowingEmptyDescriptionLabel.isHidden = true
+        setPlaceholders()
+    }
+
+    func setViewModels() {
         lendingCollectionView.collectionViewModel = viewModel.lendingViewModel
         borrowingCollectionView.collectionViewModel = viewModel.borrowingViewModel
         tableView.viewModel = viewModel.myComicsViewModel
@@ -61,6 +71,13 @@ final class DashboardViewController: UIViewController, UIScrollViewDelegate, Das
     func dashboardTableViewDidSelectComic(with viewModel: ComicDetailViewModel) {
         let comicDetailViewController = ComicDetailScreenViewController(comicDetailViewModel: viewModel)
         navigationController?.pushViewController(comicDetailViewController, animated: true)
+    }
+
+    func setPlaceholders() {
+        if viewModel.borrowingViewModel.getComicCount() == 0 {
+            borrowingEmptyImageView.isHidden = false
+            borrowingEmptyDescriptionLabel.isHidden = false
+        }
     }
 
     private func configureNavigationController() {
