@@ -33,7 +33,7 @@ final class DashboardTableView: UITableView, UITableViewDataSource, UITableViewD
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (viewModel?.getComicCount())!
+        return viewModel?.getComicCount() ?? 0
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

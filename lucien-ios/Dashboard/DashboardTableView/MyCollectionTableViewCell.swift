@@ -27,10 +27,10 @@ final class MyCollectionTableViewCell: UITableViewCell {
 
     // TO DO: load another image created by me if no comic book cover
     func setImage(imageURL: String?) {
-        guard let imageURL = imageURL else { return }
-        guard let url = URL(string: imageURL) else { return }
-        guard let data = try? Data(contentsOf: url) else {
-            return
+        guard let imageURL = imageURL,
+            let url = URL(string: imageURL),
+            let data = try? Data(contentsOf: url) else {
+                return
         }
         comicImageView.image = UIImage(data: data)
     }
