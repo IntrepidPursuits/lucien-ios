@@ -68,7 +68,7 @@ final class DashboardTableView: UITableView, UITableViewDataSource, UITableViewD
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let viewModel = collectionViewModel else { return }
+        guard let viewModel = viewModel else { return }
         dashboardDelegate?.dashboardTableViewDidSelectComic(with: viewModel.createComicDetailViewModel(forIndex: indexPath.item))
     }
 }

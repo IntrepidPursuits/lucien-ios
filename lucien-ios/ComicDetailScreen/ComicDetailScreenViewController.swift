@@ -18,12 +18,12 @@ final class ComicDetailScreenViewController: UIViewController, UIScrollViewDeleg
     @IBOutlet private weak var seriesTitleLabel: UILabel!
     @IBOutlet private weak var storyTitleLabel: UILabel!
 
-    @IBOutlet weak var volumeLabel: UILabel!
-    @IBOutlet weak var issueLabel: UILabel!
-    @IBOutlet weak var releaseDateLabel: UILabel!
-    @IBOutlet weak var publisherLabel: UILabel!
-    @IBOutlet weak var genreLabel: UILabel!
-    @IBOutlet weak var conditionLabel: UILabel!
+    @IBOutlet private weak var volumeLabel: UILabel!
+    @IBOutlet private weak var issueLabel: UILabel!
+    @IBOutlet private weak var releaseDateLabel: UILabel!
+    @IBOutlet private weak var publisherLabel: UILabel!
+    @IBOutlet private weak var genreLabel: UILabel!
+    @IBOutlet private weak var conditionLabel: UILabel!
 
     private var viewModel: ComicDetailViewModel
     let disposeBag = DisposeBag()
@@ -35,6 +35,7 @@ final class ComicDetailScreenViewController: UIViewController, UIScrollViewDeleg
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setUpObservers()
+        setStyling()
     }
 
     init(comicDetailViewModel: ComicDetailViewModel) {
@@ -56,5 +57,18 @@ final class ComicDetailScreenViewController: UIViewController, UIScrollViewDeleg
         genreLabel.rx.text <- viewModel.genre >>> disposeBag
         conditionLabel.rx.text <- viewModel.condition >>> disposeBag
         comicImageCover.rx.image <- viewModel.comicImage >>> disposeBag
+        comicFadeImageView.rx.image <- viewModel.comicImage >>> disposeBag
+    }
+
+    func setStyling() {
+        comicImageCover.clipsToBounds = true
+        comicImageCover.layer.cornerRadius = CGFloat(6.0)
+        if let image = comicFadeImageView.image {
+            let blurEffectImage = image.blur(radius: 6.0)
+            comicFadeImageView.image = blurEffectImage
+        }
+        comicFadeImageView.layer.opacity = 0.2
+        comicFadeImageView.clipsToBounds = true
+        comicFadeImageView.layer.cornerRadius = 6.0
     }
 }

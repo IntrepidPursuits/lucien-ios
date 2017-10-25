@@ -27,14 +27,14 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="comicCell" id="gTV-IL-0wX" customClass="DashboardCollectionViewCell" customModule="lucien_ios" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="130" height="283"/>
+            <rect key="frame" x="0.0" y="0.0" width="130" height="287"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="130" height="283"/>
+                <rect key="frame" x="0.0" y="0.0" width="130" height="287"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hJ0-ye-jce">
-                        <rect key="frame" x="0.0" y="0.0" width="130" height="283"/>
+                        <rect key="frame" x="0.0" y="0.0" width="130" height="287"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Due date" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c7w-fX-uh5">
                                 <rect key="frame" x="0.0" y="214" width="130" height="23"/>

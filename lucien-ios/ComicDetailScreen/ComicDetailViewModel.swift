@@ -34,8 +34,9 @@ final class ComicDetailViewModel {
         storyTitle.value = dashboardComicUser.dashboardComic.storyTitle
         volume.value = dashboardComicUser.dashboardComic.volume ?? ""
         issue.value = dashboardComicUser.dashboardComic.issueNumber ?? ""
-        guard let date = dashboardComicUser.dashboardComic.releaseDate else { return }
-        releaseDate.value = DateFormatter().string(from: date)
+        if let date = dashboardComicUser.dashboardComic.releaseDate {
+            releaseDate.value = DateFormatter().string(from: date)
+        }
         publisher.value = dashboardComicUser.dashboardComic.publisher ?? ""
         condition.value = dashboardComicUser.dashboardComic.condition ?? ""
         comicImage.value = getImage(imageURL: dashboardComicUser.dashboardComic.comicPhotoURL ?? "")
