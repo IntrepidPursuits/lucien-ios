@@ -55,13 +55,6 @@ final class DashboardViewController: UIViewController, UIScrollViewDelegate, Das
         setPlaceholders()
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        borrowingEmptyImageView.isHidden = true
-        borrowingEmptyDescriptionLabel.isHidden = true
-        setPlaceholders()
-    }
-
     func setViewModels() {
         lendingCollectionView.collectionViewModel = viewModel.lendingViewModel
         borrowingCollectionView.collectionViewModel = viewModel.borrowingViewModel
