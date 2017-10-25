@@ -18,9 +18,12 @@ final class DashboardViewController: UIViewController, UIScrollViewDelegate, Das
     @IBOutlet private weak var tableView: DashboardTableView!
     @IBOutlet private weak var myCollectionLabel: UILabel!
     @IBOutlet private weak var comicCountLabel: UILabel!
-
-    @IBOutlet weak var borrowingEmptyImageView: UIImageView!
-    @IBOutlet weak var borrowingEmptyDescriptionLabel: UILabel!
+    @IBOutlet private weak var borrowingEmptyImageView: UIImageView!
+    @IBOutlet private weak var borrowingEmptyDescriptionLabel: UILabel!
+    @IBOutlet private weak var lendingEmptyImageView: UIImageView!
+    @IBOutlet private weak var lendingEmptyDescriptionLabel: UIImageView!
+    @IBOutlet private weak var lendingEmptyAddBookLabel: UILabel!
+    @IBOutlet private weak var lendingEmptyPlusImageView: UIImageView!
 
     var viewModel: DashboardViewModel
 
@@ -38,6 +41,18 @@ final class DashboardViewController: UIViewController, UIScrollViewDelegate, Das
         configureNavigationController()
         setViewModels()
         setStyling()
+        setLendingEmptyAddBook()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        borrowingEmptyImageView.isHidden = true
+        borrowingEmptyDescriptionLabel.isHidden = true
+        lendingEmptyImageView.isHidden = true
+        lendingEmptyDescriptionLabel.isHidden = true
+        lendingEmptyPlusImageView.isHidden = true
+        lendingEmptyAddBookLabel.isHidden = true
+        setPlaceholders()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -61,6 +76,14 @@ final class DashboardViewController: UIViewController, UIScrollViewDelegate, Das
         borrowingLabel.addTextSpacing(spacing: 0.5)
         myCollectionLabel.addTextSpacing(spacing: 0.7)
         comicCountLabel.text = String(viewModel.myComicsViewModel.getComicCount()) + " Comics"
+        lendingEmptyImageView.layer.cornerRadius = CGFloat(6.0)
+    }
+
+    func setLendingEmptyAddBook() {
+        lendingEmptyImageView.isUserInteractionEnabled = true
+        let lendingEmptyAddBookTapped: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(DashboardViewController.addBookButtonPressed))
+        lendingEmptyAddBookTapped.numberOfTapsRequired = 1
+        lendingEmptyImageView.addGestureRecognizer(lendingEmptyAddBookTapped)
     }
 
     func dashboardCollectionViewDidSelectComic(with viewModel: ComicDetailViewModel) {
@@ -77,6 +100,12 @@ final class DashboardViewController: UIViewController, UIScrollViewDelegate, Das
         if viewModel.borrowingViewModel.getComicCount() == 0 {
             borrowingEmptyImageView.isHidden = false
             borrowingEmptyDescriptionLabel.isHidden = false
+        }
+        if viewModel.lendingViewModel.getComicCount() == 0 {
+            lendingEmptyImageView.isHidden = false
+            lendingEmptyDescriptionLabel.isHidden = false
+            lendingEmptyPlusImageView.isHidden = false
+            lendingEmptyAddBookLabel.isHidden = false
         }
     }
 
