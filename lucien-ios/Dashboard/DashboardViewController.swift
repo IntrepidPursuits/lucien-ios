@@ -62,12 +62,10 @@ final class DashboardViewController: UIViewController, UIScrollViewDelegate, Das
     func setPlaceholdersHidden() {
         borrowingEmptyImageView.isHidden = true
         borrowingEmptyDescriptionLabel.isHidden = true
-        if viewModel.myComicsViewModel.getComicCount() != 0 {
-            lendingEmptyImageView.isHidden = true
-            lendingEmptyDescriptionLabel.isHidden = true
-            lendingEmptyPlusImageView.isHidden = true
-            lendingEmptyAddBookLabel.isHidden = true
-        }
+        lendingEmptyImageView.isHidden = true
+        lendingEmptyDescriptionLabel.isHidden = true
+        lendingEmptyPlusImageView.isHidden = true
+        lendingEmptyAddBookLabel.isHidden = true
     }
 
     func setStyling() {
@@ -100,7 +98,7 @@ final class DashboardViewController: UIViewController, UIScrollViewDelegate, Das
             borrowingEmptyImageView.isHidden = false
             borrowingEmptyDescriptionLabel.isHidden = false
         }
-        if viewModel.lendingViewModel.getComicCount() == 0 {
+        if viewModel.myComicsViewModel.getComicCount() == 0 {
             lendingEmptyImageView.isHidden = false
             lendingEmptyDescriptionLabel.isHidden = false
             lendingEmptyPlusImageView.isHidden = false
