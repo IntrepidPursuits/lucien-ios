@@ -58,4 +58,14 @@ final class LucienConstants {
 
     static let overlayButtonTopConstraint = CGFloat(10)
     static let overlayButtonLeadingConstraint = CGFloat(15)
+
+    // MARK: - Dasboard Button Constants
+
+    static let dashboardButtonCornerRadius = CGFloat(3.0)
+    static let dashboardButtonBorderWidth = CGFloat(1.0)
+    static let dashboardButtonTextSpacing = Float(1.0)
+
+    // MARK: - UIImageView Constants
+
+    static let comicCoverPhotoCornerRadius = CGFloat(6.0)
 }

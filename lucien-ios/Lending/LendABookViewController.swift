@@ -34,6 +34,20 @@ class LendABookViewController: UIViewController, UITableViewDelegate, AlertDispl
     // MARK: - Variables
 
     var selectedIndex: Int?
+    var comicID: String?
+    var comicCoverPhoto: UIImage?
+    var selectedUserID: String?
+    var selectedUserName: String?
+
+    init(comicID: String, comicCoverPhoto: UIImage? = nil) {
+        super.init(nibName: nil, bundle: nil)
+        self.comicID = comicID
+        self.comicCoverPhoto = comicCoverPhoto
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,6 +69,9 @@ class LendABookViewController: UIViewController, UITableViewDelegate, AlertDispl
         tableView.register(lendingCell, forCellReuseIdentifier: "userCell")
 
         tableView.rx.itemSelected.subscribe(onNext: { [weak self] indexPath in
+            let cell = self?.tableView.cellForRow(at: indexPath) as? LendingTableViewCell
+            self?.selectedUserID = cell?.userID
+            self?.selectedUserName = cell?.nameLabel.text
             self?.nextButton.isEnabled = true
             self?.nextButton.tintColor = LucienTheme.dark
             self?.selectedIndex = indexPath.row
@@ -67,6 +84,7 @@ class LendABookViewController: UIViewController, UITableViewDelegate, AlertDispl
         ) { [weak self] row, user, cell in
             cell.nameLabel.text = "\(user.firstName) \(user.lastName)"
             cell.emailLabel.text = user.email
+            cell.userID = user.userID
             if row  == self?.selectedIndex {
                 cell.accessoryType = .checkmark
                 cell.accessoryView = UIImageView(image: UIImage(named: "checkmark"))
@@ -111,12 +129,27 @@ class LendABookViewController: UIViewController, UITableViewDelegate, AlertDispl
         nextButton.setTitleTextAttributes([NSAttributedStringKey.font: LucienTheme.Fonts.muliSemiBold(size: 17) ?? UIFont()], for: .normal)
         nextButton.tintColor = LucienTheme.finishButtonGrey
         nextButton.isEnabled = false
-        // TODO: Add implementation for next button
+        nextButton.rx.tap.single().subscribeNext { [weak self] in
+            guard
+                let comicID = self?.comicID,
+                let userID = self?.selectedUserID,
+                let userName = self?.selectedUserName
+                else { return }
+
+            self?.viewModel.lendComic(comicID: comicID, comic: LentComic(borrowerID: userID, returnDate: ""), completion: { _ in
+                let lendingSuccessViewController = LendingSuccessViewController()
+                lendingSuccessViewController.lendingLabelText  = "You lent a book to \(userName)"
+                if let comicCoverPhoto = self?.comicCoverPhoto {
+                    lendingSuccessViewController.comicCoverPhoto = comicCoverPhoto
+                }
+                self?.present(lendingSuccessViewController, animated: false, completion: nil)
+            })
+        } >>> disposeBag
         navigationItem.rightBarButtonItem = nextButton
     }
 
     // MARK: - UITableViewDelegate
-    
+
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         headerView.backgroundColor = UIColor.white
         headerView.layer.shadowColor = UIColor.black.withAlphaComponent(0.5).cgColor
