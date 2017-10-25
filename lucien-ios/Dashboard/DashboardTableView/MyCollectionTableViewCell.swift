@@ -23,6 +23,7 @@ final class MyCollectionTableViewCell: UITableViewCell {
         storyTitleLabel.text = storyTitle
         volumeIssueLabel.text = "Volume " + volume + ", Issue #" + issueNumber
         setImage(imageURL: imageURL)
+        setStyling()
     }
 
     // TO DO: load another image created by me if no comic book cover
@@ -38,6 +39,7 @@ final class MyCollectionTableViewCell: UITableViewCell {
     func setStyling() {
         comicImageView.clipsToBounds = true
         comicImageView.layer.cornerRadius = CGFloat(6.0)
+        selectionStyle = .none
     }
 
     func styleCell(subview: UIView) {
