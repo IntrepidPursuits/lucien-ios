@@ -80,10 +80,10 @@
 		FBB975691F7EBB31007951C4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB975681F7EBB31007951C4 /* User.swift */; };
 		FBB9756B1F7ED8A9007951C4 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB9756A1F7ED8A9007951C4 /* Result.swift */; };
 		FBB9756D1F7ED8E6007951C4 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB9756C1F7ED8E6007951C4 /* Request.swift */; };
-		FBC5C6E21F9FBF5B0019C872 /* DashboardTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC5C6E11F9FBF5B0019C872 /* DashboardTableViewModel.swift */; };
 		FBC5C6DC1F9F91700019C872 /* ComicDetailScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC5C6DA1F9F91700019C872 /* ComicDetailScreenViewController.swift */; };
 		FBC5C6DD1F9F91700019C872 /* ComicDetailScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBC5C6DB1F9F91700019C872 /* ComicDetailScreenViewController.xib */; };
 		FBC5C6E01F9FB5350019C872 /* ComicDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC5C6DF1F9FB5350019C872 /* ComicDetailViewModel.swift */; };
+		FBC5C6E21F9FBF5B0019C872 /* DashboardTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC5C6E11F9FBF5B0019C872 /* DashboardTableViewModel.swift */; };
 		FBD844431F798B1D00A8E352 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD844411F798B1D00A8E352 /* RootViewController.swift */; };
 		FBD844441F798B1D00A8E352 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBD844421F798B1D00A8E352 /* RootViewController.xib */; };
 		FBDDE2CB1F7E7C4F00A4EA34 /* LucienRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDDE2CA1F7E7C4F00A4EA34 /* LucienRequest.swift */; };
@@ -196,10 +196,10 @@
 		FBB975681F7EBB31007951C4 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		FBB9756A1F7ED8A9007951C4 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		FBB9756C1F7ED8E6007951C4 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
-		FBC5C6E11F9FBF5B0019C872 /* DashboardTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTableViewModel.swift; sourceTree = "<group>"; };
 		FBC5C6DA1F9F91700019C872 /* ComicDetailScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicDetailScreenViewController.swift; sourceTree = "<group>"; };
 		FBC5C6DB1F9F91700019C872 /* ComicDetailScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ComicDetailScreenViewController.xib; path = ../../ComicDetailScreenViewController.xib; sourceTree = "<group>"; };
 		FBC5C6DF1F9FB5350019C872 /* ComicDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicDetailViewModel.swift; sourceTree = "<group>"; };
+		FBC5C6E11F9FBF5B0019C872 /* DashboardTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTableViewModel.swift; sourceTree = "<group>"; };
 		FBD844411F798B1D00A8E352 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		FBD844421F798B1D00A8E352 /* RootViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
 		FBD844451F799A6F00A8E352 /* lucien-ios-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "lucien-ios-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -492,6 +492,16 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		FBC5C6DE1F9F91770019C872 /* ComicDetailScreen */ = {
+			isa = PBXGroup;
+			children = (
+				FBC5C6DB1F9F91700019C872 /* ComicDetailScreenViewController.xib */,
+				FBC5C6DA1F9F91700019C872 /* ComicDetailScreenViewController.swift */,
+				FBC5C6DF1F9FB5350019C872 /* ComicDetailViewModel.swift */,
+			);
+			path = ComicDetailScreen;
+			sourceTree = "<group>";
+		};
 		FBC5C6E31F9FC1690019C872 /* DashboardCollectionView */ = {
 			isa = PBXGroup;
 			children = (
@@ -512,16 +522,6 @@
 				FB6569081F9E27E700AABA5D /* MyCollectionTableViewCell.xib */,
 			);
 			path = DashboardTableView;
-			sourceTree = "<group>";
-		};
-		FBC5C6DE1F9F91770019C872 /* ComicDetailScreen */ = {
-			isa = PBXGroup;
-			children = (
-				FBC5C6DB1F9F91700019C872 /* ComicDetailScreenViewController.xib */,
-				FBC5C6DA1F9F91700019C872 /* ComicDetailScreenViewController.swift */,
-				FBC5C6DF1F9FB5350019C872 /* ComicDetailViewModel.swift */,
-			);
-			path = ComicDetailScreen;
 			sourceTree = "<group>";
 		};
 		FBE07CC61F7C2A1900CF1A3F /* ViewProfile */ = {

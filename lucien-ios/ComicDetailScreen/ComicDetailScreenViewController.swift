@@ -25,6 +25,11 @@ final class ComicDetailScreenViewController: UIViewController, UIScrollViewDeleg
     @IBOutlet private weak var genreLabel: UILabel!
     @IBOutlet private weak var conditionLabel: UILabel!
 
+    @IBOutlet private weak var footerView: UIView!
+    @IBOutlet private weak var borrowerNameLabel: UILabel!
+    @IBOutlet private weak var dueDateLabel: UILabel!
+    @IBOutlet private weak var returnedButton: UIButton!
+
     private var viewModel: ComicDetailViewModel
     let disposeBag = DisposeBag()
 
@@ -100,5 +105,16 @@ final class ComicDetailScreenViewController: UIViewController, UIScrollViewDeleg
         comicFadeImageView.layer.opacity = 0.2
         comicFadeImageView.clipsToBounds = true
         comicFadeImageView.layer.cornerRadius = 6.0
+        returnedButton.layer.cornerRadius = 3.0
+        returnedButton.clipsToBounds = true
+    }
+
+    func roundTopCorners(flatView: UIView) {
+        let rectShape = CAShapeLayer()
+        rectShape.bounds = flatView.frame
+        rectShape.position = flatView.center
+        rectShape.path = UIBezierPath(roundedRect: flatView.bounds, byRoundingCorners: [.topRight, .topLeft], cornerRadii: CGSize(width: 12, height: 12)).cgPath
+        flatView.layer.backgroundColor = UIColor.green.cgColor
+        flatView.layer.mask = rectShape
     }
 }

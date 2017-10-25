@@ -14,15 +14,17 @@ final class ComicDetailViewModel {
 
     private var dashboardComicUser: DashboardComicUser
 
+    let emptyDefault = "-"
     let comicImage = Variable(UIImage())
-    let comicTitle = Variable("-")
-    let storyTitle = Variable("-")
-    let volume = Variable("-")
-    let issue = Variable("-")
-    let releaseDate = Variable("-")
-    let publisher = Variable("-")
-    let genre = Variable("-")
-    let condition = Variable("-")
+    lazy var comicTitle = Variable(emptyDefault)
+    lazy var storyTitle = Variable(emptyDefault)
+    lazy var volume = Variable(emptyDefault)
+    lazy var issue = Variable(emptyDefault)
+    lazy var releaseDate = Variable(emptyDefault)
+    lazy var publisher = Variable(emptyDefault)
+    lazy var genre = Variable(emptyDefault)
+    lazy var condition = Variable(emptyDefault)
+    lazy var borrowerName = Variable(emptyDefault)
 
     init(comic: DashboardComicUser) {
         dashboardComicUser = comic
@@ -40,6 +42,8 @@ final class ComicDetailViewModel {
         publisher.value = dashboardComicUser.dashboardComic.publisher ?? ""
         condition.value = dashboardComicUser.dashboardComic.condition ?? ""
         comicImage.value = getImage(imageURL: dashboardComicUser.dashboardComic.comicPhotoURL ?? "")
+        if dashboardComicUser.dashboardUserType
+        borrowerName.value = dashboardComicUser.
     }
 
     func getImage(imageURL: String) -> UIImage {
