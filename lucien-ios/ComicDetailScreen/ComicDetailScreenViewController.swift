@@ -35,6 +35,7 @@ final class ComicDetailScreenViewController: UIViewController, UIScrollViewDeleg
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setUpObservers()
+        configureNavigationController()
         setStyling()
     }
 
@@ -45,6 +46,35 @@ final class ComicDetailScreenViewController: UIViewController, UIScrollViewDeleg
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    @objc func back(sender: UIBarButtonItem) {
+        navigationController?.popViewController(animated: true)
+    }
+
+    @objc func presentEditForm(sender: UIBarButtonItem) {
+        let comicFormViewModel = ComicFormViewModel()
+        let comicFormViewController = ComicFormViewController(comicFormViewModel: comicFormViewModel)
+        navigationController?.pushViewController(comicFormViewController, animated: true)
+    }
+
+    private func configureNavigationController() {
+        navigationItem.title = "Details"
+        navigationController?.navigationBar.setNavBarTitle()
+        navigationController?.navigationBar.setNavBarBackground()
+        setNavBarBackButton()
+        setEditButton()
+    }
+
+    private func setNavBarBackButton() {
+        let backButton = UIBarButtonItem(image: UIImage(named: "navBackButton"), style: .plain, target: self, action: #selector(back(sender:)))
+        backButton.tintColor = LucienTheme.dark
+        navigationItem.leftBarButtonItem = backButton
+    }
+
+    private func setEditButton() {
+        let editButton = UIBarButtonItem(image: UIImage(named: "editIcon"), style: .plain, target: self, action: #selector(presentEditForm(sender:)))
+        navigationItem.rightBarButtonItem = editButton
     }
 
     func setUpObservers() {
