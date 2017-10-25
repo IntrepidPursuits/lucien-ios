@@ -9,6 +9,7 @@
 import Foundation
 
 extension UIImage {
+
     /**
      Resizes a UIImage.
      - parameter size: size of the image as CGSize.
