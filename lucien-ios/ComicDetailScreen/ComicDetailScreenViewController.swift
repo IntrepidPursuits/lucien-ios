@@ -33,10 +33,6 @@ final class ComicDetailScreenViewController: UIViewController, UIScrollViewDeleg
     private var viewModel: ComicDetailViewModel
     let disposeBag = DisposeBag()
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setUpObservers()
@@ -93,6 +89,7 @@ final class ComicDetailScreenViewController: UIViewController, UIScrollViewDeleg
         conditionLabel.rx.text <- viewModel.condition >>> disposeBag
         comicImageCover.rx.image <- viewModel.comicImage >>> disposeBag
         comicFadeImageView.rx.image <- viewModel.comicImage >>> disposeBag
+        dueDateLabel.rx.text <- viewModel.dueDate >>> disposeBag
     }
 
     func setStyling() {

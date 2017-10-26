@@ -161,14 +161,14 @@
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Borrower Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LLe-oe-rx7">
-                                    <rect key="frame" x="68.5" y="13.5" width="132" height="23"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Borrower" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LLe-oe-rx7">
+                                    <rect key="frame" x="68.5" y="13.5" width="78" height="23"/>
                                     <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="18"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Due Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p2C-yP-cZF">
-                                    <rect key="frame" x="16" y="36" width="139" height="23"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Due date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p2C-yP-cZF">
+                                    <rect key="frame" x="16" y="36" width="215" height="23"/>
                                     <fontDescription key="fontDescription" name="Muli-Bold" family="Muli" pointSize="18"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
@@ -188,10 +188,10 @@
                             </subviews>
                             <color key="backgroundColor" red="0.16862745100000001" green="0.1764705882" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
+                                <constraint firstItem="A5T-60-pYo" firstAttribute="leading" secondItem="p2C-yP-cZF" secondAttribute="trailing" constant="16" id="47g-2e-Jlu"/>
                                 <constraint firstAttribute="height" constant="70" id="6ER-Nw-DI0"/>
                                 <constraint firstItem="LLe-oe-rx7" firstAttribute="centerY" secondItem="ofN-YS-77f" secondAttribute="centerY" id="9G8-Xc-z5c"/>
                                 <constraint firstAttribute="bottom" secondItem="p2C-yP-cZF" secondAttribute="bottom" constant="11" id="CLO-lj-hA2"/>
-                                <constraint firstAttribute="trailing" secondItem="p2C-yP-cZF" secondAttribute="trailing" constant="220" id="DYp-Hx-zXr"/>
                                 <constraint firstItem="p2C-yP-cZF" firstAttribute="leading" secondItem="biy-3Y-ocp" secondAttribute="leading" constant="16" id="Jhf-kd-CBX"/>
                                 <constraint firstItem="ofN-YS-77f" firstAttribute="leading" secondItem="biy-3Y-ocp" secondAttribute="leading" constant="16" id="NIX-K5-IHa"/>
                                 <constraint firstItem="LLe-oe-rx7" firstAttribute="leading" secondItem="ofN-YS-77f" secondAttribute="trailing" constant="4" id="Yco-Up-avL"/>
