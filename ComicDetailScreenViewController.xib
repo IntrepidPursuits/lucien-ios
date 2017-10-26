@@ -65,8 +65,8 @@
                                 <constraint firstAttribute="height" constant="357" id="ZB9-7M-h9s"/>
                             </constraints>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Series Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MyI-N7-o0z">
-                            <rect key="frame" x="15" y="401" width="345" height="63"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Series Title" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MyI-N7-o0z">
+                            <rect key="frame" x="15" y="401" width="345" height="86"/>
                             <fontDescription key="fontDescription" name="PermanentMarker-Regular" family="Permanent Marker" pointSize="30"/>
                             <color key="textColor" red="0.16862745100000001" green="0.1764705882" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
@@ -217,7 +217,7 @@
                         <constraint firstItem="xZC-y0-FL2" firstAttribute="leading" secondItem="60b-ol-umr" secondAttribute="trailing" constant="25" id="Ft6-Or-1AM"/>
                         <constraint firstItem="opx-Yb-agz" firstAttribute="top" secondItem="4pG-6P-9DY" secondAttribute="top" constant="20" id="GTv-AN-z2f"/>
                         <constraint firstItem="2Ik-7v-WRP" firstAttribute="top" secondItem="awq-u6-GUp" secondAttribute="bottom" constant="50" id="Iju-zi-IDy"/>
-                        <constraint firstItem="NCS-nL-ezl" firstAttribute="top" secondItem="MyI-N7-o0z" secondAttribute="bottom" id="IrK-2t-k2u"/>
+                        <constraint firstItem="NCS-nL-ezl" firstAttribute="top" secondItem="MyI-N7-o0z" secondAttribute="bottom" constant="-23" id="IrK-2t-k2u"/>
                         <constraint firstItem="opx-Yb-agz" firstAttribute="centerX" secondItem="4pG-6P-9DY" secondAttribute="centerX" id="KMP-HE-wie"/>
                         <constraint firstItem="IhJ-cj-zEd" firstAttribute="top" secondItem="2Ik-7v-WRP" secondAttribute="bottom" constant="3" id="KQe-AT-EBD"/>
                         <constraint firstAttribute="bottom" secondItem="2Ik-7v-WRP" secondAttribute="bottom" constant="148" id="Lx5-A0-sIc"/>
