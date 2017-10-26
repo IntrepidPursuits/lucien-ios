@@ -8,10 +8,15 @@
 
 import UIKit
 
+protocol DashboardCollectionViewDelegate: class {
+    func dashboardCollectionViewDidSelectComic(with viewModel: ComicDetailViewModel)
+}
+
 final class DashboardCollectionView: UICollectionView, UICollectionViewDataSource, UICollectionViewDelegate {
 
     var collectionViewModel: DashboardCollectionViewModel?
     let reuseIdentifier = DashboardCollectionViewCell.reuseIdentifier
+    weak var dashboardDelegate: DashboardCollectionViewDelegate?
 
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)
@@ -56,6 +61,11 @@ final class DashboardCollectionView: UICollectionView, UICollectionViewDataSourc
                                  ownerBorrowerName: userName,
                                  imageURL: imageURL, storyTitle: storyTitle)
         return configuredCell
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let viewModel = collectionViewModel else { return }
+        dashboardDelegate?.dashboardCollectionViewDidSelectComic(with: viewModel.createComicDetailViewModel(forIndex: indexPath.item))
     }
 }
 

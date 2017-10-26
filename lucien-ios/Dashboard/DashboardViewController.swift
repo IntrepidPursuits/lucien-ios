@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class DashboardViewController: UIViewController, UIScrollViewDelegate {
+final class DashboardViewController: UIViewController, UIScrollViewDelegate, DashboardCollectionViewDelegate, DashboardTableViewDelegate {
 
     @IBOutlet private weak var dashboardScrollView: UIScrollView!
     @IBOutlet private weak var lendingCollectionView: DashboardCollectionView!
@@ -33,14 +33,17 @@ final class DashboardViewController: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureNavigationController()
-        setViewModels()
+        setUpSubviews()
         setStyling()
     }
 
-    func setViewModels() {
+    func setUpSubviews() {
         lendingCollectionView.collectionViewModel = viewModel.lendingViewModel
         borrowingCollectionView.collectionViewModel = viewModel.borrowingViewModel
         tableView.viewModel = viewModel.myComicsViewModel
+        lendingCollectionView.dashboardDelegate = self
+        borrowingCollectionView.dashboardDelegate = self
+        tableView.dashboardDelegate = self
     }
 
     func setStyling() {
@@ -48,6 +51,16 @@ final class DashboardViewController: UIViewController, UIScrollViewDelegate {
         borrowingLabel.addTextSpacing(spacing: 0.5)
         myCollectionLabel.addTextSpacing(spacing: 0.7)
         comicCountLabel.text = String(viewModel.myComicsViewModel.getComicCount()) + " Comics"
+    }
+
+    func dashboardCollectionViewDidSelectComic(with viewModel: ComicDetailViewModel) {
+        let comicDetailViewController = ComicDetailScreenViewController(comicDetailViewModel: viewModel)
+        navigationController?.pushViewController(comicDetailViewController, animated: true)
+    }
+
+    func dashboardTableViewDidSelectComic(with viewModel: ComicDetailViewModel) {
+        let comicDetailViewController = ComicDetailScreenViewController(comicDetailViewModel: viewModel)
+        navigationController?.pushViewController(comicDetailViewController, animated: true)
     }
 
     private func configureNavigationController() {
