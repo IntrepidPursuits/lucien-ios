@@ -27,14 +27,14 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="comicCell" id="gTV-IL-0wX" customClass="DashboardCollectionViewCell" customModule="lucien_ios" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="130" height="287"/>
+            <rect key="frame" x="0.0" y="0.0" width="130" height="283"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="130" height="287"/>
+                <rect key="frame" x="0.0" y="0.0" width="130" height="283"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hJ0-ye-jce">
-                        <rect key="frame" x="0.0" y="0.0" width="130" height="287"/>
+                        <rect key="frame" x="0.0" y="0.0" width="130" height="283"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Due date" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c7w-fX-uh5">
                                 <rect key="frame" x="0.0" y="214" width="130" height="23"/>
@@ -78,7 +78,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="C" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4O8-kS-b3n">
-                                <rect key="frame" x="40.5" y="16" width="50" height="75"/>
+                                <rect key="frame" x="40.5" y="16" width="50" height="91.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="MJT-wF-SWa"/>
                                 </constraints>
@@ -87,7 +87,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Story Title" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ttE-pK-6On">
-                                <rect key="frame" x="8" y="91" width="114" height="15.5"/>
+                                <rect key="frame" x="8" y="107.5" width="114" height="16.5"/>
                                 <fontDescription key="fontDescription" name="Muli-Bold" family="Muli" pointSize="13"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
