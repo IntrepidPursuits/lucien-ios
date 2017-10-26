@@ -366,6 +366,7 @@ final class ComicFormViewController: UIViewController, AlertDisplaying {
         view.endEditing(true)
         deregisterFromKeyboardNotifications()
     }
+    
     // MARK: - IBOutlet Methods
 
     @IBAction private func addCoverButtonTapped(_ sender: UIButton) {
