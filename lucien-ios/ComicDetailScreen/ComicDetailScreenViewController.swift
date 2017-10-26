@@ -26,6 +26,7 @@ final class ComicDetailScreenViewController: UIViewController, UIScrollViewDeleg
     @IBOutlet private weak var conditionLabel: UILabel!
 
     @IBOutlet private weak var footerView: UIView!
+    @IBOutlet private weak var lentToLabel: UILabel!
     @IBOutlet private weak var borrowerNameLabel: UILabel!
     @IBOutlet private weak var dueDateLabel: UILabel!
     @IBOutlet private weak var returnedButton: UIButton!
@@ -37,6 +38,8 @@ final class ComicDetailScreenViewController: UIViewController, UIScrollViewDeleg
         super.viewWillAppear(animated)
         setUpObservers()
         configureNavigationController()
+        hideReturnFooter()
+        setUpFooter()
         setStyling()
     }
 
@@ -47,6 +50,26 @@ final class ComicDetailScreenViewController: UIViewController, UIScrollViewDeleg
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    func setUpFooter() {
+        if viewModel.userType == .borrower {
+            showReturnFooter()
+        }
+    }
+
+    func hideReturnFooter() {
+        lentToLabel.isHidden = true
+        borrowerNameLabel.isHidden = true
+        dueDateLabel.isHidden = true
+        returnedButton.isHidden = true
+    }
+
+    func showReturnFooter() {
+        lentToLabel.isHidden = false
+        borrowerNameLabel.isHidden = false
+        dueDateLabel.isHidden = false
+        returnedButton.isHidden = false
     }
 
     @objc func back(sender: UIBarButtonItem) {
@@ -89,6 +112,7 @@ final class ComicDetailScreenViewController: UIViewController, UIScrollViewDeleg
         conditionLabel.rx.text <- viewModel.condition >>> disposeBag
         comicImageCover.rx.image <- viewModel.comicImage >>> disposeBag
         comicFadeImageView.rx.image <- viewModel.comicImage >>> disposeBag
+
         borrowerNameLabel.rx.text <- viewModel.borrowerName >>> disposeBag
         dueDateLabel.rx.text <- viewModel.dueDate >>> disposeBag
     }

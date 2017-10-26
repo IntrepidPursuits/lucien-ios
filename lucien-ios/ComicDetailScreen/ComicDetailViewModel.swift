@@ -15,6 +15,8 @@ final class ComicDetailViewModel {
     private let dashboardComicUser: DashboardComicUser
 
     let emptyDefault = "-"
+    let userType: DashboardComicUser.UserType
+
     let comicImage = Variable(UIImage())
     lazy var comicTitle = Variable(emptyDefault)
     lazy var storyTitle = Variable(emptyDefault)
@@ -29,29 +31,30 @@ final class ComicDetailViewModel {
 
     init(comic: DashboardComicUser) {
         dashboardComicUser = comic
+        userType = comic.dashboardUserType
         setObservables()
     }
 
     func setObservables() {
         comicTitle.value = dashboardComicUser.dashboardComic.comicTitle
         storyTitle.value = dashboardComicUser.dashboardComic.storyTitle
-        volume.value = dashboardComicUser.dashboardComic.volume ?? "-"
-        issue.value = dashboardComicUser.dashboardComic.issueNumber ?? "-"
+        volume.value = dashboardComicUser.dashboardComic.volume ?? emptyDefault
+        issue.value = dashboardComicUser.dashboardComic.issueNumber ?? emptyDefault
         if let dateRelease = dashboardComicUser.dashboardComic.releaseDate {
             releaseDate.value = formatDateToString(date: dateRelease)
         } else {
-            releaseDate.value = "-"
+            releaseDate.value = emptyDefault
         }
-        publisher.value = dashboardComicUser.dashboardComic.publisher ?? "-"
-        condition.value = dashboardComicUser.dashboardComic.condition ?? "-"
-        comicImage.value = getImage(imageURL: dashboardComicUser.dashboardComic.comicPhotoURL ?? "-")
+        publisher.value = dashboardComicUser.dashboardComic.publisher ?? emptyDefault
+        condition.value = dashboardComicUser.dashboardComic.condition ?? emptyDefault
+        comicImage.value = getImage(imageURL: dashboardComicUser.dashboardComic.comicPhotoURL ?? emptyDefault)
         if let dateReturn = dashboardComicUser.dashboardComic.returnDate {
             dueDate.value = formatDateToString(date: dateReturn)
         } else {
-            dueDate.value = "-"
+            dueDate.value = "No due date"
         }
         if dashboardComicUser.dashboardUserType == .borrower {
-            borrowerName.value = dashboardComicUser.dashboardUser?.firstName ?? "-"
+            borrowerName.value = dashboardComicUser.dashboardUser?.firstName ?? emptyDefault
         }
     }
 
