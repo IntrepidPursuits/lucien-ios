@@ -27,4 +27,15 @@ class LendingBookViewModel {
             }
         }
     }
+
+    func lendComic(comicID: String, comic: LentComic, completion: @escaping (Error?) -> Void) {
+        lucienAPIClient.lendComic(comicID: comicID, comic: comic) { response in
+            switch response {
+            case .success:
+                completion(nil)
+            case .failure(let error):
+                completion(error)
+            }
+        }
+    }
 }

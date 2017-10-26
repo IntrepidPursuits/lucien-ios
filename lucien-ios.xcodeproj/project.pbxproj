@@ -12,6 +12,8 @@
 		1C182A2F1F82CA70001566E1 /* Comic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C182A2E1F82CA70001566E1 /* Comic.swift */; };
 		1C182A321F82D1C1001566E1 /* RawRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C182A311F82D1C1001566E1 /* RawRepresentable.swift */; };
 		1C21642E1F8FCAA900938D59 /* BottomBorderTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C21642D1F8FCAA900938D59 /* BottomBorderTextField.swift */; };
+		1C3A79521FA0F1BD00526CCF /* LendingSuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C3A79501FA0F1BD00526CCF /* LendingSuccessViewController.swift */; };
+		1C3A79531FA0F1BD00526CCF /* LendingSuccessViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C3A79511FA0F1BD00526CCF /* LendingSuccessViewController.xib */; };
 		1C45D0EB1F85611A00E651A5 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C45D0E91F85611A00E651A5 /* CameraViewController.swift */; };
 		1C45D0EC1F85611A00E651A5 /* CameraViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C45D0EA1F85611A00E651A5 /* CameraViewController.xib */; };
 		1C577CD81F94FADA00EB9423 /* AmazonS3ImageURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C577CD71F94FADA00EB9423 /* AmazonS3ImageURL.swift */; };
@@ -48,6 +50,7 @@
 		1CDBD8681F7C209800408826 /* Muli-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1CDBD84D1F7C209300408826 /* Muli-SemiBoldItalic.ttf */; };
 		1CDBD86B1F7C20B500408826 /* PermanentMarker-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1CDBD86A1F7C20B200408826 /* PermanentMarker-Regular.ttf */; };
 		1CDBD86F1F7C26B800408826 /* LucienTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDBD86E1F7C26B800408826 /* LucienTheme.swift */; };
+		1CE3DC2C1F9FAD9E00814DBA /* LentComic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE3DC2B1F9FAD9E00814DBA /* LentComic.swift */; };
 		991B58C032595B40ADDCFCC7 /* Pods_lucien_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 964D4E26A56CF8BC634B2BBD /* Pods_lucien_ios.framework */; };
 		A59B2FE58EB5BC7B617AB83F /* Pods_lucien_iosUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D057BF04BE0EAF45ED19F37 /* Pods_lucien_iosUITests.framework */; };
 		EC0F6CA4839D3BF363E4EE9E /* Pods_lucien_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 074BF9F99258AD884EC6794A /* Pods_lucien_iosTests.framework */; };
@@ -112,6 +115,8 @@
 		1C182A2E1F82CA70001566E1 /* Comic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comic.swift; sourceTree = "<group>"; };
 		1C182A311F82D1C1001566E1 /* RawRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawRepresentable.swift; sourceTree = "<group>"; };
 		1C21642D1F8FCAA900938D59 /* BottomBorderTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBorderTextField.swift; sourceTree = "<group>"; };
+		1C3A79501FA0F1BD00526CCF /* LendingSuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LendingSuccessViewController.swift; sourceTree = "<group>"; };
+		1C3A79511FA0F1BD00526CCF /* LendingSuccessViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LendingSuccessViewController.xib; sourceTree = "<group>"; };
 		1C45D0E91F85611A00E651A5 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		1C45D0EA1F85611A00E651A5 /* CameraViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CameraViewController.xib; sourceTree = "<group>"; };
 		1C577CD71F94FADA00EB9423 /* AmazonS3ImageURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmazonS3ImageURL.swift; sourceTree = "<group>"; };
@@ -154,6 +159,7 @@
 		1CDBD85A1F7C209400408826 /* Muli-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
 		1CDBD86A1F7C20B200408826 /* PermanentMarker-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PermanentMarker-Regular.ttf"; sourceTree = "<group>"; };
 		1CDBD86E1F7C26B800408826 /* LucienTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LucienTheme.swift; sourceTree = "<group>"; };
+		1CE3DC2B1F9FAD9E00814DBA /* LentComic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LentComic.swift; sourceTree = "<group>"; };
 		2083B8809618B8D581195F54 /* Pods-lucien-iosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lucien-iosTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-lucien-iosTests/Pods-lucien-iosTests.debug.xcconfig"; sourceTree = "<group>"; };
 		20D48F3384B15989F6E46E08 /* Pods-lucien-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lucien-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-lucien-ios/Pods-lucien-ios.debug.xcconfig"; sourceTree = "<group>"; };
 		24966642CEA9E5D05286C959 /* Pods-lucien-iosUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lucien-iosUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-lucien-iosUITests/Pods-lucien-iosUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -263,6 +269,8 @@
 				1C72752A1F9A7FF800D4D10C /* LendingTableViewCell.swift */,
 				1C72752B1F9A7FF800D4D10C /* LendingTableViewCell.xib */,
 				1CDAB2A61F9E37D2004511C5 /* LendingBookViewModel.swift */,
+				1C3A79501FA0F1BD00526CCF /* LendingSuccessViewController.swift */,
+				1C3A79511FA0F1BD00526CCF /* LendingSuccessViewController.xib */,
 			);
 			path = Lending;
 			sourceTree = "<group>";
@@ -472,6 +480,7 @@
 				FB5389C71F9A31C90099FB98 /* AddEditComic.swift */,
 				FB65690B1F9E59C500AABA5D /* MyComics.swift */,
 				1CDAB2A41F9E2526004511C5 /* AllUsers.swift */,
+				1CE3DC2B1F9FAD9E00814DBA /* LentComic.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -642,6 +651,7 @@
 				1CDBD86B1F7C20B500408826 /* PermanentMarker-Regular.ttf in Resources */,
 				1CDBD85C1F7C209800408826 /* Muli-BlackItalic.ttf in Resources */,
 				FB743DA71F8D61150066A43F /* DashboardCollectionViewCell.xib in Resources */,
+				1C3A79531FA0F1BD00526CCF /* LendingSuccessViewController.xib in Resources */,
 				1CDBD85D1F7C209800408826 /* Muli-Bold.ttf in Resources */,
 				1CDBD8621F7C209800408826 /* Muli-ExtraLightItalic.ttf in Resources */,
 				FB65690A1F9E27E700AABA5D /* MyCollectionTableViewCell.xib in Resources */,
@@ -867,6 +877,7 @@
 				FBAB04711F8D42080099F197 /* LucienAPIClient.swift in Sources */,
 				FBAEE5781F7EE75C00A44F50 /* LoginViewModel.swift in Sources */,
 				FBB975691F7EBB31007951C4 /* User.swift in Sources */,
+				1C3A79521FA0F1BD00526CCF /* LendingSuccessViewController.swift in Sources */,
 				FB480C3B1F9160AE00DFAB08 /* DashboardCollectionViewModel.swift in Sources */,
 				FB6B911B1F7C195000910B49 /* AnimatedTransition.swift in Sources */,
 				1C7275261F99289100D4D10C /* LendABookViewController.swift in Sources */,
@@ -894,6 +905,7 @@
 				1C182A2F1F82CA70001566E1 /* Comic.swift in Sources */,
 				FB6AA1A01F85313500394500 /* DashboardViewController.swift in Sources */,
 				FB5389C81F9A31C90099FB98 /* AddEditComic.swift in Sources */,
+				1CE3DC2C1F9FAD9E00814DBA /* LentComic.swift in Sources */,
 				FB32385B1F868B8100FE81E2 /* Dashboard.swift in Sources */,
 				FB32385D1F87CB3400FE81E2 /* AuthenticationResponse.swift in Sources */,
 				FB6569091F9E27E700AABA5D /* MyCollectionTableViewCell.swift in Sources */,

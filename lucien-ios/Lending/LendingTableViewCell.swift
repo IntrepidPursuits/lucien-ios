@@ -12,6 +12,8 @@ class LendingTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
 
+    var userID: String?
+
     override func prepareForReuse() {
         super.prepareForReuse()
         accessoryView = nil
