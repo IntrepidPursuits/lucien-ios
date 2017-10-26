@@ -16,7 +16,7 @@ final class DashboardTableViewCell: UITableViewCell {
     @IBOutlet private weak var volumeIssueLabel: UILabel!
 
     static let reuseIdentifier = "myCollectionCell"
-    var subview: UIView?
+    private var subview: UIView?
 
     func configure(comicTitle: String, storyTitle: String, volume: String, issueNumber: String, imageURL: String) {
         comicTitleLabel.text = comicTitle
@@ -44,14 +44,15 @@ final class DashboardTableViewCell: UITableViewCell {
         comicTitleLabel.setLineHeight(text: comicTitle, lineSpacing: 0.1)
     }
 
-    func styleCell(subview: UIView) {
+    func styleCell() {
         contentView.backgroundColor = UIColor.white
-        subview.layer.backgroundColor = CGColor(colorSpace: CGColorSpaceCreateDeviceRGB(), components: [1.0, 1.0, 1.0, 0.8])
-        subview.layer.masksToBounds = false
-        subview.layer.cornerRadius = 6.0
-        subview.layer.shadowOffset = CGSize(width: 0, height: 4)
-        subview.layer.shadowOpacity = 0.1
-        subview.layer.shadowRadius = 18.0
+        layer.backgroundColor = CGColor(colorSpace: CGColorSpaceCreateDeviceRGB(), components: [1.0, 1.0, 1.0, 0.8])
+        layer.masksToBounds = false
+        layer.cornerRadius = 6.0
+        layer.shadowOffset = CGSize(width: 0, height: 4)
+        layer.shadowOpacity = 0.1
+        layer.shadowRadius = 18.0
+        guard let subview = subview else { return }
         contentView.addSubview(subview)
         contentView.sendSubview(toBack: subview)
     }
