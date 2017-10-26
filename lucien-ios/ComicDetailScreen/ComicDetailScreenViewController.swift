@@ -26,8 +26,8 @@ final class ComicDetailScreenViewController: UIViewController, UIScrollViewDeleg
     @IBOutlet private weak var conditionLabel: UILabel!
 
     @IBOutlet private weak var footerView: UIView!
-    @IBOutlet private weak var lentToLabel: UILabel!
-    @IBOutlet private weak var borrowerNameLabel: UILabel!
+    @IBOutlet private weak var lentToBorrowedFromLabel: UILabel!
+    @IBOutlet private weak var ownerBorrowerNameLabel: UILabel!
     @IBOutlet private weak var dueDateLabel: UILabel!
     @IBOutlet private weak var returnedButton: UIButton!
     @IBOutlet weak var lendBookButton: UIButton!
@@ -39,8 +39,7 @@ final class ComicDetailScreenViewController: UIViewController, UIScrollViewDeleg
         super.viewWillAppear(animated)
         setUpObservers()
         configureNavigationController()
-        hideReturnFooter()
-        lendBookButton.isHidden = true
+        hideLendFooter()
         setUpFooter()
         setStyling()
     }
@@ -56,25 +55,35 @@ final class ComicDetailScreenViewController: UIViewController, UIScrollViewDeleg
 
     func setUpFooter() {
         if viewModel.userType == .borrower {
-            showReturnFooter()
-        }
-        if viewModel.userType == .none {
+            showLendFooter()
+        } else if viewModel.userType == .owner {
+            showBorrowFooter()
+        } else if viewModel.userType == .none {
             lendBookButton.isHidden = false
         }
     }
 
-    func hideReturnFooter() {
-        lentToLabel.isHidden = true
-        borrowerNameLabel.isHidden = true
+    func hideLendFooter() {
+        lentToBorrowedFromLabel.isHidden = true
+        ownerBorrowerNameLabel.isHidden = true
         dueDateLabel.isHidden = true
         returnedButton.isHidden = true
+        lendBookButton.isHidden = true
     }
 
-    func showReturnFooter() {
-        lentToLabel.isHidden = false
-        borrowerNameLabel.isHidden = false
+    func showLendFooter() {
+        lentToBorrowedFromLabel.isHidden = false
+        lentToBorrowedFromLabel.text = "LENT TO"
+        ownerBorrowerNameLabel.isHidden = false
         dueDateLabel.isHidden = false
         returnedButton.isHidden = false
+    }
+
+    func showBorrowFooter() {
+        lentToBorrowedFromLabel.isHidden = false
+        lentToBorrowedFromLabel.text = "BORROWED FROM"
+        ownerBorrowerNameLabel.isHidden = false
+        dueDateLabel.isHidden = false
     }
 
     @objc func back(sender: UIBarButtonItem) {
@@ -123,7 +132,7 @@ final class ComicDetailScreenViewController: UIViewController, UIScrollViewDeleg
         comicImageCover.rx.image <- viewModel.comicImage >>> disposeBag
         comicFadeImageView.rx.image <- viewModel.comicImage >>> disposeBag
 
-        borrowerNameLabel.rx.text <- viewModel.borrowerName >>> disposeBag
+        ownerBorrowerNameLabel.rx.text <- viewModel.ownerBorrowerName >>> disposeBag
         dueDateLabel.rx.text <- viewModel.dueDate >>> disposeBag
     }
 
