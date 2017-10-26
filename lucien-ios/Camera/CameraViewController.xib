@@ -50,10 +50,10 @@
                                 <action selector="cameraButtonTapped:" destination="-1" eventType="touchUpInside" id="Fsc-gY-9QM"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PKA-v6-5dZ">
-                            <rect key="frame" x="250" y="17" width="125" height="32"/>
-                            <state key="normal" image="flashButton"/>
-                        </button>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xan-Rw-wPF">
+                            <rect key="frame" x="250" y="8" width="125" height="50"/>
+                            <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                        </view>
                     </subviews>
                 </stackView>
             </subviews>
@@ -73,6 +73,5 @@
     </objects>
     <resources>
         <image name="cameraButton" width="66" height="66"/>
-        <image name="flashButton" width="19" height="32"/>
     </resources>
 </document>
