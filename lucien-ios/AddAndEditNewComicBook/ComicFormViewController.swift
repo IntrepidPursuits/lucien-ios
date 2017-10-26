@@ -203,6 +203,8 @@ final class ComicFormViewController: UIViewController, AlertDisplaying {
         finishButton.tintColor = LucienTheme.finishButtonGrey
         finishButton.isEnabled = false
         finishButton.rx.tap.subscribeNext { [weak self] in
+            self?.view.endEditing(true)
+            self?.deregisterFromKeyboardNotifications()
             self?.viewModel.finishButtonTapped { error in
                 if error != nil {
                     self?.showAlert(title: "Error", message: "Our service is currently encountering an issue. Please ensure that you are connected to the internet and try again.")
@@ -351,7 +353,7 @@ final class ComicFormViewController: UIViewController, AlertDisplaying {
                             let dashboardViewController = DashboardViewController(dashboardViewModel: viewModel)
                             let dashboardNavigationController = UINavigationController(rootViewController: dashboardViewController)
                             self.present(dashboardNavigationController, animated: true, completion: nil)
-                        case .failure(let error):
+                        case .failure:
                             self.present(alertController, animated: true, completion: nil)
                         }
                     }
