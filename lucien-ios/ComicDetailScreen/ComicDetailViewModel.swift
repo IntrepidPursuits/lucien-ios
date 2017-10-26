@@ -26,7 +26,7 @@ final class ComicDetailViewModel {
     lazy var publisher = Variable(emptyDefault)
     lazy var genre = Variable(emptyDefault)
     lazy var condition = Variable(emptyDefault)
-    lazy var borrowerName = Variable(emptyDefault)
+    lazy var ownerBorrowerName = Variable(emptyDefault)
     lazy var dueDate = Variable(emptyDefault)
     lazy var comicID = Variable(emptyDefault)
 
@@ -55,7 +55,9 @@ final class ComicDetailViewModel {
             dueDate.value = "No due date"
         }
         if dashboardComicUser.dashboardUserType == .borrower {
-            borrowerName.value = dashboardComicUser.dashboardUser?.firstName ?? emptyDefault
+            ownerBorrowerName.value = dashboardComicUser.dashboardUser?.firstName ?? emptyDefault
+        } else if dashboardComicUser.dashboardUserType == .owner {
+            ownerBorrowerName.value = dashboardComicUser.dashboardUser?.firstName ?? emptyDefault
         }
         comicID.value = dashboardComicUser.dashboardComic.comicID ?? emptyDefault
     }

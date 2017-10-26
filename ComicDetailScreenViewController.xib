@@ -26,7 +26,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ComicDetailScreenViewController" customModule="lucien_ios" customModuleProvider="target">
             <connections>
-                <outlet property="borrowerNameLabel" destination="LLe-oe-rx7" id="UcD-9L-9EK"/>
                 <outlet property="comicFadeImageView" destination="8L6-n0-NHB" id="mE8-Ud-xTa"/>
                 <outlet property="comicImageCover" destination="opx-Yb-agz" id="ZoE-IG-qcc"/>
                 <outlet property="conditionLabel" destination="IhJ-cj-zEd" id="C5F-iX-Wxm"/>
@@ -34,9 +33,10 @@
                 <outlet property="footerView" destination="biy-3Y-ocp" id="02a-Bv-fF5"/>
                 <outlet property="genreLabel" destination="O0j-ns-LzB" id="BOC-LL-ZgC"/>
                 <outlet property="issueLabel" destination="174-FX-Jh6" id="0WN-TP-qep"/>
-                <outlet property="lendBookButton" destination="FoD-r3-mjg" id="0PH-Oc-ZfW"/>
-                <outlet property="lentToLabel" destination="ofN-YS-77f" id="lzT-S1-t3O"/>
-                <outlet property="publisherLabel" destination="h5H-ui-usp" id="KJ8-fU-n0Z"/>
+                <outlet property="lendBookButton" destination="FoD-r3-mjg" id="9aK-Lr-CIm"/>
+                <outlet property="lentToBorrowedFromLabel" destination="ofN-YS-77f" id="lzT-S1-t3O"/>
+                <outlet property="ownerBorrowerNameLabel" destination="LLe-oe-rx7" id="XGK-p1-EEs"/>
+                <outlet property="publisherLabel" destination="h5H-ui-usp" id="CMz-da-Vvl"/>
                 <outlet property="releaseDateLabel" destination="ju2-oF-Hbu" id="dMG-gQ-oBi"/>
                 <outlet property="returnedButton" destination="A5T-60-pYo" id="OV2-pp-Tod"/>
                 <outlet property="scrollView" destination="4pG-6P-9DY" id="9B0-UF-c1l"/>
@@ -105,8 +105,8 @@
                             <color key="textColor" red="0.56078431370000004" green="0.56470588239999997" blue="0.60392156860000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CONDITION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Ik-7v-WRP">
-                            <rect key="frame" x="24" y="697" width="66.5" height="16"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="CONDITION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Ik-7v-WRP">
+                            <rect key="frame" x="24" y="697" width="83" height="16"/>
                             <fontDescription key="fontDescription" name="Muli-Light" family="Muli" pointSize="12"/>
                             <color key="textColor" red="0.56078431370000004" green="0.56470588239999997" blue="0.60392156860000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
@@ -142,7 +142,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IhJ-cj-zEd">
-                            <rect key="frame" x="24" y="716" width="8" height="23"/>
+                            <rect key="frame" x="24" y="715.5" width="8" height="23"/>
                             <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="18"/>
                             <color key="textColor" red="0.16862745100000001" green="0.1764705882" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
@@ -151,13 +151,13 @@
                             <rect key="frame" x="0.0" y="791" width="375" height="70"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LENT TO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ofN-YS-77f">
-                                    <rect key="frame" x="16" y="17" width="48.5" height="16"/>
+                                    <rect key="frame" x="16" y="17" width="49" height="15.5"/>
                                     <fontDescription key="fontDescription" name="Muli-Light" family="Muli" pointSize="12"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Borrower" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LLe-oe-rx7">
-                                    <rect key="frame" x="68.5" y="13.5" width="78" height="23"/>
+                                    <rect key="frame" x="69" y="13.5" width="77.5" height="23"/>
                                     <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="18"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
