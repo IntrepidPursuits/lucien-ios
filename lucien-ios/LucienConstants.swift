@@ -32,7 +32,7 @@ final class LucienConstants {
     static let overlayButtonScaleX = CGFloat(0.9)
     static let overlayButtonScaleY = CGFloat(0.9)
     static let coverButtonScaleX = CGFloat(1.65)
-    static let coverButtonScaleY = CGFloat(1.29)
+    static let coverButtonScaleY = CGFloat(1.1)
     static let coverButtonBlurRadius = CGFloat(55)
     static let coverButtonShadowRadius = CGFloat(5)
     static let coverButtonShadowOpacity = Float(0.35)
@@ -56,7 +56,7 @@ final class LucienConstants {
 
     // MARK: - Constraints
 
-    static let overlayButtonTopConstraint = CGFloat(10)
+    static let overlayButtonTopConstraint = CGFloat(17)
     static let overlayButtonLeadingConstraint = CGFloat(15)
 
     // MARK: - Dasboard Button Constants
@@ -68,4 +68,8 @@ final class LucienConstants {
     // MARK: - UIImageView Constants
 
     static let comicCoverPhotoCornerRadius = CGFloat(6.0)
+
+    // MARK: - BottomBorderTextField Constants
+
+    static let screenWidthOffset = CGFloat(48)
 }

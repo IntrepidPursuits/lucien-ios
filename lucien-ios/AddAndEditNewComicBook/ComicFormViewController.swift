@@ -251,6 +251,16 @@ final class ComicFormViewController: UIViewController, AlertDisplaying {
         finishButton.tintColor = LucienTheme.dark
     }
 
+    private func flipDropDownArrowImage(pickerView: UIPickerView) -> UIImage? {
+        let arrowImage = UIImage(named: "dropDownArrow")
+        let orientation = pickerView.isHidden ? UIImageOrientation.downMirrored : UIImageOrientation.upMirrored
+        if let arrowCGImage = arrowImage?.cgImage, let scale = arrowImage?.scale {
+            let flippedImage = UIImage(cgImage: arrowCGImage, scale: scale, orientation: orientation)
+            return flippedImage
+        }
+        return nil
+    }
+
     private func updateCoverPhotoButton(image: UIImage) {
         viewModel.coverPhoto = image
         showCoverPhotoMenu()
@@ -314,6 +324,9 @@ final class ComicFormViewController: UIViewController, AlertDisplaying {
         UIView.animate(
             withDuration: 0.3,
             animations: {
+                if let flippedImage = self.flipDropDownArrowImage(pickerView: self.genrePicker) {
+                    self.selectAGenreButton.setImage(flippedImage, for: .normal)
+                }
                 self.genrePicker.isHidden = self.genrePicker.isHidden ? false : true
             },
             completion: { _ in
@@ -327,6 +340,9 @@ final class ComicFormViewController: UIViewController, AlertDisplaying {
         UIView.animate(
             withDuration: 0.3,
             animations: {
+                if let flippedImage = self.flipDropDownArrowImage(pickerView: self.conditionPicker) {
+                    self.selectAConditionButton.setImage(flippedImage, for: .normal)
+                }
                 self.conditionPicker.isHidden = self.conditionPicker.isHidden ? false : true
             },
             completion: { _ in
