@@ -57,6 +57,7 @@ final class ComicFormViewController: UIViewController, AlertDisplaying {
     // MARK: - Constants
 
     private let cameraViewController = CameraViewController()
+    private let lucienAPIClient = LucienAPIClient()
     private let disposeBag = DisposeBag()
 
     init(comicFormViewModel: ComicFormViewModel) {
@@ -202,9 +203,12 @@ final class ComicFormViewController: UIViewController, AlertDisplaying {
         finishButton.tintColor = LucienTheme.finishButtonGrey
         finishButton.isEnabled = false
         finishButton.rx.tap.subscribeNext { [weak self] in
+            self?.dismissKeyboardAndNotifications()
             self?.viewModel.finishButtonTapped { error in
                 if error != nil {
                     self?.showAlert(title: "Error", message: "Our service is currently encountering an issue. Please ensure that you are connected to the internet and try again.")
+                } else {
+                    self?.goToDashboard()
                 }
             }
         } >>> disposeBag
@@ -225,8 +229,12 @@ final class ComicFormViewController: UIViewController, AlertDisplaying {
         doneButton.title = "Done"
         doneButton.style = .done
         doneButton.rx.tap.subscribeNext { [weak self] in
-            self?.view.endEditing(true)
-            self?.deregisterFromKeyboardNotifications()
+            guard let releaseYearIsValid = self?.checkReleaseYear() else { return }
+            if releaseYearIsValid {
+                self?.dismissKeyboardAndNotifications()
+            } else {
+                 self?.showAlertWithNoDismissal(title: "Invalid Input", message: "The release year must be less than 2200.")
+            }
         } >>> disposeBag
         var barButtonItems = [UIBarButtonItem]()
         barButtonItems.append(flexSpace)
@@ -234,6 +242,19 @@ final class ComicFormViewController: UIViewController, AlertDisplaying {
         releaseDateToolBar.items = barButtonItems
         releaseDateToolBar.sizeToFit()
         releaseDateTextField.inputAccessoryView = releaseDateToolBar
+    }
+
+    private func checkReleaseYear() -> Bool {
+        guard
+            let releaseYearText = releaseDateTextField.text,
+            let releaseYear = Int(releaseYearText)
+            else { return false }
+        if releaseYear < LucienConstants.releaseYearLimit {
+            return true
+        } else {
+            releaseDateTextField.text = ""
+            return false
+        }
     }
 
     private func configurePickerUIButton(button: UIButton) {
@@ -311,6 +332,41 @@ final class ComicFormViewController: UIViewController, AlertDisplaying {
         finishButton.tintColor = LucienTheme.finishButtonGrey
     }
 
+    private func goToDashboard() {
+        let alertController = UIAlertController(title: "Error",
+                                                message: "Our service is currently encountering an issue. Please ensure that you are connected to the internet and try again.",
+                                                preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Ok", style: .cancel) { _ in }
+        alertController.addAction(okAction)
+        var dashboardComics = [DashboardComicUser]()
+        lucienAPIClient.getMyComics { response in
+            switch response {
+            case .success(let result):
+                DispatchQueue.main.async {
+                    dashboardComics = result
+                    self.lucienAPIClient.getDashboard { response in
+                        switch response {
+                        case .success(let result):
+                            let viewModel = DashboardViewModel(dashboard: result, myComics: dashboardComics)
+                            let dashboardViewController = DashboardViewController(dashboardViewModel: viewModel)
+                            let dashboardNavigationController = UINavigationController(rootViewController: dashboardViewController)
+                            self.present(dashboardNavigationController, animated: true, completion: nil)
+                        case .failure:
+                            self.present(alertController, animated: true, completion: nil)
+                        }
+                    }
+                }
+            case .failure:
+                self.present(alertController, animated: true, completion: nil)
+            }
+        }
+    }
+
+    private func dismissKeyboardAndNotifications() {
+        view.endEditing(true)
+        deregisterFromKeyboardNotifications()
+    }
+    
     // MARK: - IBOutlet Methods
 
     @IBAction private func addCoverButtonTapped(_ sender: UIButton) {

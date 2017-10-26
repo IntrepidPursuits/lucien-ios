@@ -72,4 +72,8 @@ final class LucienConstants {
     // MARK: - BottomBorderTextField Constants
 
     static let screenWidthOffset = CGFloat(48)
+
+    // MARK: - Limit Constants
+
+    static let releaseYearLimit = 2200
 }
