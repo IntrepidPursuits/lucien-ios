@@ -28,6 +28,7 @@ final class ComicDetailViewModel {
     lazy var condition = Variable(emptyDefault)
     lazy var borrowerName = Variable(emptyDefault)
     lazy var dueDate = Variable(emptyDefault)
+    lazy var comicID = Variable(emptyDefault)
 
     init(comic: DashboardComicUser) {
         dashboardComicUser = comic
@@ -56,6 +57,7 @@ final class ComicDetailViewModel {
         if dashboardComicUser.dashboardUserType == .borrower {
             borrowerName.value = dashboardComicUser.dashboardUser?.firstName ?? emptyDefault
         }
+        comicID.value = dashboardComicUser.dashboardComic.comicID ?? emptyDefault
     }
 
     func getImage(imageURL: String) -> UIImage {

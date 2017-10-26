@@ -30,6 +30,7 @@ final class ComicDetailScreenViewController: UIViewController, UIScrollViewDeleg
     @IBOutlet private weak var borrowerNameLabel: UILabel!
     @IBOutlet private weak var dueDateLabel: UILabel!
     @IBOutlet private weak var returnedButton: UIButton!
+    @IBOutlet weak var lendBookButton: UIButton!
 
     private var viewModel: ComicDetailViewModel
     let disposeBag = DisposeBag()
@@ -39,6 +40,7 @@ final class ComicDetailScreenViewController: UIViewController, UIScrollViewDeleg
         setUpObservers()
         configureNavigationController()
         hideReturnFooter()
+        lendBookButton.isHidden = true
         setUpFooter()
         setStyling()
     }
@@ -55,6 +57,9 @@ final class ComicDetailScreenViewController: UIViewController, UIScrollViewDeleg
     func setUpFooter() {
         if viewModel.userType == .borrower {
             showReturnFooter()
+        }
+        if viewModel.userType == .none {
+            lendBookButton.isHidden = false
         }
     }
 
@@ -74,6 +79,11 @@ final class ComicDetailScreenViewController: UIViewController, UIScrollViewDeleg
 
     @objc func back(sender: UIBarButtonItem) {
         navigationController?.popViewController(animated: true)
+    }
+
+    @IBAction func lendBookButtonTapped(_ sender: UIButton) {
+        let lendbookViewController = LendABookViewController(comicID: viewModel.comicID.value)
+        navigationController?.pushViewController(lendbookViewController, animated: true)
     }
 
     @objc func presentEditForm(sender: UIBarButtonItem) {
@@ -129,6 +139,8 @@ final class ComicDetailScreenViewController: UIViewController, UIScrollViewDeleg
         comicFadeImageView.layer.cornerRadius = 6.0
         returnedButton.layer.cornerRadius = 3.0
         returnedButton.clipsToBounds = true
+        lendBookButton.layer.cornerRadius = 3.0
+        lendBookButton.clipsToBounds = true
     }
 
     func roundTopCorners(flatView: UIView) {

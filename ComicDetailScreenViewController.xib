@@ -34,6 +34,7 @@
                 <outlet property="footerView" destination="biy-3Y-ocp" id="02a-Bv-fF5"/>
                 <outlet property="genreLabel" destination="O0j-ns-LzB" id="wgM-zJ-Sec"/>
                 <outlet property="issueLabel" destination="174-FX-Jh6" id="0WN-TP-qep"/>
+                <outlet property="lendBookButton" destination="FoD-r3-mjg" id="0PH-Oc-ZfW"/>
                 <outlet property="lentToLabel" destination="ofN-YS-77f" id="lzT-S1-t3O"/>
                 <outlet property="publisherLabel" destination="IhJ-cj-zEd" id="f8C-tI-fnW"/>
                 <outlet property="releaseDateLabel" destination="ju2-oF-Hbu" id="dMG-gQ-oBi"/>
@@ -179,15 +180,32 @@
                                         <color key="titleColor" red="0.16862745100000001" green="0.1764705882" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
                                     </state>
                                 </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FoD-r3-mjg">
+                                    <rect key="frame" x="87.5" y="15" width="200" height="40"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="200" id="0oO-8I-7y4"/>
+                                        <constraint firstAttribute="height" constant="40" id="OP5-Mg-hK0"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="Muli-Bold" family="Muli" pointSize="13"/>
+                                    <state key="normal" title="LEND THIS BOOK">
+                                        <color key="titleColor" red="0.16862745100000001" green="0.1764705882" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="lendBookButtonTapped:" destination="-1" eventType="touchUpInside" id="jUx-Ck-Jt2"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" red="0.16862745100000001" green="0.1764705882" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstItem="A5T-60-pYo" firstAttribute="leading" secondItem="p2C-yP-cZF" secondAttribute="trailing" constant="16" id="47g-2e-Jlu"/>
                                 <constraint firstAttribute="height" constant="70" id="6ER-Nw-DI0"/>
+                                <constraint firstAttribute="bottom" secondItem="FoD-r3-mjg" secondAttribute="bottom" constant="15" id="8jG-yx-OYb"/>
                                 <constraint firstItem="LLe-oe-rx7" firstAttribute="centerY" secondItem="ofN-YS-77f" secondAttribute="centerY" id="9G8-Xc-z5c"/>
                                 <constraint firstAttribute="bottom" secondItem="p2C-yP-cZF" secondAttribute="bottom" constant="11" id="CLO-lj-hA2"/>
                                 <constraint firstItem="p2C-yP-cZF" firstAttribute="leading" secondItem="biy-3Y-ocp" secondAttribute="leading" constant="16" id="Jhf-kd-CBX"/>
                                 <constraint firstItem="ofN-YS-77f" firstAttribute="leading" secondItem="biy-3Y-ocp" secondAttribute="leading" constant="16" id="NIX-K5-IHa"/>
+                                <constraint firstItem="FoD-r3-mjg" firstAttribute="centerX" secondItem="biy-3Y-ocp" secondAttribute="centerX" id="YYF-9Z-bIs"/>
                                 <constraint firstItem="LLe-oe-rx7" firstAttribute="leading" secondItem="ofN-YS-77f" secondAttribute="trailing" constant="4" id="Yco-Up-avL"/>
                                 <constraint firstItem="ofN-YS-77f" firstAttribute="top" secondItem="biy-3Y-ocp" secondAttribute="top" constant="17" id="Yew-on-ia8"/>
                                 <constraint firstAttribute="trailing" secondItem="A5T-60-pYo" secondAttribute="trailing" constant="16" id="ehn-8C-5xX"/>
