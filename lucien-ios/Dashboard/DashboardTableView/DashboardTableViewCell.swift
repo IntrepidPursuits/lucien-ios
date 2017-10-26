@@ -42,6 +42,13 @@ final class DashboardTableViewCell: UITableViewCell {
         selectionStyle = .none
         guard let comicTitle = comicTitleLabel.text else { return }
         comicTitleLabel.setLineHeight(text: comicTitle, lineSpacing: 0.1)
+        if subview == nil {
+            let subview = UIView(frame: CGRect(x: 0, y: 16, width: contentView.frame.size.width - 32, height: 100))
+            contentView.addSubview(subview)
+            contentView.sendSubview(toBack: subview)
+            self.subview = subview
+            styleCell()
+        }
     }
 
     func styleCell() {
@@ -52,8 +59,5 @@ final class DashboardTableViewCell: UITableViewCell {
         layer.shadowOffset = CGSize(width: 0, height: 4)
         layer.shadowOpacity = 0.1
         layer.shadowRadius = 18.0
-        guard let subview = subview else { return }
-        contentView.addSubview(subview)
-        contentView.sendSubview(toBack: subview)
     }
 }
