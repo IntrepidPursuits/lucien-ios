@@ -18,4 +18,12 @@ extension UILabel {
             attributedText = attributedString
         }
     }
+
+    func setLineHeight(text: String, lineSpacing: Double) {
+        let attributedString = NSMutableAttributedString(string: text)
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = CGFloat(lineSpacing)
+        attributedString.addAttribute(NSAttributedStringKey.paragraphStyle, value:paragraphStyle, range:NSMakeRange(0, attributedString.length))
+        attributedText = attributedString
+    }
 }

@@ -40,6 +40,8 @@ final class MyCollectionTableViewCell: UITableViewCell {
         comicImageView.clipsToBounds = true
         comicImageView.layer.cornerRadius = CGFloat(6.0)
         selectionStyle = .none
+        guard let comicTitle = comicTitleLabel.text else { return }
+        comicTitleLabel.setLineHeight(text: comicTitle, lineSpacing: 0.1)
     }
 
     func styleCell(subview: UIView) {
