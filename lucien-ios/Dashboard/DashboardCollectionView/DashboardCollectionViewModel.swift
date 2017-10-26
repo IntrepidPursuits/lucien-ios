@@ -31,7 +31,7 @@ final class DashboardCollectionViewModel {
     func getComicCount() -> Int {
         return dashboardComics.count
     }
-        
+
     func createComicDetailViewModel(forIndex index: Int) -> ComicDetailViewModel {
         return ComicDetailViewModel(comic: dashboardComics[index])
     }
