@@ -228,9 +228,12 @@ final class ComicFormViewController: UIViewController, AlertDisplaying {
         doneButton.title = "Done"
         doneButton.style = .done
         doneButton.rx.tap.subscribeNext { [weak self] in
-            self?.checkReleaseYear {
+            guard let releaseYearIsValid = self?.checkReleaseYear() else { return }
+            if releaseYearIsValid {
                 self?.view.endEditing(true)
                 self?.deregisterFromKeyboardNotifications()
+            } else {
+                 self?.showAlertWithNoDismissal(title: "Invalid Input", message: "The release year must be less than 2200.")
             }
         } >>> disposeBag
         var barButtonItems = [UIBarButtonItem]()
@@ -241,16 +244,16 @@ final class ComicFormViewController: UIViewController, AlertDisplaying {
         releaseDateTextField.inputAccessoryView = releaseDateToolBar
     }
 
-    private func checkReleaseYear(completion: () -> Void) {
+    private func checkReleaseYear() -> Bool {
         guard
             let releaseYearText = releaseDateTextField.text,
             let releaseYear = Int(releaseYearText)
-            else { return }
-        if releaseYear < 2200 {
-            completion()
+            else { return false }
+        if releaseYear < LucienConstants.releaseYearLimit {
+            return true
         } else {
             releaseDateTextField.text = ""
-            showAlertWithNoDismissal(title: "Invalid Input", message: "The release year must be less than 2200.")
+            return false
         }
     }
 
