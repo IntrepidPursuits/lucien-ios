@@ -13,18 +13,30 @@
         <array key="Muli-Black.ttf">
             <string>Muli-Black</string>
         </array>
+        <array key="Muli-Bold.ttf">
+            <string>Muli-Bold</string>
+        </array>
         <array key="Muli-Light.ttf">
             <string>Muli-Light</string>
+        </array>
+        <array key="Muli-Regular.ttf">
+            <string>Muli-Regular</string>
         </array>
     </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DashboardViewController" customModule="lucien_ios" customModuleProvider="target">
             <connections>
                 <outlet property="borrowingCollectionView" destination="zzt-Lh-hKr" id="UD7-LW-LBG"/>
+                <outlet property="borrowingEmptyDescriptionLabel" destination="Q86-XI-v5X" id="ndv-0w-j5o"/>
+                <outlet property="borrowingEmptyImageView" destination="l9y-Px-Mrb" id="j9a-8N-5vl"/>
                 <outlet property="borrowingLabel" destination="YSO-cO-I99" id="JZ6-EA-pAZ"/>
-                <outlet property="comicCountLabel" destination="wZe-1l-7I5" id="6Fv-MH-aZf"/>
+                <outlet property="comicCountLabel" destination="wZe-1l-7I5" id="Z8v-54-pWI"/>
                 <outlet property="dashboardScrollView" destination="5Bd-Ir-PZh" id="H4N-6n-8y6"/>
                 <outlet property="lendingCollectionView" destination="LTX-5B-CXm" id="QLg-kc-tHG"/>
+                <outlet property="lendingEmptyAddBookLabel" destination="tRt-aZ-fVB" id="UM8-kM-LdR"/>
+                <outlet property="lendingEmptyDescriptionLabel" destination="qNg-NZ-jIZ" id="1DB-7v-SLG"/>
+                <outlet property="lendingEmptyImageView" destination="DDe-9d-lHf" id="YaC-jB-b21"/>
+                <outlet property="lendingEmptyPlusImageView" destination="erM-gb-AvG" id="PrY-C5-tcZ"/>
                 <outlet property="lendingLabel" destination="zKh-rh-dhN" id="byL-y7-Jqb"/>
                 <outlet property="myCollectionLabel" destination="mlf-YE-chQ" id="001-kV-wh4"/>
                 <outlet property="tableView" destination="j76-3z-DBc" id="2Px-Ke-Qxo"/>
@@ -33,14 +45,14 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="571" height="1254"/>
+            <rect key="frame" x="0.0" y="0.0" width="459" height="1254"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="5Bd-Ir-PZh">
-                    <rect key="frame" x="0.0" y="20" width="571" height="1234"/>
+                    <rect key="frame" x="0.0" y="20" width="459" height="1234"/>
                     <subviews>
                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="LTX-5B-CXm" customClass="DashboardCollectionView" customModule="lucien_ios" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="47" width="571" height="280"/>
+                            <rect key="frame" x="0.0" y="47" width="459" height="280"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="280" id="Xrg-Fy-tPs"/>
@@ -53,26 +65,26 @@
                             </collectionViewFlowLayout>
                         </collectionView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LENDING" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zKh-rh-dhN">
-                            <rect key="frame" x="15" y="8" width="82.5" height="23"/>
+                            <rect key="frame" x="15" y="8" width="83" height="23"/>
                             <fontDescription key="fontDescription" name="Muli-Black" family="Muli" pointSize="18"/>
                             <color key="textColor" red="0.16862745100000001" green="0.1764705882" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BORROWING" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YSO-cO-I99">
-                            <rect key="frame" x="15" y="376" width="120.5" height="23"/>
+                            <rect key="frame" x="15" y="376" width="121" height="23"/>
                             <fontDescription key="fontDescription" name="Muli-Black" family="Muli" pointSize="18"/>
                             <color key="textColor" red="0.16862745100000001" green="0.1764705882" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FGQ-7a-mRc">
-                            <rect key="frame" x="8" y="351" width="555" height="1"/>
+                            <rect key="frame" x="8" y="351" width="443" height="1"/>
                             <color key="backgroundColor" red="0.83529411764705885" green="0.83529411764705885" blue="0.85098039215686272" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="0.5" id="YFl-ey-4Xi"/>
                             </constraints>
                         </view>
                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="zzt-Lh-hKr" customClass="DashboardCollectionView" customModule="lucien_ios" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="415" width="571" height="280"/>
+                            <rect key="frame" x="0.0" y="415" width="459" height="280"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="280" id="di7-H7-Ig9"/>
@@ -85,19 +97,19 @@
                             </collectionViewFlowLayout>
                         </collectionView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bqo-Ug-85F">
-                            <rect key="frame" x="8" y="719" width="555" height="1"/>
+                            <rect key="frame" x="8" y="719" width="443" height="1"/>
                             <color key="backgroundColor" red="0.83529411760000005" green="0.83529411760000005" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="0.5" id="ZDi-bl-UQk"/>
                             </constraints>
                         </view>
-                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="j76-3z-DBc" customClass="DashboardTableView" customModule="lucien_ios" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="822" width="571" height="428"/>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="j76-3z-DBc" customClass="DashboardTableView" customModule="lucien_ios" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="822" width="459" height="428"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <inset key="separatorInset" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
                         </tableView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MY COLLECTION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mlf-YE-chQ">
-                            <rect key="frame" x="170" y="752" width="231" height="35"/>
+                            <rect key="frame" x="114" y="752" width="231" height="35"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="35" id="yBx-cp-UAB"/>
                             </constraints>
@@ -105,10 +117,57 @@
                             <color key="textColor" red="0.16862745100000001" green="0.1764705882" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comic Count" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wZe-1l-7I5">
-                            <rect key="frame" x="239" y="795" width="93" height="21"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Comic Count" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wZe-1l-7I5">
+                            <rect key="frame" x="183" y="795" width="93" height="21"/>
                             <fontDescription key="fontDescription" name="Muli-Light" family="Muli" pointSize="16"/>
                             <color key="textColor" red="0.16862745100000001" green="0.1764705882" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="borrowingEmptyIcon" translatesAutoresizingMaskIntoConstraints="NO" id="l9y-Px-Mrb">
+                            <rect key="frame" x="193" y="472" width="72" height="72"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="72" id="8hD-nC-Qz1"/>
+                                <constraint firstAttribute="height" constant="72" id="ccj-VS-ire"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Talk to a friend to borrow a book." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q86-XI-v5X">
+                            <rect key="frame" x="92" y="552" width="275" height="23"/>
+                            <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="18"/>
+                            <color key="textColor" red="0.16862745100000001" green="0.1764705882" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DDe-9d-lHf">
+                            <rect key="frame" x="24" y="71" width="130" height="190"/>
+                            <color key="backgroundColor" red="0.16862745100000001" green="0.1764705882" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="130" id="JSv-Gi-Gf1"/>
+                                <constraint firstAttribute="height" constant="190" id="hBe-9O-jfr"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Get started by adding books to your collection." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qNg-NZ-jIZ">
+                            <rect key="frame" x="178" y="120" width="160" height="68"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="160" id="kKs-Lp-BRo"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="18"/>
+                            <color key="textColor" red="0.16862745100000001" green="0.1764705882" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plusWhite" translatesAutoresizingMaskIntoConstraints="NO" id="erM-gb-AvG">
+                            <rect key="frame" x="69" y="121" width="40" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="40" id="IO2-Bl-Bbi"/>
+                                <constraint firstAttribute="height" constant="40" id="pjJ-uM-cX2"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ADD A BOOK" textAlignment="center" lineBreakMode="characterWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tRt-aZ-fVB">
+                            <rect key="frame" x="65" y="169" width="48" height="38"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="48" id="3JG-9L-Ryp"/>
+                                <constraint firstAttribute="height" constant="38" id="i3y-E7-xOJ"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Muli-Bold" family="Muli" pointSize="13"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
@@ -116,10 +175,22 @@
                         <constraint firstItem="zzt-Lh-hKr" firstAttribute="leading" secondItem="5Bd-Ir-PZh" secondAttribute="leading" id="05r-S8-eYk"/>
                         <constraint firstItem="FGQ-7a-mRc" firstAttribute="leading" secondItem="5Bd-Ir-PZh" secondAttribute="leading" constant="8" id="0Ol-GN-VJU"/>
                         <constraint firstItem="wZe-1l-7I5" firstAttribute="centerX" secondItem="5Bd-Ir-PZh" secondAttribute="centerX" id="5Cd-n8-b2z"/>
+                        <constraint firstItem="Q86-XI-v5X" firstAttribute="top" secondItem="l9y-Px-Mrb" secondAttribute="bottom" constant="8" id="5j4-ia-Ame"/>
                         <constraint firstAttribute="trailing" secondItem="j76-3z-DBc" secondAttribute="trailing" id="5k4-f9-QVs"/>
+                        <constraint firstItem="qNg-NZ-jIZ" firstAttribute="top" secondItem="5Bd-Ir-PZh" secondAttribute="top" constant="120" id="737-EM-fxu"/>
+                        <constraint firstItem="erM-gb-AvG" firstAttribute="centerX" secondItem="DDe-9d-lHf" secondAttribute="centerX" id="7f5-61-rdA"/>
                         <constraint firstItem="mlf-YE-chQ" firstAttribute="top" secondItem="bqo-Ug-85F" secondAttribute="bottom" constant="32" id="8Q1-SS-vxe"/>
+                        <constraint firstItem="tRt-aZ-fVB" firstAttribute="top" secondItem="erM-gb-AvG" secondAttribute="bottom" constant="8" id="ARC-cR-aoJ"/>
                         <constraint firstItem="YSO-cO-I99" firstAttribute="top" secondItem="FGQ-7a-mRc" secondAttribute="bottom" constant="24" id="Akl-Kw-yq1"/>
+                        <constraint firstItem="Q86-XI-v5X" firstAttribute="top" secondItem="l9y-Px-Mrb" secondAttribute="bottom" constant="8" symbolic="YES" id="BKj-7K-w28"/>
+                        <constraint firstItem="DDe-9d-lHf" firstAttribute="leading" secondItem="5Bd-Ir-PZh" secondAttribute="leading" constant="24" id="COp-kz-ra2"/>
+                        <constraint firstItem="tRt-aZ-fVB" firstAttribute="centerX" secondItem="erM-gb-AvG" secondAttribute="centerX" id="Ine-Qp-dEc"/>
+                        <constraint firstItem="l9y-Px-Mrb" firstAttribute="top" secondItem="FGQ-7a-mRc" secondAttribute="bottom" constant="120" id="LTN-NN-zcn"/>
+                        <constraint firstItem="Q86-XI-v5X" firstAttribute="centerX" secondItem="5Bd-Ir-PZh" secondAttribute="centerX" id="RPk-1f-zxh"/>
                         <constraint firstItem="bqo-Ug-85F" firstAttribute="leading" secondItem="5Bd-Ir-PZh" secondAttribute="leading" constant="8" id="Rvx-pp-Wz6"/>
+                        <constraint firstItem="DDe-9d-lHf" firstAttribute="top" secondItem="zKh-rh-dhN" secondAttribute="bottom" constant="40" id="SGo-j7-TvT"/>
+                        <constraint firstItem="DDe-9d-lHf" firstAttribute="top" secondItem="erM-gb-AvG" secondAttribute="bottom" constant="-90" id="SlH-wl-vNd"/>
+                        <constraint firstItem="qNg-NZ-jIZ" firstAttribute="leading" secondItem="DDe-9d-lHf" secondAttribute="trailing" constant="24" id="TRK-YI-OCO"/>
                         <constraint firstAttribute="trailing" secondItem="FGQ-7a-mRc" secondAttribute="trailing" constant="8" id="VOJ-hm-Lye"/>
                         <constraint firstItem="LTX-5B-CXm" firstAttribute="top" secondItem="zKh-rh-dhN" secondAttribute="bottom" constant="16" id="YTn-eJ-t2q"/>
                         <constraint firstItem="LTX-5B-CXm" firstAttribute="centerX" secondItem="5Bd-Ir-PZh" secondAttribute="centerX" id="bPC-Nk-m8D"/>
@@ -127,14 +198,17 @@
                         <constraint firstItem="YSO-cO-I99" firstAttribute="leading" secondItem="5Bd-Ir-PZh" secondAttribute="leading" constant="15" id="dn5-PD-Y05"/>
                         <constraint firstAttribute="trailing" secondItem="LTX-5B-CXm" secondAttribute="trailing" id="dtJ-7w-q6B"/>
                         <constraint firstItem="j76-3z-DBc" firstAttribute="top" secondItem="zzt-Lh-hKr" secondAttribute="bottom" constant="127" id="fCe-EB-t68"/>
+                        <constraint firstItem="l9y-Px-Mrb" firstAttribute="centerX" secondItem="5Bd-Ir-PZh" secondAttribute="centerX" id="fOJ-Az-T3R"/>
                         <constraint firstItem="FGQ-7a-mRc" firstAttribute="top" secondItem="LTX-5B-CXm" secondAttribute="bottom" constant="24" id="hfZ-6O-Wsz"/>
                         <constraint firstItem="zKh-rh-dhN" firstAttribute="leading" secondItem="5Bd-Ir-PZh" secondAttribute="leading" constant="15" id="hhr-vD-uJR"/>
                         <constraint firstAttribute="bottom" secondItem="LTX-5B-CXm" secondAttribute="bottom" constant="923" id="jRC-3y-ksn"/>
                         <constraint firstItem="j76-3z-DBc" firstAttribute="leading" secondItem="5Bd-Ir-PZh" secondAttribute="leading" id="jcd-ke-0jq"/>
+                        <constraint firstItem="l9y-Px-Mrb" firstAttribute="centerX" secondItem="5Bd-Ir-PZh" secondAttribute="centerX" id="jcp-Og-Mjh"/>
                         <constraint firstAttribute="trailing" secondItem="bqo-Ug-85F" secondAttribute="trailing" constant="8" id="ltp-xe-cj3"/>
                         <constraint firstAttribute="trailing" secondItem="zzt-Lh-hKr" secondAttribute="trailing" id="ncK-FN-fRZ"/>
                         <constraint firstAttribute="bottom" secondItem="j76-3z-DBc" secondAttribute="bottom" id="o1I-jQ-UDZ"/>
                         <constraint firstItem="bqo-Ug-85F" firstAttribute="top" secondItem="zzt-Lh-hKr" secondAttribute="bottom" constant="24" id="sG4-yI-3ul"/>
+                        <constraint firstItem="wZe-1l-7I5" firstAttribute="centerX" secondItem="5Bd-Ir-PZh" secondAttribute="centerX" id="t4T-HR-M4E"/>
                         <constraint firstItem="LTX-5B-CXm" firstAttribute="top" secondItem="5Bd-Ir-PZh" secondAttribute="top" constant="47" id="w22-wq-ElE"/>
                         <constraint firstItem="mlf-YE-chQ" firstAttribute="centerX" secondItem="5Bd-Ir-PZh" secondAttribute="centerX" id="wLK-am-vMi"/>
                         <constraint firstItem="wZe-1l-7I5" firstAttribute="top" secondItem="mlf-YE-chQ" secondAttribute="bottom" constant="8" id="y0w-nF-reY"/>
@@ -153,7 +227,11 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <point key="canvasLocation" x="-64.5" y="348"/>
+            <point key="canvasLocation" x="-8.5" y="348"/>
         </view>
     </objects>
+    <resources>
+        <image name="borrowingEmptyIcon" width="72" height="72"/>
+        <image name="plusWhite" width="31" height="31"/>
+    </resources>
 </document>

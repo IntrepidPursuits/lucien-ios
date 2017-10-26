@@ -52,7 +52,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LENT TO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="36b-qo-W6h">
-                                <rect key="frame" x="0.0" y="245" width="48.5" height="15"/>
+                                <rect key="frame" x="0.0" y="245" width="49" height="15"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="15" id="7Na-ck-Frc"/>
                                 </constraints>
@@ -78,7 +78,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="C" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4O8-kS-b3n">
-                                <rect key="frame" x="40.5" y="16" width="50" height="92"/>
+                                <rect key="frame" x="40.5" y="16" width="50" height="75"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="MJT-wF-SWa"/>
                                 </constraints>
@@ -87,7 +87,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Story Title" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ttE-pK-6On">
-                                <rect key="frame" x="8" y="108" width="114" height="16.5"/>
+                                <rect key="frame" x="8" y="91" width="114" height="15.5"/>
                                 <fontDescription key="fontDescription" name="Muli-Bold" family="Muli" pointSize="13"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>

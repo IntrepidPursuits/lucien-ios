@@ -1,5 +1,5 @@
 //
-//  MyCollectionTableViewCell.swift
+//  DashboardTableViewCell.swift
 //  lucien-ios
 //
 //  Created by Fang, Gracie on 10/23/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class MyCollectionTableViewCell: UITableViewCell {
+final class DashboardTableViewCell: UITableViewCell {
 
     @IBOutlet private weak var comicImageView: UIImageView!
     @IBOutlet private weak var comicTitleLabel: UILabel!
@@ -16,7 +16,7 @@ final class MyCollectionTableViewCell: UITableViewCell {
     @IBOutlet private weak var volumeIssueLabel: UILabel!
 
     static let reuseIdentifier = "myCollectionCell"
-    static var subview: UIView?
+    private var subview: UIView?
 
     func configure(comicTitle: String, storyTitle: String, volume: String, issueNumber: String, imageURL: String) {
         comicTitleLabel.text = comicTitle
@@ -42,17 +42,22 @@ final class MyCollectionTableViewCell: UITableViewCell {
         selectionStyle = .none
         guard let comicTitle = comicTitleLabel.text else { return }
         comicTitleLabel.setLineHeight(text: comicTitle, lineSpacing: 0.1)
+        if subview == nil {
+            let subview = UIView(frame: CGRect(x: 0, y: 16, width: contentView.frame.size.width - 32, height: 100))
+            contentView.addSubview(subview)
+            contentView.sendSubview(toBack: subview)
+            self.subview = subview
+            styleCell()
+        }
     }
 
-    func styleCell(subview: UIView) {
+    func styleCell() {
         contentView.backgroundColor = UIColor.white
-        subview.layer.backgroundColor = CGColor(colorSpace: CGColorSpaceCreateDeviceRGB(), components: [1.0, 1.0, 1.0, 0.8])
-        subview.layer.masksToBounds = false
-        subview.layer.cornerRadius = 6.0
-        subview.layer.shadowOffset = CGSize(width: 0, height: 4)
-        subview.layer.shadowOpacity = 0.1
-        subview.layer.shadowRadius = 18.0
-        contentView.addSubview(subview)
-        contentView.sendSubview(toBack: subview)
+        layer.backgroundColor = CGColor(colorSpace: CGColorSpaceCreateDeviceRGB(), components: [1.0, 1.0, 1.0, 0.8])
+        layer.masksToBounds = false
+        layer.cornerRadius = 6.0
+        layer.shadowOffset = CGSize(width: 0, height: 4)
+        layer.shadowOpacity = 0.1
+        layer.shadowRadius = 18.0
     }
 }

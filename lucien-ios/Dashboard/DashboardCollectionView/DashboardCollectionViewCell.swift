@@ -27,6 +27,13 @@ final class DashboardCollectionViewCell: UICollectionViewCell {
         setImage(imageURL: imageURL, storyTitle: storyTitle)
         setStyling()
     }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        bookImage.image = nil
+        initialLabel.text = ""
+        storyTitleLabel.text = ""
+    }
 
     func setImage(imageURL: String?, storyTitle: String) {
         guard
