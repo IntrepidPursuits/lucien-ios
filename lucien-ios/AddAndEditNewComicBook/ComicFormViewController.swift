@@ -225,8 +225,10 @@ final class ComicFormViewController: UIViewController, AlertDisplaying {
         doneButton.title = "Done"
         doneButton.style = .done
         doneButton.rx.tap.subscribeNext { [weak self] in
-            self?.view.endEditing(true)
-            self?.deregisterFromKeyboardNotifications()
+            self?.checkReleaseYear {
+                self?.view.endEditing(true)
+                self?.deregisterFromKeyboardNotifications()
+            }
         } >>> disposeBag
         var barButtonItems = [UIBarButtonItem]()
         barButtonItems.append(flexSpace)
@@ -234,6 +236,19 @@ final class ComicFormViewController: UIViewController, AlertDisplaying {
         releaseDateToolBar.items = barButtonItems
         releaseDateToolBar.sizeToFit()
         releaseDateTextField.inputAccessoryView = releaseDateToolBar
+    }
+
+    private func checkReleaseYear(completion: () -> Void) {
+        guard
+            let releaseYearText = releaseDateTextField.text,
+            let releaseYear = Int(releaseYearText)
+            else { return }
+        if releaseYear < 2200 {
+            completion()
+        } else {
+            releaseDateTextField.text = ""
+            showAlertWithNoDismissal(title: "Invalid Input", message: "The release year must be less than 2200.")
+        }
     }
 
     private func configurePickerUIButton(button: UIButton) {
