@@ -132,6 +132,11 @@ final class DashboardViewController: UIViewController, UIScrollViewDelegate, Das
 
     @objc private func viewProfileButtonPressed() {
         let viewProfileController = ProfileViewController()
-        navigationController?.pushViewController(viewProfileController, animated: true)
+        let transition = CATransition()
+        transition.duration = 0.3
+        transition.type = kCATransitionMoveIn
+        transition.subtype = kCATransitionFromLeft
+        self.navigationController?.view.layer.add(transition, forKey: nil)
+        self.navigationController?.pushViewController(viewProfileController, animated: true)
     }
 }

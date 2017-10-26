@@ -29,14 +29,14 @@
                 <outlet property="borrowerNameLabel" destination="LLe-oe-rx7" id="UcD-9L-9EK"/>
                 <outlet property="comicFadeImageView" destination="8L6-n0-NHB" id="mE8-Ud-xTa"/>
                 <outlet property="comicImageCover" destination="opx-Yb-agz" id="ZoE-IG-qcc"/>
-                <outlet property="conditionLabel" destination="IhJ-cj-zEd" id="KA9-9m-qdH"/>
+                <outlet property="conditionLabel" destination="IhJ-cj-zEd" id="C5F-iX-Wxm"/>
                 <outlet property="dueDateLabel" destination="p2C-yP-cZF" id="ivm-Uk-1ph"/>
                 <outlet property="footerView" destination="biy-3Y-ocp" id="02a-Bv-fF5"/>
-                <outlet property="genreLabel" destination="O0j-ns-LzB" id="wgM-zJ-Sec"/>
+                <outlet property="genreLabel" destination="O0j-ns-LzB" id="BOC-LL-ZgC"/>
                 <outlet property="issueLabel" destination="174-FX-Jh6" id="0WN-TP-qep"/>
                 <outlet property="lendBookButton" destination="FoD-r3-mjg" id="0PH-Oc-ZfW"/>
                 <outlet property="lentToLabel" destination="ofN-YS-77f" id="lzT-S1-t3O"/>
-                <outlet property="publisherLabel" destination="IhJ-cj-zEd" id="f8C-tI-fnW"/>
+                <outlet property="publisherLabel" destination="h5H-ui-usp" id="KJ8-fU-n0Z"/>
                 <outlet property="releaseDateLabel" destination="ju2-oF-Hbu" id="dMG-gQ-oBi"/>
                 <outlet property="returnedButton" destination="A5T-60-pYo" id="OV2-pp-Tod"/>
                 <outlet property="scrollView" destination="4pG-6P-9DY" id="9B0-UF-c1l"/>
