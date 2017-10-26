@@ -43,6 +43,11 @@ final class ProfileViewController: UIViewController {
     }
 
     @objc func back(sender: UIBarButtonItem) {
+        let transition = CATransition()
+        transition.duration = 0.3
+        transition.type = kCATransitionMoveIn
+        transition.subtype = kCATransitionFromRight
+        self.navigationController?.view.layer.add(transition, forKey: nil)
         navigationController?.popViewController(animated: true)
     }
 
