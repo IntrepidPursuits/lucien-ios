@@ -1,5 +1,5 @@
 //
-//  MyCollectionTableViewCell.swift
+//  DashboardTableViewCell.swift
 //  lucien-ios
 //
 //  Created by Fang, Gracie on 10/23/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class MyCollectionTableViewCell: UITableViewCell {
+final class DashboardTableViewCell: UITableViewCell {
 
     @IBOutlet private weak var comicImageView: UIImageView!
     @IBOutlet private weak var comicTitleLabel: UILabel!

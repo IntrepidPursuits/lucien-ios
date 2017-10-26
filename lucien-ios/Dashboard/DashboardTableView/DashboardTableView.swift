@@ -15,8 +15,8 @@ protocol DashboardTableViewDelegate: class {
 final class DashboardTableView: UITableView, UITableViewDataSource, UITableViewDelegate {
 
     var viewModel: DashboardTableViewModel?
-    let reuseIdentifier = MyCollectionTableViewCell.reuseIdentifier
     weak var dashboardDelegate: DashboardTableViewDelegate?
+    let reuseIdentifier = DashboardTableViewCell.reuseIdentifier
 
     override init(frame: CGRect, style: UITableViewStyle) {
         super.init(frame: frame, style: style)
@@ -31,7 +31,7 @@ final class DashboardTableView: UITableView, UITableViewDataSource, UITableViewD
     func initializeView() {
         delegate = self
         dataSource = self
-        let nib = UINib(nibName: String(describing: MyCollectionTableViewCell.self), bundle: nil)
+        let nib = UINib(nibName: String(describing: DashboardTableViewCell.self), bundle: nil)
         register(nib, forCellReuseIdentifier: reuseIdentifier)
         contentInset = UIEdgeInsets(top: 0, left: 16, bottom: 24, right: 16)
         separatorStyle = UITableViewCellSeparatorStyle.none
@@ -47,7 +47,7 @@ final class DashboardTableView: UITableView, UITableViewDataSource, UITableViewD
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath)
-        guard let configuredCell = cell as? MyCollectionTableViewCell else { return cell }
+        guard let configuredCell = cell as? DashboardTableViewCell else { return cell }
 
         let index = indexPath.item
         let comicTitle = viewModel?.getComicTitle(forIndex: index) ?? ""
