@@ -50,6 +50,9 @@ final class ComicDetailViewModel {
         } else {
             dueDate.value = "-"
         }
+        if dashboardComicUser.dashboardUserType == .borrower {
+            borrowerName.value = dashboardComicUser.dashboardUser?.firstName ?? "-"
+        }
     }
 
     func getImage(imageURL: String) -> UIImage {

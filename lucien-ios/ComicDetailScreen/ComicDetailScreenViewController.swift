@@ -89,6 +89,7 @@ final class ComicDetailScreenViewController: UIViewController, UIScrollViewDeleg
         conditionLabel.rx.text <- viewModel.condition >>> disposeBag
         comicImageCover.rx.image <- viewModel.comicImage >>> disposeBag
         comicFadeImageView.rx.image <- viewModel.comicImage >>> disposeBag
+        borrowerNameLabel.rx.text <- viewModel.borrowerName >>> disposeBag
         dueDateLabel.rx.text <- viewModel.dueDate >>> disposeBag
     }
 
