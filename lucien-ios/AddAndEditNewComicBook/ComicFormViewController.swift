@@ -203,8 +203,7 @@ final class ComicFormViewController: UIViewController, AlertDisplaying {
         finishButton.tintColor = LucienTheme.finishButtonGrey
         finishButton.isEnabled = false
         finishButton.rx.tap.subscribeNext { [weak self] in
-            self?.view.endEditing(true)
-            self?.deregisterFromKeyboardNotifications()
+            self?.dismissKeyboardAndNotifications()
             self?.viewModel.finishButtonTapped { error in
                 if error != nil {
                     self?.showAlert(title: "Error", message: "Our service is currently encountering an issue. Please ensure that you are connected to the internet and try again.")
@@ -232,8 +231,7 @@ final class ComicFormViewController: UIViewController, AlertDisplaying {
         doneButton.rx.tap.subscribeNext { [weak self] in
             guard let releaseYearIsValid = self?.checkReleaseYear() else { return }
             if releaseYearIsValid {
-                self?.view.endEditing(true)
-                self?.deregisterFromKeyboardNotifications()
+                self?.dismissKeyboardAndNotifications()
             } else {
                  self?.showAlertWithNoDismissal(title: "Invalid Input", message: "The release year must be less than 2200.")
             }
@@ -364,6 +362,10 @@ final class ComicFormViewController: UIViewController, AlertDisplaying {
         }
     }
 
+    private func dismissKeyboardAndNotifications() {
+        view.endEditing(true)
+        deregisterFromKeyboardNotifications()
+    }
     // MARK: - IBOutlet Methods
 
     @IBAction private func addCoverButtonTapped(_ sender: UIButton) {
