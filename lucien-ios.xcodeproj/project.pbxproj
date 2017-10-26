@@ -61,8 +61,8 @@
 		FB480C3B1F9160AE00DFAB08 /* DashboardCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB480C3A1F9160AE00DFAB08 /* DashboardCollectionViewModel.swift */; };
 		FB5389C81F9A31C90099FB98 /* AddEditComic.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5389C71F9A31C90099FB98 /* AddEditComic.swift */; };
 		FB5389CE1F9A8B290099FB98 /* DashboardTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5389CD1F9A8B290099FB98 /* DashboardTableView.swift */; };
-		FB6569091F9E27E700AABA5D /* MyCollectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6569071F9E27E700AABA5D /* MyCollectionTableViewCell.swift */; };
-		FB65690A1F9E27E700AABA5D /* MyCollectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB6569081F9E27E700AABA5D /* MyCollectionTableViewCell.xib */; };
+		FB6569091F9E27E700AABA5D /* DashboardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6569071F9E27E700AABA5D /* DashboardTableViewCell.swift */; };
+		FB65690A1F9E27E700AABA5D /* DashboardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB6569081F9E27E700AABA5D /* DashboardTableViewCell.xib */; };
 		FB65690C1F9E59C500AABA5D /* MyComics.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB65690B1F9E59C500AABA5D /* MyComics.swift */; };
 		FB6AA1A01F85313500394500 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6AA19E1F85313500394500 /* DashboardViewController.swift */; };
 		FB6AA1A11F85313500394500 /* DashboardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB6AA19F1F85313500394500 /* DashboardViewController.xib */; };
@@ -177,8 +177,8 @@
 		FB480C3A1F9160AE00DFAB08 /* DashboardCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardCollectionViewModel.swift; sourceTree = "<group>"; };
 		FB5389C71F9A31C90099FB98 /* AddEditComic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditComic.swift; sourceTree = "<group>"; };
 		FB5389CD1F9A8B290099FB98 /* DashboardTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTableView.swift; sourceTree = "<group>"; };
-		FB6569071F9E27E700AABA5D /* MyCollectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCollectionTableViewCell.swift; sourceTree = "<group>"; };
-		FB6569081F9E27E700AABA5D /* MyCollectionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyCollectionTableViewCell.xib; sourceTree = "<group>"; };
+		FB6569071F9E27E700AABA5D /* DashboardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTableViewCell.swift; sourceTree = "<group>"; };
+		FB6569081F9E27E700AABA5D /* DashboardTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DashboardTableViewCell.xib; sourceTree = "<group>"; };
 		FB65690B1F9E59C500AABA5D /* MyComics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyComics.swift; sourceTree = "<group>"; };
 		FB6AA19E1F85313500394500 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		FB6AA19F1F85313500394500 /* DashboardViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DashboardViewController.xib; sourceTree = "<group>"; };
@@ -518,8 +518,8 @@
 			children = (
 				FBC5C6E11F9FBF5B0019C872 /* DashboardTableViewModel.swift */,
 				FB5389CD1F9A8B290099FB98 /* DashboardTableView.swift */,
-				FB6569071F9E27E700AABA5D /* MyCollectionTableViewCell.swift */,
-				FB6569081F9E27E700AABA5D /* MyCollectionTableViewCell.xib */,
+				FB6569071F9E27E700AABA5D /* DashboardTableViewCell.swift */,
+				FB6569081F9E27E700AABA5D /* DashboardTableViewCell.xib */,
 			);
 			path = DashboardTableView;
 			sourceTree = "<group>";
@@ -672,7 +672,7 @@
 				1CDBD85D1F7C209800408826 /* Muli-Bold.ttf in Resources */,
 				1CDBD8621F7C209800408826 /* Muli-ExtraLightItalic.ttf in Resources */,
 				FBC5C6DD1F9F91700019C872 /* ComicDetailScreenViewController.xib in Resources */,
-				FB65690A1F9E27E700AABA5D /* MyCollectionTableViewCell.xib in Resources */,
+				FB65690A1F9E27E700AABA5D /* DashboardTableViewCell.xib in Resources */,
 				1CDBD85F1F7C209800408826 /* Muli-ExtraBold.ttf in Resources */,
 				1C7275271F99289100D4D10C /* LendABookViewController.xib in Resources */,
 				1CDB6A231F7995EC003A2BB1 /* StartMyCollectionViewController.xib in Resources */,
@@ -928,7 +928,7 @@
 				1CE3DC2C1F9FAD9E00814DBA /* LentComic.swift in Sources */,
 				FB32385B1F868B8100FE81E2 /* Dashboard.swift in Sources */,
 				FB32385D1F87CB3400FE81E2 /* AuthenticationResponse.swift in Sources */,
-				FB6569091F9E27E700AABA5D /* MyCollectionTableViewCell.swift in Sources */,
+				FB6569091F9E27E700AABA5D /* DashboardTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

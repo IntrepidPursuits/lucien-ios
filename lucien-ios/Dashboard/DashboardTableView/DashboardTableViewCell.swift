@@ -16,7 +16,7 @@ final class MyCollectionTableViewCell: UITableViewCell {
     @IBOutlet private weak var volumeIssueLabel: UILabel!
 
     static let reuseIdentifier = "myCollectionCell"
-    static var subview: UIView?
+    var subview: UIView?
 
     func configure(comicTitle: String, storyTitle: String, volume: String, issueNumber: String, imageURL: String) {
         comicTitleLabel.text = comicTitle

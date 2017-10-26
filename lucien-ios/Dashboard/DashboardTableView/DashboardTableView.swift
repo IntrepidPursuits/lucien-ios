@@ -57,12 +57,6 @@ final class DashboardTableView: UITableView, UITableViewDataSource, UITableViewD
         let imageURL = viewModel?.comicImageURL(forIndex: index) ?? ""
         configuredCell.configure(comicTitle: comicTitle, storyTitle: storyTitle, volume: volume, issueNumber: issue, imageURL: imageURL)
 
-        if MyCollectionTableViewCell.subview == nil {
-            let subview = UIView(frame: CGRect(x: 0, y: 16, width: frame.size.width - 32, height: 100))
-            MyCollectionTableViewCell.subview = subview
-            configuredCell.styleCell(subview: subview)
-        }
-
         tableView.contentSize = CGSize(width: tableView.frame.size.width - 32, height: tableView.contentSize.height)
         return configuredCell
     }
