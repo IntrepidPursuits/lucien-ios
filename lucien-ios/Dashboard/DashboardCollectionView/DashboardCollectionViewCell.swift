@@ -27,7 +27,7 @@ final class DashboardCollectionViewCell: UICollectionViewCell {
         setImage(imageURL: imageURL, storyTitle: storyTitle)
         setStyling()
     }
-    
+
     override func prepareForReuse() {
         super.prepareForReuse()
         bookImage.image = nil

@@ -57,6 +57,7 @@ final class ComicFormViewController: UIViewController, AlertDisplaying {
     // MARK: - Constants
 
     private let cameraViewController = CameraViewController()
+    private let lucienAPIClient = LucienAPIClient()
     private let disposeBag = DisposeBag()
 
     init(comicFormViewModel: ComicFormViewModel) {
@@ -205,6 +206,8 @@ final class ComicFormViewController: UIViewController, AlertDisplaying {
             self?.viewModel.finishButtonTapped { error in
                 if error != nil {
                     self?.showAlert(title: "Error", message: "Our service is currently encountering an issue. Please ensure that you are connected to the internet and try again.")
+                } else {
+                    self?.goToDashboard()
                 }
             }
         } >>> disposeBag
@@ -324,6 +327,36 @@ final class ComicFormViewController: UIViewController, AlertDisplaying {
         bottomBorderTextField.borderColor = LucienTheme.textFieldBottomBorderWarning
         finishButton.isEnabled = false
         finishButton.tintColor = LucienTheme.finishButtonGrey
+    }
+
+    private func goToDashboard() {
+        let alertController = UIAlertController(title: "Error",
+                                                message: "Our service is currently encountering an issue. Please ensure that you are connected to the internet and try again.",
+                                                preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Ok", style: .cancel) { _ in }
+        alertController.addAction(okAction)
+        var dashboardComics = [DashboardComicUser]()
+        lucienAPIClient.getMyComics { response in
+            switch response {
+            case .success(let result):
+                DispatchQueue.main.async {
+                    dashboardComics = result
+                    self.lucienAPIClient.getDashboard { response in
+                        switch response {
+                        case .success(let result):
+                            let viewModel = DashboardViewModel(dashboard: result, myComics: dashboardComics)
+                            let dashboardViewController = DashboardViewController(dashboardViewModel: viewModel)
+                            let dashboardNavigationController = UINavigationController(rootViewController: dashboardViewController)
+                            self.present(dashboardNavigationController, animated: true, completion: nil)
+                        case .failure(let error):
+                            self.present(alertController, animated: true, completion: nil)
+                        }
+                    }
+                }
+            case .failure:
+                self.present(alertController, animated: true, completion: nil)
+            }
+        }
     }
 
     // MARK: - IBOutlet Methods
