@@ -20,8 +20,11 @@ final class DashboardViewController: UIViewController, UIScrollViewDelegate, Das
     @IBOutlet private weak var comicCountLabel: UILabel!
     @IBOutlet private weak var borrowingEmptyImageView: UIImageView!
     @IBOutlet private weak var borrowingEmptyDescriptionLabel: UILabel!
+
     @IBOutlet private weak var lendingEmptyImageView: UIImageView!
-    @IBOutlet private weak var lendingEmptyDescriptionLabel: UIImageView!
+    @IBOutlet private weak var lendingEmptyDescriptionLabel: UILabel!
+    @IBOutlet private weak var lendingEmptySearchDescriptionLabel: UILabel!
+    @IBOutlet private weak var lendingEmptySearchCollectionLabel: UILabel!
     @IBOutlet private weak var lendingEmptyAddBookLabel: UILabel!
     @IBOutlet private weak var lendingEmptyPlusImageView: UIImageView!
 
@@ -66,6 +69,31 @@ final class DashboardViewController: UIViewController, UIScrollViewDelegate, Das
         lendingEmptyDescriptionLabel.isHidden = true
         lendingEmptyPlusImageView.isHidden = true
         lendingEmptyAddBookLabel.isHidden = true
+        lendingEmptySearchCollectionLabel.isHidden = true
+        lendingEmptySearchCollectionLabel.adjustsFontSizeToFitWidth = true
+        lendingEmptySearchDescriptionLabel.isHidden = true
+        lendingEmptySearchDescriptionLabel.adjustsFontSizeToFitWidth = true
+    }
+
+    func setPlaceholders() {
+        if viewModel.borrowingViewModel.getComicCount() == 0 {
+            borrowingEmptyImageView.isHidden = false
+            borrowingEmptyDescriptionLabel.isHidden = false
+        }
+        if viewModel.myComicsViewModel.getComicCount() == 0 {
+            lendingEmptyImageView.isHidden = false
+            lendingEmptyDescriptionLabel.isHidden = false
+            lendingEmptyPlusImageView.isHidden = false
+            lendingEmptyPlusImageView.image = UIImage(named: "plusWhite")
+            lendingEmptyAddBookLabel.isHidden = false
+        } else if viewModel.lendingViewModel.getComicCount() == 0 {
+            lendingEmptyImageView.isHidden = false
+            lendingEmptySearchCollectionLabel.isHidden = false
+            lendingEmptySearchDescriptionLabel.isHidden = false
+            lendingEmptyPlusImageView.isHidden = false
+            lendingEmptyPlusImageView.image = UIImage(named: "searchIcon")
+        }
+
     }
 
     func setStyling() {
@@ -91,19 +119,6 @@ final class DashboardViewController: UIViewController, UIScrollViewDelegate, Das
     func dashboardTableViewDidSelectComic(with viewModel: ComicDetailViewModel) {
         let comicDetailViewController = ComicDetailScreenViewController(comicDetailViewModel: viewModel)
         navigationController?.pushViewController(comicDetailViewController, animated: true)
-    }
-
-    func setPlaceholders() {
-        if viewModel.borrowingViewModel.getComicCount() == 0 {
-            borrowingEmptyImageView.isHidden = false
-            borrowingEmptyDescriptionLabel.isHidden = false
-        }
-        if viewModel.myComicsViewModel.getComicCount() == 0 {
-            lendingEmptyImageView.isHidden = false
-            lendingEmptyDescriptionLabel.isHidden = false
-            lendingEmptyPlusImageView.isHidden = false
-            lendingEmptyAddBookLabel.isHidden = false
-        }
     }
 
     private func configureNavigationController() {
