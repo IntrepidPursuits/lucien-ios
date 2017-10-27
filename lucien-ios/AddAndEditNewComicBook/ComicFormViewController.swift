@@ -92,7 +92,7 @@ final class ComicFormViewController: UIViewController, AlertDisplaying {
         activityIndicator.startAnimating()
         view.addSubview(activityIndicator)
     }
-    
+
     private func configureEditForm() {
         if viewModel.comicFormMode == .edit {
             if let coverPhoto = viewModel.coverPhoto {

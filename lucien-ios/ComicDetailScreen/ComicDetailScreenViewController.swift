@@ -91,7 +91,7 @@ final class ComicDetailScreenViewController: UIViewController, UIScrollViewDeleg
     }
 
     @IBAction func lendBookButtonTapped(_ sender: UIButton) {
-        let lendbookViewController = LendABookViewController(comicID: viewModel.comicID.value)
+        let lendbookViewController = LendABookViewController(comicDetailViewModel: viewModel)
         navigationController?.pushViewController(lendbookViewController, animated: true)
     }
 

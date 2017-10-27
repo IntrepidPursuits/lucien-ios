@@ -41,14 +41,14 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="26d-PF-f6V">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="k6m-mc-FvU">
-                                    <rect key="frame" x="24" y="29" width="91" height="131.5"/>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noBookCover" translatesAutoresizingMaskIntoConstraints="NO" id="k6m-mc-FvU">
+                                    <rect key="frame" x="24" y="29" width="91" height="124"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="91" id="V9C-DR-AOA"/>
                                     </constraints>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select A Borrower" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wJp-bj-gDn">
-                                    <rect key="frame" x="24" y="173.5" width="149" height="21"/>
+                                    <rect key="frame" x="24" y="296" width="149" height="21"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="21" id="6Os-I9-Hfi"/>
                                         <constraint firstAttribute="width" constant="149" id="Oub-B2-1fS"/>
@@ -58,19 +58,25 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Story Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iQ4-mp-AST">
-                                    <rect key="frame" x="126" y="85" width="241" height="20.5"/>
+                                    <rect key="frame" x="126" y="86.5" width="241" height="21"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="21" id="z79-3g-J0U"/>
+                                    </constraints>
                                     <fontDescription key="fontDescription" name="Muli-Light" family="Muli" pointSize="16"/>
                                     <color key="textColor" red="0.16862745100000001" green="0.1764705882" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Volume Info" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kmq-Pc-hrv">
-                                    <rect key="frame" x="126" y="106.5" width="241" height="21"/>
+                                    <rect key="frame" x="126" y="108.5" width="241" height="21"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="21" id="tSl-cl-9iY"/>
+                                    </constraints>
                                     <fontDescription key="fontDescription" name="Muli-Light" family="Muli" pointSize="14"/>
                                     <color key="textColor" red="0.5607843137254902" green="0.56470588235294117" blue="0.60392156862745094" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Series Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9B1-9j-vDU">
-                                    <rect key="frame" x="126" y="61" width="241" height="23"/>
+                                    <rect key="frame" x="126" y="61" width="241" height="24.5"/>
                                     <fontDescription key="fontDescription" name="Muli-SemiBold" family="Muli" pointSize="18"/>
                                     <color key="textColor" red="0.16862745100000001" green="0.1764705882" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
@@ -84,14 +90,14 @@
                                 <constraint firstItem="9B1-9j-vDU" firstAttribute="leading" secondItem="k6m-mc-FvU" secondAttribute="trailing" constant="11" id="7ba-tH-7aT"/>
                                 <constraint firstItem="9B1-9j-vDU" firstAttribute="trailing" secondItem="26d-PF-f6V" secondAttribute="trailingMargin" id="7ud-Sb-whu"/>
                                 <constraint firstItem="kmq-Pc-hrv" firstAttribute="top" secondItem="iQ4-mp-AST" secondAttribute="bottom" constant="1" id="EUQ-N7-zX6"/>
-                                <constraint firstItem="k6m-mc-FvU" firstAttribute="centerY" secondItem="iQ4-mp-AST" secondAttribute="centerY" id="JDD-52-Dzj"/>
+                                <constraint firstItem="k6m-mc-FvU" firstAttribute="centerY" secondItem="iQ4-mp-AST" secondAttribute="centerY" constant="-5.25" id="JDD-52-Dzj"/>
                                 <constraint firstItem="iQ4-mp-AST" firstAttribute="trailing" secondItem="kmq-Pc-hrv" secondAttribute="trailing" id="PYX-q1-Rak"/>
                                 <constraint firstItem="9B1-9j-vDU" firstAttribute="trailing" secondItem="iQ4-mp-AST" secondAttribute="trailing" id="Qw4-tH-NWU"/>
                                 <constraint firstItem="k6m-mc-FvU" firstAttribute="top" secondItem="26d-PF-f6V" secondAttribute="top" constant="29" id="UfM-3C-Epa"/>
                                 <constraint firstItem="9B1-9j-vDU" firstAttribute="leading" secondItem="iQ4-mp-AST" secondAttribute="leading" id="WSg-XZ-tmn"/>
                                 <constraint firstItem="9B1-9j-vDU" firstAttribute="top" secondItem="26d-PF-f6V" secondAttribute="top" constant="61" id="ePx-65-Gms"/>
-                                <constraint firstItem="wJp-bj-gDn" firstAttribute="top" secondItem="k6m-mc-FvU" secondAttribute="bottom" constant="13" id="m99-kb-aHE"/>
-                                <constraint firstItem="wJp-bj-gDn" firstAttribute="top" secondItem="kmq-Pc-hrv" secondAttribute="bottom" constant="46" id="spJ-5y-DdA"/>
+                                <constraint firstItem="wJp-bj-gDn" firstAttribute="top" secondItem="k6m-mc-FvU" secondAttribute="bottom" constant="143" id="m99-kb-aHE"/>
+                                <constraint firstItem="wJp-bj-gDn" firstAttribute="top" secondItem="kmq-Pc-hrv" secondAttribute="bottom" constant="166.5" id="spJ-5y-DdA"/>
                                 <constraint firstItem="k6m-mc-FvU" firstAttribute="leading" secondItem="26d-PF-f6V" secondAttribute="leading" constant="24" id="uLs-oE-BQb"/>
                                 <constraint firstItem="iQ4-mp-AST" firstAttribute="leading" secondItem="kmq-Pc-hrv" secondAttribute="leading" id="xNf-UV-Qii"/>
                             </constraints>
@@ -117,4 +123,7 @@
             <point key="canvasLocation" x="34.5" y="54.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="noBookCover" width="130" height="187"/>
+    </resources>
 </document>

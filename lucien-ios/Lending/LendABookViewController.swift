@@ -30,19 +30,22 @@ class LendABookViewController: UIViewController, UITableViewDelegate, AlertDispl
     private var nextButton = UIBarButtonItem()
     private let lendingCell = UINib(nibName: "LendingTableViewCell", bundle: nil)
     private let headerView = UIView()
+    private var selectedIndex: Int?
+    private var comicID: String?
+    private var comicCoverPhoto: UIImage?
+    private var selectedUserID: String?
+    private var selectedUserName: String?
+    private var seriesTitle: String?
+    private var storyTitle: String?
+    private var volume: String?
 
-    // MARK: - Variables
-
-    var selectedIndex: Int?
-    var comicID: String?
-    var comicCoverPhoto: UIImage?
-    var selectedUserID: String?
-    var selectedUserName: String?
-
-    init(comicID: String, comicCoverPhoto: UIImage? = nil) {
+    init(comicDetailViewModel: ComicDetailViewModel) {
         super.init(nibName: nil, bundle: nil)
-        self.comicID = comicID
-        self.comicCoverPhoto = comicCoverPhoto
+        self.comicID = comicDetailViewModel.comicID.value
+        self.comicCoverPhoto = comicDetailViewModel.comicImage.value
+        self.seriesTitle = comicDetailViewModel.comicTitle.value
+        self.storyTitle = comicDetailViewModel.storyTitle.value
+        self.volume = comicDetailViewModel.volume.value
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -53,15 +56,25 @@ class LendABookViewController: UIViewController, UITableViewDelegate, AlertDispl
         super.viewDidLoad()
         configureNavigationController()
         configureTableView()
-
         viewModel.getAllUsers { [weak self] (_, error) in
             if error != nil {
                 self?.showAlert(title: "Error", message: "Our service is currently encountering an issue. Please ensure that you are connected to the internet and try again.")
             }
         }
+        configureComicInfo()
     }
 
     // MARK: - Private Instance Methods
+
+    private func configureComicInfo() {
+        seriesTitleLabel.adjustsFontSizeToFitWidth = true
+        storyTitleLabel.adjustsFontSizeToFitWidth = true
+        volumeLabel.adjustsFontSizeToFitWidth = true 
+        seriesTitleLabel.text = seriesTitle ?? "-"
+        storyTitleLabel.text = storyTitle ?? "-"
+        volumeLabel.text = volume ?? "-"
+        comicPhoto.image = comicCoverPhoto ?? UIImage(named: "noBookCover")
+    }
 
     private func configureTableView() {
         tableView.estimatedRowHeight = 76
