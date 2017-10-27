@@ -91,12 +91,24 @@ final class ComicDetailScreenViewController: UIViewController, UIScrollViewDeleg
     }
 
     @IBAction func lendBookButtonTapped(_ sender: UIButton) {
-        let lendbookViewController = LendABookViewController(comicID: viewModel.comicID.value)
+        let lendbookViewController = LendABookViewController(comicDetailViewModel: viewModel)
         navigationController?.pushViewController(lendbookViewController, animated: true)
     }
 
     @objc func presentEditForm(sender: UIBarButtonItem) {
-        let comicFormViewModel = ComicFormViewModel()
+        let optionalComicFields = OptionalComicFields(volume: viewModel.volume.value,
+                                                      issueNumber: viewModel.issue.value,
+                                                      publisher: viewModel.publisher.value,
+                                                      releaseYear: viewModel.releaseDate.value,
+                                                      comicPhotoURL: nil)
+        let comic = AddEditComic(comicID: viewModel.comicID.value,
+                                 comicTitle: viewModel.comicTitle.value,
+                                 storyTitle: viewModel.storyTitle.value,
+                                 optionalComicFields: optionalComicFields,
+                                 returnDate: nil,
+                                 condition: viewModel.condition.value,
+                                 genre: viewModel.genre.value)
+        let comicFormViewModel = ComicFormViewModel(comic: comic, coverPhoto: viewModel.comicImage.value)
         let comicFormViewController = ComicFormViewController(comicFormViewModel: comicFormViewModel)
         navigationController?.pushViewController(comicFormViewController, animated: true)
     }

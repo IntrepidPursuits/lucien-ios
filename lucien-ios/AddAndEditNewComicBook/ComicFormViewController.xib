@@ -53,11 +53,11 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="1128"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8pQ-9n-KZP">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="1128"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="COVER PHOTO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZeW-7M-5vu">
                             <rect key="frame" x="24" y="27" width="86" height="14"/>
@@ -653,7 +653,6 @@ Photo</string>
                 <constraint firstItem="8pQ-9n-KZP" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="dbk-XA-fDD"/>
                 <constraint firstItem="8pQ-9n-KZP" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="xhY-S2-w5M"/>
             </constraints>
-            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="-15.5" y="1399"/>
         </view>
