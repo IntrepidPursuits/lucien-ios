@@ -204,7 +204,10 @@ final class ComicFormViewController: UIViewController, AlertDisplaying {
         finishButton.setTitleTextAttributes([NSAttributedStringKey.font: LucienTheme.Fonts.muliSemiBold(size: 17) ?? UIFont()], for: .normal)
         finishButton.tintColor = LucienTheme.finishButtonGrey
         finishButton.isEnabled = false
+        navigationItem.leftBarButtonItem?.isEnabled = false
         finishButton.rx.tap.subscribeNext { [weak self] in
+            self?.finishButton.isEnabled = false
+            self?.finishButton.tintColor = LucienTheme.finishButtonGrey
             self?.addActivityIndicator()
             self?.dismissKeyboardAndNotifications()
             self?.viewModel.finishButtonTapped { error in
