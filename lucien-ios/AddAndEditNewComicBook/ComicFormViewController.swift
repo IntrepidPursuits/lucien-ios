@@ -63,12 +63,6 @@ final class ComicFormViewController: UIViewController, AlertDisplaying {
     init(comicFormViewModel: ComicFormViewModel) {
         viewModel = comicFormViewModel
         super.init(nibName: nil, bundle: nil)
-
-        if let coverPhoto = viewModel.coverPhoto {
-            if viewModel.comicFormMode == .edit {
-                updateCoverPhotoButton(image: coverPhoto)
-            }
-        }
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -84,9 +78,28 @@ final class ComicFormViewController: UIViewController, AlertDisplaying {
         registerForKeyboardNotifications()
         comicFormViewControllerTextFields = [seriesTitleTextField, volumeTextField, storyTitleTextField, issueTextField, publisherTextField, releaseDateTextField]
         configureObservables()
+        configureEditForm()
     }
 
     // MARK: - Private Instance Methods
+
+    private func addActivityIndicator() {
+        let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+        activityIndicator .frame = CGRect(x: 0, y: 0, width: 100, height: 100)
+        let scale = CGAffineTransform(scaleX: 1.5, y: 1.5)
+        activityIndicator.transform = scale
+        activityIndicator.center = view.center
+        activityIndicator.startAnimating()
+        view.addSubview(activityIndicator)
+    }
+    private func configureEditForm() {
+        if viewModel.comicFormMode == .edit {
+            if let coverPhoto = viewModel.coverPhoto {
+                updateCoverPhotoButton(image: coverPhoto)
+            }
+            checkIfAllRequiredFieldsAreFilled()
+        }
+    }
 
     private func configureObservables() {
         configureUITextFieldObservables()
@@ -162,23 +175,11 @@ final class ComicFormViewController: UIViewController, AlertDisplaying {
     }
 
     private func configureNavigationController() {
-        navigationItem.title = "Add Comic"
-        navigationController?.navigationBar.setNavBarTitle()
         navigationController?.navigationBar.setNavBarBackground()
+        navigationItem.title = viewModel.navigationBarTitle
+        navigationController?.navigationBar.setNavBarTitle()
         setNavBarBackButton()
         setNavBarFinishButton()
-    }
-
-    private func setNavBarBackground() {
-        navigationController?.navigationBar.isTranslucent = true
-        navigationController?.navigationBar.barStyle = .default
-        navigationController?.navigationBar.barTintColor = LucienTheme.white
-        navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
-    }
-
-    private func setNavBarTitle() {
-        navigationController?.viewControllers[0].title = viewModel.navigationBarTitle
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: LucienTheme.Fonts.permanentMarkerRegular(size: 30) ?? UIFont()]
     }
 
     private func setNavBarBackButton() {
@@ -203,6 +204,7 @@ final class ComicFormViewController: UIViewController, AlertDisplaying {
         finishButton.tintColor = LucienTheme.finishButtonGrey
         finishButton.isEnabled = false
         finishButton.rx.tap.subscribeNext { [weak self] in
+            self?.addActivityIndicator()
             self?.dismissKeyboardAndNotifications()
             self?.viewModel.finishButtonTapped { error in
                 if error != nil {
@@ -366,7 +368,7 @@ final class ComicFormViewController: UIViewController, AlertDisplaying {
         view.endEditing(true)
         deregisterFromKeyboardNotifications()
     }
-    
+
     // MARK: - IBOutlet Methods
 
     @IBAction private func addCoverButtonTapped(_ sender: UIButton) {
